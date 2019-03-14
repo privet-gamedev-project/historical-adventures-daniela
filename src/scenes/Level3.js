@@ -1,5 +1,5 @@
 import BasicScene from "./BasicScene.js";
-import GameConstants from "../services/GameConstants";
+import GameConstants from "../services/GameConstants.js";
 /**
  * Escena del Mamut
  */
