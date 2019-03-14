@@ -1,10 +1,11 @@
-import SceneManager from "./SceneManager.js";
+import BasicScene from "./BasicScene.js";
+import GameConstants from "../services/GameConstants.js";
 /**
  * Escena del Mamut
  */
-class Level3 extends SceneManager {
+class Level3 extends BasicScene {
     constructor() {
-        super({key: 'Level3'});
+        super({key: GameConstants.Levels.LEVEL3});
     }
     
     create() {

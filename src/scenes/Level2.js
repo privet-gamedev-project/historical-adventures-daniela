@@ -1,11 +1,12 @@
-import SceneManager from "./SceneManager.js";
+import BasicScene from "./BasicScene.js";
+import GameConstants from "../services/GameConstants.js";
 /**
  * Escena de la prehistoria
  */
 
-class Level2 extends SceneManager {
+class Level2 extends BasicScene {
     constructor() {
-        super({key: 'Level2'});
+        super({key: GameConstants.Levels.LEVEL2});
     }
     
     create() {
