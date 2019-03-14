@@ -11,7 +11,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         //has been hit by obstacles 
         this.hitDelay = false;
 
-        //Gameover //TODO este parametro no seria necesario al manejarlo con eventos
+        //Gameover //TODO este parámetro no seria necesario al manejarlo con eventos
         this.gameOver = false;
 
         //Win

@@ -76,8 +76,8 @@ class Level1 extends SceneManager {
             repeat: -1
         });
 
-        //TODO se deberian pasar los parametros 'x' e 'y' de forma dinamica en base al mapa y la posicion de inicio
-        // algo parecido a lo que se hace con los murcielagos y las ruedas
+        //TODO: se debería pasar los parámetros 'x' e 'y' de forma dinámica en base al mapa y la posición de inicio
+        // algo parecido a lo que se hace con los murciélagos y las ruedas
         //Daniela Creation
         this.daniela = super.createDaniela(this, 100, 100);
 
@@ -131,7 +131,6 @@ class Level1 extends SceneManager {
 
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.daniela);
-        console.log(this.batsGroup);
         this.anims.play('bat_move', this.bats);
         this.anims.play('wheel_move', this.wheels);
 

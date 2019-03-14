@@ -47,7 +47,6 @@ class Loader extends Phaser.Scene {
 
         //While Loading show Progress Bar with percent
         this.registry.events.on('load_progress', (value) => {
-            console.log(value)
             percentText.setText(parseInt(value * 100) + '%');
             progressBar.clear();
             progressBar.fillStyle(0xffffff, 1);
