@@ -2,12 +2,15 @@
 * GameObject Daniela
 * @since 0.0.0
 */
+import GameConstants from "../services/GameConstants.js";
+
 class Daniela extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
 
         // Health
         this.health = 3;
+        this.scene.textHealth.setText(GameConstants.Texts.VIDAS + this.health);
         // has been hit by obstacles 
         this.hitDelay = false;
 
@@ -36,7 +39,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.friction = 10;
 
         // Animación inicial
-        this.anims.play('daniela_idle');
+        this.anims.play(GameConstants.Anims.Daniela.IDLE);
         this.prevAnim = 'idle';
         this.body.setSize(20, 30);
         this.setDepth(1);
@@ -53,8 +56,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.cursor = this.scene.input.keyboard.createCursorKeys();
 
         //Sounds create
-        this.soundJump = this.scene.sound.add("soundJump");
-        this.soundDanielaAuch = this.scene.sound.add("danielaAuch");
+        this.soundJump = this.scene.sound.add(GameConstants.Sound.DANIELA_JUMP);
+        this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.DANIELA_AUCH);
 
     }
 
@@ -70,21 +73,21 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.jumpTimer -= delta;
 
         if (control.left) {
-            this.moverLeftRight('left');
+            this.moverLeftRight(GameConstants.Anims.Direction.LEFT);
         } else if (control.right) {
-            this.moverLeftRight('right');
+            this.moverLeftRight(GameConstants.Anims.Direction.RIGHT);
         } else if (this.body.blocked.down) {
             // Fricción con el suelo 
 
             // Anima cuando daniela cae al suelo cuando cae Daniela
             if (this.body.velocity.x > 5 && !this.jumping) {
-                this.animation('right', 'daniela_walk');
+                this.animation(GameConstants.Anims.Direction.RIGHT, GameConstants.Anims.Daniela.WALK);
             } else if (this.body.velocity.x < -5 && !this.jumping) {
-                this.animation('left', 'daniela_walk');
+                this.animation(GameConstants.Anims.Direction.LEFT, GameConstants.Anims.Daniela.WALK);
             }
             if (Math.abs(this.body.velocity.x) < 10) {
                 // Detener por completo cuando la velocidad es menor de 10
-                this.animation('idle', 'daniela_idle');
+                this.animation(GameConstants.Anims.Direction.IDLE, GameConstants.Anims.Daniela.IDLE);
                 this.body.setVelocityX(0);
                 this.run(0);
             } else {
@@ -109,19 +112,19 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
     // Métodos usados en la lógica, están separado para mejor orden    
     moverLeftRight(dir) {
-        let acceleration = ((dir === 'right') ? 1 : -1) * this.acceleration;
+        let acceleration = ((dir === GameConstants.Anims.Direction.RIGHT) ? 1 : -1) * this.acceleration;
         if (this.body.velocity.y === 0) {
             if (Math.abs(this.body.velocity.x) > 100) {
                 this.run(acceleration * this.deceleration * this.friction);
             } else {
                 this.run(acceleration);
             }
-            this.animation(dir, 'daniela_walk');
+            this.animation(dir, GameConstants.Anims.Daniela.WALK);
         } else {
             // Desacelerar en el aire
             this.run(acceleration);
         }
-        this.flipX = ((dir === 'right') ? true : false);
+        this.flipX = (dir === GameConstants.Anims.Direction.RIGHT);
     }
 
     jump() {
@@ -137,7 +140,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.jumping = true;
 
         // Animación de salto
-        this.animation('jump', 'daniela_idle');
+        this.animation(GameConstants.Anims.Direction.JUMP, GameConstants.Anims.Daniela.IDLE);
 
     }
 
@@ -148,7 +151,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
     animation(direction, animation) {
         if (this.prevAnimJump !== direction) {
             this.anims.play(animation);
-            if (direction === 'jump') {
+            if (direction === GameConstants.Anims.Direction.JUMP) {
                 this.soundJump.play();
             }
         }
@@ -157,11 +160,11 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
     loseHealth() {
         this.health--;
-        this.scene.textHealth.setText("Vidas:" + this.health);
+        this.scene.textHealth.setText(GameConstants.Texts.VIDAS + this.health);
         console.log("Health  " + this.health);
         if (this.health === 0) {
             this.gameOver = true;
-            this.emit('GameOver');
+            this.emit(GameConstants.Events.GAME_OVER);
             // console.log(" this.emit('GameOver')");
         }
     }
@@ -186,7 +189,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
 
     nextScene() {
-        this.scene.textDialog.setText("Bien!! Lo hemos Conseguido!!");
+        this.scene.textDialog.setText(GameConstants.Texts.CONSEGUIDO);
     }
 
 }

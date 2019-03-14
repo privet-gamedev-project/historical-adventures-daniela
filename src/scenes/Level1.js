@@ -1,38 +1,32 @@
 import Bats from '../gameObjects/Bats.js';
 import Wheels from '../gameObjects/Wheels.js';
-import SceneManager from "./SceneManager.js";
+import BasicScene from "./BasicScene.js";
+import GameConstants from "../services/GameConstants.js";
 
-class Level1 extends SceneManager {
+class Level1 extends BasicScene {
     constructor() {
         super({
-            key: 'Level1'
+            key: GameConstants.Levels.LEVEL1
         });
     }
 
     create() {
         // background
-        this.bg = this.add.tileSprite(0, 0, 2560, 1440, 'bg_Level1').setOrigin(0).setScale(0.65);
+        this.bg = this.add.tileSprite(0, 0, 2560, 1440, GameConstants.Textures.BG_LEVEL1).setOrigin(0).setScale(0.65);
 
         //Sounds
-        this.soundLEVEL1_LOLO_findBracelet = this.sound.add("LEVEL1_LOLO_findBracelet");
+        this.soundLEVEL1_LOLO_findBracelet = this.sound.add(GameConstants.Sound.LEVEL1_LOLO_FINDBRACELET);
         this.soundLEVEL1_LOLO_findBracelet.play();
 
-        //Wait 2 seconds to play background music
-        this.music = this.sound.add('CaveBats');
-        this.time.addEvent({
-            delay: 2000,
-            callback: () => {
-                this.music.play();
-                this.music.setLoop(true);
-            },
-            callbackScope: this
-        });
+        
+        this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
+        this.addEventForMusic(this.music);
 
 
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add("LOLO_Bien_lo_hemos_conseguido");
+        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(GameConstants.Sound.LOLO_BIEN_LO_HEMOS_CONSEGUIDO);
 
         //Text Dialog
-        this.textDialog = this.add.text(30, 570, 'Daniela, tienes que buscar la Pulsera mágica.', {
+        this.textDialog = this.add.text(30, 570, GameConstants.Texts.BUSCAR_PULSERA, {
             fontSize: '25px',
             fill: '#ffffff'
         });
@@ -41,7 +35,7 @@ class Level1 extends SceneManager {
 
 
         //Text Health
-        this.textHealth = this.add.text(30, 20, 'Vidas:3', {
+        this.textHealth = this.add.text(30, 20, GameConstants.Texts.VIDAS, {
             fontSize: '25px',
             fill: '#ffffff'
         });
@@ -49,60 +43,43 @@ class Level1 extends SceneManager {
         this.textHealth.setDepth(1);
 
 
-        //bat move
-        this.anims.create({
-            key: 'bat_move',
-            frames: this.anims.generateFrameNumbers('bats', {start: 4, end: 7}),
-            frameRate: 5,
-            repeat: -1
-        });
-
-
+        //bat animation
+        this.createAnimation(GameConstants.Anims.BATS,4,7,5);
+        
         //  movewheel animation
-        this.anims.create({
-            key: 'wheel_move',
-            frames: this.anims.generateFrameNumbers('wheel', {start: 0, end: 3}),
-            frameRate: 10,
-            repeat: -1
-        });
+        this.createAnimation(GameConstants.Anims.WHEEL,0,3,10);
 
         //  bracelet animation
-        this.anims.create({
-            key: 'bracelet_move',
-            frames: this.anims.generateFrameNumbers('bracelet', {start: 0, end: 3}),
-            frameRate: 10,
-            repeat: -1
-        });
-
+        this.createAnimation(GameConstants.Anims.BRACELET,0,3,10)
+        
         //TODO: se debería pasar los parámetros 'x' e 'y' de forma dinámica en base al mapa y la posición de inicio
         // algo parecido a lo que se hace con los murciélagos y las ruedas
         //Daniela Creation
-        this.daniela = super.createDaniela(this, 100, 100);
+        this.daniela = this.createDaniela(this, 100, 100);
 
         //Read Tilemap
-        let map = super.createMap();
-
-
+        let map = this.createMap();
+        
         //Creating Bats         
-        this.bats = map.createFromObjects('Bats', 'Bat', {key: 'bats'});
+        this.bats = this.createBats();
         this.batsGroup = new Bats(this.physics.world, this, [], this.bats);
 
         //Creating Wheels         
-        this.wheels = map.createFromObjects('Wheels', 'Wheel', {key: 'wheels'});
+        this.wheels = this.createWheels();
         this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels);
 
         //Create Bracelet
-        this.bracelets = map.createFromObjects('Bracelet', 'positionEnd', {key: 'bracelet'});
+        this.bracelets = this.createBracelets();
         this.physics.world.enable(this.bracelets);
         this.magicbracelet = this.bracelets[0];
         this.magicbracelet.setScale(0.75);
         this.magicbracelet.body.setAllowGravity(false);
-        this.anims.play('bracelet_move', this.magicbracelet);
+        this.anims.play(GameConstants.Anims.BRACELET, this.magicbracelet);
 
 
         //Tilemap
-        let level1Tile = map.addTilesetImage('caveStones');
-        let Level1 = map.createDynamicLayer('World', level1Tile, 0, 0);
+        let level1Tile = map.addTilesetImage(GameConstants.Tiles.CAVE_STONE);
+        let Level1 = map.createDynamicLayer(GameConstants.Layers.WORLD, level1Tile, 0, 0);
         Level1.setCollisionByExclusion([-1]);
 
         //Colliders
@@ -129,8 +106,8 @@ class Level1 extends SceneManager {
 
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.daniela);
-        this.anims.play('bat_move', this.bats);
-        this.anims.play('wheel_move', this.wheels);
+        this.anims.play(GameConstants.Anims.BATS, this.bats);
+        this.anims.play(GameConstants.Anims.WHEEL, this.wheels);
 
     }
 
@@ -141,5 +118,4 @@ class Level1 extends SceneManager {
 
     }
 }
-
 export default Level1;

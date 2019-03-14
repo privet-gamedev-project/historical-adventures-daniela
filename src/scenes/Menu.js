@@ -1,4 +1,4 @@
-import SceneManager from "./SceneManager.js";
+import BasicScene from "./BasicScene.js";
 
 class Menu extends Phaser.Scene {
     constructor() {
