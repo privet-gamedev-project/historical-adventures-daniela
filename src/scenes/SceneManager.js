@@ -41,7 +41,6 @@ class SceneManager extends Phaser.Scene {
             y: y,
             key: 'daniela'
         }).setScale(2);
-        console.log(this.daniela);
         this.daniela.on('GameOver', e => {
             this.reboot(this.daniela.scene);
         });
