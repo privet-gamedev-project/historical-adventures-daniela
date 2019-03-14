@@ -35,7 +35,12 @@ class SceneManager extends Phaser.Scene {
      * @returns Daniela
      */
     createDaniela(scene, x, y) {
-        this.daniela = new Daniela({scene: scene, x: x, y: y, key: 'daniela'}).setScale(2);
+        this.daniela = new Daniela({
+            scene: scene,
+            x: x,
+            y: y,
+            key: 'daniela'
+        }).setScale(2);
         console.log(this.daniela);
         this.daniela.on('GameOver', e => {
             this.reboot(this.daniela.scene);
@@ -48,13 +53,15 @@ class SceneManager extends Phaser.Scene {
      * @returns {Phaser.Tilemaps.Tilemap}
      */
     createMap() {
-        return this.make.tilemap({key: this.key});
+        return this.make.tilemap({
+            key: this.key
+        });
     }
 
-    //TODO: Cuando estén el resto de escenas se manejara por aquí cual se quiere cargar
+    // TODO: Cuando estén el resto de escenas se manejara por aquí cual se quiere cargar
     reboot(scene) {
-        scene.sound.stopAll(); //Reinicia los sonidos
-        scene.scene.restart(); //Reinicia el resto de elementos
+        scene.sound.stopAll(); // Reinicia los sonidos
+        scene.scene.restart(); // Reinicia el resto de elementos
     }
 }
 

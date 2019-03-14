@@ -38,7 +38,6 @@ class Bootloader extends Phaser.Scene {
             frameHeight: 32
         });
 
-       
         //Sounds
         this.load.audio("soundJump", "sounds/jump.mp3");
         this.load.audio("danielaAuch", "sounds/Daniela_Auch.mp3");
@@ -50,16 +49,12 @@ class Bootloader extends Phaser.Scene {
         Copyright/Attribution Notice: 
         Please credit music by Dan Knoflicek
         */
-        
-        /*this.load.on('complete', () => {
-            this.scene.start('Level1');
-        });*/
 
         // Progress
         this.load.on('progress', (value) => {
             this.registry.events.emit('load_progress', value);
         });
-        //When all the assests are load go to next Scene
+        // When all the assests are load go to next Scene
         this.load.on("complete", () => {
             this.scene.stop('Loader');
             this.scene.stop('Bootloader');

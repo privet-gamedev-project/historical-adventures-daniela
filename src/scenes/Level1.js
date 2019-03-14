@@ -2,14 +2,12 @@ import Bats from '../gameObjects/Bats.js';
 import Wheels from '../gameObjects/Wheels.js';
 import SceneManager from "./SceneManager.js";
 
-
 class Level1 extends SceneManager {
     constructor() {
         super({
             key: 'Level1'
         });
     }
-
 
     create() {
         // background

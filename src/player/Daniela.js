@@ -1,20 +1,17 @@
 /**
- * GameObject Daniela
- * @since 0.0.0
- */
+* GameObject Daniela
+* @since 0.0.0
+*/
 class Daniela extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
 
-        //Health
+        // Health
         this.health = 3;
-        //has been hit by obstacles 
+        // has been hit by obstacles 
         this.hitDelay = false;
 
-        //Gameover //TODO este parámetro no seria necesario al manejarlo con eventos
-        this.gameOver = false;
-
-        //Win
+        // Win
         this.winner = false;
 
         // Configuración del GameObject
@@ -142,7 +139,6 @@ class Daniela extends Phaser.GameObjects.Sprite {
         // Animación de salto
         this.animation('jump', 'daniela_idle');
 
-
     }
 
     run(velocity) {
@@ -166,7 +162,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         if (this.health === 0) {
             this.gameOver = true;
             this.emit('GameOver');
-            //console.log(" this.emit('GameOver')");
+            // console.log(" this.emit('GameOver')");
         }
     }
 
@@ -192,8 +188,6 @@ class Daniela extends Phaser.GameObjects.Sprite {
     nextScene() {
         this.scene.textDialog.setText("Bien!! Lo hemos Conseguido!!");
     }
-
-
 
 }
 export default Daniela;

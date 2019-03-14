@@ -1,3 +1,6 @@
+import Menu from './scenes/Menu.js';
+import Level2 from './scenes/Level2.js';
+import Level3 from './scenes/Level3.js';
 import Level1 from './scenes/Level1.js';
 import IntroStory from './scenes/IntroStory.js';
 import Bootloader from './Bootloader.js';
@@ -23,7 +26,7 @@ const config = {
             debug: false,
         },
     },
-    scene: [Loader, Bootloader, IntroStory, Level1]
+    scene: [Loader, Bootloader, Menu, IntroStory, Level1, Level2, Level3]
 };
 
 const game = new Phaser.Game(config);
