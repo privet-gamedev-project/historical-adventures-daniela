@@ -10,8 +10,10 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.health = 3;
         //has been hit by obstacles 
         this.hitDelay = false;
-        //Gameover
+
+        //Gameover //TODO este parametro no seria necesario al manejarlo con eventos
         this.gameOver = false;
+
         //Win
         this.winner = false;
 
@@ -163,7 +165,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         console.log("Health  " + this.health);
         if (this.health === 0) {
             this.gameOver = true;
-            console.log("GameOver");
+            this.emit('GameOver');
+            //console.log(" this.emit('GameOver')");
         }
     }
 
