@@ -85,7 +85,7 @@ class BasicScene extends Phaser.Scene {
     changeScene(scene, target) {
         scene.sound.stopAll();
         scene.scene.stop();
-        tartget.scale.start();
+        target.scene.start();
     }
 
     /**
