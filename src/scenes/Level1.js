@@ -8,6 +8,7 @@ class Level1 extends BasicScene {
         super({
             key: GameConstants.Levels.LEVEL1
         });
+        this.target = GameConstants.Levels.LEVEL2;
     }
 
     create() {
@@ -84,13 +85,13 @@ class Level1 extends BasicScene {
         this.physics.add.collider(this.daniela, Level1);
         this.physics.add.collider(this.batsGroup, Level1);
         this.physics.add.collider(this.wheelsGroup, Level1);
-        this.physics.add.overlap(this.daniela, this.magicbracelet, () => {
-            this.daniela.nextScene();
-            this.scene.pause();
+        this.physics.add.collider(this.daniela, this.magicbracelet, () => {            
+            //this.scene.pause();
             this.music.stop();
-            this.soundLOLO_Bien_lo_hemos_conseguido.play();
-
+            this.magicbracelet.destroy();
+            this.soundLOLO_Bien_lo_hemos_conseguido.play();            
             console.log('Daniela encuentra pulsera magica');
+            this.daniela.nextScene();
         });
         this.physics.add.overlap(this.daniela, this.bats, () => {
             this.daniela.enemyCollision();

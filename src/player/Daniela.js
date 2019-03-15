@@ -177,7 +177,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             this.soundDanielaAuch.play();
             if (this.scene) {
                 this.scene.time.addEvent({
-                    delay: 1000,
+                    delay: 600,
                     callback: () => {
                         this.hitDelay = false;
                         this.tint = 0xffffff;
@@ -190,6 +190,21 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
     nextScene() {
         this.scene.textDialog.setText(GameConstants.Texts.CONSEGUIDO);
+        //Retardo de 1s entre escena y escena para que de tiempo a escuchar
+        //hacer fadeout de transición
+        if (this.scene) {
+            this.scene.time.addEvent({
+                delay: 2000,
+                callback: () => {
+                    this.scene.cameras.main.fade(700, 0, 0, 0);        
+                    this.scene.cameras.main.on('camerafadeoutcomplete', () => {
+                        this.emit(GameConstants.Events.LEVEL_FINISHED);
+                    });
+                },
+                callbackScope: this
+            });
+        }
+        
     }
 
 }

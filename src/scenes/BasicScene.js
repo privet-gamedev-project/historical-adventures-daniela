@@ -47,7 +47,8 @@ class BasicScene extends Phaser.Scene {
             this.reboot(this.daniela.scene);
         });
         this.daniela.on(GameConstants.Events.LEVEL_FINISHED, e => {
-            this.changeScene(e.scene, e.target);
+            //console.log(this.daniela.scene.target);
+            this.changeScene(this.daniela.scene, this.daniela.scene.target);
         });
         return this.daniela;
     }
@@ -59,8 +60,9 @@ class BasicScene extends Phaser.Scene {
      */
     createMap() {
         this.map = this.make.tilemap({
-            key: this.key
+            key: this.key            
         });
+        console.log(this.map);
         return this.map;
     }
 
@@ -82,10 +84,10 @@ class BasicScene extends Phaser.Scene {
      * @param target
      */
     // TODO: Implementar según necesidades futuras.
-    changeScene(scene, target) {
+    changeScene(scene, target) {                
         scene.sound.stopAll();
         scene.scene.stop();
-        target.scene.start();
+        scene.scene.start(target);
     }
 
     /**

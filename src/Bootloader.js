@@ -10,15 +10,28 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('daniela', 'img/daniela/daniela.png', 'img/daniela/daniela_atlas.json');
         this.load.animation('danielaData', 'img/daniela/daniela_anim.json');
 
-        // Map
+        // Maps
+        //Level1
         this.load.tilemapTiledJSON('Level1', '../src/worlds/level1/cavemap.json');
         this.load.image('caveStones', '../src/worlds/level1/caveStones.png');
+        //Level2
+        //Copyright/Attribution Notice: 
+        //Credit "Tio Aimar @ opengameart.org" or simply "Tio Aimar" (this is not mandatory)
+        //https://opengameart.org/content/2d-platformer-forest-pack
+        
+        //Level2
+        this.load.tilemapTiledJSON('Level2', '../src/worlds/level2/forestmap.json');
+        this.load.image('forestPack_32x32', '../src/worlds/level2/forestPack_32x32.png');
+
     
         //Backgrounds
         this.load.image('bg_Level1', 'img/backgrounds/2560x1440-snapSat1800.jpg');
         //Se cambiara por un dibujo de los niños de una cueva
         //Ahora mismo esta de ejemplo
         //http://kidskunst.info/46/05451-2d-game-background-cave.htm
+
+        this.load.image('bg_Level2', 'img/backgrounds/bg_forest.png');
+
 
         // Enemy
         this.load.atlas('bats', 'img/bat/bats.png', 'img/bat/bats_atlas.json');

@@ -35,7 +35,8 @@ const GameConstants = {
         }
     },
     Textures: {
-        BG_LEVEL1: 'bg_Level1'
+        BG_LEVEL1: 'bg_Level1',
+        BG_LEVEL2: 'bg_Level2'
     },
     Anims: {
         BATS: 'bat_move',
@@ -57,11 +58,13 @@ const GameConstants = {
     // TODO: Remover a su respectivo sitio cuando tengamos i18ln
     Texts: {
         BUSCAR_PULSERA: 'Daniela, tienes que buscar la Pulsera mágica.',
+        BUSCAR_ROPA_TROGLODITA: 'Daniela, tienes que buscar la ropa de Troglodita.',
         VIDAS: 'Vidas: ',
         CONSEGUIDO: 'Bien!! Lo hemos Conseguido!!'
     },
     Tiles: {
-        CAVE_STONE: 'caveStones'
+        CAVE_STONE: 'caveStones',
+        FOREST_PACK : 'forestPack_32x32'
     },
     Layers: {
         WORLD: 'World'
