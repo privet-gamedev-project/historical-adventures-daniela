@@ -41,10 +41,6 @@ class Level1 extends BasicScene {
         });
         this.textHealth.setScrollFactor(0);
         this.textHealth.setDepth(1);
-
-
-        //bat animation
-        this.createAnimation(GameConstants.Anims.BATS,4,7,5);
         
         //  movewheel animation
         this.createAnimation(GameConstants.Anims.WHEEL,0,3,10);
@@ -63,10 +59,12 @@ class Level1 extends BasicScene {
         //Creating Bats         
         this.bats = this.createBats();
         this.batsGroup = new Bats(this.physics.world, this, [], this.bats);
+        this.anims.play(GameConstants.Anims.BATS, this.bats);
 
         //Creating Wheels         
         this.wheels = this.createWheels();
         this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels);
+        this.anims.play(GameConstants.Anims.WHEEL, this.wheels);
 
         //Create Bracelet
         this.bracelets = this.createBracelets();
@@ -106,9 +104,6 @@ class Level1 extends BasicScene {
 
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.daniela);
-        this.anims.play(GameConstants.Anims.BATS, this.bats);
-        this.anims.play(GameConstants.Anims.WHEEL, this.wheels);
-
     }
 
     update(time, delta) {

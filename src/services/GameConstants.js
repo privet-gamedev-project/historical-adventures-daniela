@@ -54,6 +54,7 @@ const GameConstants = {
             IDLE: 'idle'
         }
     },
+    // TODO: Remover a su respectivo sitio cuando tengamos i18ln
     Texts: {
         BUSCAR_PULSERA: 'Daniela, tienes que buscar la Pulsera mágica.',
         VIDAS: 'Vidas: ',

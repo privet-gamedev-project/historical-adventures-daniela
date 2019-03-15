@@ -21,10 +21,8 @@ class Bootloader extends Phaser.Scene {
         //http://kidskunst.info/46/05451-2d-game-background-cave.htm
 
         // Enemy
-        this.load.spritesheet('bats', 'img/bat/bat-32X32.png', {
-            frameWidth: 32,
-            frameHeight: 32
-        });
+        this.load.atlas('bats', 'img/bat/bats.png', 'img/bat/bats_atlas.json');
+        this.load.animation('batsAnim', 'img/bat/bats_anim.json');
 
         //Bracelet
         this.load.spritesheet('bracelet', 'img/objects/bracelet.png', {
