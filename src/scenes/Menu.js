@@ -41,7 +41,23 @@ class Menu extends BasicScene {
         const creditsButton = this.add.text(600, 520, 'CREDITS', { fill: '#000000', fontSize: '40px' });
         creditsButton.setInteractive();
 
-        creditsButton.on('pointerdown', () => { console.log('CREDITS'); });
+        //CREDITS
+        this.creditshown=false;
+        const bgcredits = this.add.image(400, 300, GameConstants.Textures.BG_CREDITS);
+        bgcredits.setInteractive();
+        bgcredits.visible=this.creditshown;
+        creditsButton.on('pointerdown', () => {             
+                this.creditshown=true;
+                bgcredits.visible=this.creditshown;
+                this.physics.pause();
+        });
+
+        bgcredits.on('pointerdown', () => {
+            this.physics.pause();
+            this.creditshown=false;
+            bgcredits.visible=this.creditshown;
+            this.physics.resume();
+        });
 
     }
 

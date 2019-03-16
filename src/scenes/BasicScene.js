@@ -86,6 +86,7 @@ class BasicScene extends Phaser.Scene {
     // TODO: Implementar scene.scene.transition
     changeScene(scene, target, miliseconds) {         
         if (scene) {
+            scene.physics.pause();
             this.time.addEvent({
                 delay: miliseconds,
                 callback: () => {                    

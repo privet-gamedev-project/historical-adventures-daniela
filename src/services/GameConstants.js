@@ -40,7 +40,8 @@ const GameConstants = {
     Textures: {
         BG_MENU: 'bg_Menu',
         BG_LEVEL1: 'bg_Level1',
-        BG_LEVEL2: 'bg_Level2'
+        BG_LEVEL2: 'bg_Level2',
+        BG_CREDITS: 'bg_Credits'
     },
     Anims: {
         BATS: 'bat_move',

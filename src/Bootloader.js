@@ -35,6 +35,9 @@ class Bootloader extends Phaser.Scene {
         //Level2
         this.load.image('bg_Level2', 'img/backgrounds/bg_forest.png');
         //https://www.gameart2d.com/free-platformer-game-tileset.html
+        //Credits
+        this.load.image('bg_Credits', 'img/backgrounds/credits.png');
+        
 
 
         // Enemy
