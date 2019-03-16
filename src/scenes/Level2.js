@@ -11,8 +11,31 @@ class Level2 extends BasicScene {
     }
     
     create() {
-        // background
-        this.bg = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(2);
+        // background        
+        this.bg = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1.25);
+
+
+        //  Our animated water tile sprite
+        this.water = this.add.tileSprite(400, 528, 800, 256, 'water');
+
+        this.tweens.add({
+            targets: this.water,
+            props: {
+                tilePositionY: {
+                    value: 12,
+                    ease: 'Sine.easeInOut',
+                    duration: 2500,
+                    yoyo: true,
+                    repeat: -1
+                },
+                tilePositionX: {
+                    value: 128,
+                    ease: 'Linear',
+                    duration: 2000,
+                    repeat: -1
+                }
+            },
+        });
         
         //Text Dialog
         this.textDialog = this.add.text(30, 570, GameConstants.Texts.BUSCAR_ROPA_TROGLODITA, {
@@ -34,6 +57,7 @@ class Level2 extends BasicScene {
         //Daniela Creation        
         this.daniela = this.createDaniela(this, 100, 100);
 
+         
         //Read Tilemap
         let map = this.createMap();
 

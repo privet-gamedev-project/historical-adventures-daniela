@@ -89,7 +89,7 @@ class Level1 extends BasicScene {
             //this.scene.pause();
             this.music.stop();
             this.magicbracelet.destroy();
-            this.soundLOLO_Bien_lo_hemos_conseguido.play();            
+            this.soundLOLO_Bien_lo_hemos_conseguido.play();             
             console.log('Daniela encuentra pulsera magica');
             this.daniela.nextScene();
         });

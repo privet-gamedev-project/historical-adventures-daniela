@@ -44,11 +44,10 @@ class BasicScene extends Phaser.Scene {
             key: GameConstants.Sprites.Daniela.KEY
         }).setScale(2);
         this.daniela.on(GameConstants.Events.GAME_OVER, e => {
-            this.reboot(this.daniela.scene);
+            this.changeScene(this.daniela.scene, GameConstants.Levels.MENU,2000);            
         });
-        this.daniela.on(GameConstants.Events.LEVEL_FINISHED, e => {
-            //console.log(this.daniela.scene.target);
-            this.changeScene(this.daniela.scene, this.daniela.scene.target);
+        this.daniela.on(GameConstants.Events.LEVEL_FINISHED, e => {            
+            this.changeScene(this.daniela.scene, this.daniela.scene.target,2000);
         });
         return this.daniela;
     }
@@ -81,13 +80,25 @@ class BasicScene extends Phaser.Scene {
     /**
      * Para la escena que esté corriendo e inicia la que se le pase como objetivo.
      * @param scene
-     * @param target
+     * @param target     
+     * @miliseconds miliseconds
      */
-    // TODO: Implementar según necesidades futuras.
-    changeScene(scene, target) {                
-        scene.sound.stopAll();
-        scene.scene.stop();
-        scene.scene.start(target);
+    // TODO: Implementar scene.scene.transition
+    changeScene(scene, target, miliseconds) {         
+        if (scene) {
+            this.time.addEvent({
+                delay: miliseconds,
+                callback: () => {                    
+                    scene.cameras.main.fade(700, 0, 0, 0);        
+                    scene.cameras.main.on('camerafadeoutcomplete', () => {                        
+                        scene.sound.stopAll();
+                        scene.scene.stop();
+                        scene.scene.start(target);
+                    });
+                },
+                callbackScope: this
+            });                        
+        }
     }
 
     /**

@@ -26,7 +26,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.acceleration = 300;
         this.body.maxVelocity.x = 150;
         this.body.maxVelocity.y = 500;
-
+        
         // Configuraciones extras para el movimiento
         // this.jumpForce = 150;
         this.jumpForce = 350;
@@ -189,21 +189,10 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
 
     nextScene() {
-        this.scene.textDialog.setText(GameConstants.Texts.CONSEGUIDO);
-        //Retardo de 1s entre escena y escena para que de tiempo a escuchar
-        //hacer fadeout de transición
-        if (this.scene) {
-            this.scene.time.addEvent({
-                delay: 2000,
-                callback: () => {
-                    this.scene.cameras.main.fade(700, 0, 0, 0);        
-                    this.scene.cameras.main.on('camerafadeoutcomplete', () => {
-                        this.emit(GameConstants.Events.LEVEL_FINISHED);
-                    });
-                },
-                callbackScope: this
-            });
-        }
+        this.scene.textDialog.setText(GameConstants.Texts.CONSEGUIDO);       
+        
+        this.emit(GameConstants.Events.LEVEL_FINISHED);
+        
         
     }
 

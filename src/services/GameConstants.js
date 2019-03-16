@@ -1,9 +1,12 @@
 /* Las constantes del juego */
 const GameConstants = {
     Levels: {
+        MENU: 'Menu',
+        INTROSTORY: 'IntroStory',
         LEVEL1: 'Level1',
         LEVEL2: 'Level2',
-        LEVEL3: 'Level3'
+        LEVEL3: 'Level3',
+        GAMEOVER: 'GameOver'
     },
     Sound: {
         LEVEL1_LOLO_FINDBRACELET: 'LEVEL1_LOLO_findBracelet',
@@ -35,6 +38,7 @@ const GameConstants = {
         }
     },
     Textures: {
+        BG_MENU: 'bg_Menu',
         BG_LEVEL1: 'bg_Level1',
         BG_LEVEL2: 'bg_Level2'
     },

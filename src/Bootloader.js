@@ -24,12 +24,15 @@ class Bootloader extends Phaser.Scene {
         this.load.image('forestPack_32x32', '../src/worlds/level2/forestPack_32x32.png');
 
     
-        //Backgrounds
+        //BACKGROUNDS
+        //Menu
+        this.load.image('bg_Menu', 'img/backgrounds/dibujoPortadaEscaneado.png');
+        //Level1
         this.load.image('bg_Level1', 'img/backgrounds/2560x1440-snapSat1800.jpg');
         //Se cambiara por un dibujo de los niños de una cueva
         //Ahora mismo esta de ejemplo
         //http://kidskunst.info/46/05451-2d-game-background-cave.htm
-
+        //Level2
         this.load.image('bg_Level2', 'img/backgrounds/bg_forest.png');
 
 
@@ -48,6 +51,10 @@ class Bootloader extends Phaser.Scene {
             frameWidth: 32,
             frameHeight: 32
         });
+
+        //Water
+        this.load.image('water', 'img/objects/water-tile.png');
+        
 
         //Sounds
         this.load.audio("soundJump", "sounds/jump.mp3");
@@ -70,7 +77,7 @@ class Bootloader extends Phaser.Scene {
             this.scene.stop('Loader');
             this.scene.stop('Bootloader');
 
-            this.scene.start("Level1");
+            this.scene.start("Menu");
         });
 
 
