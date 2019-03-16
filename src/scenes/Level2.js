@@ -36,6 +36,8 @@ class Level2 extends BasicScene {
                 }
             },
         });
+
+        this.water.setDepth(2);
         
         //Text Dialog
         this.textDialog = this.add.text(30, 570, GameConstants.Texts.BUSCAR_ROPA_TROGLODITA, {
