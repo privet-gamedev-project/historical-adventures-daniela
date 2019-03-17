@@ -11,12 +11,23 @@ class Level2 extends BasicScene {
     }
     
     create() {
-        // background        
-        this.bg = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1.25);
+        
+        //Read Tilemap
+        let map = this.createMap();
+
+
+        // background repeated with the map size
+        this.bg = this.add.tileSprite(0, 0,map.widthInPixels,map.heightInPixels, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1.25);
+        
+
+        //Tilemap
+        let level2Tile = map.addTilesetImage(GameConstants.Tiles.FOREST_PACK);
+        let Level2 = map.createDynamicLayer(GameConstants.Layers.WORLD, level2Tile, 0, 0);
+        Level2.setCollisionByExclusion([-1]);
 
 
         //  Our animated water tile sprite
-        this.water = this.add.tileSprite(400, 528, 800, 256, 'water');
+        this.water = this.add.tileSprite(0, map.heightInPixels-175, map.widthInPixels, 256, 'water').setOrigin(0);
 
         this.tweens.add({
             targets: this.water,
@@ -37,7 +48,12 @@ class Level2 extends BasicScene {
             },
         });
 
+        //Lo ponemos al frente
         this.water.setDepth(2);
+        
+        this.physics.add.existing(this.water);
+        this.water.body.setAllowGravity(false);
+
         
         //Text Dialog
         this.textDialog = this.add.text(30, 570, GameConstants.Texts.BUSCAR_ROPA_TROGLODITA, {
@@ -60,16 +76,15 @@ class Level2 extends BasicScene {
         this.daniela = this.createDaniela(this, 100, 100);
 
          
-        //Read Tilemap
-        let map = this.createMap();
-
-        //Tilemap
-        let level2Tile = map.addTilesetImage(GameConstants.Tiles.FOREST_PACK);
-        let Level2 = map.createDynamicLayer(GameConstants.Layers.WORLD, level2Tile, 0, 0);
-        Level2.setCollisionByExclusion([-1]);
-
+        
         //Colliders
         this.physics.add.collider(this.daniela, Level2);
+
+        this.physics.add.overlap(this.daniela, this.water, () => {
+            this.daniela.waterCollision();
+
+            console.log('Daniela colisiona con agua');
+        });
 
         
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
@@ -78,7 +93,7 @@ class Level2 extends BasicScene {
     }
 
     update(delta) {
-        this.daniela.update(delta);
+        this.daniela.update(delta);        
     }
 }
 

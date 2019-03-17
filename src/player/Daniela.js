@@ -26,6 +26,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.acceleration = 300;
         this.body.maxVelocity.x = 150;
         this.body.maxVelocity.y = 500;
+
+        //Para evitar que salga del mundo            
+        this.body.setCollideWorldBounds(true);
         
         // Configuraciones extras para el movimiento
         // this.jumpForce = 150;
@@ -186,6 +189,25 @@ class Daniela extends Phaser.GameObjects.Sprite {
                 });
             }
         }
+    }
+    //TODO: Quitar las posiciones 100, 100
+    waterCollision() {
+        if (!this.hitDelay) {
+            this.loseHealth();
+            this.hitDelay = true;            
+            this.soundDanielaAuch.play();
+            if (this.scene) {
+                this.scene.time.addEvent({
+                    delay: 600,
+                    callback: () => {
+                        this.x = 100;
+                        this.y = 100;                        
+                    },
+                    callbackScope: this
+                });
+            }
+        }
+
     }
 
     nextScene() {
