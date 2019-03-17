@@ -201,7 +201,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
                     delay: 600,
                     callback: () => {
                         this.x = 100;
-                        this.y = 100;                        
+                        this.y = 100; 
+                        this.hitDelay = false;                       
                     },
                     callbackScope: this
                 });
