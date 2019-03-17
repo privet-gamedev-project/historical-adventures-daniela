@@ -53,6 +53,8 @@ class Level1 extends BasicScene {
         // algo parecido a lo que se hace con los murciélagos y las ruedas
         //Daniela Creation
         this.daniela = this.createDaniela(this, 100, 100);
+        this.lolo = this.createLoloNormal(this, this.daniela);        
+        this.daniela.followedBy(this.lolo);
 
         //Read Tilemap
         let map = this.createMap();
@@ -111,7 +113,6 @@ class Level1 extends BasicScene {
         this.daniela.update(delta);
         this.batsGroup.update();
         this.wheelsGroup.update();
-
     }
 }
 export default Level1;

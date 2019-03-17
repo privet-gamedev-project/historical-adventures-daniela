@@ -10,6 +10,9 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('daniela', 'img/daniela/daniela.png', 'img/daniela/daniela_atlas.json');
         this.load.animation('danielaData', 'img/daniela/daniela_anim.json');
 
+        this.load.atlas('lolo_normal','img/lolo/lolo_normal.png','img/lolo/lolo_normal_atlas.json');
+        this.load.animation('lolo_normal_Data', 'img/lolo/lolo_normal_anim.json');
+
         // Maps
         //Level1
         this.load.tilemapTiledJSON('Level1', '../src/worlds/level1/cavemap.json');

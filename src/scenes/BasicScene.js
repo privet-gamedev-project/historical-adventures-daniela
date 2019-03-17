@@ -1,4 +1,5 @@
 import Daniela from "../player/Daniela.js";
+import Lolo from "../gameObjects/Lolo.js";
 import GameConstants from "../services/GameConstants.js";
 
 /**
@@ -51,6 +52,27 @@ class BasicScene extends Phaser.Scene {
         });
         return this.daniela;
     }
+
+    /**
+     * Crea el personaje del Loro LOLO. 
+     * Que sigue a Daniela
+     * 
+     * @param scene     
+     * @param daniela
+     * @returns Lolo
+     */
+    createLoloNormal(scene, daniela) {
+        this.lolo = new Lolo({
+            scene: scene,
+            x: daniela.x-50,
+            y: daniela.y-50,
+            key: GameConstants.Sprites.Lolo_Normal.KEY
+        }).setScale(1);
+        
+        
+        return this.lolo;
+    }
+
 
     /**
      * Crea el objeto tilemap a partir de la key de la escena obtenida del constructor

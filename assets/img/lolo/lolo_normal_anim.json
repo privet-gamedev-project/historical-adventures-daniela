@@ -1,0 +1,36 @@
+{
+    "anims": [
+        {
+            "key": "lolo_normal_fly",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 5,
+            "frames": [
+                {
+                    "key": "lolo_normal",
+                    "frame": "lolonormal_0"
+                },
+                {
+                    "key": "lolo_normal",
+                    "frame": "lolonormal_1"
+                },
+                {
+                    "key": "lolo_normal",
+                    "frame": "lolonormal_2"
+                },
+                {
+                    "key": "lolo_normal",
+                    "frame": "lolonormal_3"
+                },
+                {
+                    "key": "lolo_normal",
+                    "frame": "lolonormal_4"
+                },
+                {
+                    "key": "lolo_normal",
+                    "frame": "lolonormal_5"
+                }
+            ]
+        }
+    ]
+}

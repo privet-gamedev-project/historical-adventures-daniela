@@ -35,6 +35,9 @@ const GameConstants = {
         },
         Daniela: {
             KEY: 'daniela'
+        },
+        Lolo_Normal:{
+            KEY: 'lolo_normal'
         }
     },
     Textures: {
@@ -50,6 +53,9 @@ const GameConstants = {
         Daniela: {
             IDLE: 'daniela_idle',
             WALK: 'daniela_walk',
+        },
+        LOLO: {
+            NORMAL_FLY: 'lolo_normal_fly'
         },
         Direction: {
             RIGHT: 'right',

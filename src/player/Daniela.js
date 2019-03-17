@@ -22,7 +22,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         config.scene.add.existing(this);
 
         this.bounce = 0.5;
-        // this.body.collideWorldBounds = true;
+        
         this.acceleration = 300;
         this.body.maxVelocity.x = 150;
         this.body.maxVelocity.y = 500;
@@ -62,9 +62,21 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.soundJump = this.scene.sound.add(GameConstants.Sound.DANIELA_JUMP);
         this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.DANIELA_AUCH);
 
+        this.lolo = null;
+
+    }
+
+    followedBy(lolo){
+        this.lolo=lolo;    
     }
 
     update(delta) {
+        
+        if (this.lolo){
+            this.lolo.x= this.x-50;
+            this.lolo.y= this.y-50;            
+        }
+
         let control = {
             left: this.cursor.left.isDown || this.animControl.left,
             right: this.cursor.right.isDown || this.animControl.right,
@@ -128,6 +140,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             this.run(acceleration);
         }
         this.flipX = (dir === GameConstants.Anims.Direction.RIGHT);
+        if (this.lolo) this.lolo.flipX= this.flipX;
     }
 
     jump() {
