@@ -19,7 +19,7 @@ class Menu extends BasicScene {
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
         this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.35);
 
-
+        // buttons
         const startButton = this.add.text(80, 520, 'PLAY', { fill: '#000000', fontSize: '40px' });
         startButton.setInteractive();
 
@@ -41,15 +41,36 @@ class Menu extends BasicScene {
         const creditsButton = this.add.text(600, 520, 'CREDITS', { fill: '#000000', fontSize: '40px' });
         creditsButton.setInteractive();
 
+        // tween hover
+        let tween = this.tweens.add({
+            targets: [creditsButton,scoresButton,introButton,startButton],    
+            alpha: 0.2,
+            ease: 'Linear',
+            duration: 1000,
+            repeat: Infinity,
+            yoyo: true,
+            paused: true
+        });
+
         //CREDITS
         this.creditshown=false;
         const bgcredits = this.add.image(400, 300, GameConstants.Textures.BG_CREDITS);
         bgcredits.setInteractive();
         bgcredits.visible=this.creditshown;
+
         creditsButton.on('pointerdown', () => {             
                 this.creditshown=true;
                 bgcredits.visible=this.creditshown;
                 this.physics.pause();
+                
+        });
+
+        creditsButton.on('pointerover', () => {             
+            tween.restart();
+        });
+
+        creditsButton.on('pointerout', () => {             
+            tween.stop(0);
         });
 
         bgcredits.on('pointerdown', () => {
