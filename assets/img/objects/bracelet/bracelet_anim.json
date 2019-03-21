@@ -1,0 +1,32 @@
+{
+    "anims": [
+        {
+            "key": "bracelet_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 8,
+            "frames": [
+                {
+                    "key": "bracelet",
+                    "frame": "bracelet_0"
+                },
+                {
+                    "key": "bracelet",
+                    "frame": "bracelet_1"
+                },
+                {
+                    "key": "bracelet",
+                    "frame": "bracelet_2"
+                },
+                {
+                    "key": "bracelet",
+                    "frame": "bracelet_3"
+                },
+                {
+                    "key": "bracelet",
+                    "frame": "bracelet_4"
+                }
+            ]
+        }
+    ]
+}

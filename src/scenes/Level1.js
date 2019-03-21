@@ -48,9 +48,6 @@ class Level1 extends BasicScene {
         this.textHealth.setScrollFactor(0);
         this.textHealth.setDepth(1);
 
-        //  bracelet animation
-        this.createAnimation(GameConstants.Anims.BRACELET, 0, 3, 10)
-
         //TODO: se debería pasar los parámetros 'x' e 'y' de forma dinámica en base al mapa y la posición de inicio
         // algo parecido a lo que se hace con los murciélagos y las ruedas
         //Daniela Creation

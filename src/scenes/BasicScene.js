@@ -184,30 +184,14 @@ class BasicScene extends Phaser.Scene {
     // TODO: Añadir futuras animaciones aquí.
     createAnimation(animationName, start=0, end=10, frameRate=24, repeat=-1){
         switch (animationName) {
-            case GameConstants.Anims.BATS:
-                this.anims.create({
-                    key: GameConstants.Anims.BATS,
-                    frames: this.anims.generateFrameNumbers(GameConstants.Sprites.Bats.KEY, {start: start, end: end}),
-                    frameRate: frameRate,
-                    repeat: repeat
-                });
-                break;
-            case GameConstants.Anims.WHEEL:
-                this.anims.create({
-                    key: GameConstants.Anims.WHEEL,
-                    frames: this.anims.generateFrameNumbers(GameConstants.Sprites.Wheel.KEY, {start: start, end: end}),
-                    frameRate: frameRate,
-                    repeat: repeat
-                });
-                break;
-            case GameConstants.Anims.BRACELET:
-                this.anims.create({
-                    key: GameConstants.Anims.BRACELET,
-                    frames: this.anims.generateFrameNumbers(GameConstants.Sprites.Bracelet.KEY, {start: start, end: end}),
-                    frameRate: frameRate,
-                    repeat: repeat
-                });
-                break;
+            // case GameConstants.Anims.BRACELET:
+            //     this.anims.create({
+            //         key: GameConstants.Anims.BRACELET,
+            //         frames: this.anims.generateFrameNumbers(GameConstants.Sprites.Bracelet.KEY, {start: start, end: end}),
+            //         frameRate: frameRate,
+            //         repeat: repeat
+            //     });
+            //     break;
             default:
                 console.error("El nombre de la animación no es válido o no se ha definido aún.")
         }
