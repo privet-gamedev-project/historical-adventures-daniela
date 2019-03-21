@@ -1,6 +1,7 @@
 import BasicScene from "./BasicScene.js";
 import Daniela from '../player/Daniela.js';
 import GameConstants from "../services/GameConstants.js";
+import UI from "./UI.js";
 
 
 class Menu extends BasicScene {
@@ -8,6 +9,10 @@ class Menu extends BasicScene {
         super({key: 'Menu'});
     }
     
+    preload(){
+        this.scene.launch('UI');
+    }
+
     create() {
         // background positions   
         var width = this.cameras.main.width;
@@ -19,7 +24,11 @@ class Menu extends BasicScene {
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
         this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.35);
 
-        // buttons
+        //bg sound
+        this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
+        this.addEventForMusic(this.bgmusic,200);
+
+
         const startButton = this.add.text(80, 520, 'PLAY', { fill: '#000000', fontSize: '40px' });
         startButton.setInteractive();
 

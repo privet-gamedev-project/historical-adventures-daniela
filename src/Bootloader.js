@@ -74,6 +74,13 @@ class Bootloader extends Phaser.Scene {
         Copyright/Attribution Notice: 
         Please credit music by Dan Knoflicek
         */
+       
+        this.load.audio("caveManBgSound","sounds/backgrounds/caveManBgSound.mp3");
+        //By Xololex (Gonzalo)
+
+        //UI
+        this.load.image('volumeOn','img/ui/volumeON.png');
+        this.load.image('volumeOff','img/ui/volumeOFF.png');
 
         // Progress
         this.load.on('progress', (value) => {

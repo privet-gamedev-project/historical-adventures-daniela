@@ -13,7 +13,8 @@ const GameConstants = {
         LOLO_BIEN_LO_HEMOS_CONSEGUIDO: 'LOLO_Bien_lo_hemos_conseguido',
         CAVEBATS: 'CaveBats',
         DANIELA_JUMP: 'soundJump',
-        DANIELA_AUCH: 'danielaAuch'
+        DANIELA_AUCH: 'danielaAuch',
+        CAVEMAN_BG:'caveManBgSound'
     },
     Sprites: {
         Bats: {
@@ -65,6 +66,10 @@ const GameConstants = {
             JUMP: 'jump',
             IDLE: 'idle'
         }
+    },
+    UI:{
+        VOLUMEON:'volumeOn',
+        VOLUMEOFF:'volumeOff'
     },
     // TODO: Remover a su respectivo sitio cuando tengamos i18ln
     Texts: {

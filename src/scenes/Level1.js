@@ -11,6 +11,11 @@ class Level1 extends BasicScene {
         this.target = GameConstants.Levels.LEVEL2;
     }
 
+    preload(){
+        this.scene.launch('UI');
+    }
+
+
     create() {
         // background
         this.bg = this.add.tileSprite(0, 0, 2560, 1440, GameConstants.Textures.BG_LEVEL1).setOrigin(0).setScale(0.65);
