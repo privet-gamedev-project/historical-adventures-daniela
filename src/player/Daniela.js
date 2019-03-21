@@ -1,7 +1,7 @@
 /**
-* GameObject Daniela
-* @since 0.0.0
-*/
+ * GameObject Daniela
+ * @since 0.0.0
+ */
 import GameConstants from "../services/GameConstants.js";
 
 class Daniela extends Phaser.GameObjects.Sprite {
@@ -22,14 +22,14 @@ class Daniela extends Phaser.GameObjects.Sprite {
         config.scene.add.existing(this);
 
         this.bounce = 0.5;
-        
+
         this.acceleration = 300;
         this.body.maxVelocity.x = 150;
         this.body.maxVelocity.y = 500;
 
         //Para evitar que salga del mundo            
         this.body.setCollideWorldBounds(true);
-        
+
         // Configuraciones extras para el movimiento
         // this.jumpForce = 150;
         this.jumpForce = 350;
@@ -66,15 +66,21 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
     }
 
-    followedBy(lolo){
-        this.lolo=lolo;    
+    followedBy(lolo) {
+        this.lolo = lolo;
     }
 
     update(delta) {
-        
-        if (this.lolo){
-            this.lolo.x= this.x-50;
-            this.lolo.y= this.y-50;            
+
+        if (this.lolo) {
+            if(this.flipX) {
+                this.lolo.flipX = true;
+                this.lolo.x += ((this.x - this.lolo.x) * 0.1) - 5;
+            } else {
+                this.lolo.flipX = false;
+                this.lolo.x += ((this.x - this.lolo.x) * 0.1) + 5;
+            }
+            this.lolo.y += ((this.y - this.lolo.y) * 0.1) - 5;
         }
 
         let control = {
@@ -140,7 +146,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             this.run(acceleration);
         }
         this.flipX = (dir === GameConstants.Anims.Direction.RIGHT);
-        if (this.lolo) this.lolo.flipX= this.flipX;
+        if (this.lolo) this.lolo.flipX = this.flipX;
     }
 
     jump() {
@@ -207,15 +213,15 @@ class Daniela extends Phaser.GameObjects.Sprite {
     waterCollision() {
         if (!this.hitDelay) {
             this.loseHealth();
-            this.hitDelay = true;            
+            this.hitDelay = true;
             this.soundDanielaAuch.play();
             if (this.scene) {
                 this.scene.time.addEvent({
                     delay: 600,
                     callback: () => {
                         this.x = 100;
-                        this.y = 100; 
-                        this.hitDelay = false;                       
+                        this.y = 100;
+                        this.hitDelay = false;
                     },
                     callbackScope: this
                 });
@@ -225,11 +231,11 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
 
     nextScene() {
-        this.scene.textDialog.setText(GameConstants.Texts.CONSEGUIDO);       
-        
+        this.scene.textDialog.setText(GameConstants.Texts.CONSEGUIDO);
+
         this.emit(GameConstants.Events.LEVEL_FINISHED);
-        
-        
+
+
     }
 
 }
