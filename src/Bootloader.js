@@ -54,11 +54,9 @@ class Bootloader extends Phaser.Scene {
         });
 
         //Wheel
-        this.load.spritesheet('wheel', 'img/wheelStone/wheelStone_Spritesheet_32x32x4.png', {
-            frameWidth: 32,
-            frameHeight: 32
-        });
-
+        this.load.atlas('wheel', 'img/wheelStone/wheelStone_32x32.png', 'img/wheelStone/wheelStone_32x32_atlas.json');
+        this.load.animation('wheelAnim', 'img/wheelStone/wheelStone_32x32_anim.json');
+        
         //Water
         this.load.image('water', 'img/objects/water-tile.png');
         

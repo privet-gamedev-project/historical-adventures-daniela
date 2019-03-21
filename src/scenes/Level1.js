@@ -11,7 +11,7 @@ class Level1 extends BasicScene {
         this.target = GameConstants.Levels.LEVEL2;
     }
 
-    preload(){
+    preload() {
         this.scene.launch('UI');
     }
 
@@ -24,7 +24,7 @@ class Level1 extends BasicScene {
         this.soundLEVEL1_LOLO_findBracelet = this.sound.add(GameConstants.Sound.LEVEL1_LOLO_FINDBRACELET);
         this.soundLEVEL1_LOLO_findBracelet.play();
 
-        
+
         this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
         this.addEventForMusic(this.music);
 
@@ -47,23 +47,20 @@ class Level1 extends BasicScene {
         });
         this.textHealth.setScrollFactor(0);
         this.textHealth.setDepth(1);
-        
-        //  movewheel animation
-        this.createAnimation(GameConstants.Anims.WHEEL,0,3,10);
 
         //  bracelet animation
-        this.createAnimation(GameConstants.Anims.BRACELET,0,3,10)
-        
+        this.createAnimation(GameConstants.Anims.BRACELET, 0, 3, 10)
+
         //TODO: se debería pasar los parámetros 'x' e 'y' de forma dinámica en base al mapa y la posición de inicio
         // algo parecido a lo que se hace con los murciélagos y las ruedas
         //Daniela Creation
         this.daniela = this.createDaniela(this, 100, 100);
-        this.lolo = this.createLoloNormal(this, this.daniela);        
+        this.lolo = this.createLoloNormal(this, this.daniela);
         this.daniela.followedBy(this.lolo);
 
         //Read Tilemap
         let map = this.createMap();
-        
+
         //Creating Bats         
         this.bats = this.createBats();
         this.batsGroup = new Bats(this.physics.world, this, [], this.bats);
@@ -92,11 +89,11 @@ class Level1 extends BasicScene {
         this.physics.add.collider(this.daniela, Level1);
         this.physics.add.collider(this.batsGroup, Level1);
         this.physics.add.collider(this.wheelsGroup, Level1);
-        this.physics.add.collider(this.daniela, this.magicbracelet, () => {            
+        this.physics.add.collider(this.daniela, this.magicbracelet, () => {
             //this.scene.pause();
             this.music.stop();
             this.magicbracelet.destroy();
-            this.soundLOLO_Bien_lo_hemos_conseguido.play();             
+            this.soundLOLO_Bien_lo_hemos_conseguido.play();
             console.log('Daniela encuentra pulsera magica');
             this.daniela.nextScene();
         });
