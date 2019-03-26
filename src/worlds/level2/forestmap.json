@@ -116,6 +116,42 @@
                  "width":0,
                  "x":1190,
                  "y":492
+                }, 
+                {
+                 "height":0,
+                 "id":49,
+                 "name":"Bat",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Bat",
+                 "visible":true,
+                 "width":0,
+                 "x":1368,
+                 "y":334
+                }, 
+                {
+                 "height":0,
+                 "id":50,
+                 "name":"Bat",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Bat",
+                 "visible":true,
+                 "width":0,
+                 "x":1898,
+                 "y":202
+                }, 
+                {
+                 "height":0,
+                 "id":51,
+                 "name":"Bat",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Bat",
+                 "visible":true,
+                 "width":0,
+                 "x":2106,
+                 "y":254
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -186,6 +222,30 @@
                  "width":0,
                  "x":721,
                  "y":534
+                }, 
+                {
+                 "height":0,
+                 "id":52,
+                 "name":"Wheel",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Wheel",
+                 "visible":true,
+                 "width":0,
+                 "x":1518,
+                 "y":554
+                }, 
+                {
+                 "height":0,
+                 "id":53,
+                 "name":"Wheel",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Wheel",
+                 "visible":true,
+                 "width":0,
+                 "x":2520,
+                 "y":392
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -205,7 +265,7 @@
          "y":0
         }],
  "nextlayerid":30,
- "nextobjectid":49,
+ "nextobjectid":54,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.2",
