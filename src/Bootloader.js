@@ -115,7 +115,7 @@ class Bootloader extends Phaser.Scene {
             this.scene.stop('Loader');
             this.scene.stop('Bootloader');
 
-            this.scene.start("Level2");
+            this.scene.start("Menu");
         });
 
 
