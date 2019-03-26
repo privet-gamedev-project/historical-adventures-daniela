@@ -164,14 +164,14 @@ class BasicScene extends Phaser.Scene {
     }
 
     /**
-     * Crea el/los GameObject correspondiente a Bracelets en base al mapa que se ha cargado con la escena actual.
+     * Crea el/los GameObject correspondiente a EndLevelObject en base al mapa que se ha cargado con la escena actual.
      * 
      * @returns {*|Phaser.GameObjects.Sprite[]|Phaser.GameObjects.Sprite[]}
      */
-    createBracelets(){
-        return this.map.createFromObjects(GameConstants.Sprites.Bracelet.OBJECT_NAME, GameConstants.Sprites.Bracelet.OBJECT_ID, {key: GameConstants.Sprites.Bracelet.KEY});
+    createEndLevelObject(objectKey){
+        return this.map.createFromObjects(GameConstants.Sprites.EndLevel.OBJECT_NAME, GameConstants.Sprites.EndLevel.OBJECT_ID, {key: objectKey});
     }
-
+    
     /**
      * Crea la animación en función del nombre del objeto que reciba como parámetro.
      * 

@@ -88,7 +88,7 @@
         {
          "draworder":"topdown",
          "id":9,
-         "name":"Bracelet",
+         "name":"EndLevel",
          "objects":[
                 {
                  "height":0,
@@ -194,7 +194,7 @@
  "nextobjectid":47,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.0",
+ "tiledversion":"1.2.2",
  "tileheight":32,
  "tilesets":[
         {

@@ -69,7 +69,7 @@ class Level1 extends BasicScene {
         this.anims.play(GameConstants.Anims.WHEEL, this.wheels);
 
         //Create Bracelet
-        this.bracelets = this.createBracelets();
+        this.bracelets = this.createEndLevelObject(GameConstants.Sprites.Bracelet.KEY);
         this.physics.world.enable(this.bracelets);
         this.magicbracelet = this.bracelets[0];
         this.magicbracelet.setScale(0.75);

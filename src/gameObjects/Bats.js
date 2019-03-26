@@ -20,6 +20,9 @@ class Bats extends Phaser.Physics.Arcade.Group {
             // bat.body.collideWorldBounds = true;
             bat.body.setSize(16, 16);
             bat.setScale(1.25);
+            bat.setDepth(1);
+            //Para evitar que salga del mundo            
+            bat.body.setCollideWorldBounds(true);
             this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), bat);
         });
     }

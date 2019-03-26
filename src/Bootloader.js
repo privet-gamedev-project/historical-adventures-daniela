@@ -50,6 +50,10 @@ class Bootloader extends Phaser.Scene {
         //Bracelet
         this.load.atlas('bracelet', 'img/objects/bracelet/bracelet.png', 'img/objects/bracelet/bracelet_atlas.json');
         this.load.animation('braceletAnim', 'img/objects/bracelet/bracelet_anim.json');
+        //CavemanClothes
+        this.load.atlas('caveman_clothes', 'img/objects/caveman_clothes/caveman_clothes.png', 'img/objects/caveman_clothes/caveman_clothes_atlas.json');
+        this.load.animation('caveman_clothesAnim', 'img/objects/caveman_clothes/caveman_clothes_anim.json');
+
 
         //Wheel
         this.load.atlas('wheel', 'img/wheelStone/wheelStone_32x32.png', 'img/wheelStone/wheelStone_32x32_atlas.json');
@@ -58,6 +62,28 @@ class Bootloader extends Phaser.Scene {
         //Water
         this.load.image('water', 'img/objects/water-tile.png');
         
+        //Joystick        
+        this.load.atlas('joystick', 'img/objects/joystick/joystick.png', 'img/objects/joystick/joystick_atlas.json');
+        this.load.animation('joystickAnim', 'img/objects/joystick/joystick_anim.json');
+
+
+        //Level2 Platform
+        this.load.image("platform", "img/objects/platform.png");
+
+        // Coin
+        //TODO: Cambiar por Pintura Rupestre
+         this.load.spritesheet("coin", "img/objects/coin.png", {
+            frameWidth: 20,
+            frameHeight: 20
+        });
+
+        
+        // the firecamp is a sprite sheet made by 32x58 pixels
+        this.load.spritesheet("fire", "img/objects/fire.png", {
+            frameWidth: 40,
+            frameHeight: 70
+        });
+
 
         //Sounds
         this.load.audio("soundJump", "sounds/jump.mp3");
@@ -69,10 +95,12 @@ class Bootloader extends Phaser.Scene {
         https://opengameart.org/content/cave-bats
         Copyright/Attribution Notice: 
         Please credit music by Dan Knoflicek
-        */
-       
+        */       
         this.load.audio("caveManBgSound","sounds/backgrounds/caveManBgSound.mp3");
         //By Xololex (Gonzalo)
+        
+        this.load.audio('LEVEL2_LOLO_findClothes','sounds/dialogs/LEVEL2_LOLO_findClothes.mp3');
+        
 
         //UI
         this.load.image('volumeOn','img/ui/volumeON.png');
@@ -87,7 +115,7 @@ class Bootloader extends Phaser.Scene {
             this.scene.stop('Loader');
             this.scene.stop('Bootloader');
 
-            this.scene.start("Menu");
+            this.scene.start("Level2");
         });
 
 

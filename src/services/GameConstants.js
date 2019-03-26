@@ -14,7 +14,8 @@ const GameConstants = {
         CAVEBATS: 'CaveBats',
         DANIELA_JUMP: 'soundJump',
         DANIELA_AUCH: 'danielaAuch',
-        CAVEMAN_BG:'caveManBgSound'
+        CAVEMAN_BG:'caveManBgSound',
+        LEVEL2_LOLO_FINDCLOTHES: 'LEVEL2_LOLO_findClothes'
     },
     Sprites: {
         Bats: {
@@ -30,8 +31,13 @@ const GameConstants = {
             OBJECT_ID: 'Wheel'
         },
         Bracelet: {
-            KEY: 'bracelet',
-            OBJECT_NAME: 'Bracelet',
+            KEY: 'bracelet'        
+        },
+        Cavemen_Clothes: {
+            KEY: 'caveman_clothes'        
+        },
+        EndLevel: {            
+            OBJECT_NAME: 'EndLevel',
             OBJECT_ID: 'positionEnd'
         },
         Daniela: {
@@ -39,18 +45,30 @@ const GameConstants = {
         },
         Lolo_Normal:{
             KEY: 'lolo_normal'
+        },
+        Level_Price:{
+            KEY:'coin'
+        },
+        Fire:{
+            KEY:'fire'
+        },
+        Joystick:{
+            KEY: 'joystick'
         }
     },
     Textures: {
         BG_MENU: 'bg_Menu',
         BG_LEVEL1: 'bg_Level1',
         BG_LEVEL2: 'bg_Level2',
-        BG_CREDITS: 'bg_Credits'
+        BG_CREDITS: 'bg_Credits',
+        PLATFORM_FOREST: 'platform'
     },
     Anims: {
         BATS: 'bat_move',
         WHEEL: 'wheel_move',
         BRACELET: 'bracelet_move',
+        CAVEMAN_CLOTHES: 'caveman_clothes_move',
+        JOYSTICK: 'joystick_move',
         Daniela: {
             IDLE: 'daniela_idle',
             WALK: 'daniela_walk',

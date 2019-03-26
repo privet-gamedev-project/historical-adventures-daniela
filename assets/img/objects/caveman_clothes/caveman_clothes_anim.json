@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "caveman_clothes_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 4,
+            "frames": [
+                {
+                    "key": "caveman_clothes",
+                    "frame": "caveman_clothes_0"
+                },
+                {
+                    "key": "caveman_clothes",
+                    "frame": "caveman_clothes_1"
+                },
+                {
+                    "key": "caveman_clothes",
+                    "frame": "caveman_clothes_2"
+                },
+                {
+                    "key": "caveman_clothes",
+                    "frame": "caveman_clothes_3"
+                }
+            ]
+        }
+    ]
+}

@@ -17,6 +17,8 @@ class Wheels extends Phaser.Physics.Arcade.Group {
     startWheel() {
         this.children.iterate((wheel) => {
             wheel.body.setSize(30, 30);
+            wheel.body.setCollideWorldBounds(true);
+            wheel.setDepth(1);
             this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), wheel);
         });
     }
