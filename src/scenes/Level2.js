@@ -27,8 +27,8 @@ class Level2 extends BasicScene {
 
 
         //Sounds
-        this.soundLEVEL1_LOLO_findBracelet = this.sound.add(GameConstants.Sound.LEVEL1_LOLO_FINDBRACELET);
-        this.soundLEVEL1_LOLO_findBracelet.play();
+        //this.soundLEVEL1_LOLO_findBracelet = this.sound.add(GameConstants.Sound.LEVEL1_LOLO_FINDBRACELET);
+        //this.soundLEVEL1_LOLO_findBracelet.play();
 
 
         this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
