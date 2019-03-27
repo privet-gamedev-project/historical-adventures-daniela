@@ -12,11 +12,14 @@ class Level1 extends BasicScene {
     }
 
     preload() {
-        this.scene.launch('UI');
+       
     }
 
 
     create() {
+        this.scene.launch('UI');
+        const uiScene = this.scene.get('UI');
+
         // background
         this.bg = this.add.tileSprite(0, 0, 2560, 1440, GameConstants.Textures.BG_LEVEL1).setOrigin(0).setScale(0.65);
 
@@ -31,22 +34,18 @@ class Level1 extends BasicScene {
 
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(GameConstants.Sound.LOLO_BIEN_LO_HEMOS_CONSEGUIDO);
 
+        
+        
         //Text Dialog
-        this.textDialog = this.add.text(30, 570, GameConstants.Texts.BUSCAR_PULSERA, {
-            fontSize: '25px',
-            fill: '#ffffff'
-        });
+        this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', GameConstants.Texts.BUSCAR_PULSERA.toUpperCase(), 16);                
         this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(1);
+        this.textDialog.setDepth(3);
 
 
         //Text Health
-        this.textHealth = this.add.text(30, 20, GameConstants.Texts.VIDAS, {
-            fontSize: '25px',
-            fill: '#ffffff'
-        });
+        this.textHealth = this.add.dynamicBitmapText(30, 20, 'pixel', GameConstants.Texts.VIDAS);        
         this.textHealth.setScrollFactor(0);
-        this.textHealth.setDepth(1);
+        this.textHealth.setDepth(3);
 
         //TODO: se debería pasar los parámetros 'x' e 'y' de forma dinámica en base al mapa y la posición de inicio
         // algo parecido a lo que se hace con los murciélagos y las ruedas

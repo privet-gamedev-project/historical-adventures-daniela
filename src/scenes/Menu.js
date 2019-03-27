@@ -28,8 +28,8 @@ class Menu extends BasicScene {
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
         this.addEventForMusic(this.bgmusic,200);
 
-
-        const startButton = this.add.text(80, 520, 'PLAY', { fill: '#000000', fontSize: '40px' });
+                        
+        const startButton = this.add.dynamicBitmapText(80, 520, 'pixel', 'PLAY', 24);        
         startButton.setInteractive();
 
         startButton.on('pointerdown', () => { 
@@ -37,17 +37,17 @@ class Menu extends BasicScene {
             
         });
 
-        const introButton = this.add.text(220, 520, 'INTRO', { fill: '#000000', fontSize: '40px' });
+        const introButton = this.add.dynamicBitmapText(220, 520, 'pixel', 'INTRO', 24);                
         introButton.setInteractive();
 
         introButton.on('pointerdown', () => { console.log('INTRO'); });
 
-        const scoresButton = this.add.text(400, 520, 'SCORES', { fill: '#000000', fontSize: '40px' });
+        const scoresButton = this.add.dynamicBitmapText(400, 520, 'pixel', 'SCORES', 24);                        
         scoresButton.setInteractive();
 
         scoresButton.on('pointerdown', () => { console.log('SCORES'); });
 
-        const creditsButton = this.add.text(600, 520, 'CREDITS', { fill: '#000000', fontSize: '40px' });
+        const creditsButton = this.add.dynamicBitmapText(600, 520, 'pixel', 'CREDITS', 24);        
         creditsButton.setInteractive();
 
         // tween hover

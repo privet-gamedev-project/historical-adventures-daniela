@@ -105,6 +105,11 @@ class Bootloader extends Phaser.Scene {
         //UI
         this.load.image('volumeOn','img/ui/volumeON.png');
         this.load.image('volumeOff','img/ui/volumeOFF.png');
+        
+        
+        //FONTS
+        this.load.json('fontJSON', 'font/font.json');
+        this.load.image('font', 'font/font.png');        
 
         // Progress
         this.load.on('progress', (value) => {
@@ -112,6 +117,9 @@ class Bootloader extends Phaser.Scene {
         });
         // When all the assests are load go to next Scene
         this.load.on("complete", () => {
+            const fontJSON = this.cache.json.get('fontJSON');
+            this.cache.bitmapFont.add('pixel', Phaser.GameObjects.RetroFont.Parse(this, fontJSON));
+
             this.scene.stop('Loader');
             this.scene.stop('Bootloader');
 

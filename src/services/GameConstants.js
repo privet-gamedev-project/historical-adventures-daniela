@@ -91,9 +91,9 @@ const GameConstants = {
     },
     // TODO: Remover a su respectivo sitio cuando tengamos i18ln
     Texts: {
-        BUSCAR_PULSERA: 'Daniela, tienes que buscar la Pulsera mágica.',
+        BUSCAR_PULSERA: 'Daniela tienes que buscar la Pulsera magica',
         BUSCAR_ROPA_TROGLODITA: 'Daniela, tienes que buscar la ropa de Troglodita.',
-        VIDAS: 'Vidas: ',
+        VIDAS: 'VIDAS ',
         CONSEGUIDO: 'Bien!! Lo hemos Conseguido!!'
     },
     Tiles: {
