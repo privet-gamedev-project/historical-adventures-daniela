@@ -33,7 +33,7 @@ class Menu extends BasicScene {
         startButton.setInteractive();
 
         startButton.on('pointerdown', () => { 
-            this.changeScene(this, GameConstants.Levels.LEVEL1,0);
+            this.changeScene(this, GameConstants.Levels.LEVELSELECT,0);
             
         });
 
