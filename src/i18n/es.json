@@ -1,0 +1,14 @@
+{
+    "MENU": {
+        "PLAY": "PLAY",
+        "INTRO": "INTRO",
+        "SCORES": "PUNTOS",
+        "CREDITS": "CREDITOS"
+    },
+    "LEVEL1": {
+
+    },
+    "UI": {
+        
+    }
+}

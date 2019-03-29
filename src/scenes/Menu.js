@@ -22,32 +22,32 @@ class Menu extends BasicScene {
         
         // background        
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
-        this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.35);
+        this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.25);
 
         //bg sound
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
         this.addEventForMusic(this.bgmusic,200);
 
                         
-        const startButton = this.add.dynamicBitmapText(80, 520, 'pixel', 'PLAY', 24);        
+        const startButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('MENU.PLAY'), 24);        
         startButton.setInteractive();
-
+    
         startButton.on('pointerdown', () => { 
             this.changeScene(this, GameConstants.Levels.LEVELSELECT,0);
             
         });
 
-        const introButton = this.add.dynamicBitmapText(220, 520, 'pixel', 'INTRO', 24);                
+        const introButton = this.add.dynamicBitmapText(220, y * 2, 'pixel', this.TG.tr('MENU.INTRO'), 24);                
         introButton.setInteractive();
 
         introButton.on('pointerdown', () => { console.log('INTRO'); });
 
-        const scoresButton = this.add.dynamicBitmapText(400, 520, 'pixel', 'SCORES', 24);                        
+        const scoresButton = this.add.dynamicBitmapText(400, y * 2, 'pixel', this.TG.tr('MENU.SCORES'), 24);                        
         scoresButton.setInteractive();
 
         scoresButton.on('pointerdown', () => { console.log('SCORES'); });
 
-        const creditsButton = this.add.dynamicBitmapText(600, 520, 'pixel', 'CREDITS', 24);        
+        const creditsButton = this.add.dynamicBitmapText(600, y * 2, 'pixel', this.TG.tr('MENU.CREDITS'), 24);        
         creditsButton.setInteractive();
 
         // tween hover
@@ -63,7 +63,7 @@ class Menu extends BasicScene {
 
         //CREDITS
         this.creditshown=false;
-        const bgcredits = this.add.image(400, 300, GameConstants.Textures.BG_CREDITS);
+        const bgcredits = this.add.image(0, 0, GameConstants.Textures.BG_CREDITS).setOrigin(0);
         bgcredits.setInteractive();
         bgcredits.visible=this.creditshown;
 

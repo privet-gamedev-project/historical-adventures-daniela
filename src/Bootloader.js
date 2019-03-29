@@ -115,6 +115,8 @@ class Bootloader extends Phaser.Scene {
         this.load.on('progress', (value) => {
             this.registry.events.emit('load_progress', value);
         });
+
+        this.load.lang();
         // When all the assests are load go to next Scene
         this.load.on("complete", () => {
             const fontJSON = this.cache.json.get('fontJSON');

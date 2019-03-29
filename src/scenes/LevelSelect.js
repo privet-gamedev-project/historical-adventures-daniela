@@ -22,14 +22,14 @@ class LevelSelect extends BasicScene {
         
         // background        
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
-        this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.35);
+        this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.25);
 
         //bg sound
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
         this.addEventForMusic(this.bgmusic,200);
 
                         
-        const menuButton = this.add.dynamicBitmapText(80, 520, 'pixel', 'MENU', 24);        
+        const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', 'MENU', 24);        
         menuButton.setInteractive();
 
         menuButton.on('pointerdown', () => { 
@@ -38,7 +38,7 @@ class LevelSelect extends BasicScene {
         });
         
         
-        const level1Button = this.add.dynamicBitmapText(250, 520, 'pixel', 'LEVEL 1', 24);        
+        const level1Button = this.add.dynamicBitmapText(250, y * 2, 'pixel', 'LEVEL 1', 24);        
         level1Button.setInteractive();
 
         level1Button.on('pointerdown', () => { 
@@ -46,7 +46,7 @@ class LevelSelect extends BasicScene {
             
         });
 
-        const level2Button = this.add.dynamicBitmapText(475, 520, 'pixel', 'LEVEL 2', 24);        
+        const level2Button = this.add.dynamicBitmapText(475, y * 2, 'pixel', 'LEVEL 2', 24);        
         level2Button.setInteractive();
 
         level2Button.on('pointerdown', () => { 
