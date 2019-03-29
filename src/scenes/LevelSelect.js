@@ -54,6 +54,14 @@ class LevelSelect extends BasicScene {
             
         });
 
+        const level3Button = this.add.dynamicBitmapText(645, 520, 'pixel', 'LEVEL 4', 24);        
+        level3Button.setInteractive();
+
+        level3Button.on('pointerdown', () => { 
+            this.changeScene(this, GameConstants.Levels.LEVEL4,0);
+            
+        });
+
         
 
     }

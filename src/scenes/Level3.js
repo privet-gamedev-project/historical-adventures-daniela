@@ -5,15 +5,12 @@ import GameConstants from "../services/GameConstants.js";
  */
 class Level3 extends BasicScene {
     constructor() {
-        super({key: GameConstants.Levels.LEVEL3});
+        super({ key: GameConstants.Levels.LEVEL3 });
     }
-    
+
     create() {
-        
     }
-
     update() {
-
     }
 }
 

@@ -7,6 +7,7 @@ const GameConstants = {
         LEVEL1: 'Level1',
         LEVEL2: 'Level2',
         LEVEL3: 'Level3',
+        LEVEL4:'Level4',
         GAMEOVER: 'GameOver'
     },
     Sound: {
@@ -99,7 +100,8 @@ const GameConstants = {
     },
     Tiles: {
         CAVE_STONE: 'caveStones',
-        FOREST_PACK : 'forestPack_32x32'
+        FOREST_PACK : 'forestPack_32x32',
+        JUNGLE :"jungleTileset",
     },
     Layers: {
         WORLD: 'World'

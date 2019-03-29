@@ -46,6 +46,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.prevAnim = 'idle';
         this.body.setSize(20, 30);
         this.setDepth(3);
+
+        //Just for level 4 it let us know how Danielas controls are going to work
+        this.isInLiana=false;
         /**
          * Controles externos, se puede usar para animar a Daniela en algún momento.
          * @since 0.0.1
@@ -53,7 +56,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.animControl = {
             left: false,
             right: false,
-            jump: false
+            jump: false,
+            down:false
         };
 
         this.cursor = this.scene.input.keyboard.createCursorKeys();
@@ -86,49 +90,88 @@ class Daniela extends Phaser.GameObjects.Sprite {
         let control = {
             left: this.cursor.left.isDown || this.animControl.left,
             right: this.cursor.right.isDown || this.animControl.right,
-            jump: this.cursor.up.isDown || this.animControl.jump
+            jump: this.cursor.up.isDown || this.animControl.jump,
+            down: this.cursor.down.isDown || this.animControl.down
         }
 
         // Lógica de movimiento de Daniela
         // Nos permite hacer el salto con peso
         this.jumpTimer -= delta;
 
-        if (control.left) {
-            this.moverLeftRight(GameConstants.Anims.Direction.LEFT);
-        } else if (control.right) {
-            this.moverLeftRight(GameConstants.Anims.Direction.RIGHT);
-        } else if (this.body.blocked.down) {
-            // Fricción con el suelo 
-
-            // Anima cuando daniela cae al suelo cuando cae Daniela
-            if (this.body.velocity.x > 5 && !this.jumping) {
-                this.animation(GameConstants.Anims.Direction.RIGHT, GameConstants.Anims.Daniela.WALK);
-            } else if (this.body.velocity.x < -5 && !this.jumping) {
-                this.animation(GameConstants.Anims.Direction.LEFT, GameConstants.Anims.Daniela.WALK);
-            }
-            if (Math.abs(this.body.velocity.x) < 10) {
-                // Detener por completo cuando la velocidad es menor de 10
-                this.animation(GameConstants.Anims.Direction.IDLE, GameConstants.Anims.Daniela.IDLE);
-                this.body.setVelocityX(0);
+        //Call it if Daniela is not in the liana
+        if(!this.isInLiana){
+            if (control.left) {
+                this.moverLeftRight(GameConstants.Anims.Direction.LEFT);
+            } else if (control.right) {
+                this.moverLeftRight(GameConstants.Anims.Direction.RIGHT);
+            } else if (this.body.blocked.down) {
+                // Fricción con el suelo 
+    
+                // Anima cuando daniela cae al suelo cuando cae Daniela
+                if (this.body.velocity.x > 5 && !this.jumping) {
+                    this.animation(GameConstants.Anims.Direction.RIGHT, GameConstants.Anims.Daniela.WALK);
+                } else if (this.body.velocity.x < -5 && !this.jumping) {
+                    this.animation(GameConstants.Anims.Direction.LEFT, GameConstants.Anims.Daniela.WALK);
+                }
+                if (Math.abs(this.body.velocity.x) < 10) {
+                    // Detener por completo cuando la velocidad es menor de 10
+                    this.animation(GameConstants.Anims.Direction.IDLE, GameConstants.Anims.Daniela.IDLE);
+                    this.body.setVelocityX(0);
+                    this.run(0);
+                } else {
+                    // Si la velocidad es mayor de 10 desacelerar rápido
+                    this.run(((this.body.velocity.x > 0) ? -1 : 1) * this.acceleration + this.deceleration);
+                }
+            } else if (!this.body.blocked.down) {
+                // Si está en el aire no se acelera más 
                 this.run(0);
-            } else {
-                // Si la velocidad es mayor de 10 desacelerar rápido
-                this.run(((this.body.velocity.x > 0) ? -1 : 1) * this.acceleration + this.deceleration);
             }
-        } else if (!this.body.blocked.down) {
-            // Si está en el aire no se acelera más 
-            this.run(0);
+    
+            if (control.jump && (!this.jumping || this.jumpTimer > 0)) {
+                this.jump();
+            } else if (!control.jump) {
+                // Esto previene los saltos cuando se mantiene presionado
+                this.jumpTimer = -1;
+                if (this.body.blocked.down) {
+                    this.jumping = false;
+                }
+            }
+
+        }else{
+            //Determines how Daniela is going to move in the liana
+            if(control.jump&&control.left){
+                this.x-=20;
+                    this.body.setAllowGravity(true);
+                    this.body.setVelocityY(-this.jumpForce);
+                    this.jumping = true;
+                    this.body.velocity.x=-200;
+                    this.isInLiana=false;
+
+            }else{
+                if(control.jump&&control.right){
+                    console.log("jumpingOut");
+                    this.x+=20;
+                    this.body.setAllowGravity(true);
+                    this.body.setVelocityY(-this.jumpForce);
+                    this.jumping = true;
+                    this.body.velocity.x=200;
+                    this.isInLiana=false;
+                    
+
+                }
+            }
+                if(control.jump){
+                    this.body.velocity.y=-50;
+                }
+                if(control.down){
+                    this.body.velocity.y=50;
+                }
+            
+            
+
         }
 
-        if (control.jump && (!this.jumping || this.jumpTimer > 0)) {
-            this.jump();
-        } else if (!control.jump) {
-            // Esto previene los saltos cuando se mantiene presionado
-            this.jumpTimer = -1;
-            if (this.body.blocked.down) {
-                this.jumping = false;
-            }
-        }
+
     }
 
     // Métodos usados en la lógica, están separado para mejor orden    
