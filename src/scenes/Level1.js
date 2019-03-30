@@ -20,6 +20,8 @@ class Level1 extends BasicScene {
         this.scene.launch('UI');
         const uiScene = this.scene.get('UI');
 
+        var height = this.cameras.main.height;
+
         // background
         this.bg = this.add.tileSprite(0, 0, 2560, 1440, GameConstants.Textures.BG_LEVEL1).setOrigin(0).setScale(0.65);
 
@@ -34,16 +36,15 @@ class Level1 extends BasicScene {
 
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(GameConstants.Sound.LOLO_BIEN_LO_HEMOS_CONSEGUIDO);
 
-        
-        
+                
         //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', GameConstants.Texts.BUSCAR_PULSERA.toUpperCase(), 16);                
+        this.textDialog = this.add.dynamicBitmapText(30, height-50, 'pixel', this.TG.tr('LEVEL1.FINDBRACELET'));                
         this.textDialog.setScrollFactor(0);
         this.textDialog.setDepth(3);
 
 
         //Text Health
-        this.textHealth = this.add.dynamicBitmapText(30, 20, 'pixel', GameConstants.Texts.VIDAS);        
+        this.textHealth = this.add.dynamicBitmapText(30, 20, 'pixel', this.TG.tr('COMMONTEXT.LIVES'));        
         this.textHealth.setScrollFactor(0);
         this.textHealth.setDepth(3);
 

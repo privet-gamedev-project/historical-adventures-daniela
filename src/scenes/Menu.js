@@ -28,6 +28,16 @@ class Menu extends BasicScene {
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
         this.addEventForMusic(this.bgmusic,200);
 
+        //Enlace Cambio de Idioma 
+        //TODO: Ponerlo junto a Cambio de Sonido en una SettingsScene
+        let currentLang = this.TG.getActualLang().toUpperCase();                
+        this.languageButton = this.add.dynamicBitmapText(width - 100, 50, 'pixel', currentLang , 24);        
+        this.languageButton.setInteractive();
+        this.languageButton.on('pointerdown', () => {             
+            if (this.TG.getActualLang()=='es') this.TG.setLang('en');
+            else this.TG.setLang('es');                                  
+            this.changeScene(this, GameConstants.Levels.MENU,0);
+        });
                         
         const startButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('MENU.PLAY'), 24);        
         startButton.setInteractive();

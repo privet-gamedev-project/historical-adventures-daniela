@@ -10,7 +10,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         // Health
         this.health = 3;
-        this.scene.textHealth.setText(GameConstants.Texts.VIDAS + this.health);
+        this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
         // has been hit by obstacles 
         this.hitDelay = false;
 
@@ -274,7 +274,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
 
     nextScene() {
-        this.scene.textDialog.setText(GameConstants.Texts.CONSEGUIDO);
+        this.scene.textDialog.setText( this.TG.tr('LEVELCOMMON.WEDIDIT'));
 
         this.emit(GameConstants.Events.LEVEL_FINISHED);
 

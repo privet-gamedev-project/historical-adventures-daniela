@@ -5,10 +5,20 @@
         "SCORES": "PUNTOS",
         "CREDITS": "CREDITOS"
     },
+    "LEVELSELECT":{
+        "LEVEL1": "NIVEL 1",
+        "LEVEL2": "NIVEL 2",
+        "LEVEL3": "NIVEL 3",
+        "LEVEL4": "NIVEL 4"
+    },
     "LEVEL1": {
-
+        "FINDBRACELET": "DANIELA TIENES QUE BUSCAR LA PULSERA MAGICA"
+    },
+    "COMMONTEXT":{
+        "WEDIDIT": "BIEN LO HEMOS CONSEGUIDO",
+        "LIVES": "VIDAS "
     },
     "UI": {
-        
+               
     }
 }
