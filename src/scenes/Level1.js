@@ -26,7 +26,7 @@ class Level1 extends BasicScene {
         this.bg = this.add.tileSprite(0, 0, 2560, 1440, GameConstants.Textures.BG_LEVEL1).setOrigin(0).setScale(0.65);
 
         //Sounds
-        this.soundLEVEL1_LOLO_findBracelet = this.sound.add(GameConstants.Sound.LEVEL1_LOLO_FINDBRACELET);
+        this.soundLEVEL1_LOLO_findBracelet = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1_LOLO_FINDBRACELET);
         this.soundLEVEL1_LOLO_findBracelet.play();
 
 
@@ -34,7 +34,7 @@ class Level1 extends BasicScene {
         this.addEventForMusic(this.music);
 
 
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(GameConstants.Sound.LOLO_BIEN_LO_HEMOS_CONSEGUIDO);
+        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LOLO_WE_DID_IT);
 
                 
         //Text Dialog

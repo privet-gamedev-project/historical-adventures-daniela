@@ -1,9 +1,9 @@
 {
     "MENU": {
-        "PLAY": "PLAY",
+        "PLAY": "JUGAR",
         "INTRO": "INTRO",
         "SCORES": "PUNTOS",
-        "CREDITS": "CREDITOS"
+        "CREDITS": "CRÉDITOS"
     },
     "LEVELSELECT":{
         "LEVEL1": "NIVEL 1",
@@ -12,10 +12,10 @@
         "LEVEL4": "NIVEL 4"
     },
     "LEVEL1": {
-        "FINDBRACELET": "DANIELA TIENES QUE BUSCAR LA PULSERA MAGICA"
+        "FINDBRACELET": "DANIELA TIENES QUE BUSCAR LA PULSERA MÁGICA"
     },
     "COMMONTEXT":{
-        "WEDIDIT": "BIEN LO HEMOS CONSEGUIDO",
+        "WEDIDIT": "BIEN LO HEMOS CONSEGUIDO!!",
         "LIVES": "VIDAS "
     },
     "UI": {

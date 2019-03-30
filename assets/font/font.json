@@ -2,7 +2,7 @@
     "image": "font",
     "width": 16,
     "height": 16,
-    "chars": "0123456789   ABCDEFGHIJKLMNOPQRSTUVWXYZ:",
+    "chars": "0123456789   ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚáéíóú:;!?.,",
     "offset": {
         "x": 0,
         "y": 0

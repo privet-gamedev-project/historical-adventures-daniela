@@ -93,9 +93,11 @@ class Bootloader extends Phaser.Scene {
 
         //Sounds
         this.load.audio("soundJump", "sounds/jump.mp3");
-        this.load.audio("danielaAuch", "sounds/Daniela_Auch.mp3");
-        this.load.audio("LEVEL1_LOLO_findBracelet","sounds/dialogs/LEVEL1_LOLO_findBracelet.mp3");
-        this.load.audio("LOLO_Bien_lo_hemos_conseguido","sounds/LOLO_Bien_lo_hemos_conseguido.mp3");
+        this.load.audio("danielaAuch", "sounds/Daniela_Auch.ogg");
+        this.load.audio("es_LEVEL1_LOLO_findBracelet","sounds/dialogs/LEVEL1_LOLO_BuscaPulsera.ogg");
+        this.load.audio("en_LEVEL1_LOLO_findBracelet","sounds/dialogs/LEVEL1_LOLO_MagicBracelet.ogg");
+        this.load.audio("es_LOLO_WE_DID_IT","sounds/LOLO_Bien_lo_hemos_conseguido.ogg");
+        this.load.audio("en_LOLO_WE_DID_IT","sounds/LOLO_Allright_We_did_it.ogg");
         this.load.audio("CaveBats","sounds/backgrounds/CaveBats.mp3");
         /*
         https://opengameart.org/content/cave-bats

@@ -29,9 +29,8 @@ class Menu extends BasicScene {
         this.addEventForMusic(this.bgmusic,200);
 
         //Enlace Cambio de Idioma 
-        //TODO: Ponerlo junto a Cambio de Sonido en una SettingsScene
-        let currentLang = this.TG.getActualLang().toUpperCase();                
-        this.languageButton = this.add.dynamicBitmapText(width - 100, 50, 'pixel', currentLang , 24);        
+        //TODO: Ponerlo junto a Cambio de Sonido en una SettingsScene                    
+        this.languageButton = this.add.dynamicBitmapText(width - 100, 50, 'pixel', this.TG.getActualLang() , 24);        
         this.languageButton.setInteractive();
         this.languageButton.on('pointerdown', () => {             
             if (this.TG.getActualLang()=='es') this.TG.setLang('en');

@@ -12,7 +12,7 @@ const GameConstants = {
     },
     Sound: {
         LEVEL1_LOLO_FINDBRACELET: 'LEVEL1_LOLO_findBracelet',
-        LOLO_BIEN_LO_HEMOS_CONSEGUIDO: 'LOLO_Bien_lo_hemos_conseguido',
+        LOLO_WE_DID_IT: 'LOLO_WE_DID_IT',
         CAVEBATS: 'CaveBats',
         DANIELA_JUMP: 'soundJump',
         DANIELA_AUCH: 'danielaAuch',

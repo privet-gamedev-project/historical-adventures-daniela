@@ -274,7 +274,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
 
     nextScene() {
-        this.scene.textDialog.setText( this.TG.tr('LEVELCOMMON.WEDIDIT'));
+        this.scene.textDialog.setText(this.scene.TG.tr('COMMONTEXT.WEDIDIT'));
 
         this.emit(GameConstants.Events.LEVEL_FINISHED);
 
