@@ -17,6 +17,7 @@ class Level2 extends BasicScene {
 
 
     create() {
+        this.UIScene = this.scene.get("UI");
                 
         //Read Tilemap
         let map = this.createMap();

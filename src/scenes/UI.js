@@ -37,7 +37,7 @@ class UI extends Phaser.Scene {
         this.rightBtn = this.add.sprite(220, this.height - 200, 'controlRight')
         .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);
         this.jumpBtn = this.add.sprite(600, this.height - 200, 'controlUp')
-        .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);        
+        .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);
     }
     
     

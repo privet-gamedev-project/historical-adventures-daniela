@@ -15,6 +15,7 @@ class Level4 extends BasicScene {
         this.scene.launch('UI');
     }
     create() {        
+        this.UIScene = this.scene.get("UI");
         
         //background
         this.add.tileSprite(0, 0, 15000, 600, "oceanBackground").setOrigin(0).setScale(1.30);

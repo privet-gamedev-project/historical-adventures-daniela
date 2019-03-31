@@ -112,6 +112,11 @@ class BasicScene extends Phaser.Scene {
     // TODO: Implementar scene.scene.transition
     changeScene(scene, target, miliseconds) {         
         if (scene) {
+            //Quitamos el UI si existe
+            if (scene.UIScene){                 
+                scene.UIScene.scene.stop();
+            };
+
             scene.physics.pause();
             this.time.addEvent({
                 delay: miliseconds,
@@ -119,7 +124,7 @@ class BasicScene extends Phaser.Scene {
                     scene.cameras.main.fade(700, 0, 0, 0);        
                     scene.cameras.main.on('camerafadeoutcomplete', () => {                        
                         scene.sound.stopAll();
-                        scene.scene.stop();
+                        scene.scene.stop();                                                
                         scene.scene.start(target);
                     });
                 },

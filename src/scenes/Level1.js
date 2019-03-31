@@ -16,7 +16,9 @@ class Level1 extends BasicScene {
     }
 
 
-    create() {        
+    create() {    
+        
+        this.UIScene = this.scene.get("UI");
                    
 
         var height = this.cameras.main.height;
