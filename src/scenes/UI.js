@@ -21,7 +21,7 @@ class UI extends Phaser.Scene {
     
           
           //Si es una pantalla tactil creamos controles
-          if (!this.sys.game.device.input.touch){                          
+          if (this.sys.game.device.input.touch){                          
             this.createControls();            
           }
 
