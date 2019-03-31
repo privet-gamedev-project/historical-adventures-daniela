@@ -45,34 +45,34 @@ class BasicScene extends Phaser.Scene {
             key: GameConstants.Sprites.Daniela.KEY
         }).setScale(2);
         this.daniela.on(GameConstants.Events.GAME_OVER, e => {
-            this.changeScene(this.daniela.scene, GameConstants.Levels.MENU,2000);            
+            this.changeScene(this.daniela.scene, GameConstants.Levels.MENU, 2000);
         });
-        this.daniela.on(GameConstants.Events.LEVEL_FINISHED, e => {            
-            this.changeScene(this.daniela.scene, this.daniela.scene.target,2000);
-        });
-
-        this.registry.events.on('controlLeftON', e => {            
-                this.daniela.animControl.left=true;
-        });
-        
-        this.registry.events.on('controlLeftOFF', e => {            
-            this.daniela.animControl.left=false;
+        this.daniela.on(GameConstants.Events.LEVEL_FINISHED, e => {
+            this.changeScene(this.daniela.scene, this.daniela.scene.target, 2000);
         });
 
-        this.registry.events.on('controlRightON', e => {            
-            this.daniela.animControl.right=true;
-        });
-    
-        this.registry.events.on('controlRightOFF', e => {            
-            this.daniela.animControl.right=false;
+        this.registry.events.on('controlLeftON', e => {
+            this.daniela.animControl.left = true;
         });
 
-        this.registry.events.on('controlJumpON', e => {            
-            this.daniela.animControl.jump=true;
+        this.registry.events.on('controlLeftOFF', e => {
+            this.daniela.animControl.left = false;
         });
-    
-        this.registry.events.on('controlJumpOFF', e => {            
-            this.daniela.animControl.jump=false;
+
+        this.registry.events.on('controlRightON', e => {
+            this.daniela.animControl.right = true;
+        });
+
+        this.registry.events.on('controlRightOFF', e => {
+            this.daniela.animControl.right = false;
+        });
+
+        this.registry.events.on('controlJumpON', e => {
+            this.daniela.animControl.jump = true;
+        });
+
+        this.registry.events.on('controlJumpOFF', e => {
+            this.daniela.animControl.jump = false;
         });
 
 
@@ -91,12 +91,12 @@ class BasicScene extends Phaser.Scene {
     createLoloNormal(scene, daniela) {
         this.lolo = new Lolo({
             scene: scene,
-            x: daniela.x-50,
-            y: daniela.y-50,
+            x: daniela.x - 50,
+            y: daniela.y - 50,
             key: GameConstants.Sprites.Lolo_Normal.KEY
         }).setScale(1);
-        
-        
+
+
         return this.lolo;
     }
 
@@ -108,9 +108,8 @@ class BasicScene extends Phaser.Scene {
      */
     createMap() {
         this.map = this.make.tilemap({
-            key: this.key            
+            key: this.key
         });
-        console.log(this.map);
 
         //Los bordes del mundo serán las dimensiones del mapa cargado
         this.physics.world.bounds.setTo(0, 0, this.map.widthInPixels, this.map.heightInPixels);
@@ -137,26 +136,26 @@ class BasicScene extends Phaser.Scene {
      * @miliseconds miliseconds
      */
     // TODO: Implementar scene.scene.transition
-    changeScene(scene, target, miliseconds) {         
+    changeScene(scene, target, miliseconds) {
         if (scene) {
             //Quitamos el UI si existe
-            if (scene.UIScene){                 
+            if (scene.UIScene) {
                 scene.UIScene.scene.stop();
             };
 
             scene.physics.pause();
             this.time.addEvent({
                 delay: miliseconds,
-                callback: () => {                    
-                    scene.cameras.main.fade(700, 0, 0, 0);        
-                    scene.cameras.main.on('camerafadeoutcomplete', () => {                        
+                callback: () => {
+                    scene.cameras.main.fade(700, 0, 0, 0);
+                    scene.cameras.main.on('camerafadeoutcomplete', () => {
                         scene.sound.stopAll();
-                        scene.scene.stop();                                                
+                        scene.scene.stop();
                         scene.scene.start(target);
                     });
                 },
                 callbackScope: this
-            });                        
+            });
         }
     }
 
@@ -166,7 +165,7 @@ class BasicScene extends Phaser.Scene {
      * @param music
      * @param delay (milliseconds)
      */
-    addEventForMusic(music, delay=2000){
+    addEventForMusic(music, delay = 2000) {
         this.time.addEvent({
             delay: delay,
             callback: () => {
@@ -182,8 +181,10 @@ class BasicScene extends Phaser.Scene {
      * 
      * @returns {*|Phaser.GameObjects.Sprite[]|Phaser.GameObjects.Sprite[]}
      */
-    createBats(){
-        return this.map.createFromObjects(GameConstants.Sprites.Bats.OBJECT_NAME, GameConstants.Sprites.Bats.OBJECT_ID, {key: GameConstants.Sprites.Bats.KEY});
+    createBats() {
+        return this.map.createFromObjects(GameConstants.Sprites.Bats.OBJECT_NAME, GameConstants.Sprites.Bats.OBJECT_ID, {
+            key: GameConstants.Sprites.Bats.KEY
+        });
     }
 
     /**
@@ -191,8 +192,10 @@ class BasicScene extends Phaser.Scene {
      * 
      * @returns {*|Phaser.GameObjects.Sprite[]|Phaser.GameObjects.Sprite[]}
      */
-    createWheels(){
-        return this.map.createFromObjects(GameConstants.Sprites.Wheel.OBJECT_NAME, GameConstants.Sprites.Wheel.OBJECT_ID, {key: GameConstants.Sprites.Wheel.KEY});
+    createWheels() {
+        return this.map.createFromObjects(GameConstants.Sprites.Wheel.OBJECT_NAME, GameConstants.Sprites.Wheel.OBJECT_ID, {
+            key: GameConstants.Sprites.Wheel.KEY
+        });
     }
 
     /**
@@ -200,10 +203,12 @@ class BasicScene extends Phaser.Scene {
      * 
      * @returns {*|Phaser.GameObjects.Sprite[]|Phaser.GameObjects.Sprite[]}
      */
-    createEndLevelObject(objectKey){
-        return this.map.createFromObjects(GameConstants.Sprites.EndLevel.OBJECT_NAME, GameConstants.Sprites.EndLevel.OBJECT_ID, {key: objectKey});
+    createEndLevelObject(objectKey) {
+        return this.map.createFromObjects(GameConstants.Sprites.EndLevel.OBJECT_NAME, GameConstants.Sprites.EndLevel.OBJECT_ID, {
+            key: objectKey
+        });
     }
-    
+
     /**
      * Crea la animación en función del nombre del objeto que reciba como parámetro.
      * 
@@ -214,7 +219,7 @@ class BasicScene extends Phaser.Scene {
      * @param repeat, default = -1 (loop)
      */
     // TODO: Añadir futuras animaciones aquí.
-    createAnimation(animationName, start=0, end=10, frameRate=24, repeat=-1){
+    createAnimation(animationName, start = 0, end = 10, frameRate = 24, repeat = -1) {
         switch (animationName) {
             // case GameConstants.Anims.BRACELET:
             //     this.anims.create({

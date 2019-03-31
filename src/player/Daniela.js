@@ -7,7 +7,7 @@ import GameConstants from "../services/GameConstants.js";
 class Daniela extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
-                
+
         // Health
         this.health = 3;
         this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
@@ -48,7 +48,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.setDepth(3);
 
         //Just for level 4 it let us know how Danielas controls are going to work
-        this.isInLiana=false;
+        this.isInLiana = false;
         /**
          * Controles externos, se puede usar para animar a Daniela en algún momento.
          * @since 0.0.1
@@ -57,7 +57,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             left: false,
             right: false,
             jump: false,
-            down:false
+            down: false
         };
 
         this.cursor = this.scene.input.keyboard.createCursorKeys();
@@ -68,7 +68,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         this.lolo = null;
 
-       
+
 
     }
 
@@ -79,7 +79,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
     update(delta) {
 
         if (this.lolo) {
-            if(this.flipX) {
+            if (this.flipX) {
                 this.lolo.flipX = true;
                 this.lolo.x += ((this.x - this.lolo.x) * 0.1) - 5;
             } else {
@@ -101,14 +101,14 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.jumpTimer -= delta;
 
         //Call it if Daniela is not in the liana
-        if(!this.isInLiana){
+        if (!this.isInLiana) {
             if (control.left) {
                 this.moverLeftRight(GameConstants.Anims.Direction.LEFT);
             } else if (control.right) {
                 this.moverLeftRight(GameConstants.Anims.Direction.RIGHT);
             } else if (this.body.blocked.down) {
                 // Fricción con el suelo 
-    
+
                 // Anima cuando daniela cae al suelo cuando cae Daniela
                 if (this.body.velocity.x > 5 && !this.jumping) {
                     this.animation(GameConstants.Anims.Direction.RIGHT, GameConstants.Anims.Daniela.WALK);
@@ -128,7 +128,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
                 // Si está en el aire no se acelera más 
                 this.run(0);
             }
-    
+
             if (control.jump && (!this.jumping || this.jumpTimer > 0)) {
                 this.jump();
             } else if (!control.jump) {
@@ -139,41 +139,33 @@ class Daniela extends Phaser.GameObjects.Sprite {
                 }
             }
 
-        }else{
+        } else {
             //Determines how Daniela is going to move in the liana
-            if(control.jump&&control.left){
-                this.x-=20;
+            if (control.jump && control.left) {
+                this.x -= 20;
+                this.body.setAllowGravity(true);
+                this.body.setVelocityY(-this.jumpForce);
+                this.jumping = true;
+                this.body.velocity.x = -200;
+                this.isInLiana = false;
+
+            } else {
+                if (control.jump && control.right) {
+                    this.x += 20;
                     this.body.setAllowGravity(true);
                     this.body.setVelocityY(-this.jumpForce);
                     this.jumping = true;
-                    this.body.velocity.x=-200;
-                    this.isInLiana=false;
-
-            }else{
-                if(control.jump&&control.right){
-                    console.log("jumpingOut");
-                    this.x+=20;
-                    this.body.setAllowGravity(true);
-                    this.body.setVelocityY(-this.jumpForce);
-                    this.jumping = true;
-                    this.body.velocity.x=200;
-                    this.isInLiana=false;
-                    
-
+                    this.body.velocity.x = 200;
+                    this.isInLiana = false;
                 }
             }
-                if(control.jump){
-                    this.body.velocity.y=-50;
-                }
-                if(control.down){
-                    this.body.velocity.y=50;
-                }
-            
-            
-
+            if (control.jump) {
+                this.body.velocity.y = -50;
+            }
+            if (control.down) {
+                this.body.velocity.y = 50;
+            }
         }
-
-
     }
 
     // Métodos usados en la lógica, están separado para mejor orden    
@@ -228,10 +220,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
     loseHealth() {
         this.health--;
         this.scene.textHealth.setText(GameConstants.Texts.VIDAS + this.health);
-        console.log("Health  " + this.health);
         if (this.health === 0) {
-            this.gameOver = true;            
-            this.emit(GameConstants.Events.GAME_OVER);            
+            this.gameOver = true;
+            this.emit(GameConstants.Events.GAME_OVER);
         }
     }
 
