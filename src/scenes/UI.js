@@ -31,9 +31,13 @@ class UI extends Phaser.Scene {
 
     }    
 
-    createControls(){                
+    createControls(){            
+        //Para que admita usar dos controles a la vez    
+        this.input.addPointer(2);
+
+        //CONTROL LEFT y eventos
         this.leftBtn = this.add.sprite(20, this.height - 200, 'controlLeft')
-        .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);        
+            .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);        
         this.leftBtn.on('pointerdown', () => {                                    
             this.registry.events.emit('controlLeftON');                    
         });
@@ -41,8 +45,9 @@ class UI extends Phaser.Scene {
             this.registry.events.emit('controlLeftOFF');                        
         });
         
+        //CONTROL RIGHT y eventos
         this.rightBtn = this.add.sprite(220, this.height - 200, 'controlRight')
-        .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);
+            .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);
         this.rightBtn.on('pointerdown', () => {                                    
             this.registry.events.emit('controlRightON');                    
         });
@@ -50,8 +55,10 @@ class UI extends Phaser.Scene {
             this.registry.events.emit('controlRightOFF');                        
         });
         
+        //CONTROL JUMP y eventos
         this.jumpBtn = this.add.sprite(600, this.height - 200, 'controlUp')
-        .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);
+            .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);
+        
         this.jumpBtn.on('pointerdown', () => {                                    
             this.registry.events.emit('controlJumpON');                    
         });
