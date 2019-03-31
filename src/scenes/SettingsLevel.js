@@ -35,14 +35,25 @@ class SettingsLevel extends BasicScene {
             
         });
         
+
+        this.languageLabel = this.add.dynamicBitmapText(80,150, 'pixel', 'CAMBIAR IDIOMA', 24);              
+        let languageToChange = (this.TG.getActualLang()=='es')?'en':'es';
+        this.languageButton = this.add.dynamicBitmapText(80, 200, 'pixel', languageToChange , 24);
+        this.languageButton.setInteractive();
+        this.languageButton.on('pointerdown', () => {             
+            if (this.TG.getActualLang()=='es') this.TG.setLang('en');
+            else this.TG.setLang('es');                                  
+            this.changeScene(this, GameConstants.Levels.MENU,0);
+        });
         
         
         //TODO: Guardar el estado del mute para el juego completo
         // buttons
-          
-          this.soundLabel = (this.muted)? GameConstants.UI.VOLUMEOFF:GameConstants.UI.VOLUMEON;          
+        this.soundLabeltxt = this.add.dynamicBitmapText(80,50, 'pixel', 'SONIDO', 24);                
+        
+        this.soundLabel = (this.muted)? GameConstants.UI.VOLUMEOFF:GameConstants.UI.VOLUMEON;          
 
-          this.musicOnOffButton = this.add.image(50,50,this.soundLabel).setScale(0.5);
+          this.musicOnOffButton = this.add.image(100,90,this.soundLabel).setScale(0.5).setTint(0x0000FF);
           this.musicOnOffButton.setInteractive();
           
           if (this.muted) this.sound.pauseAll();

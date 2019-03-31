@@ -10,6 +10,7 @@ class Menu extends BasicScene {
     }
     
     preload(){        
+        
     }
 
     create() {

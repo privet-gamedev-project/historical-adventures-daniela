@@ -50,6 +50,33 @@ class BasicScene extends Phaser.Scene {
         this.daniela.on(GameConstants.Events.LEVEL_FINISHED, e => {            
             this.changeScene(this.daniela.scene, this.daniela.scene.target,2000);
         });
+
+        this.registry.events.on('controlLeftON', e => {            
+                this.daniela.animControl.left=true;
+        });
+        
+        this.registry.events.on('controlLeftOFF', e => {            
+            this.daniela.animControl.left=false;
+        });
+
+        this.registry.events.on('controlRightON', e => {            
+            this.daniela.animControl.right=true;
+        });
+    
+        this.registry.events.on('controlRightOFF', e => {            
+            this.daniela.animControl.right=false;
+        });
+
+        this.registry.events.on('controlJumpON', e => {            
+            this.daniela.animControl.jump=true;
+        });
+    
+        this.registry.events.on('controlJumpOFF', e => {            
+            this.daniela.animControl.jump=false;
+        });
+
+
+
         return this.daniela;
     }
 

@@ -7,7 +7,7 @@ import GameConstants from "../services/GameConstants.js";
 class Daniela extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
-
+                
         // Health
         this.health = 3;
         this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
@@ -67,6 +67,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.DANIELA_AUCH);
 
         this.lolo = null;
+
+       
 
     }
 
@@ -228,9 +230,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.scene.textHealth.setText(GameConstants.Texts.VIDAS + this.health);
         console.log("Health  " + this.health);
         if (this.health === 0) {
-            this.gameOver = true;
-            this.emit(GameConstants.Events.GAME_OVER);
-            // console.log(" this.emit('GameOver')");
+            this.gameOver = true;            
+            this.emit(GameConstants.Events.GAME_OVER);            
         }
     }
 
