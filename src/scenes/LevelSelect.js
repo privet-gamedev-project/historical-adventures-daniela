@@ -10,10 +10,11 @@ class LevelSelect extends BasicScene {
     }
     
     preload(){
-        this.scene.launch('UI');
+        
     }
 
     create() {
+
         // background positions   
         var width = this.cameras.main.width;
         var height = this.cameras.main.height;

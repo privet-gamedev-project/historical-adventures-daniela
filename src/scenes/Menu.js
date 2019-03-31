@@ -9,8 +9,7 @@ class Menu extends BasicScene {
         super({key: 'Menu'});
     }
     
-    preload(){
-        this.scene.launch('UI');
+    preload(){        
     }
 
     create() {
@@ -30,12 +29,17 @@ class Menu extends BasicScene {
 
         //Enlace Cambio de Idioma 
         //TODO: Ponerlo junto a Cambio de Sonido en una SettingsScene                    
-        this.languageButton = this.add.dynamicBitmapText(width - 100, 50, 'pixel', this.TG.getActualLang() , 24);        
+        /* this.languageButton = this.add.dynamicBitmapText(width - 100, 50, 'pixel', this.TG.getActualLang() , 24);        
         this.languageButton.setInteractive();
         this.languageButton.on('pointerdown', () => {             
             if (this.TG.getActualLang()=='es') this.TG.setLang('en');
             else this.TG.setLang('es');                                  
             this.changeScene(this, GameConstants.Levels.MENU,0);
+        });*/
+
+        this.settingsButton =this.add.dynamicBitmapText(width - 100, 50, 'pixel', 'CONFIG').setInteractive();        
+        this.settingsButton.on('pointerdown', () => {                        
+            this.changeScene(this, GameConstants.Levels.SETTINGSLEVEL,0);
         });
                         
         const startButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('MENU.PLAY'), 24);        

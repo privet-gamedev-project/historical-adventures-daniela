@@ -7,41 +7,40 @@ class UI extends Phaser.Scene {
     constructor() {
         super({key: 'UI'});
 
-        this.muted=false;
+        
     }
     
     preload() {
-        console.log('Scene: UI');
+        //console.log('Scene: UI');
     }
 
     create() {
-          //TODO: Guardar el estado del mute para el juego completo
-          // buttons
-          
-          this.soundLabel = (this.muted)? GameConstants.UI.VOLUMEOFF:GameConstants.UI.VOLUMEON;
 
-          this.musicOnOffButton = this.add.image(50,50,this.soundLabel).setScale(0.5);
-          this.musicOnOffButton.setInteractive();
+        this.height = this.cameras.main.height;
+        this.width = this.cameras.main.width;                  
+    
           
-          if (this.muted) this.sound.pauseAll();
-  
-          this.musicOnOffButton.on('pointerdown', () => { 
-            //this.sound.mute();
-            console.log("MUSIC");
-            if (!this.muted) this.sound.pauseAll();
-            else this.sound.resumeAll();
-                
+          //Si es una pantalla tactil creamos controles
+          if (this.sys.game.device.input.touch){                          
+            this.createControls();            
+          }
 
-            this.muted=! this.muted;
-            this.soundLabel = (this.muted)? GameConstants.UI.VOLUMEOFF:GameConstants.UI.VOLUMEON;
-            this.musicOnOffButton.setTexture(this.soundLabel);
-              
-          });
     }
 
     update() {
 
+    }    
+
+    createControls(){                
+        this.leftBtn = this.add.sprite(20, this.height - 200, 'controlLeft')
+        .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);
+        this.rightBtn = this.add.sprite(220, this.height - 200, 'controlRight')
+        .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);
+        this.jumpBtn = this.add.sprite(600, this.height - 200, 'controlUp')
+        .setOrigin(0).setScrollFactor(0).setInteractive().setAlpha(0.8).setDepth(5);        
     }
+    
+    
 }
 
 export default UI;

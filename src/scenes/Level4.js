@@ -11,9 +11,11 @@ class Level4 extends BasicScene {
         });
     }
 
-    create() {
+    preload(){
         this.scene.launch('UI');
-        const uiScene = this.scene.get('UI');
+    }
+    create() {        
+        
         //background
         this.add.tileSprite(0, 0, 15000, 600, "oceanBackground").setOrigin(0).setScale(1.30);
 

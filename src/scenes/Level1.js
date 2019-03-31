@@ -12,15 +12,15 @@ class Level1 extends BasicScene {
     }
 
     preload() {
-       
+        this.scene.launch('UI');
     }
 
 
-    create() {
-        this.scene.launch('UI');
-        const uiScene = this.scene.get('UI');
+    create() {        
+                   
 
         var height = this.cameras.main.height;
+        var width = this.cameras.main.width;
 
         // background
         this.bg = this.add.tileSprite(0, 0, 2560, 1440, GameConstants.Textures.BG_LEVEL1).setOrigin(0).setScale(0.65);
