@@ -73,7 +73,7 @@ class Level2 extends BasicScene {
         this.wheels = this.createWheels(GameConstants.Sprites.Snails.KEY);
         this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels,50);
         this.wheelsGroup.children.iterate((wheel) => {
-            wheel.setScale(2);
+            wheel.setScale(1);
         });    
         this.anims.play(GameConstants.Anims.SNAILS, this.wheels);
 

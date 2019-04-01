@@ -13,6 +13,18 @@
                 {
                     "key": "snail",
                     "frame": "snail_1"
+                },
+                {
+                    "key": "snail",
+                    "frame": "snail_2"
+                },
+                {
+                    "key": "snail",
+                    "frame": "snail_3"
+                },
+                {
+                    "key": "snail",
+                    "frame": "snail_4"
                 }
             ]
         }
