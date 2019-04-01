@@ -197,9 +197,9 @@ class BasicScene extends Phaser.Scene {
      * 
      * @returns {*|Phaser.GameObjects.Sprite[]|Phaser.GameObjects.Sprite[]}
      */
-    createWheels() {
+    createWheels(spriteKey) {
         return this.map.createFromObjects(GameConstants.Sprites.Wheel.OBJECT_NAME, GameConstants.Sprites.Wheel.OBJECT_ID, {
-            key: GameConstants.Sprites.Wheel.KEY
+            key: spriteKey
         });
     }
 

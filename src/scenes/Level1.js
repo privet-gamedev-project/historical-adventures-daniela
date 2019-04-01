@@ -66,8 +66,8 @@ class Level1 extends BasicScene {
         this.anims.play(GameConstants.Anims.BATS, this.bats);
 
         //Creating Wheels         
-        this.wheels = this.createWheels();
-        this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels);
+        this.wheels = this.createWheels(GameConstants.Sprites.Wheel.KEY);
+        this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels,100);
         this.anims.play(GameConstants.Anims.WHEEL, this.wheels);
 
         //Create Bracelet

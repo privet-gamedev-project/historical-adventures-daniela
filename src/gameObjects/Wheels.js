@@ -1,11 +1,12 @@
 class Wheels extends Phaser.Physics.Arcade.Group {
-    constructor(world, scene, children, spriteArray) {
+    constructor(world, scene, children, spriteArray, speed) {
         super(world, scene, children);
         // this.scene = scene;
-
+        this.speed=speed;
         // create our enemies from the sprite array
         this.createWheels(scene, spriteArray);
         this.startWheel();
+        
     }
 
     createWheels(scene, spriteArray) {
@@ -16,7 +17,7 @@ class Wheels extends Phaser.Physics.Arcade.Group {
 
     startWheel() {
         this.children.iterate((wheel) => {
-            wheel.body.setSize(30, 30);
+            //wheel.body.setSize(30, 30);
             wheel.body.setCollideWorldBounds(true);
             wheel.setDepth(1);
             this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), wheel);
@@ -29,18 +30,20 @@ class Wheels extends Phaser.Physics.Arcade.Group {
                 this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), wheel);
             }
             if (wheel.body.blocked.right) {
-                this.move('left', wheel);
+                this.move('left', wheel); 
+                wheel.flipX=false;               
             } else if (wheel.body.blocked.left) {
                 this.move('right', wheel);
+                wheel.flipX=true;
             }
         });
     }
 
-    move(dir, wheel) {
+    move(dir, wheel) {                
         if (dir === 'right') {
-            wheel.body.setVelocityX(100);
+            wheel.body.setVelocityX(this.speed);
         } else if (dir === 'left') {
-            wheel.body.setVelocityX(-100);
+            wheel.body.setVelocityX(this.speed*-1);
         }
     }
 }
