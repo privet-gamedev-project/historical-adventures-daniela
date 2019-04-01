@@ -109,7 +109,8 @@ const GameConstants = {
     },
     Events: {
         GAME_OVER: 'GameOver',
-        LEVEL_FINISHED: 'Win'
+        LEVEL_FINISHED: 'Win',
+        MENU: 'Menu'
     }
 
 };

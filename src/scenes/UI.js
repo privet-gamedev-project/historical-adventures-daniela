@@ -7,7 +7,7 @@ class UI extends Phaser.Scene {
     constructor() {
         super({
             key: 'UI'
-        });
+        });        
     }
 
     preload() {
@@ -22,6 +22,15 @@ class UI extends Phaser.Scene {
         if (this.sys.game.device.input.touch) {
             this.createControls();
         }
+
+        //Opción de MENU en niveles
+        const menuButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', 'MENU');        
+        menuButton.setInteractive();
+
+        menuButton.on('pointerdown', () => { 
+            this.registry.events.emit(GameConstants.Events.MENU);                        
+        });
+
     }
 
     createControls() {

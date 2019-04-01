@@ -51,6 +51,12 @@ class BasicScene extends Phaser.Scene {
             this.changeScene(this.daniela.scene, this.daniela.scene.target, 2000);
         });
 
+        //Evento de Vuelve al Menu    
+        this.registry.events.on(GameConstants.Events.MENU, e => {
+            this.changeScene(this.daniela.scene,GameConstants.Levels.MENU, 0);
+        });
+
+        //Eventos de Controles
         this.registry.events.on('controlLeftON', e => {
             this.daniela.animControl.left = true;
         });
@@ -138,17 +144,16 @@ class BasicScene extends Phaser.Scene {
     // TODO: Implementar scene.scene.transition
     changeScene(scene, target, miliseconds) {
         if (scene) {
-            //Quitamos el UI si existe
-            if (scene.UIScene) {
-                scene.UIScene.scene.stop();
-            };
-
             scene.physics.pause();
             this.time.addEvent({
                 delay: miliseconds,
                 callback: () => {
+                    //Quitamos el UI si existe            
+                    if (scene.UIScene) {
+                        scene.UIScene.scene.stop();
+                    };
                     scene.cameras.main.fade(700, 0, 0, 0);
-                    scene.cameras.main.on('camerafadeoutcomplete', () => {
+                    scene.cameras.main.on('camerafadeoutcomplete', () => {                        
                         scene.sound.stopAll();
                         scene.scene.stop();
                         scene.scene.start(target);
