@@ -24,7 +24,7 @@ class UI extends Phaser.Scene {
         }
 
         //Opción de MENU en niveles
-        const menuButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', 'MENU');        
+        const menuButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'));        
         menuButton.setInteractive();
 
         menuButton.on('pointerdown', () => { 

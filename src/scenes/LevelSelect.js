@@ -30,7 +30,7 @@ class LevelSelect extends BasicScene {
         this.addEventForMusic(this.bgmusic,200);
 
                         
-        const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', 'MENU', 24);        
+        const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);        
         menuButton.setInteractive();
 
         menuButton.on('pointerdown', () => { 
@@ -47,7 +47,7 @@ class LevelSelect extends BasicScene {
             
         });
 
-        const level2Button = this.add.dynamicBitmapText(475, y * 2, 'pixel', this.TG.tr('LEVELSELECT.LEVEL2'), 24);        
+        const level2Button = this.add.dynamicBitmapText(455, y * 2, 'pixel', this.TG.tr('LEVELSELECT.LEVEL2'), 24);        
         level2Button.setInteractive();
 
         level2Button.on('pointerdown', () => { 
@@ -55,7 +55,7 @@ class LevelSelect extends BasicScene {
             
         });
 
-        const level3Button = this.add.dynamicBitmapText(645, y *2, 'pixel', this.TG.tr('LEVELSELECT.LEVEL4'), 24);        
+        const level3Button = this.add.dynamicBitmapText(655, y *2, 'pixel', this.TG.tr('LEVELSELECT.LEVEL4'), 24);        
         level3Button.setInteractive();
 
         level3Button.on('pointerdown', () => { 

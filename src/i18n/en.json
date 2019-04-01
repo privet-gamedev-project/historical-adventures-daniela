@@ -1,15 +1,21 @@
 {
     "MENU": {
+        "SETTINGS": "SETTINGS",
         "PLAY": "PLAY",
         "INTRO": "INTRO",
         "SCORES": "SCORES",
         "CREDITS": "CREDITS"
     },
     "LEVELSELECT":{
+        "MENU": "MENU",
         "LEVEL1": "LEVEL 1",
         "LEVEL2": "LEVEL 2",
         "LEVEL3": "LEVEL 3",
         "LEVEL4": "LEVEL 4"
+    },
+    "SETTINGLEVEL": {
+        "SOUND": "SOUND",
+        "LANGUAGE": "CHANGE LANGUAGE"
     },
     "LEVEL1": {
         "FINDBRACELET": "DANIELA YOU HAVE TO FIND THE MAGICAL BRACELET"

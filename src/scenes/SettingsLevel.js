@@ -27,7 +27,7 @@ class SettingsLevel extends BasicScene {
         this.addEventForMusic(this.bgmusic,200);
 
                         
-        const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', 'MENU', 24);        
+        const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);        
         menuButton.setInteractive();
 
         menuButton.on('pointerdown', () => { 
@@ -36,9 +36,9 @@ class SettingsLevel extends BasicScene {
         });
         
 
-        this.languageLabel = this.add.dynamicBitmapText(80,150, 'pixel', 'CAMBIAR IDIOMA', 24);              
+        this.languageLabel = this.add.dynamicBitmapText(80,150, 'pixel', this.TG.tr('SETTINGLEVEL.LANGUAGE'), 24).setTint(0x808489);              
         let languageToChange = (this.TG.getActualLang()=='es')?'en':'es';
-        this.languageButton = this.add.dynamicBitmapText(80, 200, 'pixel', languageToChange , 24);
+        this.languageButton = this.add.dynamicBitmapText(80, 200, 'pixel', languageToChange , 24).setTint(0x808489);
         this.languageButton.setInteractive();
         this.languageButton.on('pointerdown', () => {             
             if (this.TG.getActualLang()=='es') this.TG.setLang('en');
@@ -49,7 +49,7 @@ class SettingsLevel extends BasicScene {
         
         //TODO: Guardar el estado del mute para el juego completo
         // buttons
-        this.soundLabeltxt = this.add.dynamicBitmapText(80,50, 'pixel', 'SONIDO', 24);                
+        this.soundLabeltxt = this.add.dynamicBitmapText(80,50, 'pixel', this.TG.tr('SETTINGLEVEL.SOUND'), 24).setTint(0x808489);                
         
         this.soundLabel = (this.muted)? GameConstants.UI.VOLUMEOFF:GameConstants.UI.VOLUMEON;          
 
