@@ -27,6 +27,12 @@ const GameConstants = {
             OBJECT_NAME: 'Bats',
             OBJECT_ID: 'Bat'
         },
+        Bees: {
+            KEY: 'bee',
+            ID: 'bee',
+            OBJECT_NAME: 'Bees',
+            OBJECT_ID: 'Bee'
+        },
         Wheel: {
             KEY: 'wheel',
             ID: 'wheel',
@@ -68,6 +74,7 @@ const GameConstants = {
     },
     Anims: {
         BATS: 'bat_move',
+        BEES: 'bee_fly',
         WHEEL: 'wheel_move',
         BRACELET: 'bracelet_move',
         CAVEMAN_CLOTHES: 'caveman_clothes_move',

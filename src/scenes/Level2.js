@@ -56,12 +56,20 @@ class Level2 extends BasicScene {
         this.daniela.followedBy(this.lolo);
 
 
-        //Creating Bats         
-        this.bats = this.createBats();
-        this.batsGroup = new Bats(this.physics.world, this, [], this.bats);
-        this.anims.play(GameConstants.Anims.BATS, this.bats);
+        //Creating Bats 
+        //TODO: Crear Objeto Generico CreateFlyingObjects para usar la misma lógica 
+        //en los niveles que lo necesiten
+        this.bats = this.createBats(GameConstants.Sprites.Bees.KEY);
+        this.batsGroup = new Bats(this.physics.world, this, [], this.bats); 
+        //TODO: Pasar el Scale y el FlipX del Sprite, para evitar cambiarlo aquí
+        this.batsGroup.children.iterate((bat) => {
+            bat.setScale(1);
+        });
+        this.anims.play(GameConstants.Anims.BEES, this.bats);
 
-        //Creating Wheels         
+        //Creating Wheels
+        //TODO: Crear objeto Generico CreateFloorObjects para usar la misma lógica 
+        //en los niveles que lo necesiten         
         this.wheels = this.createWheels();
         this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels);
         this.anims.play(GameConstants.Anims.WHEEL, this.wheels);

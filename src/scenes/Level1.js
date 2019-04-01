@@ -18,7 +18,7 @@ class Level1 extends BasicScene {
 
     create() {    
         
-        this.UIScene = this.scene.get("UI");
+        this.UIScene = this.scene.get("UI");        
                    
 
         var height = this.cameras.main.height;
@@ -61,7 +61,7 @@ class Level1 extends BasicScene {
         let map = this.createMap();
 
         //Creating Bats         
-        this.bats = this.createBats();
+        this.bats = this.createBats(GameConstants.Sprites.Bats.KEY);
         this.batsGroup = new Bats(this.physics.world, this, [], this.bats);
         this.anims.play(GameConstants.Anims.BATS, this.bats);
 

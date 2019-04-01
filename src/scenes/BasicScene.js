@@ -186,9 +186,9 @@ class BasicScene extends Phaser.Scene {
      * 
      * @returns {*|Phaser.GameObjects.Sprite[]|Phaser.GameObjects.Sprite[]}
      */
-    createBats() {
+    createBats(spriteKey) {
         return this.map.createFromObjects(GameConstants.Sprites.Bats.OBJECT_NAME, GameConstants.Sprites.Bats.OBJECT_ID, {
-            key: GameConstants.Sprites.Bats.KEY
+            key: spriteKey 
         });
     }
 
