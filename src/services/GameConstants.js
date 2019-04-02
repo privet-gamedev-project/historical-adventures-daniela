@@ -76,7 +76,7 @@ const GameConstants = {
         BG_MENU: 'bg_Menu',
         BG_LEVEL1: 'bg_Level1',
         BG_LEVEL2: 'bg_Level2',
-        BG_CREDITS: 'bg_Credits',
+        BG_CREDITS: 'Credits',        
         PLATFORM_FOREST: 'platform'
     },
     Anims: {

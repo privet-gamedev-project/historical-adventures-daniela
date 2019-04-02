@@ -21,7 +21,7 @@ class Credits extends BasicScene {
         const camera = this.cameras.main;        
         
         //  Set the bounds on the camera:
-        camera.setBounds(0, 0, camera.width , camera.height * 6);
+        camera.setBounds(0, 0, camera.width , camera.height * 3);
 
         const bounds = camera.getBounds();
 
@@ -44,19 +44,22 @@ class Credits extends BasicScene {
         
          //Menu                
          const menuButton = this.add.dynamicBitmapText(20, 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'))     
-            .setInteractive().setScrollFactor(0);
+            .setInteractive().setScrollFactor(0).setDepth(3).setTint(0x000000);
  
          menuButton.on('pointerdown', () => { 
              this.changeScene(this, GameConstants.Levels.MENU,0);
              
          });
 
-
+         
+         const bgCredits=this.TG.getActualLang() + '_' +  GameConstants.Textures.BG_CREDITS;
+         
+         this.bg1 = this.add.image(0, 0, bgCredits).setOrigin(0).setScale(1);    
          //CREDITS TEXTS LINES
          //TODO: EXTRAER DE UN FICHERO DE TODAS LAS LÍNEAS
          //Y  TAMBIEN MULTIIDIOMA ES EN
          //FALTA POR COMPLETAR
-         const firstY = 150;
+         /*const firstY = 150;
          this.add.dynamicBitmapText(100, 20, 'pixel', 'CRÉDITOS');  
          this.add.dynamicBitmapText(100, 100, 'pixel', 'LAS HISTÓRICAS AVENTURAS DE DANIELA');  
          
@@ -76,7 +79,7 @@ class Credits extends BasicScene {
          this.add.dynamicBitmapText(100, firstY+25*17, 'pixel', 'OPENGAMEART',10);  
          this.add.dynamicBitmapText(100, firstY+25*18, 'pixel', 'FREEPIK',10);  
 
-         
+         */
          
         
 
