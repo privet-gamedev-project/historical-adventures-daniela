@@ -43,7 +43,7 @@ class Credits extends BasicScene {
 
         
          //Menu                
-         const menuButton = this.add.dynamicBitmapText(20, 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'))     
+         const menuButton = this.add.dynamicBitmapText(camera.width-150, 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'))     
             .setInteractive().setScrollFactor(0).setDepth(3).setTint(0x000000);
  
          menuButton.on('pointerdown', () => { 
