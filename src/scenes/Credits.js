@@ -67,8 +67,8 @@ class Credits extends BasicScene {
          this.add.dynamicBitmapText(100, firstY+25*5, 'pixel', 'CARMEN GONZALEZ ROQUE',10);  
          this.add.dynamicBitmapText(100, firstY+25*6, 'pixel', 'SERGIO BANDERAS MORENO',10);  
          this.add.dynamicBitmapText(100, firstY+25*8, 'pixel', 'ALUMNADO',10);  
-         this.add.dynamicBitmapText(100, firstY+25*9, 'pixel', 'FP SUPERIOR Y FP MEDIO INFORMÁTICA',10);  
-         this.add.dynamicBitmapText(100, firstY+25*10, 'pixel', '4,5,6 PRIMARIA',10);  
+         this.add.dynamicBitmapText(100, firstY+25*9, 'pixel', '4,5,6 PRIMARIA',10);  
+         this.add.dynamicBitmapText(100, firstY+25*10, 'pixel', 'FP SUPERIOR Y FP MEDIO INFORMÁTICA',10);  
          this.add.dynamicBitmapText(100, firstY+25*12, 'pixel', 'COLABORADORES GAMEDEV INDIE',10);  
          this.add.dynamicBitmapText(100, firstY+25*13, 'pixel', 'GAMMA_FP FRANCISCO PEREIRO',10);  
          this.add.dynamicBitmapText(100, firstY+25*14, 'pixel', 'BARBRILUE BARBARA BRIS',10);  
