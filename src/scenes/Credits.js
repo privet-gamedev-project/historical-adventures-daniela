@@ -53,16 +53,19 @@ class Credits extends BasicScene {
 
 
          //CREDITS TEXTS LINES
+         //TODO: EXTRAER DE UN FICHERO DE TODAS LAS LÍNEAS
+         //Y  TAMBIEN MULTIIDIOMA ES EN
+         //FALTA POR COMPLETAR
          const firstY = 150;
          this.add.dynamicBitmapText(100, 20, 'pixel', 'CRÉDITOS');  
          this.add.dynamicBitmapText(100, 100, 'pixel', 'LAS HISTÓRICAS AVENTURAS DE DANIELA');  
          
          this.add.dynamicBitmapText(100, firstY, 'pixel', 'VIDEOJUEGO INTERCENTRO INTERNIVELAR',10);  
-         this.add.dynamicBitmapText(100, firstY+25, 'pixel', 'FP IES CAMPANILLAS PTA MÁLAGA',10);  
-         this.add.dynamicBitmapText(100, firstY+25*2, 'pixel', 'CEIP MIGUEL HERÁNDEZ ALMOGÍA, MÁLAGA',10);  
-         this.add.dynamicBitmapText(100, firstY+25*4, 'pixel', 'PROFESORES',10);  
-         this.add.dynamicBitmapText(100, firstY+25*5, 'pixel', 'SERGIO BANDERAS MORENO',10);  
-         this.add.dynamicBitmapText(100, firstY+25*6, 'pixel', 'CARMEN GONZALEZ ROQUE',10);  
+         this.add.dynamicBitmapText(100, firstY+25, 'pixel', 'CEIP MIGUEL HERÁNDEZ ALMOGÍA, MÁLAGA',10);  
+         this.add.dynamicBitmapText(100, firstY+25*2, 'pixel', 'FP IES CAMPANILLAS PTA MÁLAGA',10);  
+         this.add.dynamicBitmapText(100, firstY+25*4, 'pixel', 'PROFESORADO',10);  
+         this.add.dynamicBitmapText(100, firstY+25*5, 'pixel', 'CARMEN GONZALEZ ROQUE',10);  
+         this.add.dynamicBitmapText(100, firstY+25*6, 'pixel', 'SERGIO BANDERAS MORENO',10);  
          this.add.dynamicBitmapText(100, firstY+25*8, 'pixel', 'ALUMNADO',10);  
          this.add.dynamicBitmapText(100, firstY+25*9, 'pixel', 'FP SUPERIOR Y FP MEDIO INFORMÁTICA',10);  
          this.add.dynamicBitmapText(100, firstY+25*10, 'pixel', '4,5,6 PRIMARIA',10);  
