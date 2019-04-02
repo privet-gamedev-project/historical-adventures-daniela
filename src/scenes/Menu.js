@@ -74,9 +74,10 @@ class Menu extends BasicScene {
         bgcredits.visible=this.creditshown;
 
         creditsButton.on('pointerdown', () => {             
-                this.creditshown=true;
+                /*this.creditshown=true;
                 bgcredits.visible=this.creditshown;
-                this.physics.pause();
+                this.physics.pause();*/
+                this.changeScene(this, GameConstants.Levels.CREDITS,0);
                 
         });
 

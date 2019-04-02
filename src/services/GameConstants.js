@@ -4,6 +4,7 @@ const GameConstants = {
         MENU: 'Menu',
         SETTINGSLEVEL: 'SettingsLevel',
         LEVELSELECT: 'LevelSelect',
+        CREDITS: 'Credits',
         INTROSTORY: 'IntroStory',
         LEVEL1: 'Level1',
         LEVEL2: 'Level2',

@@ -5,6 +5,12 @@ class Bootloader extends Phaser.Scene {
 
     preload() {
         console.log('Bootloader :D');
+
+        //PLUGINS
+        this.load.script('scrollbar', './libs/Scrollbars.js');
+           
+
+
         //LOAD ALL ASSETS
         this.load.path = './assets/';
         this.load.atlas('daniela', 'img/daniela/daniela.png', 'img/daniela/daniela_atlas.json');
@@ -129,7 +135,7 @@ class Bootloader extends Phaser.Scene {
         //FONTS
         this.load.json('fontJSON', 'font/font.json');
         this.load.image('font', 'font/font.png');       
-            
+       
         // Progress
         this.load.on('progress', (value) => {
             this.registry.events.emit('load_progress', value);
