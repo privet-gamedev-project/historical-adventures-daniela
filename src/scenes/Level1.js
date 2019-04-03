@@ -2,6 +2,7 @@ import Bats from '../gameObjects/Bats.js';
 import Wheels from '../gameObjects/Wheels.js';
 import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
+import ExtraPoints from '../gameObjects/ExtraPoints.js';
 
 class Level1 extends BasicScene {
     constructor() {
@@ -77,6 +78,42 @@ class Level1 extends BasicScene {
         this.magicbracelet.setScale(0.75);
         this.magicbracelet.body.setAllowGravity(false);
         this.anims.play(GameConstants.Anims.BRACELET, this.magicbracelet);
+
+        //ExtraPoints
+        //TODO: usar GameConstants
+        this.extraPoints = this.createExtraPoints('extraPoint');
+        this.extraPointsGroup = new ExtraPoints(this.physics.world, this, [], this.extraPoints);                 
+        // setting animation
+        // TODO: Meter en JSON y GameConstants
+         this.anims.create({
+            key: "rotate",
+            frames: this.anims.generateFrameNumbers("extraPoint", {
+                start: 0,
+                end: 5
+            }),
+            frameRate: 15,
+            yoyo: true,
+            repeat: -1
+        });
+        this.anims.play('rotate', this.extraPoints);
+
+        // setting collisions between the player and the ExtraPoint group
+        this.physics.add.overlap(this.daniela, this.extraPointsGroup, function(player, coin){
+
+            this.tweens.add({
+                targets: coin,
+                y: coin.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    this.extraPointsGroup.killAndHide(coin);
+                    this.extraPointsGroup.remove(coin);
+                }
+            });
+
+        }, null, this);
 
 
         //Tilemap

@@ -203,6 +203,13 @@ class BasicScene extends Phaser.Scene {
         });
     }
 
+    
+    createExtraPoints(spriteKey) {
+        return this.map.createFromObjects('ExtraPoints', 'extrapoint', {
+            key: spriteKey
+        });
+    }
+
     /**
      * Crea el/los GameObject correspondiente a EndLevelObject en base al mapa que se ha cargado con la escena actual.
      * 

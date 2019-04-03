@@ -92,9 +92,9 @@ class Bootloader extends Phaser.Scene {
         //Level2 Platform
         this.load.image("platform", "img/objects/platform.png");
 
-        // Coin
+        // ExtraPoints
         //TODO: Cambiar por Pintura Rupestre
-         this.load.spritesheet("coin", "img/objects/coin.png", {
+         this.load.spritesheet("extraPoint", "img/objects/coin.png", {
             frameWidth: 20,
             frameHeight: 20
         });
