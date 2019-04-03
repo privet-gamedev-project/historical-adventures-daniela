@@ -53,6 +53,7 @@ class Bootloader extends Phaser.Scene {
         //Credits
         this.load.image('en_Credits', 'img/backgrounds/en_credits_800w.png');
         this.load.image('es_Credits', 'img/backgrounds/es_credits_800w.png');
+        this.load.image('creditsPage2', 'img/backgrounds/credits_page2.png');
         
 
 
