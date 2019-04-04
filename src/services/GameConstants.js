@@ -91,6 +91,7 @@ const GameConstants = {
         Daniela: {
             IDLE: 'daniela_idle',
             WALK: 'daniela_walk',
+            DOWN: 'daniela_down'
         },
         LOLO: {
             NORMAL_FLY: 'lolo_normal_fly'

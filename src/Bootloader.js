@@ -123,7 +123,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("caveManBgSound","sounds/backgrounds/caveManBgSound.mp3");
         //By Xololex (Gonzalo)
         
-        this.load.audio('LEVEL2_LOLO_findClothes','sounds/dialogs/LEVEL2_LOLO_findClothes.mp3');
+        // this.load.audio('LEVEL2_LOLO_findClothes','sounds/dialogs/LEVEL2_LOLO_findClothes.mp3');
         
 
         //UI
@@ -154,13 +154,6 @@ class Bootloader extends Phaser.Scene {
 
             this.scene.start("Menu");
         });
-
-
-
-        
-    }
-
-    create() {
     }
 }
 export default Bootloader;

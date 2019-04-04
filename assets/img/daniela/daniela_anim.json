@@ -1,36 +1,54 @@
 {
-    "anims": [{
+    "anims": [
+        {
             "key": "daniela_idle",
             "type": "frames",
             "repeat": -1,
-            "frameRate": 4,
-            "frames": [{
-                "key": "daniela",
-                "frame": "daniela_2"
-                },{
-                "key": "daniela",
-                "frame": "daniela_3"
-                },{
+            "frameRate": 7,
+            "frames": [
+                {
+                    "key": "daniela",
+                    "frame": "daniela_2"
+                },
+                {
+                    "key": "daniela",
+                    "frame": "daniela_3"
+                },
+                {
                     "key": "daniela",
                     "frame": "daniela_4"
-                },{
+                },
+                {
                     "key": "daniela",
                     "frame": "daniela_5"
                 }
-        ]
+            ]
         },
         {
             "key": "daniela_walk",
             "type": "frames",
             "repeat": -1,
             "frameRate": 12,
-            "frames": [{
+            "frames": [
+                {
                     "key": "daniela",
                     "frame": "daniela_0"
                 },
                 {
                     "key": "daniela",
                     "frame": "daniela_1"
+                }
+            ]
+        },
+        {
+            "key": "daniela_down",
+            "type": "frames",
+            "repeat": 0,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "daniela",
+                    "frame": "daniela_6"
                 }
             ]
         }
