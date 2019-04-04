@@ -59,6 +59,9 @@ const GameConstants = {
         Daniela: {
             KEY: 'daniela'
         },
+        DanielaTroglo: {
+            KEY: 'daniela-troglodita'
+        },
         Lolo_Normal:{
             KEY: 'lolo_normal'
         },
@@ -93,6 +96,11 @@ const GameConstants = {
             IDLE: 'daniela_idle',
             WALK: 'daniela_walk',
             DOWN: 'daniela_down'
+        },
+        DanielaTroglo: {
+            IDLE: 'daniela-troglodita_idle',
+            WALK: 'daniela-troglodita_walk',
+            DOWN: 'daniela-troglodita_down'
         },
         LOLO: {
             NORMAL_FLY: 'lolo_normal_fly'

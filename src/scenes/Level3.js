@@ -51,7 +51,7 @@ class Level3 extends BasicScene {
         //TODO: se debería pasar los parámetros 'x' e 'y' de forma dinámica en base al mapa y la posición de inicio
         // algo parecido a lo que se hace con los murciélagos y las ruedas
         //Daniela Creation
-        this.daniela = this.createDaniela(this, 100, 100);
+        this.daniela = this.createDaniela(this, 100, 100, GameConstants.Sprites.DanielaTroglo);        
         this.lolo = this.createLoloNormal(this, this.daniela);
         this.daniela.followedBy(this.lolo);
 

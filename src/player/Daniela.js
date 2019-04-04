@@ -6,13 +6,26 @@ import GameConstants from "../services/GameConstants.js";
 
 class Daniela extends Phaser.GameObjects.Sprite {
     constructor(config) {
-        super(config.scene, config.x, config.y, config.key);
-
+        super(config.scene, config.x, config.y, config.key);       
+        
+        
         // Health
         this.health = 3;
         this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
         // has been hit by obstacles 
         this.hitDelay = false;
+
+        
+        this.animIDLE = GameConstants.Anims.Daniela.IDLE;
+        this.animDOWN = GameConstants.Anims.Daniela.DOWN;
+        this.animWALK = GameConstants.Anims.Daniela.WALK;
+        //Animaciones en funcion del Sprite
+        if (config.key == GameConstants.Sprites.DanielaTroglo){
+            this.animIDLE = GameConstants.Anims.DanielaTroglo.IDLE;
+            this.animDOWN = GameConstants.Anims.DanielaTroglo.DOWN;
+            this.animWALK = GameConstants.Anims.DanielaTroglo.WALK;
+        }
+            
 
         // Win
         this.winner = false;
@@ -42,7 +55,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.friction = 10;
 
         // Animación inicial
-        this.anims.play(GameConstants.Anims.Daniela.IDLE);
+        this.anims.play(this.animIDLE);        
+
         this.prevAnim = 'idle';
         this.body.setSize(20, 30);
         this.setDepth(3);
@@ -103,7 +117,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         //Call it if Daniela is not in the liana
         if (!this.isInLiana) {
             if (control.down) {
-                this.animation(GameConstants.Anims.Direction.DOWN, GameConstants.Anims.Daniela.DOWN);
+                this.animation(GameConstants.Anims.Direction.DOWN, this.animDOWN);
                 if(!this.jumping || this.body.blocked.down) {
                     this.run(((this.body.velocity.x > 0) ? -1 : 1) * this.acceleration + this.deceleration);
                     // this.run(0);
@@ -120,13 +134,13 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
                     // Anima cuando daniela cae al suelo cuando cae Daniela
                     if (this.body.velocity.x > 5 && !this.jumping) {
-                        this.animation(GameConstants.Anims.Direction.RIGHT, GameConstants.Anims.Daniela.WALK);
+                        this.animation(GameConstants.Anims.Direction.RIGHT, this.animWALK);
                     } else if (this.body.velocity.x < -5 && !this.jumping) {
-                        this.animation(GameConstants.Anims.Direction.LEFT, GameConstants.Anims.Daniela.WALK);
+                        this.animation(GameConstants.Anims.Direction.LEFT, this.animWALKK);
                     }
                     if (Math.abs(this.body.velocity.x) < 10) {
                         // Detener por completo cuando la velocidad es menor de 10
-                        this.animation(GameConstants.Anims.Direction.IDLE, GameConstants.Anims.Daniela.IDLE);
+                        this.animation(GameConstants.Anims.Direction.IDLE, this.animIDLE);
                         this.body.setVelocityX(0);
                         this.run(0);
                     } else {
@@ -188,7 +202,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             } else {
                 this.run(acceleration);
             }
-            this.animation(dir, GameConstants.Anims.Daniela.WALK);
+            this.animation(dir, this.animWALK);
         } else {
             // Desacelerar en el aire
             this.run(acceleration);
@@ -210,7 +224,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.jumping = true;
 
         // Animación de salto
-        this.animation(GameConstants.Anims.Direction.JUMP, GameConstants.Anims.Daniela.IDLE);
+        this.animation(GameConstants.Anims.Direction.JUMP, this.animIDLE);
 
     }
 

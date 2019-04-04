@@ -15,6 +15,8 @@ class Bootloader extends Phaser.Scene {
         this.load.path = './assets/';
         this.load.atlas('daniela', 'img/daniela/daniela.png', 'img/daniela/daniela_atlas.json');
         this.load.animation('danielaData', 'img/daniela/daniela_anim.json');
+        this.load.atlas('daniela-troglodita', 'img/daniela/daniela-troglodita.png', 'img/daniela/daniela-troglodita_atlas.json');
+        this.load.animation('daniela-trogloditaData', 'img/daniela/daniela-troglodita_anim.json');
 
         this.load.atlas('lolo_normal','img/lolo/lolo_normal.png','img/lolo/lolo_normal_atlas.json');
         this.load.animation('lolo_normal_Data', 'img/lolo/lolo_normal_anim.json');

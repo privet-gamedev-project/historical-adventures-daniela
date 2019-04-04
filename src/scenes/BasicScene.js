@@ -37,12 +37,12 @@ class BasicScene extends Phaser.Scene {
      * @param y
      * @returns Daniela
      */
-    createDaniela(scene, x, y) {
+    createDaniela(scene, x, y, spriteKey) {
         this.daniela = new Daniela({
             scene: scene,
             x: x,
             y: y,
-            key: GameConstants.Sprites.Daniela.KEY
+            key:  spriteKey
         }).setScale(2);
         this.daniela.on(GameConstants.Events.GAME_OVER, e => {
             this.changeScene(this.daniela.scene, GameConstants.Levels.MENU, 2000);

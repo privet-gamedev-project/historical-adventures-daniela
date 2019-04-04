@@ -1,0 +1,125 @@
+{
+    "frames": [
+        {
+            "filename": "daniela-troglodita_0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 20,
+                "h": 40
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela-troglodita_1",
+            "frame": {
+                "x": 20,
+                "y": 0,
+                "w": 20,
+                "h": 40
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela-troglodita_2",
+            "frame": {
+                "x": 40,
+                "y": 0,
+                "w": 20,
+                "h": 40
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela-troglodita_3",
+            "frame": {
+                "x": 60,
+                "y": 0,
+                "w": 20,
+                "h": 40
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela-troglodita_4",
+            "frame": {
+                "x": 80,
+                "y": 0,
+                "w": 20,
+                "h": 40
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela-troglodita_5",
+            "frame": {
+                "x": 100,
+                "y": 0,
+                "w": 20,
+                "h": 40
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela-troglodita_6",
+            "frame": {
+                "x": 120,
+                "y": 0,
+                "w": 20,
+                "h": 40
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela-troglodita_7",
+            "frame": {
+                "x": 140,
+                "y": 0,
+                "w": 20,
+                "h": 40
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela-troglodita_8",
+            "frame": {
+                "x": 160,
+                "y": 0,
+                "w": 20,
+                "h": 40
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
