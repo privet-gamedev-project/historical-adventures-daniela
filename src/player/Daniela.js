@@ -6,26 +6,26 @@ import GameConstants from "../services/GameConstants.js";
 
 class Daniela extends Phaser.GameObjects.Sprite {
     constructor(config) {
-        super(config.scene, config.x, config.y, config.key);       
-        
-        
+        super(config.scene, config.x, config.y, config.key);
+
+        this.key = config.key;
+
         // Health
         this.health = 3;
         this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
         // has been hit by obstacles 
         this.hitDelay = false;
 
-        
-        this.animIDLE = GameConstants.Anims.Daniela.IDLE;
-        this.animDOWN = GameConstants.Anims.Daniela.DOWN;
-        this.animWALK = GameConstants.Anims.Daniela.WALK;
         //Animaciones en funcion del Sprite
-        if (config.key == GameConstants.Sprites.DanielaTroglo){
+        if (this.key == GameConstants.Sprites.DanielaTroglo) {
             this.animIDLE = GameConstants.Anims.DanielaTroglo.IDLE;
             this.animDOWN = GameConstants.Anims.DanielaTroglo.DOWN;
             this.animWALK = GameConstants.Anims.DanielaTroglo.WALK;
+        } else {
+            this.animIDLE = GameConstants.Anims.Daniela.IDLE;
+            this.animDOWN = GameConstants.Anims.Daniela.DOWN;
+            this.animWALK = GameConstants.Anims.Daniela.WALK;
         }
-            
 
         // Win
         this.winner = false;
@@ -55,10 +55,17 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.friction = 10;
 
         // Animación inicial
-        this.anims.play(this.animIDLE);        
+        this.anims.play(this.animIDLE);
 
         this.prevAnim = 'idle';
-        this.body.setSize(20, 30);
+        
+        if (this.key !== GameConstants.Sprites.DanielaTroglo) {
+            this.body.setSize(20, 30);
+            this.body.setOffset(6, 2);
+        } else {
+            this.body.setSize(20, 40);
+        }
+
         this.setDepth(3);
 
         //Just for level 4 it let us know how Danielas controls are going to work
@@ -81,9 +88,6 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.DANIELA_AUCH);
 
         this.lolo = null;
-
-
-
     }
 
     followedBy(lolo) {
@@ -118,11 +122,11 @@ class Daniela extends Phaser.GameObjects.Sprite {
         if (!this.isInLiana) {
             if (control.down) {
                 this.animation(GameConstants.Anims.Direction.DOWN, this.animDOWN);
-                if(!this.jumping || this.body.blocked.down) {
+                if (!this.jumping || this.body.blocked.down) {
                     this.run(((this.body.velocity.x > 0) ? -1 : 1) * this.acceleration + this.deceleration);
                     // this.run(0);
                 } else {
-                     this.run(0);
+                    this.run(0);
                 }
             } else {
                 if (control.left) {
@@ -233,13 +237,24 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
 
     animation(direction, animation) {
-        if(direction === GameConstants.Anims.Direction.DOWN) {
-            this.body.setSize(20, 20);
-            this.body.setOffset(6, 12);
+        if (direction === GameConstants.Anims.Direction.DOWN) {
+            if (this.key !== GameConstants.Sprites.DanielaTroglo) {
+                this.body.setSize(20, 20);
+                this.body.setOffset(6, 12);
+            } else {
+                this.body.setSize(20, 25);
+                this.body.setOffset(0, 15);
+            }
         } else {
-            this.body.setSize(20, 30);
-            this.body.setOffset(6, 2);
+            if (this.key !== GameConstants.Sprites.DanielaTroglo) {
+                this.body.setSize(20, 30);
+                this.body.setOffset(6, 2);
+            } else {
+                this.body.setSize(20, 40);
+            }
+
         }
+
         if (this.prevAnimJump !== direction) {
             this.anims.play(animation);
             if (direction === GameConstants.Anims.Direction.JUMP) {
