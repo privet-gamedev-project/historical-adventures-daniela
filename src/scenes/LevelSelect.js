@@ -38,8 +38,9 @@ class LevelSelect extends BasicScene {
             
         });
         
-        
-        const level1Button = this.add.dynamicBitmapText(250, y * 2, 'pixel', this.TG.tr('LEVELSELECT.LEVEL1'), 24);        
+        const levelsLabel = this.add.dynamicBitmapText(250, y * 2, 'pixel', this.TG.tr('LEVELSELECT.LEVELS'), 24);        
+                
+        const level1Button = this.add.dynamicBitmapText(450, y * 2, 'pixel', '1', 24);        
         level1Button.setInteractive();
 
         level1Button.on('pointerdown', () => { 
@@ -47,7 +48,7 @@ class LevelSelect extends BasicScene {
             
         });
 
-        const level2Button = this.add.dynamicBitmapText(455, y * 2, 'pixel', this.TG.tr('LEVELSELECT.LEVEL2'), 24);        
+        const level2Button = this.add.dynamicBitmapText(550, y * 2, 'pixel', '2', 24);        
         level2Button.setInteractive();
 
         level2Button.on('pointerdown', () => { 
@@ -55,10 +56,18 @@ class LevelSelect extends BasicScene {
             
         });
 
-        const level3Button = this.add.dynamicBitmapText(655, y *2, 'pixel', this.TG.tr('LEVELSELECT.LEVEL4'), 24);        
+        const level3Button = this.add.dynamicBitmapText(650, y * 2, 'pixel', '3', 24);        
         level3Button.setInteractive();
 
         level3Button.on('pointerdown', () => { 
+            this.changeScene(this, GameConstants.Levels.LEVEL3,0);
+            
+        });
+
+        const level4Button = this.add.dynamicBitmapText(750, y *2, 'pixel', '4', 24);        
+        level4Button.setInteractive();
+
+        level4Button.on('pointerdown', () => { 
             this.changeScene(this, GameConstants.Levels.LEVEL4,0);
             
         });

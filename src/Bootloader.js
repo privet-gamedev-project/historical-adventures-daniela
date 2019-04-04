@@ -31,6 +31,9 @@ class Bootloader extends Phaser.Scene {
         //Level2
         this.load.tilemapTiledJSON('Level2', '../src/worlds/level2/forestmap.json');
         this.load.image('forestPack_32x32', '../src/worlds/level2/forestPack_32x32.png');
+        
+        this.load.tilemapTiledJSON('Level3', '../src/worlds/level3/grasstiles.json');
+        this.load.image('grasstiles', '../src/worlds/level3/grasstiles.png');
 
         //Level4
         this.load.tilemapTiledJSON('Level4','../src/worlds/level4/level4.json');
@@ -48,6 +51,9 @@ class Bootloader extends Phaser.Scene {
         //Level2
         this.load.image('bg_Level2', 'img/backgrounds/bg_forest.png');
         //https://www.gameart2d.com/free-platformer-game-tileset.html
+        //Level 3 
+        this.load.image('bg_Level3', 'img/backgrounds/background_level3.png');
+        //https://rgoncalves83.itch.io/free-vector-grass-tileset
         //Level 4
         this.load.image("oceanBackground","img/backgrounds/Ocean.png");
         //Credits

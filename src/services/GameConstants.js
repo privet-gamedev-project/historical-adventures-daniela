@@ -76,6 +76,7 @@ const GameConstants = {
         BG_MENU: 'bg_Menu',
         BG_LEVEL1: 'bg_Level1',
         BG_LEVEL2: 'bg_Level2',
+        BG_LEVEL3: 'bg_Level3',
         BG_CREDITS: 'Credits',        
         BG_CREDITS_PAGE2: 'creditsPage2',
         PLATFORM_FOREST: 'platform'
@@ -119,6 +120,7 @@ const GameConstants = {
     Tiles: {
         CAVE_STONE: 'caveStones',
         FOREST_PACK : 'forestPack_32x32',
+        GRASS_TILES: 'grasstiles',
         JUNGLE :"jungleTileset",
     },
     Layers: {
