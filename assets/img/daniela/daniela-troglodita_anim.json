@@ -51,6 +51,22 @@
                     "frame": "daniela-troglodita_6"
                 }
             ]
+        },
+        {
+            "key": "daniela-troglodita_climb",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_7"
+                },
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_8"
+                }
+            ]
         }
     ]
 }

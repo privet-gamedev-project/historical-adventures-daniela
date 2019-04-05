@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "swim",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 4,
+            "frames": [
+                {
+                    "key": "crocodile",
+                    "frame": "crocodile_0"
+                },
+                {
+                    "key": "crocodile",
+                    "frame": "crocodile_1"
+                }
+            ]
+        }
+    ]
+}

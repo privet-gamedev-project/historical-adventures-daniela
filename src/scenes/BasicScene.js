@@ -116,7 +116,6 @@ class BasicScene extends Phaser.Scene {
         this.map = this.make.tilemap({
             key: this.key
         });
-
         //Los bordes del mundo serán las dimensiones del mapa cargado
         this.physics.world.bounds.setTo(0, 0, this.map.widthInPixels, this.map.heightInPixels);
 
@@ -208,6 +207,20 @@ class BasicScene extends Phaser.Scene {
         return this.map.createFromObjects('ExtraPoints', 'extrapoint', {
             key: spriteKey
         });
+    }
+        /**
+     * Crea el/los GameObject correspondiente al nivel 4 en base al mapa que se ha cargado con la escena actual.
+     * 
+     * @returns {*|Phaser.GameObjects.Sprite[]|Phaser.GameObjects.Sprite[]}
+     */
+    createLianas(){
+        return this.map.createFromObjects(GameConstants.Sprites.Lianas.OBJECT_NAME, GameConstants.Sprites.Lianas.OBJECT_ID, {key: GameConstants.Sprites.Lianas.KEY});
+    }
+    createEndOfLianas(){
+        return this.map.createFromObjects(GameConstants.Sprites.EndOfLianas.OBJECT_NAME, GameConstants.Sprites.EndOfLianas.OBJECT_ID, {key: GameConstants.Sprites.EndOfLianas.KEY});
+    }
+    createCrocodile(){
+        return this.map.createFromObjects(GameConstants.Sprites.Crocodile.OBJECT_NAME, GameConstants.Sprites.Crocodile.OBJECT_ID, {key: GameConstants.Sprites.Crocodile.KEY});
     }
 
     /**

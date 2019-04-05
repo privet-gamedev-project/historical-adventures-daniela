@@ -21,6 +21,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             this.animIDLE = GameConstants.Anims.DanielaTroglo.IDLE;
             this.animDOWN = GameConstants.Anims.DanielaTroglo.DOWN;
             this.animWALK = GameConstants.Anims.DanielaTroglo.WALK;
+            this.animCLIMB = GameConstants.Anims.DanielaTroglo.CLIMB;
         } else {
             this.animIDLE = GameConstants.Anims.Daniela.IDLE;
             this.animDOWN = GameConstants.Anims.Daniela.DOWN;
@@ -58,7 +59,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.anims.play(this.animIDLE);
 
         this.prevAnim = 'idle';
-        
+
         if (this.key !== GameConstants.Sprites.DanielaTroglo) {
             this.body.setSize(20, 30);
             this.body.setOffset(6, 2);
@@ -120,7 +121,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             jump: this.cursor.up.isDown || this.animControl.jump || ((this.gamepad !== null) ? this.gamepad.A : false),
             down: this.cursor.down.isDown || this.animControl.down || ((this.gamepad !== null) ? this.gamepad.down : false)
         }
-        
+
 
         // Lógica de movimiento de Daniela
         // Nos permite hacer el salto con peso
@@ -177,6 +178,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
 
         } else {
+            this.animation(GameConstants.Anims.Direction.CLIMB, this.animCLIMB);
             //Determines how Daniela is going to move in the liana
             if (control.jump && control.left) {
                 this.x -= 20;
@@ -185,12 +187,12 @@ class Daniela extends Phaser.GameObjects.Sprite {
                 this.jumping = true;
                 this.body.velocity.x = -200;
                 this.isInLiana = false;
-
             } else {
                 if (control.jump && control.right) {
                     this.x += 20;
                     this.body.setAllowGravity(true);
                     this.body.setVelocityY(-this.jumpForce);
+                    this.jumpTimer = 300;
                     this.jumping = true;
                     this.body.velocity.x = 200;
                     this.isInLiana = false;
@@ -202,9 +204,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
             if (control.down) {
                 this.body.velocity.y = 50;
             }
+
         }
     }
-
     // Métodos usados en la lógica, están separado para mejor orden    
     moverLeftRight(dir) {
         let acceleration = ((dir === GameConstants.Anims.Direction.RIGHT) ? 1 : -1) * this.acceleration;
@@ -317,7 +319,6 @@ class Daniela extends Phaser.GameObjects.Sprite {
                 });
             }
         }
-
     }
 
     nextScene() {

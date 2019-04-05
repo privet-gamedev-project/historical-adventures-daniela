@@ -1,6 +1,6 @@
 class Bootloader extends Phaser.Scene {
     constructor() {
-        super('Bootloader'); 
+        super('Bootloader');
     }
 
     preload() {
@@ -8,17 +8,18 @@ class Bootloader extends Phaser.Scene {
 
         //PLUGINS
         this.load.script('scrollbar', './libs/Scrollbars.js');
-           
+
 
 
         //LOAD ALL ASSETS
         this.load.path = './assets/';
         this.load.atlas('daniela', 'img/daniela/daniela.png', 'img/daniela/daniela_atlas.json');
+        this.load.atlas('daniela-troglodita', 'img/daniela/daniela-troglodita.png', 'img/daniela/daniela-troglodita_atlas.json');
         this.load.animation('danielaData', 'img/daniela/daniela_anim.json');
         this.load.atlas('daniela-troglodita', 'img/daniela/daniela-troglodita.png', 'img/daniela/daniela-troglodita_atlas.json');
         this.load.animation('daniela-trogloditaData', 'img/daniela/daniela-troglodita_anim.json');
 
-        this.load.atlas('lolo_normal','img/lolo/lolo_normal.png','img/lolo/lolo_normal_atlas.json');
+        this.load.atlas('lolo_normal', 'img/lolo/lolo_normal.png', 'img/lolo/lolo_normal_atlas.json');
         this.load.animation('lolo_normal_Data', 'img/lolo/lolo_normal_anim.json');
 
         // Maps
@@ -29,19 +30,22 @@ class Bootloader extends Phaser.Scene {
         //Copyright/Attribution Notice: 
         //Credit "Tio Aimar @ opengameart.org" or simply "Tio Aimar" (this is not mandatory)
         //https://opengameart.org/content/2d-platformer-forest-pack
-        
+
         //Level2
         this.load.tilemapTiledJSON('Level2', '../src/worlds/level2/forestmap.json');
         this.load.image('forestPack_32x32', '../src/worlds/level2/forestPack_32x32.png');
-        
+
         this.load.tilemapTiledJSON('Level3', '../src/worlds/level3/grasstiles.json');
         this.load.image('grasstiles', '../src/worlds/level3/grasstiles.png');
 
         //Level4
-        this.load.tilemapTiledJSON('Level4','../src/worlds/level4/level4.json');
-        this.load.image('jungleTileset','../src/worlds/level4/Jungle_guide.png');
-        this.load.image("liane","img/jungle/liane.png");
-    
+        this.load.tilemapTiledJSON('Level4', '../src/worlds/level4/level4.json');
+        this.load.image('jungleTileset', '../src/worlds/level4/Jungle_guide.png');
+        this.load.image("liana", "img/jungle/liane.png");
+        this.load.image("endOfLiana", "img/jungle/endOfLiana.png");
+        this.load.atlas('crocodile', 'img/jungle/crocodile.png', 'img/jungle/crocodile_atlas.json');
+        this.load.animation('crocodileAnim', 'img/jungle/crocodile_anim.json');
+
         //BACKGROUNDS
         //Menu
         this.load.image('bg_Menu', 'img/backgrounds/dibujoPortadaEscaneado.png');
@@ -57,12 +61,12 @@ class Bootloader extends Phaser.Scene {
         this.load.image('bg_Level3', 'img/backgrounds/background_level3.png');
         //https://rgoncalves83.itch.io/free-vector-grass-tileset
         //Level 4
-        this.load.image("oceanBackground","img/backgrounds/Ocean.png");
+        this.load.image("oceanBackground", "img/backgrounds/Ocean.png");
         //Credits
         this.load.image('en_Credits', 'img/backgrounds/en_credits_800w.png');
         this.load.image('es_Credits', 'img/backgrounds/es_credits_800w.png');
         this.load.image('creditsPage2', 'img/backgrounds/credits_page2.png');
-        
+
 
 
         // Enemies
@@ -91,7 +95,7 @@ class Bootloader extends Phaser.Scene {
 
         //Water
         this.load.image('water', 'img/objects/water-tile.png');
-        
+
         //Joystick        
         this.load.atlas('joystick', 'img/objects/joystick/joystick.png', 'img/objects/joystick/joystick_atlas.json');
         this.load.animation('joystickAnim', 'img/objects/joystick/joystick_anim.json');
@@ -115,34 +119,34 @@ class Bootloader extends Phaser.Scene {
         //Sounds
         this.load.audio("soundJump", "sounds/jump.mp3");
         this.load.audio("danielaAuch", "sounds/Daniela_Auch.ogg");
-        this.load.audio("es_LEVEL1_LOLO_findBracelet","sounds/dialogs/LEVEL1_LOLO_BuscaPulsera.ogg");
-        this.load.audio("en_LEVEL1_LOLO_findBracelet","sounds/dialogs/LEVEL1_LOLO_MagicBracelet.ogg");
-        this.load.audio("es_LOLO_WE_DID_IT","sounds/LOLO_Bien_lo_hemos_conseguido.ogg");
-        this.load.audio("en_LOLO_WE_DID_IT","sounds/LOLO_Allright_We_did_it.ogg");
-        this.load.audio("CaveBats","sounds/backgrounds/CaveBats.mp3");
+        this.load.audio("es_LEVEL1_LOLO_findBracelet", "sounds/dialogs/LEVEL1_LOLO_BuscaPulsera.ogg");
+        this.load.audio("en_LEVEL1_LOLO_findBracelet", "sounds/dialogs/LEVEL1_LOLO_MagicBracelet.ogg");
+        this.load.audio("es_LOLO_WE_DID_IT", "sounds/LOLO_Bien_lo_hemos_conseguido.ogg");
+        this.load.audio("en_LOLO_WE_DID_IT", "sounds/LOLO_Allright_We_did_it.ogg");
+        this.load.audio("CaveBats", "sounds/backgrounds/CaveBats.mp3");
         /*
         https://opengameart.org/content/cave-bats
         Copyright/Attribution Notice: 
         Please credit music by Dan Knoflicek
-        */       
-        this.load.audio("caveManBgSound","sounds/backgrounds/caveManBgSound.mp3");
+        */
+        this.load.audio("caveManBgSound", "sounds/backgrounds/caveManBgSound.mp3");
         //By Xololex (Gonzalo)
-        
+
         // this.load.audio('LEVEL2_LOLO_findClothes','sounds/dialogs/LEVEL2_LOLO_findClothes.mp3');
-        
+
 
         //UI
-        this.load.image('volumeOn','img/ui/volumeON.png');
-        this.load.image('volumeOff','img/ui/volumeOFF.png');
+        this.load.image('volumeOn', 'img/ui/volumeON.png');
+        this.load.image('volumeOff', 'img/ui/volumeOFF.png');
         //CONTROLS (For input Touch Versions)
-        this.load.image('controlUp','img/ui/controlUp.png');        
-        this.load.image('controlRight','img/ui/controlRight.png');        
-        this.load.image('controlLeft','img/ui/controlLeft.png');        
-        
+        this.load.image('controlUp', 'img/ui/controlUp.png');
+        this.load.image('controlRight', 'img/ui/controlRight.png');
+        this.load.image('controlLeft', 'img/ui/controlLeft.png');
+
         //FONTS
         this.load.json('fontJSON', 'font/font.json');
-        this.load.image('font', 'font/font.png');       
-       
+        this.load.image('font', 'font/font.png');
+
         // Progress
         this.load.on('progress', (value) => {
             this.registry.events.emit('load_progress', value);

@@ -76,6 +76,24 @@ const GameConstants = {
         },
         Joystick:{
             KEY: 'joystick'
+        },
+        Lianas: {
+            KEY: 'liana',
+            ID: 'liana',
+            OBJECT_NAME: 'lianasPoints',
+            OBJECT_ID: 'liana'
+        },
+        EndOfLianas: {
+            KEY: 'endOfLiana',
+            ID: 'endOfLiana',
+            OBJECT_NAME: 'lianasPoints',
+            OBJECT_ID: 'endOfLiana'
+        },
+        Crocodile: {
+            KEY: 'crocodile',
+            ID: 'crocodile',
+            OBJECT_NAME: 'crocodiles',
+            OBJECT_ID: 'crocodile'
         }
     },
     Textures: {
@@ -96,15 +114,18 @@ const GameConstants = {
         EXTRAPOINT: 'extrapoint_rotate',
         CAVEMAN_CLOTHES: 'caveman_clothes_move',
         JOYSTICK: 'joystick_move',
+        CROCODILE:'swim',
         Daniela: {
             IDLE: 'daniela_idle',
             WALK: 'daniela_walk',
-            DOWN: 'daniela_down'
+            DOWN: 'daniela_down',
+            CLIMB: 'daniela_climb'
         },
         DanielaTroglo: {
             IDLE: 'daniela-troglodita_idle',
             WALK: 'daniela-troglodita_walk',
-            DOWN: 'daniela-troglodita_down'
+            DOWN: 'daniela-troglodita_down',
+            CLIMB: 'daniela-troglodita_climb'
         },
         LOLO: {
             NORMAL_FLY: 'lolo_normal_fly'
@@ -115,7 +136,7 @@ const GameConstants = {
             UP: 'up',
             DOWN: 'down',
             JUMP: 'jump',
-            IDLE: 'idle'
+            IDLE: 'idle',
         }
     },
     UI:{
