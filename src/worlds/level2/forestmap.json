@@ -184,6 +184,65 @@
         }, 
         {
          "draworder":"topdown",
+         "id":30,
+         "name":"ExtraPoints",
+         "objects":[
+                {
+                 "height":0,
+                 "id":59,
+                 "name":"extrapoint",
+                 "point":true,
+                 "rotation":0,
+                 "type":"extrapoint",
+                 "visible":true,
+                 "width":0,
+                 "x":1331,
+                 "y":558
+                }, 
+                {
+                 "height":0,
+                 "id":60,
+                 "name":"extrapoint",
+                 "point":true,
+                 "rotation":0,
+                 "type":"extrapoint",
+                 "visible":true,
+                 "width":0,
+                 "x":1784,
+                 "y":343
+                }, 
+                {
+                 "height":0,
+                 "id":61,
+                 "name":"extrapoint",
+                 "point":true,
+                 "rotation":0,
+                 "type":"extrapoint",
+                 "visible":true,
+                 "width":0,
+                 "x":1257,
+                 "y":496
+                }, 
+                {
+                 "height":0,
+                 "id":62,
+                 "name":"extrapoint",
+                 "point":true,
+                 "rotation":0,
+                 "type":"extrapoint",
+                 "visible":true,
+                 "width":0,
+                 "x":2388,
+                 "y":380
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":6,
          "name":"Wheels",
          "objects":[
@@ -288,8 +347,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":30,
- "nextobjectid":59,
+ "nextlayerid":31,
+ "nextobjectid":63,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.2",
