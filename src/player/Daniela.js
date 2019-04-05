@@ -81,7 +81,14 @@ class Daniela extends Phaser.GameObjects.Sprite {
             down: false
         };
 
+        // Control
         this.cursor = this.scene.input.keyboard.createCursorKeys();
+        this.gamepad = null;
+        this.scene.input.gamepad.once('down', (pad) => {
+            this.gamepad = pad;
+            console.log(pad);
+        });
+
 
         //Sounds create
         this.soundJump = this.scene.sound.add(GameConstants.Sound.DANIELA_JUMP);
@@ -108,11 +115,12 @@ class Daniela extends Phaser.GameObjects.Sprite {
         }
 
         let control = {
-            left: this.cursor.left.isDown || this.animControl.left,
-            right: this.cursor.right.isDown || this.animControl.right,
-            jump: this.cursor.up.isDown || this.animControl.jump,
-            down: this.cursor.down.isDown || this.animControl.down
+            left: this.cursor.left.isDown || this.animControl.left || ((this.gamepad !== null) ? this.gamepad.left : false),
+            right: this.cursor.right.isDown || this.animControl.right || ((this.gamepad !== null) ? this.gamepad.right : false),
+            jump: this.cursor.up.isDown || this.animControl.jump || ((this.gamepad !== null) ? this.gamepad.A : false),
+            down: this.cursor.down.isDown || this.animControl.down || ((this.gamepad !== null) ? this.gamepad.down : false)
         }
+        
 
         // Lógica de movimiento de Daniela
         // Nos permite hacer el salto con peso

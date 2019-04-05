@@ -26,6 +26,10 @@ const config = {
         width: 	854,
         height: 480,
     },
+    input: {
+        gamepad: true,
+        queue: true,
+    },
     plugins: {
         global: [{
             key: 'TG',
