@@ -2,6 +2,7 @@ import Bats from '../gameObjects/Bats.js';
 import Wheels from '../gameObjects/Wheels.js';
 import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
+import ExtraPoints from '../gameObjects/ExtraPoints.js';
 
 class Level3 extends BasicScene {
     constructor() {
@@ -102,6 +103,33 @@ class Level3 extends BasicScene {
         let Level2Landscape = map.createDynamicLayer('Landscape', level2Tile, 0, 0);
         let Wall =  map.createDynamicLayer('Wall', level2Tile, 0, 0);
         Wall.setCollisionByExclusion([-1]);
+
+
+        //ExtraPoints        
+        this.extraPoints = this.createExtraPoints(GameConstants.Sprites.ExtraPoint.KEY);
+        this.extraPointsGroup = new ExtraPoints(this.physics.world, this, [], this.extraPoints);                         
+        this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
+        
+        // setting collisions between the player and the ExtraPoint group
+        // TODO: Add Point Systems
+        this.physics.add.overlap(this.daniela, this.extraPointsGroup, function(player, object){
+
+            this.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    this.extraPointsGroup.killAndHide(object);
+                    this.extraPointsGroup.remove(object);
+                }
+            });
+
+        }, null, this);
+
+
 
          //Colliders
         this.colliderWall = this.physics.add.collider(this.daniela, Wall);

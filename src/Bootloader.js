@@ -100,13 +100,10 @@ class Bootloader extends Phaser.Scene {
         //Level2 Platform
         this.load.image("platform", "img/objects/platform.png");
 
-        // ExtraPoints
-        //TODO: Cambiar por Pintura Rupestre
-         this.load.spritesheet("extraPoint", "img/objects/coin.png", {
-            frameWidth: 20,
-            frameHeight: 20
-        });
-
+        // ExtraPoints        
+        this.load.atlas('extrapoint', 'img/objects/extrapoint/extrapoint.png', 'img/objects/extrapoint/extrapoint_atlas.json');
+        this.load.animation('extrapointAnim', 'img/objects/extrapoint/extrapoint_anim.json');
+         
         
         // the firecamp is a sprite sheet made by 32x58 pixels
         this.load.spritesheet("fire", "img/objects/fire.png", {

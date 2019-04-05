@@ -49,6 +49,9 @@ const GameConstants = {
         Bracelet: {
             KEY: 'bracelet'        
         },
+        ExtraPoint: {
+            KEY: 'extrapoint'        
+        },
         Cavemen_Clothes: {
             KEY: 'caveman_clothes'        
         },
@@ -90,6 +93,7 @@ const GameConstants = {
         SNAILS: 'snail_move',
         WHEEL: 'wheel_move',
         BRACELET: 'bracelet_move',
+        EXTRAPOINT: 'extrapoint_rotate',
         CAVEMAN_CLOTHES: 'caveman_clothes_move',
         JOYSTICK: 'joystick_move',
         Daniela: {

@@ -79,37 +79,25 @@ class Level1 extends BasicScene {
         this.magicbracelet.body.setAllowGravity(false);
         this.anims.play(GameConstants.Anims.BRACELET, this.magicbracelet);
 
-        //ExtraPoints
-        //TODO: usar GameConstants
-        this.extraPoints = this.createExtraPoints('extraPoint');
-        this.extraPointsGroup = new ExtraPoints(this.physics.world, this, [], this.extraPoints);                 
-        // setting animation
-        // TODO: Meter en JSON y GameConstants
-         this.anims.create({
-            key: "rotate",
-            frames: this.anims.generateFrameNumbers("extraPoint", {
-                start: 0,
-                end: 5
-            }),
-            frameRate: 15,
-            yoyo: true,
-            repeat: -1
-        });
-        this.anims.play('rotate', this.extraPoints);
+        //ExtraPoints        
+        this.extraPoints = this.createExtraPoints(GameConstants.Sprites.ExtraPoint.KEY);
+        this.extraPointsGroup = new ExtraPoints(this.physics.world, this, [], this.extraPoints);                         
+        this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
 
         // setting collisions between the player and the ExtraPoint group
-        this.physics.add.overlap(this.daniela, this.extraPointsGroup, function(player, coin){
+        // TODO: Add Point Systems
+        this.physics.add.overlap(this.daniela, this.extraPointsGroup, function(player, object){
 
             this.tweens.add({
-                targets: coin,
-                y: coin.y - 100,
+                targets: object,
+                y: object.y - 100,
                 alpha: 0,
                 duration: 800,
                 ease: "Cubic.easeOut",
                 callbackScope: this,
                 onComplete: function(){
-                    this.extraPointsGroup.killAndHide(coin);
-                    this.extraPointsGroup.remove(coin);
+                    this.extraPointsGroup.killAndHide(object);
+                    this.extraPointsGroup.remove(object);
                 }
             });
 
