@@ -266,7 +266,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
     loseHealth() {
         this.health--;
-        this.scene.textHealth.setText(GameConstants.Texts.VIDAS + this.health);
+        this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
         if (this.health === 0) {
             this.gameOver = true;
             this.emit(GameConstants.Events.GAME_OVER);
