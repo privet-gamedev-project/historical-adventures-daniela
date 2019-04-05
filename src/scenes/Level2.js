@@ -2,6 +2,8 @@ import Bats from '../gameObjects/Bats.js';
 import Wheels from '../gameObjects/Wheels.js';
 import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
+import ExtraPoints from '../gameObjects/ExtraPoints.js';
+
 
 class Level2 extends BasicScene {
     constructor() {
@@ -93,6 +95,30 @@ class Level2 extends BasicScene {
         this.joystick.setScale(1.5);
         this.joystick.body.setAllowGravity(false);
         this.anims.play(GameConstants.Anims.JOYSTICK, this.joystick);
+
+        //ExtraPoints        
+        this.extraPoints = this.createExtraPoints(GameConstants.Sprites.ExtraPoint.KEY);
+        this.extraPointsGroup = new ExtraPoints(this.physics.world, this, [], this.extraPoints);                         
+        this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
+        
+        // setting collisions between the player and the ExtraPoint group
+        // TODO: Add Point Systems
+        this.physics.add.overlap(this.daniela, this.extraPointsGroup, function(player, object){
+
+            this.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    this.extraPointsGroup.killAndHide(object);
+                    this.extraPointsGroup.remove(object);
+                }
+            });
+
+        }, null, this);
 
 
         //Tilemap
