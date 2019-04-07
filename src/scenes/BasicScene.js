@@ -47,8 +47,9 @@ class BasicScene extends Phaser.Scene {
         this.daniela.on(GameConstants.Events.GAME_OVER, e => {
             this.changeScene(this.daniela.scene, GameConstants.Levels.MENU, 2000);
         });
+        //Evento paso de Nivel
         this.daniela.on(GameConstants.Events.LEVEL_FINISHED, e => {
-            this.changeScene(this.daniela.scene, this.daniela.scene.target, 2000);
+            this.showScores(this.daniela);            
         });
 
         //Evento de Vuelve al Menu    
@@ -258,6 +259,89 @@ class BasicScene extends Phaser.Scene {
                 console.error("El nombre de la animación no es válido o no se ha definido aún.")
         }
     }
+
+    showScores(){        
+        this.daniela.scene.physics.pause();
+
+        this.height = this.cameras.main.height;
+        this.width = this.cameras.main.width;
+        
+        //Ceros a la izquiera de la puntuacion
+        const score = Phaser.Utils.String.Pad(parseInt(this.daniela.secondsLevel*this.daniela.health) + this.daniela.extraPoints , 6, 0, 1);
+        
+
+        
+        
+        
+        //Num de estrellas
+        //Estrella 1 Si 3 Vidas
+        const star1show = (this.daniela.health==3)?true:false;
+        //Estrella 2 Si ExtraPoint > 30 
+        const star2show = (this.daniela.extraPoints>=30)?true:false;
+        //Estrella 3 Si Segundos > 420
+        const star3show = (this.daniela.secondsLevel>=480)?true:false;
+
+        //SCORES
+        const scoreLabel = this.daniela.scene.add.dynamicBitmapText(this.width/2-100, (this.height/2)-150, 'pixel', 'SCORES:' + score,24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+               
+        
+        this.LevelUpmusic = this.sound.add(GameConstants.Sound.LEVELUP);
+        this.LevelUpmusic.play();
+
+        
+        //STARTS
+        //TODO: Cada estrella en función de los retos        
+        const star1 = this.add.image((this.width/2)-300, this.height+100 , GameConstants.Sprites.Star.KEY).setScrollFactor(0).setDepth(10).setOrigin(0);      
+        if (!star1show) star1.setAlpha(0.3);         
+        
+        const tween = this.tweens.add({
+            targets: star1,
+            x: '+=100',
+            y: '-= ' + ((this.height/2)+200) ,
+            duration: 500,
+            ease: 'Power3'
+        });
+
+
+        const star2 = this.add.image((this.width/2), this.height+100 , GameConstants.Sprites.Star.KEY).setScrollFactor(0).setDepth(10).setOrigin(0);              
+        if (!star2show) star2.setAlpha(0.3);        
+        
+        const tween2 = this.tweens.add({
+            targets: star2,
+            x: '+=0',
+            y: '-= ' + ((this.height/2)+200) ,
+            duration: 500,
+            ease: 'Power3'
+        });
+
+        const star3 = this.add.image((this.width/2)+300, this.height+100 , GameConstants.Sprites.Star.KEY).setScrollFactor(0).setDepth(10).setOrigin(0);              
+        if (!star3show) star2.setAlpha(0.3);        
+        
+        const tween3 = this.tweens.add({
+            targets: star3,
+            x: '-=100',
+            y: '-= ' + ((this.height/2)+200) ,
+            duration: 500,
+            ease: 'Power3'
+        });
+
+
+
+        const menuLabel = this.daniela.scene.add.dynamicBitmapText((this.width/2)-100, (this.height)-200, 'pixel', 'MENU' ,24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);        
+        menuLabel.setInteractive();
+        menuLabel.on('pointerdown', () => { 
+            this.changeScene(this.daniela.scene,GameConstants.Levels.MENU, 0);
+        });
+
+        const nextLevelLabel = this.daniela.scene.add.dynamicBitmapText((this.width/2)+100, (this.height)-200, 'pixel', 'NEXT' ,24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);        
+        nextLevelLabel.setInteractive();
+
+        nextLevelLabel.on('pointerdown', () => { 
+            this.changeScene(this.daniela.scene, this.daniela.scene.target, 500);
+        });
+        
+    }
+
 }
 
 export default BasicScene;

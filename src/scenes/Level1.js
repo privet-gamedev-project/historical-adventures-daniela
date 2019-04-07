@@ -84,23 +84,9 @@ class Level1 extends BasicScene {
         this.extraPointsGroup = new ExtraPoints(this.physics.world, this, [], this.extraPoints);                         
         this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
 
-        // setting collisions between the player and the ExtraPoint group
-        // TODO: Add Point Systems
+        //EXtraPoints collisions 
         this.physics.add.overlap(this.daniela, this.extraPointsGroup, function(player, object){
-
-            this.tweens.add({
-                targets: object,
-                y: object.y - 100,
-                alpha: 0,
-                duration: 800,
-                ease: "Cubic.easeOut",
-                callbackScope: this,
-                onComplete: function(){
-                    this.extraPointsGroup.killAndHide(object);
-                    this.extraPointsGroup.remove(object);
-                }
-            });
-
+            this.daniela.collectExtraPoints(this.extraPointsGroup, object);
         }, null, this);
 
 
@@ -114,20 +100,16 @@ class Level1 extends BasicScene {
         this.physics.add.collider(this.batsGroup, Level1);
         this.physics.add.collider(this.wheelsGroup, Level1);
         this.physics.add.collider(this.daniela, this.magicbracelet, () => {
-            //this.scene.pause();
             this.music.stop();
             this.magicbracelet.destroy();
             this.soundLOLO_Bien_lo_hemos_conseguido.play();
-            console.log('Daniela encuentra pulsera magica');
             this.daniela.nextScene();
         });
         this.physics.add.overlap(this.daniela, this.bats, () => {
-            this.daniela.enemyCollision();
-            console.log('Daniela colisiona con murciélago');
+            this.daniela.enemyCollision();            
         });
         this.physics.add.overlap(this.daniela, this.wheels, () => {
-            this.daniela.enemyCollision();
-            console.log('Daniela colisiona con ruedas');
+            this.daniela.enemyCollision();            
         });
 
 
@@ -136,7 +118,7 @@ class Level1 extends BasicScene {
     }
 
     update(time, delta) {
-        this.daniela.update(delta);
+        this.daniela.update(time,delta);
         this.batsGroup.update();
         this.wheelsGroup.update();
     }

@@ -107,7 +107,9 @@ class Bootloader extends Phaser.Scene {
         // ExtraPoints        
         this.load.atlas('extrapoint', 'img/objects/extrapoint/extrapoint.png', 'img/objects/extrapoint/extrapoint_atlas.json');
         this.load.animation('extrapointAnim', 'img/objects/extrapoint/extrapoint_anim.json');
-         
+        
+        //Star
+        this.load.image("star","img/objects/star.png");
         
         // the firecamp is a sprite sheet made by 32x58 pixels
         this.load.spritesheet("fire", "img/objects/fire.png", {
@@ -124,6 +126,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("es_LOLO_WE_DID_IT", "sounds/LOLO_Bien_lo_hemos_conseguido.ogg");
         this.load.audio("en_LOLO_WE_DID_IT", "sounds/LOLO_Allright_We_did_it.ogg");
         this.load.audio("CaveBats", "sounds/backgrounds/CaveBats.mp3");
+        this.load.audio("levelUp","sounds/backgrounds/LevelUp.ogg");
         /*
         https://opengameart.org/content/cave-bats
         Copyright/Attribution Notice: 

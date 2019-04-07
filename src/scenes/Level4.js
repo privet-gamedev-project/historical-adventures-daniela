@@ -63,7 +63,7 @@ class Level4 extends BasicScene {
         this.cameras.main.startFollow(this.daniela);
     }
     update(time, delta) {
-        this.daniela.update(delta);
+        this.daniela.update(time,delta);
 
 
     }

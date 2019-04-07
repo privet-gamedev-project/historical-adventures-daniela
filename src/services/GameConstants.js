@@ -19,7 +19,8 @@ const GameConstants = {
         DANIELA_JUMP: 'soundJump',
         DANIELA_AUCH: 'danielaAuch',
         CAVEMAN_BG:'caveManBgSound',
-        LEVEL2_LOLO_FINDCLOTHES: 'LEVEL2_LOLO_findClothes'
+        LEVEL2_LOLO_FINDCLOTHES: 'LEVEL2_LOLO_findClothes',
+        LEVELUP : 'levelUp'
     },
     Sprites: {
         Bats: {
@@ -51,6 +52,9 @@ const GameConstants = {
         },
         ExtraPoint: {
             KEY: 'extrapoint'        
+        },
+        Star:{
+            KEY: 'star'
         },
         Cavemen_Clothes: {
             KEY: 'caveman_clothes'        

@@ -16,6 +16,13 @@ class Daniela extends Phaser.GameObjects.Sprite {
         // has been hit by obstacles 
         this.hitDelay = false;
 
+        //Time
+        this.seconds = 1;
+        //Maximo tiempo por nivel 600 seg = 10 min
+        this.secondsLevel = 600;
+        //Extra point recogidas
+        this.extraPoints = 0;
+
         //Animaciones en funcion del Sprite
         if (this.key == GameConstants.Sprites.DanielaTroglo) {
             this.animIDLE = GameConstants.Anims.DanielaTroglo.IDLE;
@@ -102,7 +109,14 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.lolo = lolo;
     }
 
-    update(delta) {
+    update(time,delta) {
+
+        //Resta segundos empleados por Daniela en cada Level
+        if (this.seconds != parseInt(Math.abs(time / 1000))) {
+            this.seconds = parseInt(Math.abs(time / 1000));            
+            this.secondsLevel--;            
+        }
+        
 
         if (this.lolo) {
             if (this.flipX) {
@@ -327,6 +341,26 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.emit(GameConstants.Events.LEVEL_FINISHED);
 
 
+    }
+
+
+    collectExtraPoints(group, object){
+
+        //TODO: OJO Cuenta ptos mientras esta con la colision
+        this.extraPoints++;                 
+
+        this.scene.tweens.add({
+            targets: object,
+            y: object.y - 100,
+            alpha: 0,
+            duration: 800,
+            ease: "Cubic.easeOut",
+            callbackScope: this,
+            onComplete: function(){
+                group.killAndHide(object);
+                group.remove(object);                
+            }
+        });
     }
 
 }
