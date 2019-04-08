@@ -269,8 +269,17 @@ class BasicScene extends Phaser.Scene {
         //Ceros a la izquiera de la puntuacion
         const score = Phaser.Utils.String.Pad(parseInt(this.daniela.secondsLevel*this.daniela.health) + this.daniela.extraPoints , 6, 0, 1);
         
-
+        //Graba en BD local Store
+        //TODO: Esto es una prueba para Level1 
+        // Preparar Gestion generalizada para todos los level
+        const DB = store.get('gamedata');        
+        DB.actualLevel = 'Level2';
+        DB.worlds[0].score = score;
+        DB.worlds[0].completed = true;
+        store.set('gamedata', DB);
         
+        
+
         
         
         //Num de estrellas

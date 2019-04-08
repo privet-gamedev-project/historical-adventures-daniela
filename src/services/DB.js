@@ -17,7 +17,27 @@ const DB = {
     worlds: [
         {
             name: 'Level1',
-            passed: false
+            completed: false,
+            score : 0,
+            stars: 0
+        },
+        {
+            name: 'Level2',
+            completed: false,
+            score : 0,
+            stars: 0
+        },
+        {
+            name: 'Level3',
+            completed: false,
+            score : 0,
+            stars: 0
+        },
+        {
+            name: 'Level4',
+            completed: false,
+            score : 0,
+            stars: 0
         }
     ],
     skipIntro: true
