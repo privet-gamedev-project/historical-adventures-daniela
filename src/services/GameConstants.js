@@ -48,6 +48,12 @@ const GameConstants = {
             OBJECT_NAME: 'Wheels',
             OBJECT_ID: 'Wheel'
         },
+        Donut: {
+            KEY: 'donut',
+            ID: 'donut',
+            OBJECT_NAME: 'Donuts',
+            OBJECT_ID: 'Donut'
+        },
         Bracelet: {
             KEY: 'bracelet'        
         },
@@ -115,11 +121,12 @@ const GameConstants = {
         BEES: 'bee_fly',
         SNAILS: 'snail_move',
         WHEEL: 'wheel_move',
+        DONUT: 'donut_move',
         BRACELET: 'bracelet_move',
         EXTRAPOINT: 'extrapoint_rotate',
         CAVEMAN_CLOTHES: 'caveman_clothes_move',
         JOYSTICK: 'joystick_move',
-        CROCODILE:'swim',
+        CROCODILE:'swim',        
         Daniela: {
             IDLE: 'daniela_idle',
             WALK: 'daniela_walk',

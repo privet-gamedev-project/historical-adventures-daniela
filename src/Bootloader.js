@@ -93,6 +93,10 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('wheel', 'img/wheelStone/wheelStone_32x32.png', 'img/wheelStone/wheelStone_32x32_atlas.json');
         this.load.animation('wheelAnim', 'img/wheelStone/wheelStone_32x32_anim.json');
 
+        //Donut
+        this.load.atlas('donut', 'img/donut/donut.png', 'img/donut/donut_atlas.json');
+        this.load.animation('donutAnim', 'img/donut/donut_anim.json');
+
         //Water
         this.load.image('water', 'img/objects/water-tile.png');
 

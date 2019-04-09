@@ -53,8 +53,26 @@ class Scores extends BasicScene {
         }
 
         const level2Label = this.add.dynamicBitmapText(80, 150, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 2 : ' + this.DB.worlds.Level2.score , 24).setTint(0x808489);        
+
+        for(let i=0;i<this.DB.worlds.Level2.stars;i++) {
+            this.add.image(480 + (i*50), 145 , GameConstants.Sprites.Star.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(0.25).setAlpha(1); 
+        }
         const level3Label = this.add.dynamicBitmapText(80, 200, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 3 : ' + this.DB.worlds.Level3.score , 24).setTint(0x808489);        
+        
+        for(let i=0;i<this.DB.worlds.Level3.stars;i++) {
+            this.add.image(480 + (i*50), 195 , GameConstants.Sprites.Star.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(0.25).setAlpha(1); 
+        }
+
         const level4Label = this.add.dynamicBitmapText(80, 250, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 4 : ' + this.DB.worlds.Level4.score , 24).setTint(0x808489);        
+        
+        for(let i=0;i<this.DB.worlds.Level4.stars;i++) {
+            this.add.image(480 + (i*50), 245 , GameConstants.Sprites.Star.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(0.25).setAlpha(1); 
+        }
+
+
         
 
         

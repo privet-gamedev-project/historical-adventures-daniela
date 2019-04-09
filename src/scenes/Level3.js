@@ -71,12 +71,12 @@ class Level3 extends BasicScene {
         //Creating Wheels
         //TODO: Crear objeto Generico CreateFloorObjects para usar la misma lógica 
         //en los niveles que lo necesiten         
-        this.wheels = this.createWheels(GameConstants.Sprites.Snails.KEY);
-        this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels,50);
+        this.wheels = this.createWheels(GameConstants.Sprites.Donut.KEY);
+        this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels,100);
         this.wheelsGroup.children.iterate((wheel) => {
             wheel.setScale(1);
         });    
-        this.anims.play(GameConstants.Anims.SNAILS, this.wheels);
+        this.anims.play(GameConstants.Anims.DONUT, this.wheels);
 
         //Create CaveManClothes
         this.cavemanclothes = this.createEndLevelObject(GameConstants.Sprites.Cavemen_Clothes.KEY);        
