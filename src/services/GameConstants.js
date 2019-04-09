@@ -36,6 +36,12 @@ const GameConstants = {
             OBJECT_NAME: 'Bees',
             OBJECT_ID: 'Bee'
         },
+        Soda: {
+            KEY: 'soda',
+            ID: 'soda',
+            OBJECT_NAME: 'Sodas',
+            OBJECT_ID: 'Soda'
+        },
         Snails: {
             KEY: 'snail',
             ID: 'snail',
@@ -119,6 +125,7 @@ const GameConstants = {
     Anims: {
         BATS: 'bat_move',
         BEES: 'bee_fly',
+        SODAS: 'soda_fly',
         SNAILS: 'snail_move',
         WHEEL: 'wheel_move',
         DONUT: 'donut_move',

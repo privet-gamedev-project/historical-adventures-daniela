@@ -60,19 +60,20 @@ class Level3 extends BasicScene {
         //Creating Bats 
         //TODO: Crear Objeto Generico CreateFlyingObjects para usar la misma lógica 
         //en los niveles que lo necesiten
-        this.bats = this.createBats(GameConstants.Sprites.Bees.KEY);
+        this.bats = this.createBats(GameConstants.Sprites.Soda.KEY);        
         this.batsGroup = new Bats(this.physics.world, this, [], this.bats); 
         //TODO: Pasar el Scale y el FlipX del Sprite, para evitar cambiarlo aquí
         this.batsGroup.children.iterate((bat) => {
-            bat.setScale(1);
+            bat.setScale(1);            
         });
-        this.anims.play(GameConstants.Anims.BEES, this.bats);
+        this.anims.play(GameConstants.Anims.SODAS, this.bats);
+        
 
         //Creating Wheels
         //TODO: Crear objeto Generico CreateFloorObjects para usar la misma lógica 
         //en los niveles que lo necesiten         
         this.wheels = this.createWheels(GameConstants.Sprites.Donut.KEY);
-        this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels,100);
+        this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels,75);
         this.wheelsGroup.children.iterate((wheel) => {
             wheel.setScale(1);
         });    
