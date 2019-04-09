@@ -14,7 +14,7 @@ class Menu extends BasicScene {
     }
 
     create() {
-        //store.clearAll();        
+        store.clearAll();        
         /*store.each(function(key, value) {
             console.log(key, '->', value);            
         });*/
