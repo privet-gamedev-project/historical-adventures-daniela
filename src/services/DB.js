@@ -13,33 +13,31 @@ const DB = {
     daniela: {
         costume: 'daniela'
     },
-    actualLevel: 'Level1',
-    worlds: [
-        {
-            name: 'Level1',
+    currentLevel: 'Level1', //Nivel Actual
+    maxLevel: 'Level1', //Último nivel alcanzado
+    worlds: {
+        Level1: {            
             completed: false,
-            score : 0,
+            score : '000000',
             stars: 0
         },
-        {
-            name: 'Level2',
+        Level2: {            
             completed: false,
-            score : 0,
+            score : '000000',
             stars: 0
         },
-        {
-            name: 'Level3',
+        Level3: {            
             completed: false,
-            score : 0,
+            score : '000000',
             stars: 0
         },
-        {
+        Level4: {
             name: 'Level4',
             completed: false,
-            score : 0,
+            score : '000000',
             stars: 0
         }
-    ],
+    },
     skipIntro: true
 }
 

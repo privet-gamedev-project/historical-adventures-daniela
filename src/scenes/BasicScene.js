@@ -38,6 +38,13 @@ class BasicScene extends Phaser.Scene {
      * @returns Daniela
      */
     createDaniela(scene, x, y, spriteKey) {
+
+        //Establece nivel actual el último nivel jugado
+        this.DB = store.get('gamedata');        
+        this.DB.currentLevel = this.key;        
+        store.set('gamedata', this.DB);
+
+        //Crear Daniela
         this.daniela = new Daniela({
             scene: scene,
             x: x,
@@ -269,17 +276,7 @@ class BasicScene extends Phaser.Scene {
         //Ceros a la izquiera de la puntuacion
         const score = Phaser.Utils.String.Pad(parseInt(this.daniela.secondsLevel*this.daniela.health) + this.daniela.extraPoints , 6, 0, 1);
         
-        //Graba en BD local Store
-        //TODO: Esto es una prueba para Level1 
-        // Preparar Gestion generalizada para todos los level
-        const DB = store.get('gamedata');        
-        DB.actualLevel = 'Level2';
-        DB.worlds[0].score = score;
-        DB.worlds[0].completed = true;
-        store.set('gamedata', DB);
         
-        
-
         
         
         //Num de estrellas
@@ -290,9 +287,24 @@ class BasicScene extends Phaser.Scene {
         //Estrella 3 Si Segundos > 420
         const star3show = (this.daniela.secondsLevel>=480)?true:false;
 
+        let numstars = 0;
+        if (star1show) numstars++;
+        if (star2show) numstars++;
+        if (star3show) numstars++;
+
+        //Graba en BD local Store
+        //TODO: Guardar maxLevel
+        // Preparar Gestion generalizada para todos los level
+        //this.DB = store.get('gamedata');        
+        this.DB.currentLevel = this.key;        
+        this.DB.worlds[this.key].score = score;
+        this.DB.worlds[this.key].stars = numstars;
+        this.DB.worlds[this.key].completed = true;
+        store.set('gamedata', this.DB);
+
         //SCORES
-        const scoreLabel = this.daniela.scene.add.dynamicBitmapText(this.width/2-100, (this.height/2)-150, 'pixel', 'SCORES:' + score,24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
-               
+        const scoreLabel = this.daniela.scene.add.dynamicBitmapText(this.width/2-100, (this.height/2)-150, 'pixel', 'SCORE:' + score,24)
+            .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);               
         
         this.LevelUpmusic = this.sound.add(GameConstants.Sound.LEVELUP);
         this.LevelUpmusic.play();
@@ -300,8 +312,10 @@ class BasicScene extends Phaser.Scene {
         
         //STARTS
         //TODO: Cada estrella en función de los retos        
-        const star1 = this.add.image((this.width/2)-300, this.height+100 , GameConstants.Sprites.Star.KEY).setScrollFactor(0).setDepth(10).setOrigin(0);      
-        if (!star1show) star1.setAlpha(0.3);         
+        const star1 = this.add.image((this.width/2)-300, this.height+100 , GameConstants.Sprites.Star.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0.3);      
+
+        if (numstars>=1) star1.setAlpha(1);         
         
         const tween = this.tweens.add({
             targets: star1,
@@ -312,8 +326,10 @@ class BasicScene extends Phaser.Scene {
         });
 
 
-        const star2 = this.add.image((this.width/2), this.height+100 , GameConstants.Sprites.Star.KEY).setScrollFactor(0).setDepth(10).setOrigin(0);              
-        if (!star2show) star2.setAlpha(0.3);        
+        const star2 = this.add.image((this.width/2), this.height+100 , GameConstants.Sprites.Star.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0.3);              
+
+        if (numstars>=2) star2.setAlpha(1);        
         
         const tween2 = this.tweens.add({
             targets: star2,
@@ -323,8 +339,10 @@ class BasicScene extends Phaser.Scene {
             ease: 'Power3'
         });
 
-        const star3 = this.add.image((this.width/2)+300, this.height+100 , GameConstants.Sprites.Star.KEY).setScrollFactor(0).setDepth(10).setOrigin(0);              
-        if (!star3show) star2.setAlpha(0.3);        
+        const star3 = this.add.image((this.width/2)+300, this.height+100 , GameConstants.Sprites.Star.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0.3);              
+        
+        if (numstars>=3) star3.setAlpha(1);         
         
         const tween3 = this.tweens.add({
             targets: star3,

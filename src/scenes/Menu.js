@@ -14,6 +14,11 @@ class Menu extends BasicScene {
     }
 
     create() {
+        //store.clearAll();        
+        /*store.each(function(key, value) {
+            console.log(key, '->', value);            
+        });*/
+
         // background positions   
         var width = this.cameras.main.width;
         var height = this.cameras.main.height;
@@ -51,7 +56,9 @@ class Menu extends BasicScene {
         const scoresButton = this.add.dynamicBitmapText(400, y * 2, 'pixel', this.TG.tr('MENU.SCORES'), 24);                        
         scoresButton.setInteractive();
 
-        scoresButton.on('pointerdown', () => { console.log('SCORES'); });
+        scoresButton.on('pointerdown', () => { 
+            this.changeScene(this, GameConstants.Levels.SCORES,0);
+         });
 
         const creditsButton = this.add.dynamicBitmapText(600, y * 2, 'pixel', this.TG.tr('MENU.CREDITS'), 24);        
         creditsButton.setInteractive();

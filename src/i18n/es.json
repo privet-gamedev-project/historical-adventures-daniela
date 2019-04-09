@@ -8,7 +8,8 @@
     },
     "LEVELSELECT":{
         "MENU": "MENÚ",
-        "LEVELS": "NIVELES"        
+        "LEVELS": "NIVELES",
+        "LEVEL": "NIVEL"       
     },
     "SETTINGLEVEL": {
         "SOUND": "SONIDO",

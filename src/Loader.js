@@ -6,6 +6,7 @@ class Loader extends Phaser.Scene {
     }
 
     init() {
+        //store.clearAll(); 
         DB.createDB([{key: 'gamedata', value: DB.DB}]);
     }
 
