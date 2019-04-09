@@ -9,11 +9,13 @@
     "LEVELSELECT":{
         "MENU": "MENÚ",
         "LEVELS": "NIVELES",
-        "LEVEL": "NIVEL"       
+        "LEVEL": "NIVEL"      
     },
     "SETTINGLEVEL": {
         "SOUND": "SONIDO",
-        "LANGUAGE": "CAMBIAR IDIOMA"
+        "LANGUAGE": "CAMBIAR IDIOMA",
+        "RESET": "REINICIAR JUEGO",
+        "DONE": "HECHO"
     },
     "LEVEL1": {
         "FINDBRACELET": "DANIELA TIENES QUE BUSCAR LA PULSERA MÁGICA"

@@ -1,6 +1,6 @@
 import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
-
+import DB from "../services/DB.js";
 
 class SettingsLevel extends BasicScene {
     constructor() {
@@ -44,6 +44,21 @@ class SettingsLevel extends BasicScene {
             if (this.TG.getActualLang()=='es') this.TG.setLang('en');
             else this.TG.setLang('es');                                  
             this.changeScene(this, GameConstants.Levels.MENU,0);
+        });
+
+
+        //Reset Scores and Levels DB Button
+        this.resetDBLabel = this.add.dynamicBitmapText(80,250, 'pixel', this.TG.tr('SETTINGLEVEL.RESET'), 24).setTint(0x808489);
+        this.resetDBLabel.setInteractive();
+        this.resetDBLabel.on('pointerdown',() => {
+            //Clear DB
+            store.clearAll();  
+            DB.createDB([{key: 'gamedata', value: DB.DB}]);          
+            this.DoneLabel = this.add.dynamicBitmapText(80,300, 'pixel', this.TG.tr('SETTINGLEVEL.DONE'), 24).setTint(0x808489);
+
+            store.each(function(key, value) {
+                console.log(key, '->', value);               
+            });
         });
         
         

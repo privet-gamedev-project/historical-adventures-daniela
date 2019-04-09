@@ -13,11 +13,7 @@ class Menu extends BasicScene {
         
     }
 
-    create() {
-        //store.clearAll();        
-        store.each(function(key, value) {
-            console.log(key, '->', value);            
-        });
+    create() {        
 
         // background positions   
         var width = this.cameras.main.width;

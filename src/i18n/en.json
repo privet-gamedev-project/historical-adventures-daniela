@@ -13,7 +13,9 @@
     },
     "SETTINGLEVEL": {
         "SOUND": "SOUND",
-        "LANGUAGE": "CHANGE LANGUAGE"
+        "LANGUAGE": "CHANGE LANGUAGE",
+        "RESET" : "RESET GAME",
+        "DONE" : "DONE"
     },
     "LEVEL1": {
         "FINDBRACELET": "YOU HAVE TO LOOK FOR THE MAGIC BRACELET"
