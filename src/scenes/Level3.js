@@ -90,13 +90,16 @@ class Level3 extends BasicScene {
         });    
         this.anims.play(GameConstants.Anims.DONUT, this.wheels);
 
-        //Create CaveManClothes
-        this.cavemanclothes = this.createEndLevelObject(GameConstants.Sprites.Cavemen_Clothes.KEY);        
-        this.physics.world.enable(this.cavemanclothes);
-        this.cavemanclothe = this.cavemanclothes[0];
-        this.cavemanclothe.setScale(2.75);
-        this.cavemanclothe.body.setAllowGravity(false);
-        this.anims.play(GameConstants.Anims.CAVEMAN_CLOTHES, this.cavemanclothe);
+        //MAMUT
+        this.mamuts = this.createEndLevelObject(GameConstants.Sprites.Mamut.KEY);        
+        this.physics.world.enable(this.mamuts);
+        this.mamut = this.mamuts[0];
+        this.mamut.setScale(0.55);
+        this.mamut.setOrigin(0);
+        this.mamut.body.setImmovable(true);
+        this.mamut.body.setAllowGravity(false);
+        console.log(this.mamut);
+        this.anims.play(GameConstants.Anims.MAMUT.SLEEP, this.mamut);
 
 
         //Create Joystick
@@ -152,10 +155,7 @@ class Level3 extends BasicScene {
                     });
 
                     if (this.fruitsCollected == 0){
-                        this.colliderWall.destroy();         
-                        this.colliderWall2.destroy();         
-                        this.colliderWall3.destroy();         
-                        Wall.alpha=0;  
+                        this.anims.play(GameConstants.Anims.MAMUT.HAPPY, this.mamut); 
                     }
 
                     this.time.addEvent({
@@ -212,13 +212,14 @@ class Level3 extends BasicScene {
         this.physics.add.collider(this.daniela, Level2);
         this.physics.add.collider(this.batsGroup, Level2);
         this.physics.add.collider(this.wheelsGroup, Level2);
-        this.physics.add.collider(this.daniela, this.cavemanclothe, () => {
-            //this.scene.pause();
-            this.music.stop();
-            this.cavemanclothe.destroy();
-            this.soundLOLO_Bien_lo_hemos_conseguido.play();
-            console.log('Daniela encuentra pulsera magica');
-            this.daniela.nextScene();
+        this.physics.add.overlap(this.daniela, this.mamut, () => {
+            if (this.fruitsCollected == 0){
+                this.fruitsCollected == -1;                                       
+                this.music.stop();
+                this.soundLOLO_Bien_lo_hemos_conseguido.play();
+                console.log('Daniela encuentra pulsera magica');
+                this.daniela.nextScene();
+            }
         });
         this.physics.add.overlap(this.daniela, this.bats, () => {
             this.daniela.enemyCollision();

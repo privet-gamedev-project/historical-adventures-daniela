@@ -1,0 +1,32 @@
+{
+    "anims": [
+        {
+            "key": "mamut_happy",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 2,
+            "frames": [
+                {
+                    "key": "mamut",
+                    "frame": "mamut_0"
+                },
+                {
+                    "key": "mamut",
+                    "frame": "mamut_1"
+                }
+            ]
+        },
+        {
+            "key": "mamut_sleep",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 1,
+            "frames": [
+                {
+                    "key": "mamut",
+                    "frame": "mamut_2"
+                }
+            ]
+        }
+    ]
+}

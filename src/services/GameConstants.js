@@ -72,6 +72,9 @@ const GameConstants = {
         Cavemen_Clothes: {
             KEY: 'caveman_clothes'        
         },
+        Mamut: {
+            KEY: 'mamut'        
+        },
         EndLevel: {            
             OBJECT_NAME: 'EndLevel',
             OBJECT_ID: 'positionEnd'
@@ -133,7 +136,11 @@ const GameConstants = {
         EXTRAPOINT: 'extrapoint_rotate',
         CAVEMAN_CLOTHES: 'caveman_clothes_move',
         JOYSTICK: 'joystick_move',
-        CROCODILE:'swim',        
+        CROCODILE:'swim',       
+        MAMUT:{
+            SLEEP: 'mamut_sleep',
+            HAPPY: 'mamut_happy'
+        }, 
         Daniela: {
             IDLE: 'daniela_idle',
             WALK: 'daniela_walk',
