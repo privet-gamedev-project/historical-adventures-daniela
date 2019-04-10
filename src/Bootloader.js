@@ -82,6 +82,9 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('soda', 'img/soda/soda.png', 'img/soda/soda_atlas.json');
         this.load.animation('sodaAnim', 'img/soda/soda_anim.json');
 
+        //Fruits
+        this.load.atlas('fruits','img/fruits/fruits.png','img/fruits/fruits.json');
+
         //Snails
         this.load.atlas('snail', 'img/snail/snail.png', 'img/snail/snail_atlas.json');
         this.load.animation('snailAnim', 'img/snail/snail_anim.json');

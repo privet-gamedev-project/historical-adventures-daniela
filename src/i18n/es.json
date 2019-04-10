@@ -23,6 +23,9 @@
     "LEVEL2": {
         "FINDCLOTHES": "PARA CONTINUAR TENDRÁS QUE ENCONTRAR ROPA DE LA PREHISTORIA"
     },
+    "LEVEL3":{
+        "FRUITS": "FRUTAS"
+    },
     "COMMONTEXT":{
         "WEDIDIT": "BIEN LO HEMOS CONSEGUIDO!!",
         "LIVES": "VIDAS "

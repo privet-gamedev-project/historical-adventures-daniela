@@ -3,7 +3,10 @@ import Wheels from '../gameObjects/Wheels.js';
 import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
 import ExtraPoints from '../gameObjects/ExtraPoints.js';
-
+/**
+ * Level 3 . To open the next door with the Mamut
+ * you need to collect 10 fruits
+ */
 class Level3 extends BasicScene {
     constructor() {
         super({
@@ -23,7 +26,10 @@ class Level3 extends BasicScene {
         //Read Tilemap
         let map = this.createMap();
 
-
+        //FRUITS COLLECTED
+        this.fruitsCollected = 10;
+        this.fruitDelay = false;
+        
         // background repeated with the map size
         this.bg = this.add.tileSprite(0, 0,map.widthInPixels,map.heightInPixels, GameConstants.Textures.BG_LEVEL3).setOrigin(0).setScale(1);
 
@@ -48,6 +54,11 @@ class Level3 extends BasicScene {
         this.textHealth = this.add.dynamicBitmapText(30, 20, 'pixel', GameConstants.Texts.VIDAS);        
         this.textHealth.setScrollFactor(0);
         this.textHealth.setDepth(3);
+
+         //Text Fruits        
+         this.textFruits = this.add.dynamicBitmapText(30, 60, 'pixel', this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);        
+         this.textFruits.setScrollFactor(0);
+         this.textFruits.setDepth(3);
 
         //TODO: se debería pasar los parámetros 'x' e 'y' de forma dinámica en base al mapa y la posición de inicio
         // algo parecido a lo que se hace con los murciélagos y las ruedas
@@ -89,12 +100,76 @@ class Level3 extends BasicScene {
 
 
         //Create Joystick
-        this.joysticks = this.map.createFromObjects('ActionButton', 'openwall', GameConstants.Sprites.Joystick.KEY);
+        /*this.joysticks = this.map.createFromObjects('ActionButton', 'openwall', GameConstants.Sprites.Joystick.KEY);
         this.physics.world.enable(this.joysticks);
         this.joystick = this.joysticks[0];
         this.joystick.setScale(1.5);
         this.joystick.body.setAllowGravity(false);
-        this.anims.play(GameConstants.Anims.JOYSTICK, this.joystick);
+        this.anims.play(GameConstants.Anims.JOYSTICK, this.joystick);*/
+
+        //FRUITS
+        //TODO: Modify with new Classes
+        //Avocado, Straberry, Cherry, Banana, Watermelon
+        this.fruitsArray = ["avocado.png","banana.png","cherry.png","cherry.png","watermelon.png"];
+
+        //this.fruit = this.add.sprite(100,200,"fruits",this.fruits[2]);
+        this.fruits = this.map.createFromObjects('Fruits', 'fruit', {key: 'fruits'});
+        this.fruitsGroup = this.physics.add.group();
+        this.fruits.map((sprite) => {            
+            
+            let newsprite = this.add.sprite(sprite.x,sprite.y,"fruits",this.fruitsArray[Phaser.Math.Between(0,4)]);
+            sprite.destroy();
+            this.fruitsGroup.add(newsprite);
+        });        
+        
+        this.fruitsGroup.children.iterate((fruit) => {            
+            fruit.body.setAllowGravity(false);
+            fruit.setDepth(3);           
+        });
+
+        this.physics.add.overlap(this.daniela, this.fruitsGroup, function(player, object){
+            
+            if (!this.fruitDelay) {
+                    this.fruitsCollected--;
+                    this.fruitDelay = true;                    
+            
+                    
+                    this.textFruits.setText(this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
+
+                    this.tweens.add({
+                        targets: object,
+                        y: object.y - 100,
+                        alpha: 0,
+                        duration: 800,
+                        ease: "Cubic.easeOut",
+                        callbackScope: this,
+                        onComplete: function(){
+                            this.fruitsGroup.killAndHide(object);
+                            this.fruitsGroup.remove(object);                
+                            
+                            console.log(this.fruitsCollected);
+                        }
+                    });
+
+                    if (this.fruitsCollected == 0){
+                        this.colliderWall.destroy();         
+                        this.colliderWall2.destroy();         
+                        this.colliderWall3.destroy();         
+                        Wall.alpha=0;  
+                    }
+
+                    this.time.addEvent({
+                        delay: 600,
+                        callback: () => {
+                            this.fruitDelay = false;                            
+                        },
+                        callbackScope: this
+                    });
+                }
+
+        }, null, this);
+
+
 
 
         //Tilemap
@@ -122,13 +197,15 @@ class Level3 extends BasicScene {
         this.colliderWall = this.physics.add.collider(this.daniela, Wall);
         this.colliderWall2 = this.physics.add.collider(this.batsGroup, Wall);
         this.colliderWall3 = this.physics.add.collider(this.wheelsGroup, Wall);
+        /*
+        //Open WALL LOGIC
         this.physics.add.collider(this.daniela, this.joystick, () => {
             this.joystick.destroy();   
             this.colliderWall.destroy();         
             this.colliderWall2.destroy();         
             this.colliderWall3.destroy();         
             Wall.alpha=0;   
-        });
+        });*/
 
         
          

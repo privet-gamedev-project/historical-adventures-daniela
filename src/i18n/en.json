@@ -23,6 +23,9 @@
     "LEVEL2": {
         "FINDCLOTHES": "TO BE ABLE TO CONTINUE YOU'LL HAVE TO FIND THE CLOTHES OF PREHISTORIC TIMES"
     },
+    "LEVEL3":{
+        "FRUITS": "FRUITS"
+    },
     "COMMONTEXT":{
         "WEDIDIT": "ALRIGHT WE DID IT!!",
         "LIVES": "LIVES "
