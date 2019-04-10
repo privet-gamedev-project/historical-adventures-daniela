@@ -8,24 +8,15 @@ class Bootloader extends Phaser.Scene {
 
         //PLUGINS
         this.load.script('scrollbar', './libs/Scrollbars.js');
-
-
-
-        //LOAD ALL ASSETS
+        
         this.load.path = './assets/';
-        this.load.atlas('daniela', 'img/daniela/daniela.png', 'img/daniela/daniela_atlas.json');
-        this.load.atlas('daniela-troglodita', 'img/daniela/daniela-troglodita.png', 'img/daniela/daniela-troglodita_atlas.json');
-        this.load.animation('danielaData', 'img/daniela/daniela_anim.json');
-        this.load.atlas('daniela-troglodita', 'img/daniela/daniela-troglodita.png', 'img/daniela/daniela-troglodita_atlas.json');
-        this.load.animation('daniela-trogloditaData', 'img/daniela/daniela-troglodita_anim.json');
 
-        this.load.atlas('lolo_normal', 'img/lolo/lolo_normal.png', 'img/lolo/lolo_normal_atlas.json');
-        this.load.animation('lolo_normal_Data', 'img/lolo/lolo_normal_anim.json');
-
+        // Assets
+        this.load.pack('assets_import', 'assets_import.json', 'assets');
+        
         // Maps
-        //Level1
-        this.load.tilemapTiledJSON('Level1', '../src/worlds/level1/cavemap.json');
-        this.load.image('caveStones', '../src/worlds/level1/caveStones.png');
+        this.load.pack('maps', '../src/worlds/maps.json', 'maps');
+
         //Level2
         //Copyright/Attribution Notice: 
         //Credit "Tio Aimar @ opengameart.org" or simply "Tio Aimar" (this is not mandatory)
@@ -172,6 +163,7 @@ class Bootloader extends Phaser.Scene {
         });
 
         this.load.lang();
+        
         // When all the assests are load go to next Scene
         this.load.on("complete", () => {
             const fontJSON = this.cache.json.get('fontJSON');

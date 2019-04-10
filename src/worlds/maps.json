@@ -1,0 +1,17 @@
+{
+    "maps": {
+        "path": "./src/worlds/",
+        "files": [
+            {
+                "type": "tilemapTiledJSON",
+                "key": "Level1",
+                "url": "level1/cavemap.json"
+            },
+            {
+                "type": "image",
+                "key": "caveStones",
+                "url": "level1/caveStones.png"
+            }
+        ]
+    }
+}
