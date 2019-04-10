@@ -130,7 +130,7 @@ class Level3 extends BasicScene {
         this.physics.add.overlap(this.daniela, this.fruitsGroup, function(player, object){
             
             if (!this.fruitDelay) {
-                    this.fruitsCollected--;
+                    if (this.fruitsCollected>0) this.fruitsCollected--;
                     this.fruitDelay = true;                    
             
                     
