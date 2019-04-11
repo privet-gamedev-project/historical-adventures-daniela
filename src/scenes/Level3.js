@@ -12,7 +12,7 @@ class Level3 extends BasicScene {
         super({
             key: GameConstants.Levels.LEVEL3
         });
-        this.target = GameConstants.Levels.MENU;
+        this.target = GameConstants.Levels.LEVEL4;
     }
 
     preload() {
@@ -94,8 +94,8 @@ class Level3 extends BasicScene {
         this.mamuts = this.createEndLevelObject(GameConstants.Sprites.Mamut.KEY);        
         this.physics.world.enable(this.mamuts);
         this.mamut = this.mamuts[0];
-        this.mamut.setScale(0.55);
-        this.mamut.setOrigin(0);
+        this.mamut.setScale(0.55);                
+        this.mamut.body.setSize(200,20);   
         this.mamut.body.setImmovable(true);
         this.mamut.body.setAllowGravity(false);
         console.log(this.mamut);

@@ -10,7 +10,7 @@ class Level2 extends BasicScene {
         super({
             key: GameConstants.Levels.LEVEL2
         });
-        this.target = GameConstants.Levels.MENU;
+        this.target = GameConstants.Levels.LEVEL3;
     }
 
     preload() {

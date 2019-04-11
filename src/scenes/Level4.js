@@ -4,6 +4,7 @@ import Daniela from "../player/Daniela.js";
 import Lianas from "../gameObjects/Lianas.js";
 import LianasEnd from "../gameObjects/LianasEnd.js";
 import Crocodiles from "../gameObjects/Crocodiles.js";
+import Bats from '../gameObjects/Bats.js';
 /**
  * Escena del Mamut
  */
@@ -38,10 +39,23 @@ class Level4 extends BasicScene {
         this.endOfLiana = this.createEndOfLianas();
         this.groupOfEndOfLianas = new LianasEnd(this.physics.world, this, [], this.endOfLiana);
         console.log(this.groupOfEndOfLianas);
+        
         //create Crocodile
-        this.crocodile = this.createCrocodile();
+        /*this.crocodile = this.createCrocodile();
         this.groupOfCrocodiles = new Crocodiles(this.physics.world, this, [], this.crocodile);
-        this.anims.play(GameConstants.Anims.CROCODILE, this.crocodile);
+        this.anims.play(GameConstants.Anims.CROCODILE, this.crocodile);*/
+
+         //Creating Bats 
+        //TODO: Crear Objeto Generico CreateFlyingObjects para usar la misma lógica 
+        //en los niveles que lo necesiten
+        this.crocodiles = this.createBats(GameConstants.Sprites.Crocodile.KEY);
+        this.groupOfCrocodiles = new Bats(this.physics.world, this, [], this.crocodiles); 
+        //TODO: Pasar el Scale y el FlipX del Sprite, para evitar cambiarlo aquí
+        this.groupOfCrocodiles.children.iterate((bat) => {
+            bat.setScale(1); 
+            bat.body.setSize(90, 16)           
+        });
+        this.anims.play(GameConstants.Anims.CROCODILE, this.crocodiles);
 
         //Text Health
         this.textHealth = this.add.dynamicBitmapText(30, 20, 'pixel', GameConstants.Texts.VIDAS);
@@ -52,18 +66,28 @@ class Level4 extends BasicScene {
         this.lolo = this.createLoloNormal(this, this.daniela);
         this.daniela.followedBy(this.lolo);
 
+        
 
         //Collides
         this.physics.add.collider(this.daniela, groundLayer);
         this.physics.add.overlap(this.daniela, this.groupOfLianas, this.danielaOverLiana, null, this);
         this.physics.add.overlap(this.daniela, this.groupOfEndOfLianas, this.danielaOverEndOfLiana, null, this);
-        this.physics.add.collider(this.groupOfCrocodiles, groundLayer, this.crocodileChangeDirection, null, this);
+        //this.physics.add.collider(this.groupOfCrocodiles, groundLayer, this.crocodileChangeDirection, null, this);
+        this.physics.add.collider(this.groupOfCrocodiles, groundLayer);
+        
+        this.physics.add.overlap(this.daniela, this.groupOfCrocodiles, () => {            
+            this.daniela.enemyCollision();            
+        });
+
+        
+        
         //Game camera
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.daniela);
     }
     update(time, delta) {
         this.daniela.update(time,delta);
+        this.groupOfCrocodiles.update();
 
 
     }
