@@ -47,7 +47,10 @@ class Menu extends BasicScene {
         const introButton = this.add.dynamicBitmapText(220, y * 2, 'pixel', this.TG.tr('MENU.INTRO'), 24);                
         introButton.setInteractive();
 
-        introButton.on('pointerdown', () => { console.log('INTRO'); });
+        introButton.on('pointerdown', () => {
+            this.changeScene(this, GameConstants.Levels.INTROSTORY,0);
+
+         });
 
         const scoresButton = this.add.dynamicBitmapText(400, y * 2, 'pixel', this.TG.tr('MENU.SCORES'), 24);                        
         scoresButton.setInteractive();
