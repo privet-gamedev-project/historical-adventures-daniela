@@ -1,5 +1,5 @@
-import Daniela from '../player/Daniela.js';
 import GameConstants from '../services/GameConstants.js';
+
 
 class IntroStory extends Phaser.Scene {
     constructor() {
@@ -7,6 +7,8 @@ class IntroStory extends Phaser.Scene {
     }
     
     preload() {
+        //TODO: Pasar todos los Assets de esta escenea a Bootloader
+        
         console.log('Scene: IntroStory');
         this.load.image("bg_park","assets/img/backgrounds/bg_park.jpg");
         this.load.image("timedoor","assets/img/objects/timedoor.png");
@@ -22,19 +24,34 @@ class IntroStory extends Phaser.Scene {
             frameWidth: 64,
             frameHeight: 64
         });
+
+        //Sounds
+        this.load.audio("en_LEVELINTRO_I_Arrive_in_5mins", "assets/sounds/dialogs/en_LEVELINTRO_I_Arrive_in_5mins.ogg");
+        this.load.audio("en_LEVELINTRO_Daniela_Where_are_you", "assets/sounds/dialogs/en_LEVELINTRO_Daniela_Where_are_you.ogg");
+        this.load.audio("es_LEVELINTRO_Daniela_Where_are_you", "assets/sounds/dialogs/es_LEVELINTRO_Daniela_Where_are_you.ogg");
+        this.load.audio("es_LEVELINTRO_I_Arrive_in_5mins", "assets/sounds/dialogs/es_LEVELINTRO_I_Arrive_in_5mins.ogg");
+
+        this.load.audio("birds_singing","assets/sounds/backgrounds/birds-singing.mp3");
+        //https://freesound.org/people/DCPoke/sounds/387978/
+
+        this.load.audio("falling","assets/sounds/backgrounds/falling.mp3");
+        //https://freesound.org/people/ChrisButler99/sounds/367988/
     }
 
     create() {
         this.run = false;
 
+
+        //Music Background
+        this.musicBirds = this.sound.add('birds_singing');
+        this.musicBirds.play();
+        this.musicBirds.setLoop(true);
+
+        //Music Falling
+        this.musicFalling = this.sound.add('falling');
+
         this.height = this.cameras.main.height;
-        this.width = this.cameras.main.width;
-
-        //Si es una pantalla tactil creamos controles
-        if (this.sys.game.device.input.touch) {
-            this.createControls();
-        }
-
+        this.width = this.cameras.main.width;        
         //Opción de MENU en niveles
         const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP'));        
         skipButton.setInteractive().setDepth(2);
@@ -47,14 +64,10 @@ class IntroStory extends Phaser.Scene {
             
         });
 
-
-
-        var height = this.cameras.main.height;
-        var width = this.cameras.main.width;
-
         //Daniela Running
-        this.bg = this.add.tileSprite(0, 0, width, height, 'bg_park').setOrigin(0);
+        this.bg = this.add.tileSprite(0, 0, this.width, this.height, 'bg_park').setOrigin(0);
 
+       
         // setting player animation
         this.anims.create({
             key: "run",
@@ -80,14 +93,14 @@ class IntroStory extends Phaser.Scene {
 
 
 
-       // adding the player;
+       // adding Daniela
        this.player = this.physics.add.sprite(200,350, "player");
        this.player.setDepth(2);
        this.player.flipX = true;
        this.player.body.setAllowGravity(false);
        this.player.anims.play("run");
 
-       // adding the player;
+       // adding lolo
        this.lolo = this.physics.add.sprite(130,240, "lolo");
        this.lolo.setDepth(2);
        this.lolo.flipX = true;
@@ -97,31 +110,37 @@ class IntroStory extends Phaser.Scene {
 
        //TEXTOS
         //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(30, height-50, 'pixel', this.TG.tr('LEVELINTRO.DANIELA_MUM'));                
+        this.textDialog = this.add.dynamicBitmapText(30, this.height-50, 'pixel', this.TG.tr('LEVELINTRO.DANIELA_MUM'));                
         this.textDialog.setScrollFactor(0);
         this.textDialog.setDepth(3);
         this.textDialog.setAlpha(0);
 
+        //SOUNDS
+        this.sound_LEVELINTRO_WHERE_ARE_YOU = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELINTRO_WHERE_ARE_YOU);
         
+        this.sound_LEVELINTRO_I_ARRIVE_IN_5MINS = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELINTRO_I_ARRIVE_IN_5MINS);
+
         //Show texts
         this.time.addEvent({
-            delay: 3000,
+            delay: 4000,
             callback: () => {
                 this.textDialog.setAlpha(1);
+                this.sound_LEVELINTRO_WHERE_ARE_YOU.play();
             },
             callbackScope: this
         });
         
-        this.textDialog2 = this.add.dynamicBitmapText(30, height-50, 'pixel', this.TG.tr('LEVELINTRO.DANIELA_ANSWER'));                
+        this.textDialog2 = this.add.dynamicBitmapText(30, this.height-50, 'pixel', this.TG.tr('LEVELINTRO.DANIELA_ANSWER'));                
         this.textDialog2.setScrollFactor(0);
         this.textDialog2.setDepth(3);
         this.textDialog2.setAlpha(0);
 
         this.time.addEvent({
-            delay: 7000,
+            delay: 10000,
             callback: () => {
                 this.textDialog.setAlpha(0);
                 this.textDialog2.setAlpha(1);
+                this.sound_LEVELINTRO_I_ARRIVE_IN_5MINS.play();
             },
             callbackScope: this
         });
@@ -134,9 +153,8 @@ class IntroStory extends Phaser.Scene {
         
 
         this.time.addEvent({
-            delay: 10000,
-            callback: () => {                
-                this.door.setAlpha(1);
+            delay: 14000,
+            callback: () => {                                
                 this.textDialog2.setAlpha(0);
             },
             callbackScope: this
@@ -144,11 +162,19 @@ class IntroStory extends Phaser.Scene {
 
 
         this.time.addEvent({
-            delay: 12000,
+            delay: 17000,
             callback: () => { 
-                               
+                this.musicBirds.stop();                                               
                 this.textDialog2.setAlpha(0);
-                this.door.setAlpha(1);                
+                this.door.setAlpha(1);                                
+            },
+            callbackScope: this
+        });
+
+        this.time.addEvent({
+            delay: 19000,
+            callback: () => {                 
+                this.musicFalling.play();               
                 this.run = true;
             },
             callbackScope: this
@@ -163,7 +189,7 @@ class IntroStory extends Phaser.Scene {
                     this.player.setVelocityX(0);
                     this.lolo.setVelocityX(0);
                     this.cameras.main.shake(1000);  
-                    this.cameras.main.fade(1000, 0, 0, 0);    
+                    this.cameras.main.fade(5000, 0, 0, 0);    
                     this.time.addEvent({
                         delay: 700,
                         callback: () => {                                        
@@ -184,7 +210,7 @@ class IntroStory extends Phaser.Scene {
 
     }
 
-    update(time, delta) {
+    update(time, delta) {        
         this.bg.tilePositionX += 0.5;
         if (this.run) {
             this.player.setVelocityX(150);

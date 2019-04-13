@@ -14,6 +14,8 @@ const GameConstants = {
         GAMEOVER: 'GameOver'
     },
     Sound: {
+        LEVELINTRO_WHERE_ARE_YOU : 'LEVELINTRO_Daniela_Where_are_you',
+        LEVELINTRO_I_ARRIVE_IN_5MINS : 'LEVELINTRO_I_Arrive_in_5mins',
         LEVEL1_LOLO_FINDBRACELET: 'LEVEL1_LOLO_findBracelet',
         LOLO_WE_DID_IT: 'LOLO_WE_DID_IT',
         CAVEBATS: 'CaveBats',
