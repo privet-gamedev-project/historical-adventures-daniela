@@ -35,8 +35,6 @@ class BasicScene extends Phaser.Scene {
     levelTiles = [];
     levelLayers = [];
     textHealth;
-    invisibleObjects;
-
 
     constructor(key) {
         super(key);
@@ -57,16 +55,18 @@ class BasicScene extends Phaser.Scene {
      *  Busca a el objeto {@lnk Daniela} en el mapa y crea el personaje en la escena actual. Además, añade los evenos necesarios para el control de {@link Daniela}.
      *  Si no había un mapa inicializado previamente, éste se creará en función a {@link GameConstants.Levels} del constructor inicial.
      *
+     * @param costume - Imagen del sprite que mostrará el personaje {Daniela} . (Default = {GameConstants.Sprites.Daniela.KEY})
+     * @param createMap - Condicion para crear el mapa si previamente no se ha llamado a {@method createMap()}
      * @param cameraFollow - Inidica si la camara seguirá a Daniela o no (default = true).
      */
-    createDaniela(cameraFollow = true) {
+    createDaniela(costume = GameConstants.Sprites.Daniela.KEY, createMap = true, cameraFollow = true) {
         //Establece nivel actual el último nivel jugado
         this.DB = store.get('gamedata');
         this.DB.currentLevel = this.key;
         store.set('gamedata', this.DB);
 
-        //Comprueba que hay un mapa inicializado y sino, lo inicia
-        if (this.map === null) {
+        //Crea el mapa
+        if (createMap) {
             this.createMap();
         }
 
@@ -78,7 +78,7 @@ class BasicScene extends Phaser.Scene {
                     scene: this,
                     x: d.x,
                     y: d.y,
-                    key: d.name
+                    key: costume
                 }).setScale(2);
                 this.daniela.on(GameConstants.Events.GAME_OVER, () => {
                     this.changeScene(this.daniela.scene, GameConstants.Levels.MENU, 2000);
@@ -163,7 +163,6 @@ class BasicScene extends Phaser.Scene {
         });
         //Los bordes del mundo serán las dimensiones del mapa cargado
         this.physics.world.bounds.setTo(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-
         return this.map;
     }
 
@@ -205,17 +204,13 @@ class BasicScene extends Phaser.Scene {
                 case GameConstants.Sprites.Bees.OBJECT_NAME:
                     this.bees = this.createEnemies(GameConstants.Sprites.Bees.OBJECT_NAME, GameConstants.Sprites.Bees.OBJECT_ID, GameConstants.Sprites.Bees.KEY);
                     this.enemyGroups.beesGroup = new FlyingEnemy(this.physics.world, this, [], this.bees);
-                    this.enemyGroups.beesGroup.children.iterate(b => {
-                        b.setScale(1)
-                    });
+                    this.enemyGroups.beesGroup.children.iterate(b => b.setScale(1));
                     this.anims.play(GameConstants.Anims.BEES, this.bees);
                     break;
                 case GameConstants.Sprites.Snails.OBJECT_NAME:
                     this.snails = this.createEnemies(GameConstants.Sprites.Snails.OBJECT_NAME, GameConstants.Sprites.Snails.OBJECT_ID, GameConstants.Sprites.Snails.KEY);
                     this.enemyGroups.snailsGroup = new FloorEnemy(this.physics.world, this, [], this.snails, 100);
-                    this.enemyGroups.snailsGroup.children.iterate(s => {
-                        s.setScale(1)
-                    });
+                    this.enemyGroups.snailsGroup.children.iterate(s => s.setScale(1));
                     this.anims.play(GameConstants.Anims.SNAILS, this.snails);
                     break;
                 case GameConstants.Sprites.Soda.OBJECT_NAME:
@@ -226,10 +221,8 @@ class BasicScene extends Phaser.Scene {
                     break;
                 case GameConstants.Sprites.Donut.OBJECT_NAME:
                     this.donuts = this.createEnemies(GameConstants.Sprites.Donut.OBJECT_NAME, GameConstants.Sprites.Donut.OBJECT_ID, GameConstants.Sprites.Donut.KEY);
-                    this.enemyGroups.donutsGroup = new FlyingEnemy(this.physics.world, this, [], this.donuts);
-                    this.enemyGroups.donutsGroup.children.iterate(d => {
-                        d.setScale(1)
-                    });
+                    this.enemyGroups.donutsGroup = new FloorEnemy(this.physics.world, this, [], this.donuts, 75);
+                    this.enemyGroups.donutsGroup.children.iterate(d => d.setScale(1));
                     this.anims.play(GameConstants.Anims.DONUT, this.donuts);
                     break;
                 case GameConstants.Sprites.Crocodile.OBJECT_NAME:
@@ -260,12 +253,12 @@ class BasicScene extends Phaser.Scene {
 
     /**
      * Busca rectángulos transparentes en la capa dada y genera colisiones el jugador y enemigos.
-     * 
+     *
      * @param layerName - Nombre de la capa en Tiled
      * @param objectName - Nombre del objeto en Tiled
      * @param hitDaniela - Condición por la cual hará overlap con daniela y restará vida (Default = false).
      * @param collisionWithEnemies - Condición por la cual hará collider con los enemigos y estos se comportarán según su lógica de colisiones (Default = false)
-     * 
+     *
      * @returns {Phaser.Physics.Arcade.StaticGroup}
      */
     findTransparentObjects(layerName, objectName, hitDaniela = false, collisionWithEnemies = false) {
@@ -389,13 +382,13 @@ class BasicScene extends Phaser.Scene {
      *
      * @param scene
      */
-   
+
     // TODO: Añadir efecto fade de animación o cualquier otra cosa necesaria en un futuro.
     reboot(scene) {
         scene.sound.stopAll(); // Reinicia los sonidos
         scene.scene.restart(); // Reinicia el resto de elementos
     }
-    
+
     /**
      * Para la escena que esté corriendo e inicia la que se le pase como objetivo.
      * @param scene
@@ -405,6 +398,7 @@ class BasicScene extends Phaser.Scene {
     // TODO: Implementar scene.scene.transition
     changeScene(scene, target, miliseconds) {
         if (scene) {
+            this.levelTiles = [];
             scene.physics.pause();
             this.time.addEvent({
                 delay: miliseconds,

@@ -12,7 +12,7 @@ class Level4 extends BasicScene {
    
     create() {
         //Daniela Creation
-        this.createDaniela();
+        this.createDaniela(GameConstants.Sprites.DanielaTroglo);
         //Background
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL4,defaultStatus,defaultStatus,  {x:1.30, y:1.30});
         //Finding enemies in json map
