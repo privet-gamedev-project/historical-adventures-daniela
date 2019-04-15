@@ -31,7 +31,7 @@ class Bootloader extends Phaser.Scene {
 
         //Level4
         this.load.tilemapTiledJSON('Level4', '../src/worlds/level4/level4.json');
-        this.load.image('jungleTileset', '../src/worlds/level4/Jungle_guide.png');
+        this.load.image('jungle', '../src/worlds/level4/Jungle_guide.png');
         this.load.image("liana", "img/jungle/liane.png");
         this.load.image("endOfLiana", "img/jungle/endOfLiana.png");
         this.load.atlas('crocodile', 'img/jungle/crocodile.png', 'img/jungle/crocodile_atlas.json');
@@ -52,16 +52,14 @@ class Bootloader extends Phaser.Scene {
         this.load.image('bg_Level3', 'img/backgrounds/background_level3.png');
         //https://rgoncalves83.itch.io/free-vector-grass-tileset
         //Level 4
-        this.load.image("oceanBackground", "img/backgrounds/Ocean.png");
+        this.load.image("bg_Level4", "img/backgrounds/Ocean.png");
         //Credits
         this.load.image('en_Credits', 'img/backgrounds/en_credits_800w.png');
         this.load.image('es_Credits', 'img/backgrounds/es_credits_800w.png');
         this.load.image('creditsPage2', 'img/backgrounds/credits_page2.png');
-
-
-
+        
         // Enemies
-        //Bats
+        //FlyingEnemy
         this.load.atlas('bats', 'img/bat/bats.png', 'img/bat/bats_atlas.json');
         this.load.animation('batsAnim', 'img/bat/bats_anim.json');
 

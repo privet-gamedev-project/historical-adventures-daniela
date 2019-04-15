@@ -11,7 +11,8 @@ const GameConstants = {
         LEVEL2: 'Level2',
         LEVEL3: 'Level3',
         LEVEL4:'Level4',
-        GAMEOVER: 'GameOver'
+        GAMEOVER: 'GameOver',
+        UI: 'UI'
     },
     Sound: {
         LEVEL1_LOLO_FINDBRACELET: 'LEVEL1_LOLO_findBracelet',
@@ -29,6 +30,7 @@ const GameConstants = {
             ID: 'bat',
             OBJECT_NAME: 'Bats',
             OBJECT_ID: 'Bat'
+            
         },
         Bees: {
             KEY: 'bee',
@@ -64,7 +66,10 @@ const GameConstants = {
             KEY: 'bracelet'        
         },
         ExtraPoint: {
-            KEY: 'extrapoint'        
+            KEY: 'extrapoint',
+            ID: 'extrapoint',
+            OBJECT_NAME: 'ExtraPoints',
+            OBJECT_ID: 'extrapoint'
         },
         Star:{
             KEY: 'star'
@@ -112,8 +117,31 @@ const GameConstants = {
         Crocodile: {
             KEY: 'crocodile',
             ID: 'crocodile',
-            OBJECT_NAME: 'crocodiles',
-            OBJECT_ID: 'crocodile'
+            OBJECT_NAME: 'Crocodiles',
+            OBJECT_ID: 'Crocodile'
+        },
+        Spike: {
+            KEY: 'Spike',
+        },
+        INVISIBLE: 'invisible'
+    },
+    Enemies_Layers:{
+        Level1 : {
+            BATS : 'Bats',
+            WHEELS: 'Wheels',
+            BEES: 'Bees'
+        },
+        Level2: {
+            BEES: 'Bees',
+            SNAILS: 'Snails'
+        },
+        Level3 : {
+            SODAS: 'Sodas',
+            DONUTS: 'Donuts'
+        },
+        
+        Level4: {
+            CROCODILES: 'Crocodiles'
         }
     },
     Textures: {
@@ -121,6 +149,7 @@ const GameConstants = {
         BG_LEVEL1: 'bg_Level1',
         BG_LEVEL2: 'bg_Level2',
         BG_LEVEL3: 'bg_Level3',
+        BG_LEVEL4:  'bg_Level4',
         BG_CREDITS: 'Credits',        
         BG_CREDITS_PAGE2: 'creditsPage2',
         PLATFORM_FOREST: 'platform'
@@ -169,6 +198,9 @@ const GameConstants = {
         VOLUMEON:'volumeOn',
         VOLUMEOFF:'volumeOff'
     },
+    Fonts:{
+        PIXEL: 'pixel'  
+    },
     // TODO: Remover a su respectivo sitio cuando tengamos i18ln
     Texts: {
         BUSCAR_PULSERA: 'Daniela tienes que buscar la Pulsera magica',
@@ -180,10 +212,12 @@ const GameConstants = {
         CAVE_STONE: 'caveStones',
         FOREST_PACK : 'forestPack_32x32',
         GRASS_TILES: 'grasstiles',
-        JUNGLE :"jungleTileset",
+        JUNGLE : 'jungle',
     },
     Layers: {
-        WORLD: 'World'
+        WORLD: 'World',
+        LANDSCAPE: 'Landscape',
+        SPIKES: 'Spikes'
     },
     Events: {
         GAME_OVER: 'GameOver',

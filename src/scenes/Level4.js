@@ -1,37 +1,36 @@
 import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
-import Daniela from "../player/Daniela.js";
 import Lianas from "../gameObjects/Lianas.js";
 import LianasEnd from "../gameObjects/LianasEnd.js";
-import Crocodiles from "../gameObjects/Crocodiles.js";
-import Bats from '../gameObjects/Bats.js';
-/**
- * Escena del Mamut
- */
+
 class Level4 extends BasicScene {
     constructor() {
         super({
             key: GameConstants.Levels.LEVEL4
         });
     }
-    preload() {
-        this.scene.launch('UI');
-    }
+   
     create() {
-        this.UIScene = this.scene.get("UI");
+        //Daniela Creation
+        this.createDaniela();
+        //Background
+        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL4,defaultStatus,defaultStatus,  {x:1.30, y:1.30});
+        //Finding enemies in json map
+        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level4);
+        //HealthText
+        this.createHealthText();
+        //Tilemap
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.JUNGLE);
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.JUNGLE, GameConstants.Layers.LANDSCAPE, false);
+        
 
-        //background
-        this.add.tileSprite(0, 0, 15000, 600, "oceanBackground").setOrigin(0).setScale(1.30);
-
-        //TileMap
-        let map = this.createMap();
-        let level4Tile = map.addTilesetImage('jungle', 'jungleTileset');
-        let waterLayer = map.createDynamicLayer('water', level4Tile, 0, 0);
-        let groundLayer = map.createDynamicLayer('ground', level4Tile, 0, 0);
-
-        let decorationLayer = map.createDynamicLayer('decoration', level4Tile, 0, 0);
-        groundLayer.setCollisionByExclusion([-1]);
-
+        //PRIVATE SCENE ELEMENTS
+        //Grupo de rectangulos en capa  Water
+        let water = this.findTransparentObjects('Water', 'Water', false);
+        this.physics.add.overlap(this.daniela, water, this.daniela.waterCollision);
+        
+        
+        
         //CreateLianes
         this.liana = this.createLianas();
         this.groupOfLianas = new Lianas(this.physics.world, this, [], this.liana);
@@ -40,55 +39,15 @@ class Level4 extends BasicScene {
         this.groupOfEndOfLianas = new LianasEnd(this.physics.world, this, [], this.endOfLiana);
         console.log(this.groupOfEndOfLianas);
         
-        //create Crocodile
-        /*this.crocodile = this.createCrocodile();
-        this.groupOfCrocodiles = new Crocodiles(this.physics.world, this, [], this.crocodile);
-        this.anims.play(GameConstants.Anims.CROCODILE, this.crocodile);*/
-
-         //Creating Bats 
-        //TODO: Crear Objeto Generico CreateFlyingObjects para usar la misma lógica 
-        //en los niveles que lo necesiten
-        this.crocodiles = this.createBats(GameConstants.Sprites.Crocodile.KEY);
-        this.groupOfCrocodiles = new Bats(this.physics.world, this, [], this.crocodiles); 
-        //TODO: Pasar el Scale y el FlipX del Sprite, para evitar cambiarlo aquí
-        this.groupOfCrocodiles.children.iterate((bat) => {
-            bat.setScale(1); 
-            bat.body.setSize(90, 16)           
-        });
-        this.anims.play(GameConstants.Anims.CROCODILE, this.crocodiles);
-
-        //Text Health
-        this.textHealth = this.add.dynamicBitmapText(30, 20, 'pixel', GameConstants.Texts.VIDAS);
-        this.textHealth.setScrollFactor(0);
-        this.textHealth.setDepth(3);
-        //Create Daniela
-        this.daniela = this.createDaniela(this, 100, 100, GameConstants.Sprites.DanielaTroglo);
-        this.lolo = this.createLoloNormal(this, this.daniela);
-        this.daniela.followedBy(this.lolo);
-
-        
-
-        //Collides
-        this.physics.add.collider(this.daniela, groundLayer);
         this.physics.add.overlap(this.daniela, this.groupOfLianas, this.danielaOverLiana, null, this);
         this.physics.add.overlap(this.daniela, this.groupOfEndOfLianas, this.danielaOverEndOfLiana, null, this);
-        //this.physics.add.collider(this.groupOfCrocodiles, groundLayer, this.crocodileChangeDirection, null, this);
-        this.physics.add.collider(this.groupOfCrocodiles, groundLayer);
-        
-        this.physics.add.overlap(this.daniela, this.groupOfCrocodiles, () => {            
-            this.daniela.enemyCollision();            
-        });
-
-        
-        
-        //Game camera
-        this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-        this.cameras.main.startFollow(this.daniela);
+ 
     }
     update(time, delta) {
-        this.daniela.update(time,delta);
-        this.groupOfCrocodiles.update();
-
+        this.daniela.update(time, delta);
+        Object.keys(this.enemyGroups).forEach(enemy => {
+            this.enemyGroups[enemy].update();
+        });
 
     }
     //CUSTOM
@@ -109,6 +68,7 @@ class Level4 extends BasicScene {
         daniela.isInLiana = false;
         daniela.body.setAllowGravity(true);
     }
+    //TODO: si sigue la misma lógica que FlyingEnemy, se podria quitar, sino deberia crearse la propia clase Crocodile con su update() personalizado (por ejemplo para perseguir a daniela...)
     crocodileChangeDirection(crocodile) {
         if (crocodile.isGoingLeft) {
             crocodile.setScale(-1, 1);
