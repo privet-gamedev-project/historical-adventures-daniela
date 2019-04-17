@@ -56,10 +56,11 @@ class BasicScene extends Phaser.Scene {
      *  Si no había un mapa inicializado previamente, éste se creará en función a {@link GameConstants.Levels} del constructor inicial.
      *
      * @param costume - Imagen del sprite que mostrará el personaje {Daniela} . (Default = {GameConstants.Sprites.Daniela.KEY})
+     * @param createLolo - Condición por la cual creará al personaje lolo automáticamente (Default = true)
      * @param createMap - Condicion para crear el mapa si previamente no se ha llamado a {@method createMap()}
      * @param cameraFollow - Inidica si la camara seguirá a Daniela o no (default = true).
      */
-    createDaniela(costume = GameConstants.Sprites.Daniela.KEY, createMap = true, cameraFollow = true) {
+    createDaniela(costume = GameConstants.Sprites.Daniela.KEY, createLolo = true,  createMap = true, cameraFollow = true) {
         //Establece nivel actual el último nivel jugado
         this.DB = store.get('gamedata');
         this.DB.currentLevel = this.key;
@@ -117,8 +118,8 @@ class BasicScene extends Phaser.Scene {
                 this.registry.events.on('controlJumpOFF', () => {
                     this.daniela.animControl.jump = false;
                 });
-
-                if (this.lolo == null) {
+                
+                if (createLolo) {
                     this.createLoloNormal(this.daniela);
                 }
                 return this.daniela;

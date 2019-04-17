@@ -186,8 +186,6 @@ class IntroStory extends Phaser.Scene {
                 if (!this.passthedoor){ 
                     this.passthedoor=true;
                     
-                    this.player.setVelocityX(0);
-                    this.lolo.setVelocityX(0);
                     this.cameras.main.shake(1000);  
                     this.cameras.main.fade(5000, 0, 0, 0);    
                     this.time.addEvent({
@@ -200,7 +198,7 @@ class IntroStory extends Phaser.Scene {
                    
                 
                 
-                    this.cameras.main.on('camerafadeoutcomplete', () => {                        
+                    this.cameras.main.on('camerafadeoutcomplete', () => {
                         this.scene.start(GameConstants.Levels.LEVEL1);            
                     });
                 }
