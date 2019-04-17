@@ -9,11 +9,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
         super(config.scene, config.x, config.y, config.key);
 
         this.key = config.key;
-
         // Health
-        this.health = 3;
-        this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
-        // has been hit by obstacles 
+        this.health = 5;
+
         this.hitDelay = false;
 
         //Time
@@ -24,7 +22,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.extraPoints = 0;
 
         //Animaciones en funcion del Sprite
-        if (this.key == GameConstants.Sprites.DanielaTroglo) {
+        if (this.key === GameConstants.Sprites.DanielaTroglo) {
             this.animIDLE = GameConstants.Anims.DanielaTroglo.IDLE;
             this.animDOWN = GameConstants.Anims.DanielaTroglo.DOWN;
             this.animWALK = GameConstants.Anims.DanielaTroglo.WALK;
@@ -34,9 +32,6 @@ class Daniela extends Phaser.GameObjects.Sprite {
             this.animDOWN = GameConstants.Anims.Daniela.DOWN;
             this.animWALK = GameConstants.Anims.Daniela.WALK;
         }
-
-        // Win
-        this.winner = false;
 
         // Configuración del GameObject
         config.scene.physics.world.enable(this);
@@ -317,7 +312,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
     //TODO: Quitar las posiciones 100, 100
     waterCollision() {
-        if (!this.hitDelay) {
+      /*  if (!this.hitDelay) {
             this.loseHealth();
             this.hitDelay = true;
             this.soundDanielaAuch.play();
@@ -332,7 +327,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
                     callbackScope: this
                 });
             }
-        }
+        }*/
+      console.warn("Estoy en el agua :D");
     }
 
     nextScene() {

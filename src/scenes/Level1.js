@@ -1,8 +1,5 @@
-import Bats from '../gameObjects/Bats.js';
-import Wheels from '../gameObjects/Wheels.js';
 import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
-import ExtraPoints from '../gameObjects/ExtraPoints.js';
 
 class Level1 extends BasicScene {
     constructor() {
@@ -12,64 +9,38 @@ class Level1 extends BasicScene {
         this.target = GameConstants.Levels.LEVEL2;
     }
 
-    preload() {
-        this.scene.launch('UI');
-    }
+    create() {
+        //Daniela Creation
+        this.createDaniela();
+        //Background
+        this.createBackground(GameConstants.Textures.BG_LEVEL1, defaultStatus,defaultStatus,defaultStatus,defaultStatus,{x:0.65, y:0.65});
+        //Finding enemies in json map
+        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
+        //ExtraPoints        
+        this.createCoins();
+        //HealthText
+        this.createHealthText();
+        //Tilemap
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.CAVE_STONE);
 
+        //PRIVATE SCENE ELEMENTS
+        //Creacion de elementos decorativos
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.CAVE_STONE, GameConstants.Layers.LANDSCAPE, false);
+        //Creacion de objetos invisibles que dañaran a daniela
+        this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
 
-    create() {    
-        
-        this.UIScene = this.scene.get("UI");        
-                   
-
-        var height = this.cameras.main.height;
-        var width = this.cameras.main.width;
-
-        // background
-        this.bg = this.add.tileSprite(0, 0, 2560, 1440, GameConstants.Textures.BG_LEVEL1).setOrigin(0).setScale(0.65);
-
-        //Sounds
-        this.soundLEVEL1_LOLO_findBracelet = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1_LOLO_FINDBRACELET);
-        this.soundLEVEL1_LOLO_findBracelet.play();
-
-
-        this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
-        this.addEventForMusic(this.music);
-
-
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LOLO_WE_DID_IT);
-
-                
         //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(30, height-50, 'pixel', this.TG.tr('LEVEL1.FINDBRACELET'));                
+        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 50, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL1.FINDBRACELET'));
         this.textDialog.setScrollFactor(0);
         this.textDialog.setDepth(3);
 
+        //Sounds
+        this.soundLEVEL1_LOLO_findBracelet = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1_LOLO_FINDBRACELET);
+        this.soundLEVEL1_LOLO_findBracelet.play();
+        this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
+        this.addEventForMusic(this.music);
 
-        //Text Health
-        this.textHealth = this.add.dynamicBitmapText(30, 20, 'pixel', this.TG.tr('COMMONTEXT.LIVES'));        
-        this.textHealth.setScrollFactor(0);
-        this.textHealth.setDepth(3);
-
-        //TODO: se debería pasar los parámetros 'x' e 'y' de forma dinámica en base al mapa y la posición de inicio
-        // algo parecido a lo que se hace con los murciélagos y las ruedas
-        //Daniela Creation
-        this.daniela = this.createDaniela(this, 100, 100, GameConstants.Sprites.Daniela.KEY);
-        this.lolo = this.createLoloNormal(this, this.daniela);
-        this.daniela.followedBy(this.lolo);
-
-        //Read Tilemap
-        let map = this.createMap();
-
-        //Creating Bats         
-        this.bats = this.createBats(GameConstants.Sprites.Bats.KEY);
-        this.batsGroup = new Bats(this.physics.world, this, [], this.bats);
-        this.anims.play(GameConstants.Anims.BATS, this.bats);
-
-        //Creating Wheels         
-        this.wheels = this.createWheels(GameConstants.Sprites.Wheel.KEY);
-        this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels,100);
-        this.anims.play(GameConstants.Anims.WHEEL, this.wheels);
+        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LOLO_WE_DID_IT);
 
         //Create Bracelet
         this.bracelets = this.createEndLevelObject(GameConstants.Sprites.Bracelet.KEY);
@@ -79,48 +50,22 @@ class Level1 extends BasicScene {
         this.magicbracelet.body.setAllowGravity(false);
         this.anims.play(GameConstants.Anims.BRACELET, this.magicbracelet);
 
-        //ExtraPoints        
-        this.extraPoints = this.createExtraPoints(GameConstants.Sprites.ExtraPoint.KEY);
-        this.extraPointsGroup = new ExtraPoints(this.physics.world, this, [], this.extraPoints);                         
-        this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
-
-        //EXtraPoints collisions 
-        this.physics.add.overlap(this.daniela, this.extraPointsGroup, function(player, object){
-            this.daniela.collectExtraPoints(this.extraPointsGroup, object);
-        }, null, this);
-
-
-        //Tilemap
-        let level1Tile = map.addTilesetImage(GameConstants.Tiles.CAVE_STONE);
-        let Level1 = map.createDynamicLayer(GameConstants.Layers.WORLD, level1Tile, 0, 0);
-        Level1.setCollisionByExclusion([-1]);
-
-        //Colliders
-        this.physics.add.collider(this.daniela, Level1);
-        this.physics.add.collider(this.batsGroup, Level1);
-        this.physics.add.collider(this.wheelsGroup, Level1);
+        //Collider for Bracelet
         this.physics.add.collider(this.daniela, this.magicbracelet, () => {
             this.music.stop();
             this.magicbracelet.destroy();
             this.soundLOLO_Bien_lo_hemos_conseguido.play();
             this.daniela.nextScene();
         });
-        this.physics.add.overlap(this.daniela, this.bats, () => {
-            this.daniela.enemyCollision();            
-        });
-        this.physics.add.overlap(this.daniela, this.wheels, () => {
-            this.daniela.enemyCollision();            
-        });
-
-
-        this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-        this.cameras.main.startFollow(this.daniela);
+      
     }
 
     update(time, delta) {
-        this.daniela.update(time,delta);
-        this.batsGroup.update();
-        this.wheelsGroup.update();
+        this.daniela.update(time, delta);
+         Object.keys(this.enemyGroups).forEach(enemy => {
+            this.enemyGroups[enemy].update();
+        });
     }
 }
+
 export default Level1;
