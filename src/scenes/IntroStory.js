@@ -7,35 +7,9 @@ class IntroStory extends Phaser.Scene {
     }
     
     preload() {
-        //TODO: Pasar todos los Assets de esta escenea a Bootloader
-        
         console.log('Scene: IntroStory');
-        this.load.image("bg_park","assets/img/backgrounds/bg_park.jpg");
-        this.load.image("timedoor","assets/img/objects/timedoor.png");
         
-        // player is a sprite sheet made by 24x48 pixels
-        this.load.spritesheet("player", "assets/img/daniela/danielaintro.png", {
-            frameWidth: 124,
-            frameHeight: 132
-        });
 
-        // player is a sprite sheet made by 24x48 pixels
-        this.load.spritesheet("lolo", "assets/img/lolo/lolo_intro.png", {
-            frameWidth: 64,
-            frameHeight: 64
-        });
-
-        //Sounds
-        this.load.audio("en_LEVELINTRO_I_Arrive_in_5mins", "assets/sounds/dialogs/en_LEVELINTRO_I_Arrive_in_5mins.ogg");
-        this.load.audio("en_LEVELINTRO_Daniela_Where_are_you", "assets/sounds/dialogs/en_LEVELINTRO_Daniela_Where_are_you.ogg");
-        this.load.audio("es_LEVELINTRO_Daniela_Where_are_you", "assets/sounds/dialogs/es_LEVELINTRO_Daniela_Where_are_you.ogg");
-        this.load.audio("es_LEVELINTRO_I_Arrive_in_5mins", "assets/sounds/dialogs/es_LEVELINTRO_I_Arrive_in_5mins.ogg");
-
-        this.load.audio("birds_singing","assets/sounds/backgrounds/birds-singing.mp3");
-        //https://freesound.org/people/DCPoke/sounds/387978/
-
-        this.load.audio("falling","assets/sounds/backgrounds/falling.mp3");
-        //https://freesound.org/people/ChrisButler99/sounds/367988/
     }
 
     create() {
@@ -65,13 +39,19 @@ class IntroStory extends Phaser.Scene {
         });
 
         //Daniela Running
-        this.bg = this.add.tileSprite(0, 0, this.width, this.height, 'bg_park').setOrigin(0);
+        //this.bg = this.add.tileSprite(0, 0, this.width, this.height, 'bg_park').setOrigin(0);
 
+       //Background Parallax 
+       this.bgparallax=[];
+       for(let i=8;i>=1;i--){
+        this.bgparallax[i]=this.add.tileSprite(0, 0, this.width, this.height, "layer_0"+i).setOrigin(0);
+
+       }
        
         // setting player animation
         this.anims.create({
             key: "run",
-            frames: this.anims.generateFrameNumbers("player", {
+            frames: this.anims.generateFrameNumbers("daniela_intro", {
                 start: 0,
                 end: 1
             }),
@@ -82,7 +62,7 @@ class IntroStory extends Phaser.Scene {
                 // setting player animation
         this.anims.create({
             key: "fly",
-            frames: this.anims.generateFrameNumbers("lolo", {
+            frames: this.anims.generateFrameNumbers("lolo_intro", {
                 start: 0,
                 end: 5
             }),
@@ -94,14 +74,14 @@ class IntroStory extends Phaser.Scene {
 
 
        // adding Daniela
-       this.player = this.physics.add.sprite(200,350, "player");
+       this.player = this.physics.add.sprite(200,325, "daniela_intro");
        this.player.setDepth(2);
        this.player.flipX = true;
        this.player.body.setAllowGravity(false);
        this.player.anims.play("run");
 
        // adding lolo
-       this.lolo = this.physics.add.sprite(130,240, "lolo");
+       this.lolo = this.physics.add.sprite(130,240, "lolo_intro");
        this.lolo.setDepth(2);
        this.lolo.flipX = true;
        this.lolo.body.setAllowGravity(false);
@@ -191,7 +171,9 @@ class IntroStory extends Phaser.Scene {
                     this.time.addEvent({
                         delay: 700,
                         callback: () => {                                        
-                            this.bg.setAlpha(0) ;
+                            for (let i=1;i<=8;i++){
+                                this.bgparallax[i].setAlpha(0);
+                             } 
                         },
                         callbackScope: this
                     });
@@ -209,7 +191,15 @@ class IntroStory extends Phaser.Scene {
     }
 
     update(time, delta) {        
-        this.bg.tilePositionX += 0.5;
+        //this.bg.tilePositionX += 0.5;
+
+        
+        //for(let i=this.bgparallax.length-1;i>=1;i--){
+        for (let i=1;i<=8;i++){
+            this.bgparallax[i].tilePositionX += (0.80 - (i*0.10));
+         } 
+        //}
+
         if (this.run) {
             this.player.setVelocityX(150);
             this.lolo.setVelocityX(150);

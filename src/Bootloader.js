@@ -17,6 +17,39 @@ class Bootloader extends Phaser.Scene {
         // Maps
         this.load.pack('maps', '../src/worlds/maps.json', 'maps');
 
+        //INTROSTORY ASSETS         
+        this.load.image("timedoor","img/objects/timedoor.png");
+
+        //Parallax Background Intro
+        //https://opengameart.org/content/3-parallax-backgrounds
+        for (let i=1;i<=8;i++){
+            this.load.image("layer_0"+i,"img/backgrounds/parallax_intro/layer_0"+i+"_854x480.png");
+        }
+        
+        // player is a sprite sheet made by 24x48 pixels
+        this.load.spritesheet("daniela_intro", "img/daniela/danielaintro.png", {
+            frameWidth: 124,
+            frameHeight: 132
+        });
+        
+        // player is a sprite sheet made by 24x48 pixels
+        this.load.spritesheet("lolo_intro", "img/lolo/lolo_intro.png", {
+            frameWidth: 64,
+            frameHeight: 64
+        });
+        
+        //Sounds
+        this.load.audio("en_LEVELINTRO_I_Arrive_in_5mins", "sounds/dialogs/en_LEVELINTRO_I_Arrive_in_5mins.ogg");
+        this.load.audio("en_LEVELINTRO_Daniela_Where_are_you", "sounds/dialogs/en_LEVELINTRO_Daniela_Where_are_you.ogg");
+        this.load.audio("es_LEVELINTRO_Daniela_Where_are_you", "sounds/dialogs/es_LEVELINTRO_Daniela_Where_are_you.ogg");
+        this.load.audio("es_LEVELINTRO_I_Arrive_in_5mins", "sounds/dialogs/es_LEVELINTRO_I_Arrive_in_5mins.ogg");
+        
+        this.load.audio("birds_singing","sounds/backgrounds/birds-singing.mp3");
+        //https://freesound.org/people/DCPoke/sounds/387978/
+        
+        this.load.audio("falling","sounds/backgrounds/falling.mp3");
+        //https://freesound.org/people/ChrisButler99/sounds/367988/
+
         //Level2
         //Copyright/Attribution Notice: 
         //Credit "Tio Aimar @ opengameart.org" or simply "Tio Aimar" (this is not mandatory)

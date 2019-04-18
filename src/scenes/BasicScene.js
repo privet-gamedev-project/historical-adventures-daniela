@@ -48,7 +48,7 @@ class BasicScene extends Phaser.Scene {
      */
     preload() {
         console.log(this.key);
-        this.scene.launch(GameConstants.Levels.UI);
+        this.scene.launch(GameConstants.Levels.UI);  
     }
 
     /**
@@ -405,8 +405,8 @@ class BasicScene extends Phaser.Scene {
                 delay: miliseconds,
                 callback: () => {
                     //Quitamos el UI si existe            
-                    if (scene.UIScene) {
-                        scene.UIScene.scene.stop();
+                    if (this.scene.get("UI")) {
+                        this.scene.get("UI").scene.stop();
                     }
                     scene.cameras.main.fade(700, 0, 0, 0);
                     scene.cameras.main.on('camerafadeoutcomplete', () => {
