@@ -60,46 +60,12 @@ class Menu extends BasicScene {
 
         const creditsButton = this.add.dynamicBitmapText(600, y * 2, 'pixel', this.TG.tr('MENU.CREDITS'), 24);        
         creditsButton.setInteractive();
-
-        // tween hover
-        let tween = this.tweens.add({
-            targets: [creditsButton,scoresButton,introButton,startButton],    
-            alpha: 0.2,
-            ease: 'Linear',
-            duration: 1000,
-            repeat: Infinity,
-            yoyo: true,
-            paused: true
-        });
-
-        //CREDITS
-        this.creditshown=false;
-        const bgcredits = this.add.image(0, 0, GameConstants.Textures.BG_CREDITS).setOrigin(0);
-        bgcredits.setInteractive();
-        bgcredits.visible=this.creditshown;
-
+       
         creditsButton.on('pointerdown', () => {             
-                /*this.creditshown=true;
-                bgcredits.visible=this.creditshown;
-                this.physics.pause();*/
                 this.changeScene(this, GameConstants.Levels.CREDITS,0);
                 
         });
 
-        creditsButton.on('pointerover', () => {             
-            tween.restart();
-        });
-
-        creditsButton.on('pointerout', () => {             
-            tween.stop(0);
-        });
-
-        bgcredits.on('pointerdown', () => {
-            this.physics.pause();
-            this.creditshown=false;
-            bgcredits.visible=this.creditshown;
-            this.physics.resume();
-        });
 
     }
 
