@@ -354,7 +354,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
             callbackScope: this,
             onComplete: function(){
                 group.killAndHide(object);
-                group.remove(object);                
+                group.remove(object);   
+                object.destroy();             
             }
         });
     }
