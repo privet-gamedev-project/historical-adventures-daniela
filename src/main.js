@@ -7,6 +7,7 @@ import Credits from './scenes/Credits.js';
 import Level2 from './scenes/Level2.js';
 import Level3 from './scenes/Level3.js';
 import Level4 from './scenes/Level4.js';
+import Level6 from './scenes/Level6.js';
 import Level1 from './scenes/Level1.js';
 import IntroStory from './scenes/IntroStory.js';
 import Bootloader from './Bootloader.js';
@@ -50,10 +51,10 @@ const config = {
             gravity: {
                 y: 700,
             },
-            debug: false
+            debug: true
         },
     },
-    scene: [Loader, Bootloader, Menu, SettingsLevel, LevelSelect, Credits, IntroStory, Scores, Level1, Level2, Level3, Level4, UI]
+    scene: [Loader, Bootloader,Menu, SettingsLevel, LevelSelect, Credits, IntroStory, Scores, Level1, Level2, Level3, Level4, Level6,   UI]
 };
 
 const game = new Phaser.Game(config);

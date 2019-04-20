@@ -11,6 +11,7 @@ const GameConstants = {
         LEVEL2: 'Level2',
         LEVEL3: 'Level3',
         LEVEL4:'Level4',
+        LEVEL6: 'Level6',
         GAMEOVER: 'GameOver',
         UI: 'UI'
     },
@@ -122,8 +123,23 @@ const GameConstants = {
             OBJECT_NAME: 'Crocodiles',
             OBJECT_ID: 'Crocodile'
         },
+        Dinowater: {
+            KEY: 'dinowater',
+            ID: 'dinowater',
+            OBJECT_NAME: 'Dinowaters',
+            OBJECT_ID: 'Dinowater'
+        },
+        Dinobird: {
+            KEY: 'dinobird',
+            ID: 'dinobird',
+            OBJECT_NAME: 'Dinobirds',
+            OBJECT_ID: 'Dinobird'
+        },
         Spike: {
             KEY: 'Spike',
+        },
+        Limit: {
+            KEY: 'Limit'
         },
         INVISIBLE: 'invisible'
     },
@@ -144,6 +160,10 @@ const GameConstants = {
         
         Level4: {
             CROCODILES: 'Crocodiles'
+        },
+        Level6: {
+            DINOWATERS: 'Dinowaters',
+            DINOBIRD: 'Dinobirds'
         }
     },
     Textures: {
@@ -152,6 +172,7 @@ const GameConstants = {
         BG_LEVEL2: 'bg_Level2',
         BG_LEVEL3: 'bg_Level3',
         BG_LEVEL4:  'bg_Level4',
+        BG_LEVEL6: 'bg_Level6',
         BG_CREDITS: 'Credits',        
         BG_CREDITS_PAGE2: 'creditsPage2',
         PLATFORM_FOREST: 'platform'
@@ -167,7 +188,9 @@ const GameConstants = {
         EXTRAPOINT: 'extrapoint_rotate',
         CAVEMAN_CLOTHES: 'caveman_clothes_move',
         JOYSTICK: 'joystick_move',
-        CROCODILE:'swim',       
+        CROCODILE:'swim',
+        DINOWATER: 'dinowater_move',
+        DINOBIRD: 'dinobird_move',
         MAMUT:{
             SLEEP: 'mamut_sleep',
             HAPPY: 'mamut_happy'
@@ -194,7 +217,8 @@ const GameConstants = {
             DOWN: 'down',
             JUMP: 'jump',
             IDLE: 'idle',
-        }
+        },
+        MAP: 'map_shine'
     },
     UI:{
         VOLUMEON:'volumeOn',
@@ -215,11 +239,13 @@ const GameConstants = {
         FOREST_PACK : 'forestPack_32x32',
         GRASS_TILES: 'grasstiles',
         JUNGLE : 'jungle',
+        VOLCANO: 'spritesheet'
     },
     Layers: {
         WORLD: 'World',
         LANDSCAPE: 'Landscape',
-        SPIKES: 'Spikes'
+        SPIKES: 'Spikes',
+        LIMITS: 'Limits'
     },
     Events: {
         GAME_OVER: 'GameOver',
