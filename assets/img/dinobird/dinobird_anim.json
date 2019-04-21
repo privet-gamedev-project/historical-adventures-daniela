@@ -1,0 +1,20 @@
+{
+    "anims": [
+      {
+            "key": "dinobird_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 8,
+            "frames": [
+                {
+                    "key": "dinobird",
+                    "frame": "dinobird_0"
+                },
+                {
+                    "key": "dinobird",
+                    "frame": "dinobird_1"
+                }
+            ]
+        }
+    ]
+}

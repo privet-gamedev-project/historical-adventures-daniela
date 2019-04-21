@@ -72,6 +72,14 @@ class LevelSelect extends BasicScene {
             
         });
 
+        const level6Button = this.add.dynamicBitmapText(800, y *2, 'pixel', '6', 24);
+        level6Button.setInteractive();
+
+        level6Button.on('pointerdown', () => {
+            this.changeScene(this, GameConstants.Levels.LEVEL6,0);
+
+        });
+
         
 
     }

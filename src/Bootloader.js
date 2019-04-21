@@ -70,6 +70,11 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('crocodile', 'img/jungle/crocodile.png', 'img/jungle/crocodile_atlas.json');
         this.load.animation('crocodileAnim', 'img/jungle/crocodile_anim.json');
 
+        //Level6
+        this.load.tilemapTiledJSON("Level6", "../src/worlds/level6/level6.json");
+        this.load.image("spritesheet", "../src/worlds/level6/spritesheet.png");
+        
+        
         //BACKGROUNDS
         //Menu
         this.load.image('bg_Menu', 'img/backgrounds/dibujoPortadaEscaneado.png');
@@ -86,6 +91,13 @@ class Bootloader extends Phaser.Scene {
         //https://rgoncalves83.itch.io/free-vector-grass-tileset
         //Level 4
         this.load.image("bg_Level4", "img/backgrounds/Ocean.png");
+        
+        //Level 6
+        this.load.image("bg_Level6", "img/backgrounds/bg_volcano.png");
+        this.load.image('map_1', 'img/objects/map/map_1.png');
+        this.load.image('map_2', 'img/objects/map/map_2.png');
+        this.load.image('map_3', 'img/objects/map/map_3.png');
+        
         //Credits
         this.load.image('en_Credits', 'img/backgrounds/en_credits_800w.png');
         this.load.image('es_Credits', 'img/backgrounds/es_credits_800w.png');
@@ -154,8 +166,19 @@ class Bootloader extends Phaser.Scene {
             frameWidth: 40,
             frameHeight: 70
         });
+        
+        //Dinobird
+        this.load.atlas("dinobird", "img/dinobird/dinobird.png", "img/dinobird/dinobird_atlas.json");
+        this.load.animation("dinobirdAnim", "img/dinobird/dinobird_anim.json");
 
+        //Dinowater
+        this.load.atlas("dinowater", "img/dinowater/dinowater.png", "img/dinowater/dinowater_atlas.json");
+        this.load.animation("dinowaterAnim", "img/dinowater/dinowater_anim.json");
 
+        //MapObject
+        this.load.atlas("map","img/objects/map/map.png","img/objects/map/map_atlas.json");
+        this.load.animation("mapAnim", "img/objects/map/map_anim.json");
+        
         //Sounds
         this.load.audio("soundJump", "sounds/jump.mp3");
         this.load.audio("danielaAuch", "sounds/Daniela_Auch.ogg");

@@ -235,6 +235,16 @@ class BasicScene extends Phaser.Scene {
                     });
                     this.anims.play(GameConstants.Anims.CROCODILE, this.crocodiles);
                     break;
+                case GameConstants.Sprites.Dinowater.OBJECT_NAME:
+                    this.dinowaters = this.createEnemies(GameConstants.Sprites.Dinowater.OBJECT_NAME, GameConstants.Sprites.Dinowater.OBJECT_ID, GameConstants.Sprites.Dinowater.KEY);
+                    this.enemyGroups.dinowatersGroup = new FloorEnemy(this.physics.world, this, [], this.dinowaters, 40);
+                    this.anims.play(GameConstants.Anims.DINOWATER, this.dinowaters);
+                    break;
+                case GameConstants.Sprites.Dinobird.OBJECT_NAME:
+                    this.dinobirds = this.createEnemies(GameConstants.Sprites.Dinobird.OBJECT_NAME, GameConstants.Sprites.Dinobird.OBJECT_ID,GameConstants.Sprites.Dinobird.KEY);
+                    this.enemyGroups.dinobirds = new FlyingEnemy(this.physics.world, this, [], this.dinobirds);
+                    this.anims.play(GameConstants.Anims.DINOBIRD, this.dinobirds);
+                    break;
                 default:
                     console.warn("La capa de enemigos " + enemyLayerLevel[enemy] + " no se en cuentra entre los disponibles. Añádela al switch para poder usarla.");
             }
@@ -253,7 +263,7 @@ class BasicScene extends Phaser.Scene {
     }
 
     /**
-     * Busca rectángulos transparentes en la capa dada y genera colisiones el jugador y enemigos.
+     * Busca rectángulos transparentes en la capa dada y genera colisiones con el jugador y enemigos.
      *
      * @param layerName - Nombre de la capa en Tiled
      * @param objectName - Nombre del objeto en Tiled

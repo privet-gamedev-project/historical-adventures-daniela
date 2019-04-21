@@ -1,0 +1,20 @@
+{
+    "anims": [
+      {
+            "key": "dinowater_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "dinowater",
+                    "frame": "dinowater_0"
+                },
+                {
+                    "key": "dinowater",
+                    "frame": "dinowater_1"
+                }
+            ]
+        }
+    ]
+}
