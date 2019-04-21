@@ -51,7 +51,7 @@ const config = {
             gravity: {
                 y: 700,
             },
-            debug: true
+            debug: false
         },
     },
     scene: [Loader, Bootloader,Menu, SettingsLevel, LevelSelect, Credits, IntroStory, Scores, Level1, Level2, Level3, Level4, Level6,   UI]

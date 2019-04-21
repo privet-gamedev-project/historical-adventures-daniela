@@ -94,6 +94,9 @@ class Bootloader extends Phaser.Scene {
         
         //Level 6
         this.load.image("bg_Level6", "img/backgrounds/bg_volcano.png");
+        this.load.image('map_1', 'img/objects/map/map_1.png');
+        this.load.image('map_2', 'img/objects/map/map_2.png');
+        this.load.image('map_3', 'img/objects/map/map_3.png');
         
         //Credits
         this.load.image('en_Credits', 'img/backgrounds/en_credits_800w.png');
