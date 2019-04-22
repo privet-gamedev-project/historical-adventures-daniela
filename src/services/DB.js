@@ -1,4 +1,5 @@
  /**
+  *  https://github.com/nbubna/store
   *  Permite crear una base de datos por defecto con una semilla inicial.
   *  @param {[{key: String, value: String | Object}, ...]} dbs
   *  @return void
@@ -31,8 +32,17 @@ const DB = {
             score : '000000',
             stars: 0
         },
-        Level4: {
-            name: 'Level4',
+        Level4: {            
+            completed: false,
+            score : '000000',
+            stars: 0
+        },
+        Level5: {            
+            completed: false,
+            score : '000000',
+            stars: 0
+        },
+        Level6: {            
             completed: false,
             score : '000000',
             stars: 0

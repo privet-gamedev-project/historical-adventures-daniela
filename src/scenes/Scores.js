@@ -30,10 +30,10 @@ class Scores extends BasicScene {
         this.addEventForMusic(this.bgmusic,200);
 
 
-        this.DB = store.get('gamedata');
+        this.DB = store.get(GameConstants.DB.DBNAME);
 
                         
-        const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);        
+        const menuButton = this.add.dynamicBitmapText(80, y * 2 + 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);        
         menuButton.setInteractive();
 
         menuButton.on('pointerdown', () => { 
@@ -73,7 +73,21 @@ class Scores extends BasicScene {
         }
 
 
+        const level5Label = this.add.dynamicBitmapText(80, 300, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 5 : ' + this.DB.worlds.Level5.score , 24).setTint(0x808489);        
         
+        for(let i=0;i<this.DB.worlds.Level5.stars;i++) {
+            this.add.image(480 + (i*50), 395 , GameConstants.Sprites.Star.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(0.25).setAlpha(1); 
+        }
+
+        
+        const level6Label = this.add.dynamicBitmapText(80, 350, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 6 : ' + this.DB.worlds.Level6.score , 24).setTint(0x808489);        
+        
+        for(let i=0;i<this.DB.worlds.Level6.stars;i++) {
+            this.add.image(480 + (i*50), 345 , GameConstants.Sprites.Star.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(0.25).setAlpha(1); 
+        }
+
 
         
 

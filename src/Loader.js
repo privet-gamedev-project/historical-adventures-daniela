@@ -1,4 +1,6 @@
 import DB from "./services/DB.js";
+import GameConstants from "./services/GameConstants.js";
+
 
 class Loader extends Phaser.Scene {
     constructor() {
@@ -7,7 +9,11 @@ class Loader extends Phaser.Scene {
 
     init() {
         //store.clearAll(); 
-        DB.createDB([{key: 'gamedata', value: DB.DB}]);
+        DB.createDB([{key: GameConstants.DB.DBNAME, value: DB.DB}]);
+        /*store.each(function(key, value) {
+            console.log(key, '->', value);           
+        });*/
+
     }
 
     preload() {

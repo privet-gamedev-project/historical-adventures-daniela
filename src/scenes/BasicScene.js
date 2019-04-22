@@ -62,9 +62,9 @@ class BasicScene extends Phaser.Scene {
      */
     createDaniela(costume = GameConstants.Sprites.Daniela.KEY, createLolo = true,  createMap = true, cameraFollow = true) {
         //Establece nivel actual el último nivel jugado
-        this.DB = store.get('gamedata');
+        this.DB = store.get(GameConstants.DB.DBNAME);
         this.DB.currentLevel = this.key;
-        store.set('gamedata', this.DB);
+        store.set(GameConstants.DB.DBNAME, this.DB);
 
         //Crea el mapa
         if (createMap) {
@@ -496,12 +496,12 @@ class BasicScene extends Phaser.Scene {
         //Graba en BD local Store
         //TODO: Guardar maxLevel
         // Preparar Gestion generalizada para todos los level
-        this.DB = store.get('gamedata');
+        this.DB = store.get(GameConstants.DB.DBNAME);
         this.DB.currentLevel = this.key;
         this.DB.worlds[this.key].score = score;
         this.DB.worlds[this.key].stars = numstars;
         this.DB.worlds[this.key].completed = true;
-        store.set('gamedata', this.DB);
+        store.set(GameConstants.DB.DBNAME, this.DB);
 
         //SCORES
         const scoreLabel = this.daniela.scene.add.dynamicBitmapText(this.width / 2 - 100, (this.height / 2) - 150, 'pixel', 'SCORE:' + score, 24)

@@ -53,7 +53,7 @@ class SettingsLevel extends BasicScene {
         this.resetDBLabel.on('pointerdown',() => {
             //Clear DB
             store.clearAll();  
-            DB.createDB([{key: 'gamedata', value: DB.DB}]);          
+            DB.createDB([{key: GameConstants.DB.DBNAME, value: DB.DB}]);          
             this.DoneLabel = this.add.dynamicBitmapText(80,300, 'pixel', this.TG.tr('SETTINGLEVEL.DONE'), 24).setTint(0x808489);
 
             store.each(function(key, value) {
