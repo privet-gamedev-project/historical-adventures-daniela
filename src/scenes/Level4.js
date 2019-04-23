@@ -9,28 +9,36 @@ class Level4 extends BasicScene {
             key: GameConstants.Levels.LEVEL4
         });
     }
-   
+
     create() {
         //Daniela Creation
         this.createDaniela(GameConstants.Sprites.DanielaTroglo);
         //Background
-        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL4,defaultStatus,defaultStatus,  {x:1.30, y:1.30});
+        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL4, defaultStatus, defaultStatus, { x: 1.30, y: 1.30 });
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level4);
+        //ExtraPoints        
+        this.createCoins();
         //HealthText
         this.createHealthText();
+        //CreateAudios
+        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LOLO_WE_DID_IT);
+        //Text Dialog
+        this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', GameConstants.Texts.BUSCAR_ROPA_TROGLODITA.toUpperCase(), 16);
+        this.textDialog.setScrollFactor(0);
+        this.textDialog.setDepth(3);
         //Tilemap
         this.paintLayerAndCreateCollision(GameConstants.Tiles.JUNGLE);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.JUNGLE, GameConstants.Layers.LANDSCAPE, false);
-        
+
 
         //PRIVATE SCENE ELEMENTS
         //Grupo de rectangulos en capa  Water
         let water = this.findTransparentObjects('Water', 'Water', false);
         this.physics.add.overlap(this.daniela, water, this.daniela.waterCollision);
-        
-        
-        
+
+
+
         //CreateLianes
         this.liana = this.createLianas();
         this.groupOfLianas = new Lianas(this.physics.world, this, [], this.liana);
@@ -38,16 +46,22 @@ class Level4 extends BasicScene {
         this.endOfLiana = this.createEndOfLianas();
         this.groupOfEndOfLianas = new LianasEnd(this.physics.world, this, [], this.endOfLiana);
         console.log(this.groupOfEndOfLianas);
-        
+
         this.physics.add.overlap(this.daniela, this.groupOfLianas, this.danielaOverLiana, null, this);
         this.physics.add.overlap(this.daniela, this.groupOfEndOfLianas, this.danielaOverEndOfLiana, null, this);
- 
+
     }
     update(time, delta) {
         this.daniela.update(time, delta);
         Object.keys(this.enemyGroups).forEach(enemy => {
             this.enemyGroups[enemy].update();
         });
+        //End of level
+        if (this.daniela.x > 4700&&!this.daniela.reachedTheEnd) {
+            this.soundLOLO_Bien_lo_hemos_conseguido.play();
+            this.daniela.nextScene();
+            this.daniela.reachedTheEnd=true;//variable created to get called just once
+        }
 
     }
     //CUSTOM
@@ -64,7 +78,7 @@ class Level4 extends BasicScene {
         }
     }
     danielaOverEndOfLiana(daniela, liana) {
-        this.daniela.y += 50;
+        this.daniela.y += 10;
         daniela.isInLiana = false;
         daniela.body.setAllowGravity(true);
     }
