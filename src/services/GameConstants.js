@@ -149,8 +149,7 @@ const GameConstants = {
     Enemies_Layers:{
         Level1 : {
             BATS : 'Bats',
-            WHEELS: 'Wheels',
-            BEES: 'Bees'
+            WHEELS: 'Wheels'
         },
         Level2: {
             BEES: 'Bees',

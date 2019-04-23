@@ -31,6 +31,7 @@ class Level2 extends BasicScene {
 
         //PRIVATE SCENE ELEMENTS
         let wall =  this.paintLayerAndCreateCollision(GameConstants.Tiles.FOREST_PACK, 'Wall');
+        this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
         
         this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
         this.addEventForMusic(this.music);

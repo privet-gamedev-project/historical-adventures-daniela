@@ -94,7 +94,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -124,8 +124,8 @@
                  "type":"Bat",
                  "visible":true,
                  "width":0,
-                 "x":456,
-                 "y":198
+                 "x":288,
+                 "y":192
                 }, 
                 {
                  "height":0,
@@ -165,7 +165,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -188,7 +188,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -321,7 +321,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -380,30 +380,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":14,
-         "name":"Bees",
-         "objects":[
-                {
-                 "height":0,
-                 "id":82,
-                 "name":"Bee",
-                 "point":true,
-                 "rotation":0,
-                 "type":"Bee",
-                 "visible":true,
-                 "width":0,
-                 "x":128,
-                 "y":160
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -414,7 +391,7 @@
          "objects":[],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }],
