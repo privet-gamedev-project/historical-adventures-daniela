@@ -254,6 +254,12 @@ const GameConstants = {
         GAME_OVER: 'GameOver',
         LEVEL_FINISHED: 'Win',
         MENU: 'Menu'
+    },
+    Settings: {
+        FLAG_ES: 'es_flag',
+        FLAG_EN: 'en_flag',
+        FLAG_IT: 'it_flag',
+        FLAG_DE: 'de_flag'
     }
 
 };

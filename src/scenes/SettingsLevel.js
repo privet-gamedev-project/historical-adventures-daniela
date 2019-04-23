@@ -37,12 +37,39 @@ class SettingsLevel extends BasicScene {
         
 
         this.languageLabel = this.add.dynamicBitmapText(80,150, 'pixel', this.TG.tr('SETTINGLEVEL.LANGUAGE'), 24).setTint(0x808489);              
-        let languageToChange = (this.TG.getActualLang()=='es')?'en':'es';
-        this.languageButton = this.add.dynamicBitmapText(80, 200, 'pixel', languageToChange , 24).setTint(0x808489);
-        this.languageButton.setInteractive();
-        this.languageButton.on('pointerdown', () => {             
-            if (this.TG.getActualLang()=='es') this.TG.setLang('en');
-            else this.TG.setLang('es');                                  
+       // let languageToChange = (this.TG.getActualLang()=='es')?'en':'es';
+       // this.currentLanguage = this.add.dynamicBitmapText(80, 200, 'pixel', this.TG.getActualLang() , 24).setTint(0xff0000);
+       // this.languageButton = this.add.dynamicBitmapText(150, 200, 'pixel', languageToChange , 24).setTint(0x808489);
+       // this.languageButton.setInteractive();
+       // this.languageButton.on('pointerdown', () => {             
+       //     if (this.TG.getActualLang()=='es') this.TG.setLang('en');
+       //     else this.TG.setLang('es');                                  
+       //     this.changeScene(this, GameConstants.Levels.MENU,0);
+       // });
+
+        
+        this.flag1 = this.add.image(80, 200, GameConstants.Settings.FLAG_EN).setOrigin(0).setScale(2);
+        this.flag1.setInteractive();
+        this.flag1.on('pointerdown', () => {             
+            this.TG.setLang('en');                                  
+            this.changeScene(this, GameConstants.Levels.MENU,0);
+        });
+        this.flag2 = this.add.image(130, 200, GameConstants.Settings.FLAG_ES).setOrigin(0).setScale(2);
+        this.flag2.setInteractive();
+        this.flag2.on('pointerdown', () => {             
+            this.TG.setLang('es');                                    
+            this.changeScene(this, GameConstants.Levels.MENU,0);
+        });
+        this.flag3 = this.add.image(180, 200, GameConstants.Settings.FLAG_IT).setOrigin(0).setScale(2);
+        this.flag3.setInteractive();
+        this.flag3.on('pointerdown', () => {             
+            this.TG.setLang('it');                                    
+            this.changeScene(this, GameConstants.Levels.MENU,0);
+        });
+        this.flag4 = this.add.image(230, 200, GameConstants.Settings.FLAG_DE).setOrigin(0).setScale(2);
+        this.flag4.setInteractive();
+        this.flag4.on('pointerdown', () => {             
+            this.TG.setLang('de');                                    
             this.changeScene(this, GameConstants.Levels.MENU,0);
         });
 
