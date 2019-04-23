@@ -1,0 +1,41 @@
+{
+    "MENU": {
+        "SETTINGS": "IMPOSTAZIONI",
+        "PLAY": "GIOCA",
+        "INTRO": "INTRO",
+        "SCORES": "SCORI",
+        "CREDITS": "CREDITI"
+    },
+    "LEVELSELECT":{
+        "MENU": "MENU",
+        "LEVELS": "LIVELLI",
+        "LEVEL": "LIVELLO"        
+    },
+    "SETTINGLEVEL": {
+        "SOUND": "SUONO",
+        "LANGUAGE": "CAMBIA LINGUA",
+        "RESET" : "RIPRISTINARE IL GIOCO",
+        "DONE" : "FATTO"
+    },
+    "LEVELINTRO":{
+        "SKIP": "SKIP",
+        "DANIELA_MUM": " DANIELA WHERE ARE YOU? HOW LONG UNTIL YOU GET THERE?",
+        "DANIELA_ANSWER": "I AM GOING THROUGH THE PARK, I ARRIVE IN 5 MINUTES"
+    },
+    "LEVEL1": {
+        "FINDBRACELET": "YOU HAVE TO LOOK FOR THE MAGIC BRACELET"
+    },
+    "LEVEL2": {
+        "FINDCLOTHES": "TO BE ABLE TO CONTINUE YOU'LL HAVE TO FIND THE CLOTHES OF PREHISTORIC TIMES"
+    },
+    "LEVEL3":{
+        "FRUITS": "FRUITS"
+    },
+    "COMMONTEXT":{
+        "WEDIDIT": "ALRIGHT WE DID IT!!",
+        "LIVES": "LIVES "
+    },
+    "UI": {
+        
+    }
+}

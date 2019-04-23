@@ -39,7 +39,7 @@ const config = {
             mapping: 'TG',
             data: {
                 path: './src/i18n',
-                disponibleLangs: ['es', 'en'],
+                disponibleLangs: ['es', 'en', "it", "de"],
                 fallbackLang: 'en',
                 spanishLangs: ['ca', 'gl', 'es', 'eu']
             }
