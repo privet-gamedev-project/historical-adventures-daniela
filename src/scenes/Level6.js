@@ -51,11 +51,19 @@ class Level6 extends BasicScene {
         this.physics.add.overlap(this.daniela, mapGroup, (player, object) => {
             let mask = new BackgroundMask(this);
             mask.show();
-
+            
             lastMap.x = object.x;
             lastMap.y = object.y;
 
             let mapImage = this.add.image(this.daniela.x + 150, this.daniela.y - 75, object.mapId).setDepth(1).setScale(0.35);
+            mapImage.setInteractive();
+            
+            let closed = false;
+            mapImage.on('pointerdown', () => {
+                closed=true; 
+                this.closeMap(mask, mapImage);                
+            });
+            
             object.destroy();
 
             this.daniela.body.setVelocity(0, 0);
@@ -63,9 +71,7 @@ class Level6 extends BasicScene {
             this.scene.scene.time.addEvent({
                 delay: 5000,
                 callback: () => {
-                    mask.hide();
-                    mapImage.destroy();
-                    this.scene.scene.physics.resume();
+                    if (!closed) this.closeMap(mask, mapImage);                 
                 }
             });
         });
@@ -89,6 +95,11 @@ class Level6 extends BasicScene {
             this.daniela.nextScene();
         })
 
+    }
+    closeMap(mask, mapImage){
+        mask.hide();
+        mapImage.destroy();
+        this.scene.scene.physics.resume();
     }
 
     update(time, delta) {
