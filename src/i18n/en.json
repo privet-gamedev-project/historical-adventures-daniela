@@ -8,6 +8,7 @@
     },
     "LEVELSELECT":{
         "MENU": "MENU",
+        "BONUS": "BONUS LEVEL",
         "LEVELS": "LEVELS",
         "LEVEL": "LEVEL"        
     },
@@ -16,6 +17,11 @@
         "LANGUAGE": "CHANGE LANGUAGE",
         "RESET" : "RESET GAME",
         "DONE" : "DONE"
+    },
+    "BONUSLEVEL":{                
+        "INSTRUCTIONS": "GET 10 FRUITS IN LESS THAN 60 SECONDS",
+        "COINS": "COINS",
+        "TIME": "TIME"
     },
     "LEVELINTRO":{
         "SKIP": "SKIP",

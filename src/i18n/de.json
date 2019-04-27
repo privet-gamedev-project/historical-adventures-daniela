@@ -7,7 +7,8 @@
         "CREDITS": "CREDITS" 
     }, 
     "LEVELSELECT":{ 
-        "MENU": "MENÜ", 
+        "MENU": "MENÜ",
+        "BONUS": "BONUS-LEVEL",     
         "LEVELS": "LEVELS", 
         "LEVEL": "LEVEL"         
     }, 
@@ -16,6 +17,11 @@
         "LANGUAGE": "SPRACHE ÄNDERN", 
         "RESET" : "SPIEL ZURÜCKSETZEN", 
         "DONE" : "FERTIG" 
+    },
+    "BONUSLEVEL":{                
+        "INSTRUCTIONS": "ERHALTEN SIE 10 FRÜCHTE IN WENIGER ALS 60 SEKUNDEN",
+        "COINS": "MÜNZEN",
+        "TIME": "ZEIT"
     }, 
     "LEVELINTRO":{ 
         "SKIP": "ÜBERSPRINGEN", 

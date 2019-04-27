@@ -26,6 +26,7 @@ class Bootloader extends Phaser.Scene {
             this.load.image("layer_0" + i, "img/backgrounds/parallax_intro/layer_0" + i + "_854x480.png");
         }
 
+       
         // player is a sprite sheet made by 24x48 pixels
         this.load.spritesheet("daniela_intro", "img/daniela/danielaintro.png", {
             frameWidth: 124,
@@ -37,6 +38,16 @@ class Bootloader extends Phaser.Scene {
             frameWidth: 64,
             frameHeight: 64
         });
+
+        //BONUS LEVEL
+        //Parallax Background Bonus Level
+        //https://jesse-m.itch.io/jungle-pack
+        for (let i = 1; i <= 5; i++) {
+            this.load.image("bonus_plx_" + i, "img/backgrounds/parallax_bonus/plx-" + i + ".png");
+        }
+        this.load.audio("pain", "sounds/pain.mp3");
+        this.load.audio("coinpickup", "sounds/coinpickup.mp3");
+
 
         //Sounds
         this.load.audio("en_LEVELINTRO_I_Arrive_in_5mins", "sounds/dialogs/en_LEVELINTRO_I_Arrive_in_5mins.ogg");

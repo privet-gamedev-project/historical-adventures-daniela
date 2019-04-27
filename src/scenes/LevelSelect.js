@@ -29,6 +29,14 @@ class LevelSelect extends BasicScene {
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
         this.addEventForMusic(this.bgmusic,200);
 
+        
+        this.bonusButton =this.add.dynamicBitmapText(width - 200, 50, 'pixel', this.TG.tr('LEVELSELECT.BONUS'))
+            .setTint(0x808489).setInteractive();        
+        this.bonusButton.on('pointerdown', () => {                        
+            this.changeScene(this, GameConstants.Levels.BONUSLEVEL,0);
+        });
+
+
                         
         const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);        
         menuButton.setInteractive();

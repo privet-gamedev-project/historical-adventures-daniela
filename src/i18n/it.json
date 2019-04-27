@@ -8,6 +8,7 @@
     },
     "LEVELSELECT":{
         "MENU": "MENU",
+        "BONUS": "LIVELLO SUPPLEMENTARE",       
         "LEVELS": "LIVELLI",
         "LEVEL": "LIVELLO"        
     },
@@ -16,6 +17,11 @@
         "LANGUAGE": "CAMBIA LINGUA",
         "RESET" : "RIPRISTINARE IL GIOCO",
         "DONE" : "FATTO"
+    },
+    "BONUSLEVEL":{                
+        "INSTRUCTIONS": "OTTENERE 10 FRUTTI IN MENO DI 60 SECONDI",
+        "COINS": "MONETE",
+        "TIME": "TEMPO"
     },
     "LEVELINTRO":{
         "SKIP": "SKIP",
