@@ -19,7 +19,7 @@
         "DONE" : "DONE"
     },
     "BONUSLEVEL":{                
-        "INSTRUCTIONS": "GET 10 FRUITS IN LESS THAN 60 SECONDS",
+        "INSTRUCTIONS": "GET 10 COINS IN LESS THAN 60 SECONDS",
         "COINS": "COINS",
         "TIME": "TIME",
         "YOUWIN": "1 EXTRA LIFE"
