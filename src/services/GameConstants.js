@@ -1,7 +1,7 @@
 /* Las constantes del juego */
 const GameConstants = {
     DB: {
-        DBNAME: 'gamedatav001'
+        DBNAME: 'gamedatav0_03'
     },
     Levels: {
         MENU: 'Menu',
@@ -29,7 +29,9 @@ const GameConstants = {
         DANIELA_AUCH: 'danielaAuch',
         CAVEMAN_BG:'caveManBgSound',
         LEVEL2_LOLO_FINDCLOTHES: 'LEVEL2_LOLO_findClothes',
-        LEVELUP : 'levelUp'
+        LEVELUP : 'levelUp',
+        COINPICKUP: 'coinpickup',
+        LOLO_AUCH: 'lolo_auch'
     },
     Sprites: {
         Bats: {

@@ -10,9 +10,18 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         this.key = config.key;
         // Health
-        this.health = 5;
+        //Check for extra Lifes
+        this.DB = store.get(GameConstants.DB.DBNAME);        
+        let currentExtraLifes = parseInt(this.DB.extralifes);        
+        console.log(currentExtraLifes);
+        this.health = 5 + currentExtraLifes;
 
+        //boolean to avoid multiple overlap in hit with enamies
         this.hitDelay = false;
+
+        //boolean to avoid multiple overlap when collecting coins
+        this.hitCoin = false;
+
 
         //Time
         this.seconds = 1;
@@ -96,6 +105,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         //Sounds create
         this.soundJump = this.scene.sound.add(GameConstants.Sound.DANIELA_JUMP);
         this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.DANIELA_AUCH);
+        this.coinpickup = this.scene.sound.add(GameConstants.Sound.COINPICKUP);
+        
 
         this.lolo = null;
     }
@@ -284,6 +295,13 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
 
     loseHealth() {
+        //delete extra lifes if exists
+        if (this.health>5){
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            let currentExtraLifes = parseInt(this.DB.extralifes);
+            this.DB.extralifes = currentExtraLifes - 1;             
+            store.set(GameConstants.DB.DBNAME, this.DB);
+        }
         this.health--;
         this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
         if (this.health === 0) {
@@ -342,22 +360,34 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
     collectExtraPoints(group, object){
 
-        //TODO: OJO Cuenta ptos mientras esta con la colision
-        this.extraPoints++;                 
+        if (!this.hitCoin) {
+            
+            this.extraPoints++;    
+            this.coinpickup.play();
 
-        this.scene.tweens.add({
-            targets: object,
-            y: object.y - 100,
-            alpha: 0,
-            duration: 800,
-            ease: "Cubic.easeOut",
-            callbackScope: this,
-            onComplete: function(){
-                group.killAndHide(object);
-                group.remove(object);   
-                object.destroy();             
-            }
-        });
+            this.hitCoin = true;            
+
+            this.scene.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    group.killAndHide(object);
+                    group.remove(object);   
+                    object.destroy();             
+                }
+            });
+
+            this.scene.time.addEvent({
+                delay: 100,
+                callback: () => {
+                    this.hitCoin = false;
+                }
+            });
+        }
     }
 
 }

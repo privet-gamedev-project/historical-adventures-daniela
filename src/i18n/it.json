@@ -21,7 +21,8 @@
     "BONUSLEVEL":{                
         "INSTRUCTIONS": "OTTENERE 10 FRUTTI IN MENO DI 60 SECONDI",
         "COINS": "MONETE",
-        "TIME": "TEMPO"
+        "TIME": "TEMPO",
+        "YOUWIN": "1 VITA EXTRA"
     },
     "LEVELINTRO":{
         "SKIP": "SKIP",

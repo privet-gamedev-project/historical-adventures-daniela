@@ -21,7 +21,8 @@
     "BONUSLEVEL":{                
         "INSTRUCTIONS": "ERHALTEN SIE 10 FRÜCHTE IN WENIGER ALS 60 SEKUNDEN",
         "COINS": "MÜNZEN",
-        "TIME": "ZEIT"
+        "TIME": "ZEIT",
+        "YOUWIN": "1 ZUSÄTZLICHES LEBEN"
     }, 
     "LEVELINTRO":{ 
         "SKIP": "ÜBERSPRINGEN", 

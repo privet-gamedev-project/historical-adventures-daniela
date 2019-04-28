@@ -15,7 +15,7 @@ class BonusLevel extends Phaser.Scene {
     create() {
         
 
-        this.score = 10;
+        this.score = 1;
         this.countDown = 60;
         this.newTime = 1;
         this.enemyIndex = 0;
@@ -106,8 +106,8 @@ class BonusLevel extends Phaser.Scene {
         this.textDialog.setAlpha(1);
 
         //Sounds
-        this.pain = this.sound.add('pain')
-        this.coinpickup = this.sound.add('coinpickup');
+        this.pain = this.sound.add(GameConstants.Sound.LOLO_AUCH);
+        this.coinpickup = this.sound.add(GameConstants.Sound.COINPICKUP);
 
         // setting player animation
         this.anims.create({
@@ -132,15 +132,16 @@ class BonusLevel extends Phaser.Scene {
         });
         
 
+       //PLAYER : LOLO
        // adding lolo
        this.lolo = this.physics.add.sprite(180,240, "lolo_intro");
        this.lolo.setDepth(2);
-       this.lolo.flipX = true;
-       //this.lolo.body.setAllowGravity(false);
+       this.lolo.flipX = true;       
        this.lolo.anims.play("fly");
        this.lolo.hitDelay = false;
        this.lolo.hitCoin = false;
        this.lolo.health = 5;
+       this.lolo.setSize(40,40);
 
 
        //Health Text
@@ -297,12 +298,38 @@ class BonusLevel extends Phaser.Scene {
         });
     }
 
-    win(){
-        //TODO: STARTS AND DB RECORD 1 extra LIVE
-        this.cameras.main.fade(700, 0, 0, 0);
-        this.cameras.main.on('camerafadeoutcomplete', () => {                        
-            this.scene.start(GameConstants.Levels.MENU);
+    win(){       
+        this.physics.pause();        
+
+        //UPDATE DB add one extralifes
+        this.DB = store.get(GameConstants.DB.DBNAME);
+        let currentExtraLifes = parseInt(this.DB.extralifes);
+        this.DB.extralifes = currentExtraLifes + 1;             
+        store.set(GameConstants.DB.DBNAME, this.DB);
+
+        //SHOW WIN
+        let youWinText = this.add.dynamicBitmapText((this.width / 2), this.height + 100, 'pixel', this.TG.tr('BONUSLEVEL.YOUWIN') , 48).setTint(0xFFFF00);       
+            this.tweens.add({
+                targets: youWinText,
+                x: (this.width / 2) - 250 ,
+                y: (this.height / 2)-150,
+                duration: 500,
+                ease: 'Power3'
+            });
+        
+
+
+        //Go to Menu
+        this.time.addEvent({
+            delay: 2500,
+            callback: () => {                    
+                this.cameras.main.fade(700, 0, 0, 0);
+                this.cameras.main.on('camerafadeoutcomplete', () => {                        
+                this.scene.start(GameConstants.Levels.LEVELSELECT);
         });
+            }
+        });
+        
     }
 
 

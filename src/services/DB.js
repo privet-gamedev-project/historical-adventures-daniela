@@ -14,8 +14,9 @@ const DB = {
     daniela: {
         costume: 'daniela'
     },
-    currentLevel: 'Level1', //Nivel Actual
-    maxLevel: 'Level1', //Último nivel alcanzado
+    currentLevel: 'Level1',
+    maxLevel: 'Level1', //Last Level achieved
+    extralifes : 0,
     worlds: {
         Level1: {            
             completed: false,

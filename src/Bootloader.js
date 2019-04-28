@@ -45,7 +45,7 @@ class Bootloader extends Phaser.Scene {
         for (let i = 1; i <= 5; i++) {
             this.load.image("bonus_plx_" + i, "img/backgrounds/parallax_bonus/plx-" + i + ".png");
         }
-        this.load.audio("pain", "sounds/pain.mp3");
+        this.load.audio("lolo_auch", "sounds/pain.mp3");
         this.load.audio("coinpickup", "sounds/coinpickup.mp3");
 
 
