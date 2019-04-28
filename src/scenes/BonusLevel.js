@@ -15,7 +15,7 @@ class BonusLevel extends Phaser.Scene {
     create() {
         
 
-        this.score = 1;
+        this.score = 10;
         this.countDown = 60;
         this.newTime = 1;
         this.enemyIndex = 0;
