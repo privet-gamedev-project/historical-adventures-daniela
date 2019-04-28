@@ -140,7 +140,7 @@ class BonusLevel extends Phaser.Scene {
        this.lolo.anims.play("fly");
        this.lolo.hitDelay = false;
        this.lolo.hitCoin = false;
-       this.lolo.health = 5;
+       this.lolo.health = 3;
        this.lolo.setSize(40,40);
 
 
