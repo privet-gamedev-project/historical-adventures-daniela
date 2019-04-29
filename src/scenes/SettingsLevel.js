@@ -89,29 +89,26 @@ class SettingsLevel extends BasicScene {
         });
         
         
-        //TODO: Guardar el estado del mute para el juego completo
-        // buttons
-        this.soundLabeltxt = this.add.dynamicBitmapText(80,50, 'pixel', this.TG.tr('SETTINGLEVEL.SOUND'), 24).setTint(0x808489);                
+   //Sounds confıg saved ın the DB sound record
+   this.soundLabeltxt = this.add.dynamicBitmapText(80,50, 'pixel', this.TG.tr('SETTINGLEVEL.SOUND'), 24).setTint(0x808489);                
         
-        this.soundLabel = (this.muted)? GameConstants.UI.VOLUMEOFF:GameConstants.UI.VOLUMEON;          
+   this.DB = store.get(GameConstants.DB.DBNAME);
+   
+   this.soundLabel = (this.DB.sound)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;          
 
-          this.musicOnOffButton = this.add.image(100,90,this.soundLabel).setScale(0.5).setTint(0x0000FF);
-          this.musicOnOffButton.setInteractive();
-          
-          if (this.muted) this.sound.pauseAll();
-  
-          this.musicOnOffButton.on('pointerdown', () => { 
-            //this.sound.mute();
-            console.log("MUSIC");
-            if (!this.muted) this.sound.pauseAll();
-            else this.sound.resumeAll();
-                
+     this.musicOnOffButton = this.add.image(100,90,this.soundLabel).setScale(0.5).setTint(0x0000FF);
+     this.musicOnOffButton.setInteractive();
+     
+     this.musicOnOffButton.on('pointerdown', () => { 
+       
+       this.DB.sound=!this.DB.sound;
+       store.set(GameConstants.DB.DBNAME, this.DB);
 
-            this.muted=! this.muted;
-            this.soundLabel = (this.muted)? GameConstants.UI.VOLUMEOFF:GameConstants.UI.VOLUMEON;
-            this.musicOnOffButton.setTexture(this.soundLabel);
-          });        
+       if (!this.DB.sound) this.sound.stopAll();
         
+       this.soundLabel = (this.DB.sound)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
+       this.musicOnOffButton.setTexture(this.soundLabel);
+     });  
         
 
     }

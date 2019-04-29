@@ -17,6 +17,7 @@ const DB = {
     currentLevel: 'Level1',
     maxLevel: 'Level1', //Last Level achieved
     extralifes : 0,
+    sound: true,
     worlds: {
         Level1: {            
             completed: false,
