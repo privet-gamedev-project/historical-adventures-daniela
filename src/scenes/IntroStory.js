@@ -28,6 +28,7 @@ class IntroStory extends Phaser.Scene {
         this.width = this.cameras.main.width;        
         //Opción de MENU en niveles
         const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP'));        
+        skipButton.setPosition(this.width - skipButton.width - 30, 20);
         skipButton.setInteractive().setDepth(2);
 
         skipButton.on('pointerdown', () => { 
