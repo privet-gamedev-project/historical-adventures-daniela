@@ -23,15 +23,16 @@ class LevelSelect extends BasicScene {
         
         // background        
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
-        this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.25);
+      
 
         //bg sound
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
         this.addEventForMusic(this.bgmusic,200);
 
         
-        this.bonusButton =this.add.dynamicBitmapText(width - 200, 50, 'pixel', this.TG.tr('LEVELSELECT.BONUS'))
-            .setTint(0x808489).setInteractive();        
+        this.bonusButton =this.add.dynamicBitmapText(width - 200, 30, 'pixel', this.TG.tr('LEVELSELECT.BONUS'))
+            .setTint(0x808489).setInteractive();    
+        this.bonusButton.setPosition(width - this.bonusButton.width - 40, 30);    
         this.bonusButton.on('pointerdown', () => {                        
             this.changeScene(this, GameConstants.Levels.BONUSLEVEL,0);
         });
@@ -46,54 +47,130 @@ class LevelSelect extends BasicScene {
             
         });
         
-        const levelsLabel = this.add.dynamicBitmapText(250, y * 2, 'pixel', this.TG.tr('LEVELSELECT.LEVELS'), 24);        
+        const levelsLabel = this.add.dynamicBitmapText(80, 20, 'pixel', this.TG.tr('LEVELSELECT.LEVELS'), 24);        
                 
-        const level1Button = this.add.dynamicBitmapText(450, y * 2, 'pixel', '1', 24);        
-        level1Button.setInteractive();
+        this.DB = store.get(GameConstants.DB.DBNAME);
 
-        level1Button.on('pointerdown', () => { 
-            this.changeScene(this, GameConstants.Levels.LEVEL1,0);
-            
-        });
+        let numberLevel = 0;
+        for (let i in this.DB.worlds) {
+            numberLevel++;
+            this.levelButton = this.add.dynamicBitmapText(80, 20 + (numberLevel * 50), 'pixel', 'Level ' + numberLevel + ': ' + this.getLevelScore(numberLevel) , 24);
+            for (let i=0; i < this.getNumberOfStars(numberLevel); i++) {
+                this.add.image(460 + (i*50), 15 + (numberLevel * 50) , GameConstants.Sprites.Star.KEY)
+                .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(0.25).setAlpha(1); 
+            }
+            if (this.DB.worlds[i].completed === false) {
+                this.levelButton.setTint(0xFF0000);
+                if (i == "Level1" || this.DB.worlds["Level" + (numberLevel - 1)].completed === true) {
+                    this.changePlayScene(this.levelButton, numberLevel);
+                    this.playButton = this.add.image(600, 20 + (numberLevel * 50) , GameConstants.Sprites.Play.KEY)
+                    .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(1.25).setAlpha(1); 
+                    this.changePlayScene(this.playButton, numberLevel);
+                } else {
+                    this.levelButton.setTint(0x9e9e9e);
+                    this.add.image(600, 20 + (numberLevel * 50) , GameConstants.Sprites.Lock.KEY)
+                    .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(1).setAlpha(1); 
+                }
+            } else if (this.DB.worlds[i].completed === true && this.DB.worlds[i].stars < 3) {
+                this.levelButton.setTint(0xFFFF00);
+                this.changePlayScene(this.levelButton, numberLevel);
+                this.playButton = this.add.image(600, 20 + (numberLevel * 50) , GameConstants.Sprites.Play.KEY)
+                    .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(1.25).setAlpha(1); 
+                    this.changePlayScene(this.playButton, numberLevel);
+            } else if (this.DB.worlds[i].completed === true && this.DB.worlds[i].stars === 3) {
+                this.levelButton.setTint(0x008000);
+                this.changePlayScene(this.levelButton, numberLevel);
+                this.playButton = this.add.image(600, 20 + (numberLevel * 50) , GameConstants.Sprites.Play2.KEY)
+                    .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(1.25).setAlpha(1); 
+                    this.changePlayScene(this.playButton, numberLevel);
+            }
+        }
 
-        const level2Button = this.add.dynamicBitmapText(550, y * 2, 'pixel', '2', 24);        
-        level2Button.setInteractive();
-
-        level2Button.on('pointerdown', () => { 
-            this.changeScene(this, GameConstants.Levels.LEVEL2,0);
-            
-        });
-
-        const level3Button = this.add.dynamicBitmapText(650, y * 2, 'pixel', '3', 24);        
-        level3Button.setInteractive();
-
-        level3Button.on('pointerdown', () => { 
-            this.changeScene(this, GameConstants.Levels.LEVEL3,0);
-            
-        });
-
-        const level4Button = this.add.dynamicBitmapText(750, y *2, 'pixel', '4', 24);        
-        level4Button.setInteractive();
-
-        level4Button.on('pointerdown', () => { 
-            this.changeScene(this, GameConstants.Levels.LEVEL4,0);
-            
-        });
-
-        const level6Button = this.add.dynamicBitmapText(800, y *2, 'pixel', '6', 24);
-        level6Button.setInteractive();
-
-        level6Button.on('pointerdown', () => {
-            this.changeScene(this, GameConstants.Levels.LEVEL6,0);
-
-        });
-
-        
-
+        let levelNotDone = this.add.dynamicBitmapText(80, 20, 'pixel', this.TG.tr('LEVELSELECT.LEVELNOTDONE') + ": ", 12)
+        .setTint(0xFF0000);
+        levelNotDone.setPosition(width - levelNotDone.width - 30, 400);
+        let levelDone = this.add.dynamicBitmapText(80, 350, 'pixel', this.TG.tr('LEVELSELECT.LEVELDONE') + ": ", 12)
+        .setTint(0xFFFF00);
+        levelDone.setPosition(width - levelDone.width - 30, 425);
+        let levelFinished = this.add.dynamicBitmapText(80, 20, 'pixel', this.TG.tr('LEVELSELECT.LEVELFINISHED') + ": ", 12)
+        .setTint(0x008000);
+        levelFinished.setPosition(width - levelFinished.width - 30, 450);
     }
 
     update(time, delta) {
         
+    }
+
+    changePlayScene(levelButton, level) {
+        levelButton.setInteractive();
+        levelButton.on('pointerdown', () => {
+            switch (level) {
+                case 1: 
+                    this.changeScene(this, GameConstants.Levels.LEVEL1, 0);
+                    break;
+                case 2: 
+                    this.changeScene(this, GameConstants.Levels.LEVEL2, 0);
+                    break;
+                case 3:
+                    this.changeScene(this, GameConstants.Levels.LEVEL3, 0);
+                    break;
+                case 4:
+                    this.changeScene(this, GameConstants.Levels.LEVEL4, 0);
+                    break;
+                case 5:
+                    this.changeScene(this, GameConstants.Levels.LEVEL5, 0);
+                    break;
+                case 6:
+                    this.changeScene(this, GameConstants.Levels.LEVEL6, 0);
+                    break;
+            }
+        });
+    }
+
+    getLevelScore(numberLevel) {
+        switch (numberLevel) {
+            case 1: 
+                return this.DB.worlds.Level1.score
+                break;
+            case 2: 
+                return this.DB.worlds.Level2.score
+                break;
+            case 3:
+                return this.DB.worlds.Level3.score
+                break;
+            case 4:
+                return this.DB.worlds.Level4.score
+                break;
+            case 5:
+                return this.DB.worlds.Level5.score
+                break;
+            case 6:
+                return this.DB.worlds.Level6.score
+                break;
+        }
+    }
+
+    getNumberOfStars(numberLevel) {
+        switch (numberLevel) {
+            case 1: 
+                return this.DB.worlds.Level1.stars
+                break;
+            case 2: 
+                return this.DB.worlds.Level2.stars
+                break;
+            case 3:
+                return this.DB.worlds.Level3.stars
+                break;
+            case 4:
+                return this.DB.worlds.Level4.stars
+                break;
+            case 5:
+                return this.DB.worlds.Level5.stars
+                break;
+            case 6:
+                return this.DB.worlds.Level6.stars
+                break;
+        }
     }
 
 }

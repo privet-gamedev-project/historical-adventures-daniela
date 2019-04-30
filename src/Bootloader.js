@@ -178,6 +178,16 @@ class Bootloader extends Phaser.Scene {
         //Star
         this.load.image("star", "img/objects/star.png");
 
+        //play
+        this.load.image("play", "img/objects/PlayButton.png");
+
+        //play
+        this.load.image("play2", "img/objects/PlayButton2.png");
+
+
+        //lock
+        this.load.image("lock", "img/objects/Lock.png");
+
         // the firecamp is a sprite sheet made by 32x58 pixels
         this.load.spritesheet("fire", "img/objects/fire.png", {
             frameWidth: 40,

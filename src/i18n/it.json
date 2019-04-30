@@ -10,7 +10,10 @@
         "MENU": "MENU",
         "BONUS": "LIVELLO SUPPLEMENTARE",       
         "LEVELS": "LIVELLI",
-        "LEVEL": "LIVELLO"        
+        "LEVEL": "LIVELLO",
+        "LEVELDONE": "Livello completato",
+        "LEVELFINISHED": "Livello raggiunto con le stelle piene",
+        "LEVELNOTDONE": "Livello non ancora completato"        
     },
     "SETTINGLEVEL": {
         "SOUND": "SUONO",
