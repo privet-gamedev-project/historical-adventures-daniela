@@ -83,6 +83,15 @@ const GameConstants = {
         Star:{
             KEY: 'star'
         },
+        Play:{
+            KEY: 'play'
+        },
+        Play2:{
+            KEY: 'play2'
+        },
+        Lock:{
+            KEY: 'lock'
+        },
         Cavemen_Clothes: {
             KEY: 'caveman_clothes'        
         },

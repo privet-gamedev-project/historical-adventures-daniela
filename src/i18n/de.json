@@ -10,7 +10,10 @@
         "MENU": "MENÜ",
         "BONUS": "BONUS-LEVEL",     
         "LEVELS": "LEVELS", 
-        "LEVEL": "LEVEL"         
+        "LEVEL": "LEVEL",
+        "LEVELDONE": "Level geschafft",
+        "LEVELFINISHED": "Level mit vollen Sternen geschafft",
+        "LEVELNOTDONE": "Level noch nicht geschafft"         
     }, 
     "SETTINGLEVEL": { 
         "SOUND": "SOUND", 

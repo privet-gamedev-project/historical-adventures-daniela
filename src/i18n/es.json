@@ -10,7 +10,10 @@
         "MENU": "MENÚ",
         "BONUS": "NIVEL EXTRA",
         "LEVELS": "NIVELES",
-        "LEVEL": "NIVEL"      
+        "LEVEL": "NIVEL",
+        "LEVELDONE": "Nivel completado",
+        "LEVELFINISHED": "Nivel alcanzado con estrellas completas",
+        "LEVELNOTDONE": "Nivel no terminado todavía"      
     },
     "SETTINGLEVEL": {
         "SOUND": "SONIDO",
