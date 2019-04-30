@@ -2,7 +2,6 @@ import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
 import UI from "./UI.js";
 
-
 class Menu extends BasicScene {
     constructor() {
         super({key: 'Menu'});
@@ -27,52 +26,62 @@ class Menu extends BasicScene {
         //bg sound
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
         this.addEventForMusic(this.bgmusic,200);
-
         
-        this.settingsButton =this.add.dynamicBitmapText(width - 150, 50, 'pixel', this.TG.tr('MENU.SETTINGS'))
-            .setTint(0x808489).setInteractive();        
-        this.settingsButton.on('pointerdown', () => {                        
-            this.changeScene(this, GameConstants.Levels.SETTINGSLEVEL,0);
-        });
+        this.settingsButton = this.add.dynamicBitmapText(width, 50, 'pixel', this.TG.tr('MENU.SETTINGS')).setTint(0x808489).setInteractive();
+        this.settingsButton.setPosition(width - this.settingsButton.width - 50, 50);
+        this.changeSceneFromButton(this.settingsButton, GameConstants.Levels.SETTINGSLEVEL);
+      
                         
         const startButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('MENU.PLAY'), 24);        
         startButton.setInteractive();
-    
-        startButton.on('pointerdown', () => { 
-            this.changeScene(this, GameConstants.Levels.LEVELSELECT,0);
-            
-        });
+        this.changeSceneFromButton(startButton, GameConstants.Levels.LEVELSELECT);
 
         const introButton = this.add.dynamicBitmapText(220, y * 2, 'pixel', this.TG.tr('MENU.INTRO'), 24);                
         introButton.setInteractive();
-
-        introButton.on('pointerdown', () => {
-            this.changeScene(this, GameConstants.Levels.INTROSTORY,0);
-
-         });
+        this.changeSceneFromButton(introButton, GameConstants.Levels.INTROSTORY);
 
         const scoresButton = this.add.dynamicBitmapText(400, y * 2, 'pixel', this.TG.tr('MENU.SCORES'), 24);                        
         scoresButton.setInteractive();
-
-        scoresButton.on('pointerdown', () => { 
-            this.changeScene(this, GameConstants.Levels.SCORES,0);
-         });
+        this.changeSceneFromButton(scoresButton, GameConstants.Levels.SCORES);
 
         const creditsButton = this.add.dynamicBitmapText(600, y * 2, 'pixel', this.TG.tr('MENU.CREDITS'), 24);        
         creditsButton.setInteractive();
-       
-        creditsButton.on('pointerdown', () => {             
-                this.changeScene(this, GameConstants.Levels.CREDITS,0);
-                
+        this.changeSceneFromButton(creditsButton, GameConstants.Levels.CREDITS);
+
+        // change the position of the buttons
+        let buttons = [
+            startButton,
+            introButton,
+            scoresButton,
+            creditsButton
+        ];
+
+        let freeSpace = width;
+        buttons.forEach(function(button) {
+            freeSpace = freeSpace - button.width;
         });
-
-
+        
+        let distance = freeSpace / (buttons.length + 1);
+        
+        for(let i = 0; i < buttons.length; i++) {
+            let xPositionButton = distance * (i + 1);
+            for (let j = 0; j < i; j++) {
+                xPositionButton = xPositionButton + buttons[j].width;
+            }
+            buttons[i].setPosition(xPositionButton, buttons[i].y);
+        }
     }
 
     update(time, delta) {
         
     }
 
-}
+    changeSceneFromButton(pressedButon, newScene){
+        pressedButon.on('pointerdown', () => {             
+            this.changeScene(this, newScene, 0); 
+        });
+    }
 
+}
+   
 export default Menu;
