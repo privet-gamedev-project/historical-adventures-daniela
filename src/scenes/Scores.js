@@ -27,7 +27,7 @@ class Scores extends BasicScene {
 
         //bg sound
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
-        this.addEventForMusic(this.bgmusic,200);
+        this.addEventForMusic(this.bgmusic,true,200);
 
 
         this.DB = store.get(GameConstants.DB.DBNAME);

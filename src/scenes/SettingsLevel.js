@@ -24,7 +24,7 @@ class SettingsLevel extends BasicScene {
     
         //bg sound
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
-        this.addEventForMusic(this.bgmusic,200);
+        this.addEventForMusic(this.bgmusic,true,200);
 
                         
         const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);        

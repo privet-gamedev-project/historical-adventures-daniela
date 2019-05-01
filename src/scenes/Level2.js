@@ -33,8 +33,9 @@ class Level2 extends BasicScene {
         let wall =  this.paintLayerAndCreateCollision(GameConstants.Tiles.FOREST_PACK, 'Wall');
         this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
         
+        //MUSIC and AUDIOS
         this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
-        this.addEventForMusic(this.music);
+        this.addEventForMusic(this.music,true,2000);
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LOLO_WE_DID_IT);
         
         //Text Dialog

@@ -25,7 +25,7 @@ class Menu extends BasicScene {
 
         //bg sound
         this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
-        this.addEventForMusic(this.bgmusic,200);
+        this.addEventForMusic(this.bgmusic,true,200);
         
         this.settingsButton = this.add.dynamicBitmapText(width, 50, 'pixel', this.TG.tr('MENU.SETTINGS')).setTint(0x808489).setInteractive();
         this.settingsButton.setPosition(width - this.settingsButton.width - 50, 50);

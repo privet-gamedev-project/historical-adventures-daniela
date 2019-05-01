@@ -436,14 +436,14 @@ class BasicScene extends Phaser.Scene {
      * @param music
      * @param delay (milliseconds)
      */
-    addEventForMusic(music, delay = 2000) {
+    addEventForMusic(music, loop=false, delay = 0) {
         this.DB = store.get(GameConstants.DB.DBNAME);
         if(this.DB.sound){ 
             this.time.addEvent({
                 delay: delay,
                 callback: () => {
                     music.play();
-                    music.setLoop(true);
+                    music.setLoop(loop);
                 },
                 callbackScope: this
             });
