@@ -118,6 +118,14 @@ class BasicScene extends Phaser.Scene {
                 this.registry.events.on('controlJumpOFF', () => {
                     this.daniela.animControl.jump = false;
                 });
+
+                this.registry.events.on('controlDownON', () => {
+                    this.daniela.animControl.down = true;
+                });
+
+                this.registry.events.on('controlDownOFF', () => {
+                    this.daniela.animControl.down = false;
+                });
                 
                 if (createLolo) {
                     this.createLoloNormal(this.daniela);

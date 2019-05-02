@@ -42,7 +42,9 @@ class UI extends Phaser.Scene {
             .setInteractive();
         this.rightBtn = this.add.sprite(350, 0, 'controlRight')
             .setInteractive();
-        this.jumpBtn = this.add.sprite(this.width + 300, 0, 'controlUp')
+        this.jumpBtn = this.add.sprite(this.width + 300, -225, 'controlUp')
+            .setInteractive();
+        this.downBtn = this.add.sprite(this.width + 300, 0, 'controlDown')
             .setInteractive();
 
 
@@ -68,6 +70,13 @@ class UI extends Phaser.Scene {
             this.registry.events.emit('controlJumpOFF');
         });
 
+        this.downBtn.on('pointerdown', () => {
+            this.registry.events.emit('controlDownON');
+        });
+        this.downBtn.on('pointerup', () => {
+            this.registry.events.emit('controlDownOFF');
+        });
+
         // Posicionando los controles
         const controlContainer = this.add.container(
             50, 
@@ -75,7 +84,8 @@ class UI extends Phaser.Scene {
         controlContainer.add([
             this.leftBtn,
             this.rightBtn,
-            this.jumpBtn
+            this.jumpBtn,
+            this.downBtn
         ]);
         controlContainer
             .setScale(.6)
