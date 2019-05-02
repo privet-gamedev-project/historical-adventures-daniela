@@ -501,8 +501,12 @@ class BasicScene extends Phaser.Scene {
         // Preparar Gestion generalizada para todos los level
         this.DB = store.get(GameConstants.DB.DBNAME);
         this.DB.currentLevel = this.key;
-        this.DB.worlds[this.key].score = score;
-        this.DB.worlds[this.key].stars = numstars;
+        if (score > this.DB.worlds[this.key].score) {
+            this.DB.worlds[this.key].score = score;
+        }
+        if (numstars > this.DB.worlds[this.key].stars) {
+            this.DB.worlds[this.key].stars = numstars;
+        }
         this.DB.worlds[this.key].completed = true;
         store.set(GameConstants.DB.DBNAME, this.DB);
 
