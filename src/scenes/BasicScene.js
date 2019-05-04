@@ -17,28 +17,27 @@ import Invisible from "../gameObjects/Invisible.js";
  */
 class BasicScene extends Phaser.Scene {
 
-    //Variables accesibles desde una clase hija
-    map = null;
-    bg = null;
-    lolo = null;
-    daniela = null;
-    bats = [];
-    bees = [];
-    wheels = [];
-    crocodiles = [];
-    snails = [];
-    sodas = [];
-    donuts = [];
-    enemyGroups = {};
-    extraPoints = [];
-    extraPointsGroup;
-    levelTiles = [];
-    levelLayers = [];
-    textHealth;
-
     constructor(key) {
         super(key);
         this.key = key.key;
+        //Variables accesibles desde una clase hija
+        this.map = null;
+        this.bg = null;
+        this.lolo = null;
+        this.daniela = null;
+        this.bats = [];
+        this.bees = [];
+        this.wheels = [];
+        this.crocodiles = [];
+        this.snails = [];
+        this.sodas = [];
+        this.donuts = [];
+        this.enemyGroups = {};
+        this.extraPoints = [];
+        this.extraPointsGroup;
+        this.levelTiles = [];
+        this.levelLayers = [];
+        this.textHealth;
     }
 
     /**
@@ -48,7 +47,7 @@ class BasicScene extends Phaser.Scene {
      */
     preload() {
         console.log(this.key);
-        this.scene.launch(GameConstants.Levels.UI);  
+        this.scene.launch(GameConstants.Levels.UI);
     }
 
     /**
@@ -60,7 +59,7 @@ class BasicScene extends Phaser.Scene {
      * @param createMap - Condicion para crear el mapa si previamente no se ha llamado a {@method createMap()}
      * @param cameraFollow - Inidica si la camara seguirá a Daniela o no (default = true).
      */
-    createDaniela(costume = GameConstants.Sprites.Daniela.KEY, createLolo = true,  createMap = true, cameraFollow = true) {
+    createDaniela(costume = GameConstants.Sprites.Daniela.KEY, createLolo = true, createMap = true, cameraFollow = true) {
         //Establece nivel actual el último nivel jugado
         this.DB = store.get(GameConstants.DB.DBNAME);
         this.DB.currentLevel = this.key;
@@ -126,7 +125,7 @@ class BasicScene extends Phaser.Scene {
                 this.registry.events.on('controlDownOFF', () => {
                     this.daniela.animControl.down = false;
                 });
-                
+
                 if (createLolo) {
                     this.createLoloNormal(this.daniela);
                 }
@@ -249,7 +248,7 @@ class BasicScene extends Phaser.Scene {
                     this.anims.play(GameConstants.Anims.DINOWATER, this.dinowaters);
                     break;
                 case GameConstants.Sprites.Dinobird.OBJECT_NAME:
-                    this.dinobirds = this.createEnemies(GameConstants.Sprites.Dinobird.OBJECT_NAME, GameConstants.Sprites.Dinobird.OBJECT_ID,GameConstants.Sprites.Dinobird.KEY);
+                    this.dinobirds = this.createEnemies(GameConstants.Sprites.Dinobird.OBJECT_NAME, GameConstants.Sprites.Dinobird.OBJECT_ID, GameConstants.Sprites.Dinobird.KEY);
                     this.enemyGroups.dinobirds = new FlyingEnemy(this.physics.world, this, [], this.dinobirds);
                     this.anims.play(GameConstants.Anims.DINOBIRD, this.dinobirds);
                     break;
@@ -332,7 +331,13 @@ class BasicScene extends Phaser.Scene {
      * @param origin.y - Valor vertical desde el que empieza a pintar el Background. Rango de 0 a 1 siendo 0 el valor más a la izquierda en pantalla (default = 0)
      *
      */
-    createBackground(texture, x = 0, y = 0, width = 2560, height = 1400, scale = {x: 0, y: 0}, origin = {x: 0, y: 0}) {
+    createBackground(texture, x = 0, y = 0, width = 2560, height = 1400, scale = {
+        x: 0,
+        y: 0
+    }, origin = {
+        x: 0,
+        y: 0
+    }) {
         this.bg = this.add.tileSprite(x, y, width, height, texture).setOrigin(origin.x, origin.y).setScale(scale.x, scale.y);
     }
 
@@ -350,7 +355,13 @@ class BasicScene extends Phaser.Scene {
      * @param origin.y - Valor vertical desde el que empieza a pintar el Background. Rango de 0 a 1 siendo 0 el valor más a la izquierda en pantalla (default = 0)
      *
      */
-    createRepeatedBackground(texture, x = 0, y = 0, scale = {x: 1, y: 1}, origin = {x: 0, y: 0}) {
+    createRepeatedBackground(texture, x = 0, y = 0, scale = {
+        x: 1,
+        y: 1
+    }, origin = {
+        x: 0,
+        y: 0
+    }) {
         this.bg = this.add.tileSprite(x, y, this.map.widthInPixels, this.map.heightInPixels, texture).setOrigin(origin.x, origin.y).setScale(scale.x, scale.y);
     }
 
@@ -444,9 +455,9 @@ class BasicScene extends Phaser.Scene {
      * @param music
      * @param delay (milliseconds)
      */
-    addEventForMusic(music, loop=false, delay = 0) {
+    addEventForMusic(music, loop = false, delay = 0) {
         this.DB = store.get(GameConstants.DB.DBNAME);
-        if(this.DB.sound){ 
+        if (this.DB.sound) {
             this.time.addEvent({
                 delay: delay,
                 callback: () => {
@@ -464,11 +475,15 @@ class BasicScene extends Phaser.Scene {
      * @returns {*|Phaser.GameObjects.Sprite[]|Phaser.GameObjects.Sprite[]}
      */
     createLianas() {
-        return this.map.createFromObjects(GameConstants.Sprites.Lianas.OBJECT_NAME, GameConstants.Sprites.Lianas.OBJECT_ID, {key: GameConstants.Sprites.Lianas.KEY});
+        return this.map.createFromObjects(GameConstants.Sprites.Lianas.OBJECT_NAME, GameConstants.Sprites.Lianas.OBJECT_ID, {
+            key: GameConstants.Sprites.Lianas.KEY
+        });
     }
 
     createEndOfLianas() {
-        return this.map.createFromObjects(GameConstants.Sprites.EndOfLianas.OBJECT_NAME, GameConstants.Sprites.EndOfLianas.OBJECT_ID, {key: GameConstants.Sprites.EndOfLianas.KEY});
+        return this.map.createFromObjects(GameConstants.Sprites.EndOfLianas.OBJECT_NAME, GameConstants.Sprites.EndOfLianas.OBJECT_ID, {
+            key: GameConstants.Sprites.EndOfLianas.KEY
+        });
     }
 
     /**
