@@ -35,12 +35,12 @@ class Level1 extends BasicScene {
         this.textDialog.setDepth(3);
 
         //Sounds
-        this.soundLEVEL1_LOLO_findBracelet = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1_LOLO_FINDBRACELET);
+        this.soundLEVEL1_LOLO_findBracelet = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1.FINDBRACELET);
         this.addEventForMusic(this.soundLEVEL1_LOLO_findBracelet);
-        this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
+        this.music = this.sound.add(GameConstants.Sound.SOUNDS.CAVEBATS);
         this.addEventForMusic(this.music,true,2000);
 
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LOLO_WE_DID_IT);
+        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
 
         //Create Bracelet
         this.bracelets = this.createEndLevelObject(GameConstants.Sprites.Bracelet.KEY);

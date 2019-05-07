@@ -45,21 +45,6 @@ class Bootloader extends Phaser.Scene {
         for (let i = 1; i <= 5; i++) {
             this.load.image("bonus_plx_" + i, "img/backgrounds/parallax_bonus/plx-" + i + ".png");
         }
-        this.load.audio("lolo_auch", "sounds/pain.mp3");
-        this.load.audio("coinpickup", "sounds/coinpickup.mp3");
-
-
-        //Sounds
-        this.load.audio("en_LEVELINTRO_I_Arrive_in_5mins", "sounds/dialogs/en_LEVELINTRO_I_Arrive_in_5mins.ogg");
-        this.load.audio("en_LEVELINTRO_Daniela_Where_are_you", "sounds/dialogs/en_LEVELINTRO_Daniela_Where_are_you.ogg");
-        this.load.audio("es_LEVELINTRO_Daniela_Where_are_you", "sounds/dialogs/es_LEVELINTRO_Daniela_Where_are_you.ogg");
-        this.load.audio("es_LEVELINTRO_I_Arrive_in_5mins", "sounds/dialogs/es_LEVELINTRO_I_Arrive_in_5mins.ogg");
-
-        this.load.audio("birds_singing", "sounds/backgrounds/birds-singing.mp3");
-        //https://freesound.org/people/DCPoke/sounds/387978/
-
-        this.load.audio("falling", "sounds/backgrounds/falling.mp3");
-        //https://freesound.org/people/ChrisButler99/sounds/367988/
 
         //Level2
         //Copyright/Attribution Notice: 
@@ -205,25 +190,6 @@ class Bootloader extends Phaser.Scene {
         //MapObject
         this.load.atlas("map","img/objects/map/map.png","img/objects/map/map_atlas.json");
         this.load.animation("mapAnim", "img/objects/map/map_anim.json");
-        
-        //Sounds
-        this.load.audio("soundJump", "sounds/jump.mp3");
-        this.load.audio("danielaAuch", "sounds/Daniela_Auch.ogg");
-        this.load.audio("es_LEVEL1_LOLO_findBracelet", "sounds/dialogs/LEVEL1_LOLO_BuscaPulsera.ogg");
-        this.load.audio("en_LEVEL1_LOLO_findBracelet", "sounds/dialogs/LEVEL1_LOLO_MagicBracelet.ogg");
-        this.load.audio("es_LOLO_WE_DID_IT", "sounds/LOLO_Bien_lo_hemos_conseguido.ogg");
-        this.load.audio("en_LOLO_WE_DID_IT", "sounds/LOLO_Allright_We_did_it.ogg");
-        this.load.audio("CaveBats", "sounds/backgrounds/CaveBats.mp3");
-        this.load.audio("levelUp", "sounds/backgrounds/LevelUp.ogg");
-        /*
-        https://opengameart.org/content/cave-bats
-        Copyright/Attribution Notice: 
-        Please credit music by Dan Knoflicek
-        */
-        this.load.audio("caveManBgSound", "sounds/backgrounds/caveManBgSound.mp3");
-        //By Xololex (Gonzalo)
-
-        // this.load.audio('LEVEL2_LOLO_findClothes','sounds/dialogs/LEVEL2_LOLO_findClothes.mp3');
 
 
         //UI
@@ -246,14 +212,16 @@ class Bootloader extends Phaser.Scene {
 
         this.load.lang();
 
+        this.scene.launch('AudioLoader');
+
         // When all the assests are load go to next Scene
         this.load.on("complete", () => {
             const fontJSON = this.cache.json.get('fontJSON');
             this.cache.bitmapFont.add('pixel', Phaser.GameObjects.RetroFont.Parse(this, fontJSON));
 
             this.scene.stop('Loader');
+            this.scene.stop('AudioLoader');
             this.scene.stop('Bootloader');
-
             this.scene.start("Menu");
         });
     }

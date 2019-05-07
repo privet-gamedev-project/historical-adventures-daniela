@@ -97,9 +97,9 @@ class IntroStory extends Phaser.Scene {
         this.textDialog.setAlpha(0);
 
         //SOUNDS
-        this.sound_LEVELINTRO_WHERE_ARE_YOU = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELINTRO_WHERE_ARE_YOU);
+        this.sound_LEVELINTRO_WHERE_ARE_YOU = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL0.DANIELA_MUM);
         
-        this.sound_LEVELINTRO_I_ARRIVE_IN_5MINS = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELINTRO_I_ARRIVE_IN_5MINS);
+        this.sound_LEVELINTRO_I_ARRIVE_IN_5MINS = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL0.DANIELA_ANSWER);
 
         //Show texts
         this.time.addEvent({

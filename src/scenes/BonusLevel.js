@@ -106,8 +106,8 @@ class BonusLevel extends Phaser.Scene {
         this.textDialog.setAlpha(1);
 
         //Sounds
-        this.pain = this.sound.add(GameConstants.Sound.LOLO_AUCH);
-        this.coinpickup = this.sound.add(GameConstants.Sound.COINPICKUP);
+        this.pain = this.sound.add(GameConstants.Sound.BONUSLEVEL.LOLO_AUCH);
+        this.coinpickup = this.sound.add(GameConstants.Sound.BONUSLEVEL.COINPICKUP);
 
         // setting player animation
         this.anims.create({

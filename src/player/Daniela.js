@@ -12,8 +12,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         // Health
         //Check for extra Lifes
         this.DB = store.get(GameConstants.DB.DBNAME);        
-        let currentExtraLifes = parseInt(this.DB.extralifes);        
-        console.log(currentExtraLifes);
+        let currentExtraLifes = parseInt(this.DB.extralifes);
         this.health = 5 + currentExtraLifes;
 
         //boolean to avoid multiple overlap in hit with enamies
@@ -36,7 +35,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             this.animDOWN = GameConstants.Anims.DanielaTroglo.DOWN;
             this.animWALK = GameConstants.Anims.DanielaTroglo.WALK;
             this.animCLIMB = GameConstants.Anims.DanielaTroglo.CLIMB;
-        } else {
+            } else {
             this.animIDLE = GameConstants.Anims.Daniela.IDLE;
             this.animDOWN = GameConstants.Anims.Daniela.DOWN;
             this.animWALK = GameConstants.Anims.Daniela.WALK;
@@ -98,15 +97,13 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.gamepad = null;
         this.scene.input.gamepad.once('down', (pad) => {
             this.gamepad = pad;
-            console.log(pad);
         });
 
 
         //Sounds create
-        this.soundJump = this.scene.sound.add(GameConstants.Sound.DANIELA_JUMP);
-        this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.DANIELA_AUCH);
-        this.coinpickup = this.scene.sound.add(GameConstants.Sound.COINPICKUP);
-        
+        this.soundJump = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_JUMP);
+        this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_AUCH);
+        this.coinpickup = this.scene.sound.add(GameConstants.Sound.BONUSLEVEL.COINPICKUP);
 
         this.lolo = null;
     }

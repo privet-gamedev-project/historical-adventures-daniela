@@ -537,7 +537,7 @@ class BasicScene extends Phaser.Scene {
         const scoreLabel = this.daniela.scene.add.dynamicBitmapText(this.width / 2 - 100, (this.height / 2) - 150, 'pixel', 'SCORE:' + score, 24)
             .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
 
-        this.LevelUpmusic = this.sound.add(GameConstants.Sound.LEVELUP);
+        this.LevelUpmusic = this.sound.add(GameConstants.Sound.SOUNDS.LEVELUP);
         this.LevelUpmusic.play();
 
 

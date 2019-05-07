@@ -19,11 +19,11 @@ class SettingsLevel extends BasicScene {
         let x = width / 2 ;
         let y = height / 2 -50;
         
-        // background        
+        // background         
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
     
         //bg sound
-        this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
+        this.bgmusic = this.sound.add(GameConstants.Sound.SOUNDS.CAVEMAN_BG);
         this.addEventForMusic(this.bgmusic,true,200);
 
                         
@@ -85,7 +85,6 @@ class SettingsLevel extends BasicScene {
        this.soundLabel = (this.DB.sound)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
        this.musicOnOffButton.setTexture(this.soundLabel);
      });  
-        
 
     }
 
@@ -96,7 +95,8 @@ class SettingsLevel extends BasicScene {
     setFlagsSetting(flag, language) {
         flag.setInteractive();
         flag.on('pointerdown', () => {             
-            this.TG.setLang(language);                                    
+            this.TG.setLang(language);  
+            this.scene.launch('AudioLoader');                                  
             this.changeScene(this, GameConstants.Levels.MENU,0);
         });
         if (this.currentLanguage === language) {

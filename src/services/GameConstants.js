@@ -20,18 +20,51 @@ const GameConstants = {
         UI: 'UI'
     },
     Sound: {
-        LEVELINTRO_WHERE_ARE_YOU : 'LEVELINTRO_Daniela_Where_are_you',
-        LEVELINTRO_I_ARRIVE_IN_5MINS : 'LEVELINTRO_I_Arrive_in_5mins',
-        LEVEL1_LOLO_FINDBRACELET: 'LEVEL1_LOLO_findBracelet',
-        LOLO_WE_DID_IT: 'LOLO_WE_DID_IT',
-        CAVEBATS: 'CaveBats',
-        DANIELA_JUMP: 'soundJump',
-        DANIELA_AUCH: 'danielaAuch',
-        CAVEMAN_BG:'caveManBgSound',
-        LEVEL2_LOLO_FINDCLOTHES: 'LEVEL2_LOLO_findClothes',
-        LEVELUP : 'levelUp',
-        COINPICKUP: 'coinpickup',
-        LOLO_AUCH: 'lolo_auch'
+        LEVEL0: {
+            DANIELA_MUM: 'Level0_MOTHER_WhereAreYou_01',
+            DANIELA_ANSWER: 'Level0_DANIELA_5Mins_02'
+        },
+        LEVEL1: {
+            FINDBRACELET: 'Level1_LOLO_MagicBracelet_03'
+        },
+        LEVEL2: {
+            DANIELA_QUESTION: 'Level2_DANIELA_WhereDidYouGetThat_05',
+            FINDCLOTHES: 'Level2_LOLO_ToBeAbleToContinue_06',
+            LOLO_ANSWER: 'Level2_LOLO_LookWhatIHaveFound_13',
+            LOLO_NOTE: 'Level2_LOLO_LookForTheMap_14',
+            LOLO_TASK: 'Level2_LOLO_YouHaveToFindTheLever_15'
+        },
+        Level3: {
+            DANIELA_QUESTION: 'Level3_DANIELA_WhatAProblem_07',
+            LOLO_ANSWER: 'Level3_LOLO_YouHaveToGiveMammoth_08'
+        },
+        Level4: {
+
+        },
+        LEVEL5: {
+            LOLO_TASK: 'Level5_LOLO_YouWillHaveToCatch_09',
+            DANIELA_FRUITS: 'Level5_DANIELA_ThatFruitLooksSoGood_10',
+            LOLO_NOTE: 'Level5_LOLO_InOrderToCatchTheFruit_11'
+        },
+        LEVEL6: {
+            DANIELA: 'Level6_DANIELA_OhIBurntMyself_12',
+            LOLO_TASK: 'Level6_LOLO_GetAllTheObjects_17'
+        },
+        LEVELALL: {
+            WEDIDIT: 'LevelAll_DANIELA_WeDidIt_04',
+            RECOVERONELIFE: 'LevelAll_LOLO_RecoverOnleLife_16'
+        },
+        BONUSLEVEL: {
+            COINPICKUP: 'coinpickup',
+            LOLO_AUCH: 'lolo_auch'
+        },
+        SOUNDS: {
+            CAVEBATS: 'CaveBats',
+            DANIELA_JUMP: 'soundJump',
+            DANIELA_AUCH: 'danielaAuch',
+            CAVEMAN_BG:'caveManBgSound',
+            LEVELUP : 'levelUp',
+        }
     },
     Sprites: {
         Bats: {
