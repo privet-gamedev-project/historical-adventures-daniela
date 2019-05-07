@@ -37,11 +37,11 @@ class Level3 extends BasicScene {
         this.fruitsCollected = 10;
         this.fruitDelay = false;
 
-        this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
+        this.music = this.sound.add(GameConstants.Sound.SOUNDS.CAVEBATS);
         this.addEventForMusic(this.music);
 
 
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LOLO_WE_DID_IT);
+        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
         //Text Dialog
         this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', GameConstants.Texts.BUSCAR_ROPA_TROGLODITA.toUpperCase(), 16);
         this.textDialog.setScrollFactor(0);

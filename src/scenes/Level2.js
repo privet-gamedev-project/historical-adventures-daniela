@@ -34,9 +34,9 @@ class Level2 extends BasicScene {
         this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
         
         //MUSIC and AUDIOS
-        this.music = this.sound.add(GameConstants.Sound.CAVEBATS);
+        this.music = this.sound.add(GameConstants.Sound.SOUNDS.CAVEBATS);
         this.addEventForMusic(this.music,true,2000);
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LOLO_WE_DID_IT);
+        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
         
         //Text Dialog
         this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', GameConstants.Texts.BUSCAR_ROPA_TROGLODITA.toUpperCase(), 16);                

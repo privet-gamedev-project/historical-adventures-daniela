@@ -26,7 +26,7 @@ class Scores extends BasicScene {
         //this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.25);
 
         //bg sound
-        this.bgmusic = this.sound.add(GameConstants.Sound.CAVEMAN_BG);
+        this.bgmusic = this.sound.add(GameConstants.Sound.SOUNDS.CAVEMAN_BG);
         this.addEventForMusic(this.bgmusic,true,200);
 
 
