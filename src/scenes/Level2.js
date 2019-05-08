@@ -34,14 +34,21 @@ class Level2 extends BasicScene {
         this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
         
         //MUSIC and AUDIOS
+        this.audioLevel2_LOLO_LookWhatIHaveFound_13 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL2.LOLO_ANSWER);
+        this.addEventForMusic(this.audioLevel2_LOLO_LookWhatIHaveFound_13);
+        this.audioLevel2_LOLO_YouHaveToFindTheLever_15 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL2.LOLO_TASK);
+        this.addEventForMusic(this.audioLevel2_LOLO_YouHaveToFindTheLever_15,false,9000);
         this.music = this.sound.add(GameConstants.Sound.SOUNDS.CAVEBATS);
-        this.addEventForMusic(this.music,true,2000);
+        this.addEventForMusic(this.music,true,14000);
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
         
+        
         //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', GameConstants.Texts.BUSCAR_ROPA_TROGLODITA.toUpperCase(), 16);                
+        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL2.FINDCLOTHES') + "\n\n" + this.TG.tr('LEVEL2.FINDLEVER'),12 );
         this.textDialog.setScrollFactor(0);
         this.textDialog.setDepth(3);
+
+        
 
         //Create CaveManClothes
         this.cavemanclothes = this.createEndLevelObject(GameConstants.Sprites.Cavemen_Clothes.KEY);        
