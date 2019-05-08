@@ -22,8 +22,8 @@
         "DONE": "HECHO"
     },
     "BONUSLEVEL":{                
-        "INSTRUCTIONS": "CONSIGUE 10 MONEDAS EN MENOS DE 60 SEGUNDOS",
-        "COINS": "MONEDAS",
+        "INSTRUCTIONS": "CONSIGUE 10 PIEZAS DE PUZZLE EN MENOS DE 60 SEGUNDOS",
+        "COINS": "PUZZLE",
         "TIME": "TIEMPO",
         "YOUWIN": "1 VIDA EXTRA"
     },

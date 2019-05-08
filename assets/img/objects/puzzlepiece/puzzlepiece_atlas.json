@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "filename": "puzzlepiece_0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 27,
+                "h": 22
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "puzzlepiece_1",
+            "frame": {
+                "x": 27,
+                "y": 0,
+                "w": 27,
+                "h": 22
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "puzzlepiece_2",
+            "frame": {
+                "x": 54,
+                "y": 0,
+                "w": 27,
+                "h": 22
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "puzzlepiece_3",
+            "frame": {
+                "x": 81,
+                "y": 0,
+                "w": 27,
+                "h": 22
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "puzzlepiece_4",
+            "frame": {
+                "x": 108,
+                "y": 0,
+                "w": 27,
+                "h": 22
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "puzzlepiece_5",
+            "frame": {
+                "x": 135,
+                "y": 0,
+                "w": 27,
+                "h": 22
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "puzzlepiece_6",
+            "frame": {
+                "x": 162,
+                "y": 0,
+                "w": 27,
+                "h": 22
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "puzzlepiece_7",
+            "frame": {
+                "x": 189,
+                "y": 0,
+                "w": 27,
+                "h": 22
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

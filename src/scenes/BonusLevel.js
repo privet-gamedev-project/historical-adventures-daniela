@@ -1,29 +1,29 @@
+import BasicScene from "./BasicScene.js";
 import GameConstants from '../services/GameConstants.js';
 
-
-class BonusLevel extends Phaser.Scene {
+class BonusLevel extends BasicScene {
     constructor() {
-        super({key: 'BonusLevel'});
+        super({
+            key: GameConstants.Levels.BONUSLEVEL
+        });
+        this.target = GameConstants.Levels.LEVELSELECT;
     }
     
-    preload() {
-        console.log('Scene: ');
-        
-
-    }
 
     create() {
         
-
+        //Global Variables
         this.score = 10;
         this.countDown = 60;
         this.newTime = 1;
         this.enemyIndex = 0;
+        this.puzzlepiece_count = 1;
 
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;        
-        //Opción de MENU en niveles
-        const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'));        
+        
+        //Back to Menu
+        /*const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'));        
         skipButton.setInteractive().setDepth(2);
 
         skipButton.on('pointerdown', () => { 
@@ -32,7 +32,7 @@ class BonusLevel extends Phaser.Scene {
                 this.scene.start(GameConstants.Levels.MENU);
             });
             
-        });
+        });*/
 
         
        //Background Parallax 
@@ -43,7 +43,7 @@ class BonusLevel extends Phaser.Scene {
        }
        
 
-       //coin POOL
+       //PUZZLEPIEZE POOL 
                // group with all active coins.
                this.coinGroup = this.add.group({
 
@@ -108,6 +108,13 @@ class BonusLevel extends Phaser.Scene {
         //Sounds
         this.pain = this.sound.add(GameConstants.Sound.BONUSLEVEL.LOLO_AUCH);
         this.coinpickup = this.sound.add(GameConstants.Sound.BONUSLEVEL.COINPICKUP);
+
+        //Sounds
+        this.sound_LevelAll_LOLO_RecoverOnleLife_16 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.RECOVERONELIFE);
+        this.addEventForMusic(this.sound_LevelAll_LOLO_RecoverOnleLife_16);
+        this.music = this.sound.add(GameConstants.Sound.SOUNDS.CAVEBATS);
+        this.addEventForMusic(this.music,true,2000);
+
 
         // setting player animation
         this.anims.create({
@@ -292,10 +299,7 @@ class BonusLevel extends Phaser.Scene {
     }
 
     gameOver(){
-        this.cameras.main.fade(700, 0, 0, 0);
-        this.cameras.main.on('camerafadeoutcomplete', () => {                        
-            this.scene.start(GameConstants.Levels.MENU);
-        });
+        this.changeScene(this,this.target);        
     }
 
     win(){       
@@ -318,17 +322,10 @@ class BonusLevel extends Phaser.Scene {
             });
         
 
+        this.music.stop();        
+        this.changeScene(this,this.target,2500);
 
-        //Go to Menu
-        this.time.addEvent({
-            delay: 2500,
-            callback: () => {                    
-                this.cameras.main.fade(700, 0, 0, 0);
-                this.cameras.main.on('camerafadeoutcomplete', () => {                        
-                this.scene.start(GameConstants.Levels.LEVELSELECT);
-        });
-            }
-        });
+
         
     }
 
@@ -368,16 +365,21 @@ class BonusLevel extends Phaser.Scene {
             coin.alpha = 1;
             coin.active = true;
             coin.visible = true;
+            coin.anims.play(GameConstants.Anims.PUZZLEPIECE + this.puzzlepiece_count, this.extraPoints);
             this.coinPool.remove(coin);
         } else {
-            coin = this.physics.add.sprite(posX, posY, GameConstants.Sprites.ExtraPoint.KEY);
+            coin = this.physics.add.sprite(posX, posY, GameConstants.Sprites.PUZZLEPIECE.KEY);
+            coin.setScale(1.40);
             coin.createSibling = false;            
-            coin.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
+            coin.anims.play(GameConstants.Anims.PUZZLEPIECE + this.puzzlepiece_count, this.extraPoints);
             coin.setVelocityX(-200);
             coin.body.allowGravity = false;
             coin.alpha = 1;
             this.coinGroup.add(coin);
         }
+        this.puzzlepiece_count++;
+        if (this.puzzlepiece_count>4)this.puzzlepiece_count=1;        
+
     }
 
 
@@ -414,6 +416,7 @@ class BonusLevel extends Phaser.Scene {
         this.enemyIndex ++;
         if (this.enemyIndex>3) this.enemyIndex=0;
     }
+
 
     
 }

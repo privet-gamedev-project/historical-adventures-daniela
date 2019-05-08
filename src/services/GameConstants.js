@@ -189,7 +189,8 @@ const GameConstants = {
         Limit: {
             KEY: 'Limit'
         },
-        INVISIBLE: 'invisible'
+        INVISIBLE: 'invisible',
+        PUZZLEPIECE: 'puzzlepiece'
     },
     Enemies_Layers:{
         Level1 : {
@@ -265,7 +266,8 @@ const GameConstants = {
             JUMP: 'jump',
             IDLE: 'idle',
         },
-        MAP: 'map_shine'
+        MAP: 'map_shine',
+        PUZZLEPIECE:'puzzlepiece_move'
     },
     UI:{
         VOLUMEON:'volumeOn',

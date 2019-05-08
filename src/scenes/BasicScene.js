@@ -47,7 +47,7 @@ class BasicScene extends Phaser.Scene {
      */
     preload() {
         console.log(this.key);
-        this.scene.launch(GameConstants.Levels.UI);
+        this.scene.launch(GameConstants.Levels.UI,{scene:this.key});
     }
 
     /**

@@ -45,6 +45,8 @@ class Bootloader extends Phaser.Scene {
         for (let i = 1; i <= 5; i++) {
             this.load.image("bonus_plx_" + i, "img/backgrounds/parallax_bonus/plx-" + i + ".png");
         }
+        this.load.atlas('puzzlepiece', 'img/objects/puzzlepiece/puzzlepiece.png', 'img/objects/puzzlepiece/puzzlepiece_atlas.json');
+        this.load.animation('puzzlepieceAnim', 'img/objects/puzzlepiece/puzzlepiece_anim.json');
 
         //Level2
         //Copyright/Attribution Notice: 

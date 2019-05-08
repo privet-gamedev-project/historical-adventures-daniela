@@ -22,8 +22,8 @@
         "DONE" : "FERTIG" 
     },
     "BONUSLEVEL":{                
-        "INSTRUCTIONS": "ERHALTEN SIE 10 MÜNZEN IN WENIGER ALS 60 SEKUNDEN",
-        "COINS": "MÜNZEN",
+        "INSTRUCTIONS": "ERHALTEN SIE 10 PUZZLETEIL IN WENIGER ALS 60 SEKUNDEN",
+        "COINS": "PUZZLETEIL",
         "TIME": "ZEIT",
         "YOUWIN": "1 ZUSÄTZLICHES LEBEN"
     }, 

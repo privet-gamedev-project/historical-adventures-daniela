@@ -22,8 +22,8 @@
         "DONE" : "DONE"
     },
     "BONUSLEVEL":{                
-        "INSTRUCTIONS": "GET 10 COINS IN LESS THAN 60 SECONDS",
-        "COINS": "COINS",
+        "INSTRUCTIONS": "GET 10 PUZZLE PIECES IN LESS THAN 60 SECONDS",
+        "COINS": "PUZZLE",
         "TIME": "TIME",
         "YOUWIN": "1 EXTRA LIFE"
     },

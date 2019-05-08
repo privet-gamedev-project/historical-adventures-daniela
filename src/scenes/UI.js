@@ -10,6 +10,10 @@ class UI extends Phaser.Scene {
         });        
     }
 
+    init(data) {
+        this.scenename = data.scene;                
+      }
+
     preload() {
         //console.log('Scene: UI');
     }
@@ -18,8 +22,8 @@ class UI extends Phaser.Scene {
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;
 
-        //Si es una pantalla tactil creamos controles
-        if (this.sys.game.device.input.touch) {
+        //if detects a touch screen and it is not the bonus scene
+        if (this.sys.game.device.input.touch && this.scenename!=GameConstants.Levels.BONUSLEVEL) {
             this.createControls();
         }
 
