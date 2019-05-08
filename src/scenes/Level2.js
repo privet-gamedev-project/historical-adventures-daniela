@@ -69,8 +69,7 @@ class Level2 extends BasicScene {
         this.physics.add.collider(this.daniela, this.cavemanclothe, () => {
             this.music.stop();
             this.cavemanclothe.destroy();
-            this.soundLOLO_Bien_lo_hemos_conseguido.play();
-            console.log('Daniela encuentra pulsera magica');
+            this.soundLOLO_Bien_lo_hemos_conseguido.play();            
             this.daniela.nextScene();
         });
 
