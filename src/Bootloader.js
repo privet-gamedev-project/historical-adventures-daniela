@@ -72,6 +72,9 @@ class Bootloader extends Phaser.Scene {
         this.load.tilemapTiledJSON('Level5', '../src/worlds/level5/map.json');
         this.load.image('woods', '../src/worlds/level5/tileset.png');
 
+         // atlas sprite Level5
+         this.load.atlas('woods5sprites', 'img/woods/atlas.png', 'img/woods/atlas.json');
+         this.load.atlas('woodsbranches', 'img/woods/atlas-props.png', 'img/woods/atlas-props.json');
 
         //Level6
         this.load.tilemapTiledJSON("Level6", "../src/worlds/level6/level6.json");

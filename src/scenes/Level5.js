@@ -16,10 +16,10 @@ class Level5 extends BasicScene {
     
     create() {
         //Daniela Creation
-        this.createDaniela();
+        this.createDaniela(GameConstants.Sprites.DanielaTroglo);
 
         //Parallax Background
-        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5, defaultStatus, defaultStatus,{x:1.25,y:1.25});
+        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5);
         
 
         //Finding enemies in json map
@@ -30,7 +30,8 @@ class Level5 extends BasicScene {
         //HealthText
         //this.createHealthText();
         //Tilemap
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS);
+        this.platformlayer=this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS);
+        this.platformlayer.visible= false;
         this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Landscape', false);
 
         //PRIVATE SCENE ELEMENTS
@@ -55,7 +56,7 @@ class Level5 extends BasicScene {
 
         
 
-        //Create CaveManClothes
+        //Create Branches and Leaves
         /*this.cavemanclothes = this.createEndLevelObject(GameConstants.Sprites.Cavemen_Clothes.KEY);        
         this.physics.world.enable(this.cavemanclothes);
         this.cavemanclothe = this.cavemanclothes[0];
@@ -63,13 +64,28 @@ class Level5 extends BasicScene {
         this.cavemanclothe.body.setAllowGravity(false);
         this.anims.play(GameConstants.Anims.CAVEMAN_CLOTHES, this.cavemanclothe);*/
         
-        //Create Joystick
-        /*this.joysticks = this.map.createFromObjects('ActionButton', 'openwall', GameConstants.Sprites.Joystick.KEY);
-        this.physics.world.enable(this.joysticks);
-        this.joystick = this.joysticks[0];
-        this.joystick.setScale(1.5);
-        this.joystick.body.setAllowGravity(false);
-        this.anims.play(GameConstants.Anims.JOYSTICK, this.joystick);*/
+        //Create LEAVES
+        this.leaves = this.map.createFromObjects('Branches', 'leaves', 'woodsbranches');
+        this.physics.world.enable(this.leaves);      
+        this.leaves.forEach(function(leave) {            
+            leave.body.setAllowGravity(false);
+            leave.setDepth(4);
+            leave.setTexture('woodsbranches','leaves');
+        });  
+        
+
+        //Create BRANCH1-5
+        for (let i=1;i<=5;i++){
+            this.branches = this.map.createFromObjects('Branches', 'branch-0'+i, 'woodsbranches');
+            this.physics.world.enable(this.branches);      
+            this.branches.forEach(function(leave) {            
+                leave.body.setAllowGravity(false);
+                leave.setDepth(4);
+                leave.setTexture('woodsbranches','branch-0'+i);
+            });  
+        }
+        
+        //this.anims.play(GameConstants.Anims.JOYSTICK, this.joystick);*/
 
         //Wall collider        
         /*this.physics.add.collider(this.daniela, this.joystick, () => {
