@@ -15,6 +15,7 @@ const GameConstants = {
         LEVEL2: 'Level2',
         LEVEL3: 'Level3',
         LEVEL4:'Level4',
+        LEVEL5:'Level5',
         LEVEL6: 'Level6',
         GAMEOVER: 'GameOver',
         UI: 'UI'
@@ -219,7 +220,8 @@ const GameConstants = {
         BG_LEVEL1: 'bg_Level1',
         BG_LEVEL2: 'bg_Level2',
         BG_LEVEL3: 'bg_Level3',
-        BG_LEVEL4:  'bg_Level4',
+        BG_LEVEL4:  'bg_Level4',        
+        BG_LEVEL5:  'bg_Level5',        
         BG_LEVEL6: 'bg_Level6',
         BG_CREDITS: 'Credits',        
         BG_CREDITS_PAGE2: 'creditsPage2',
@@ -286,8 +288,9 @@ const GameConstants = {
     Tiles: {
         CAVE_STONE: 'caveStones',
         FOREST_PACK : 'forestPack_32x32',
-        GRASS_TILES: 'grasstiles',
+        GRASS_TILES: 'grasstiles',        
         JUNGLE : 'jungle',
+        WOODS: 'woods',
         VOLCANO: 'spritesheet'
     },
     Layers: {

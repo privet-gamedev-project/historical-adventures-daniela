@@ -56,7 +56,7 @@ class Bootloader extends Phaser.Scene {
         //Level2
         this.load.tilemapTiledJSON('Level2', '../src/worlds/level2/forestmap.json');
         this.load.image('forestPack_32x32', '../src/worlds/level2/forestPack_32x32.png');
-
+        //Level3
         this.load.tilemapTiledJSON('Level3', '../src/worlds/level3/grasstiles.json');
         this.load.image('grasstiles', '../src/worlds/level3/grasstiles.png');
 
@@ -67,6 +67,11 @@ class Bootloader extends Phaser.Scene {
         this.load.image("endOfLiana", "img/jungle/endOfLiana.png");
         this.load.atlas('crocodile', 'img/jungle/crocodile.png', 'img/jungle/crocodile_atlas.json');
         this.load.animation('crocodileAnim', 'img/jungle/crocodile_anim.json');
+
+        //Level5
+        this.load.tilemapTiledJSON('Level5', '../src/worlds/level5/map.json');
+        this.load.image('woods', '../src/worlds/level5/tileset.png');
+
 
         //Level6
         this.load.tilemapTiledJSON("Level6", "../src/worlds/level6/level6.json");
@@ -89,6 +94,10 @@ class Bootloader extends Phaser.Scene {
         //https://rgoncalves83.itch.io/free-vector-grass-tileset
         //Level 4
         this.load.image("bg_Level4", "img/backgrounds/Ocean.png");
+        //Level 5 
+        this.load.image("bg_Level5", "img/backgrounds/bg_level5_2130x1280.png");
+        
+        
         
         //Level 6
         this.load.image("bg_Level6", "img/backgrounds/bg_volcano.png");

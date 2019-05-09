@@ -374,7 +374,7 @@ class BasicScene extends Phaser.Scene {
      *
      * @returns Phaser.Tilemaps. DynamicTilemapLayer
      */
-    paintLayerAndCreateCollision(tileSet, dynamicLayer = GameConstants.Layers.WORLD, collisionWithPlayerAndEnemies = true) {
+    paintLayerAndCreateCollision(tileSet, dynamicLayer = GameConstants.Layers.WORLD, collisionWithPlayerAndEnemies = true) {        
         this.levelTiles[this.levelTiles.length] = this.map.addTilesetImage(tileSet);
         let level = this.levelTiles[this.levelTiles.length - 1];
         this.levelLayers[this.levelLayers.length] = this.map.createDynamicLayer(dynamicLayer, level, 0, 0);
