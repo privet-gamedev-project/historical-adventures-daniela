@@ -52,6 +52,7 @@ class LevelSelect extends BasicScene {
         this.DB = store.get(GameConstants.DB.DBNAME);
 
         let numberLevel = 0;
+        //LEVELS LOOP
         for (let i in this.DB.worlds) {
             numberLevel++;
             this.levelButton = this.add.dynamicBitmapText(80, 20 + (numberLevel * 50), 'pixel', 'Level ' + numberLevel + ': ' + this.getLevelScore(numberLevel) , 24);
@@ -67,6 +68,7 @@ class LevelSelect extends BasicScene {
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(1.25).setAlpha(1); 
                     this.changePlayScene(this.playButton, numberLevel);
                 } else {
+                    this.changePlayScene(this.levelButton, numberLevel);//TODO: Delete this line is for Testing all levels
                     this.levelButton.setTint(0x9e9e9e);
                     this.add.image(600, 20 + (numberLevel * 50) , GameConstants.Sprites.Lock.KEY)
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(1).setAlpha(1); 
