@@ -6,7 +6,7 @@ class BonusLevel extends BasicScene {
         super({
             key: GameConstants.Levels.BONUSLEVEL
         });
-        this.target = GameConstants.Levels.LEVELSELECT;
+        this.target = GameConstants.Levels.MENU;
     }
     
 
@@ -101,7 +101,7 @@ class BonusLevel extends BasicScene {
         this.sound_LevelAll_LOLO_RecoverOnleLife_16 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.RECOVERONELIFE);
         this.addEventForMusic(this.sound_LevelAll_LOLO_RecoverOnleLife_16);
         this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
-        this.addEventForMusic(this.music,true,2000);
+        this.addEventForMusic(this.music,true,5000);
 
 
         // setting player animation
@@ -287,6 +287,7 @@ class BonusLevel extends BasicScene {
     }
 
     gameOver(){
+        this.music.stop(); 
         this.changeScene(this,this.target);        
     }
 

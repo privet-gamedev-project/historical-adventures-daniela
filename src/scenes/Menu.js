@@ -38,10 +38,7 @@ class Menu extends BasicScene {
             this.levelFrom!=GameConstants.Levels.SCORES &&
             this.levelFrom!=GameConstants.Levels.SETTINGSLEVEL) {
 
-            this.bgmusic = this.sound.add(GameConstants.Sound.MAIN.BSO);
-            this.addEventForMusic(this.bgmusic,true,200);
-            this.birdMusic = this.sound.add(GameConstants.Sound.SOUNDS.BIRD_SINGING);
-            this.addEventForMusic(this.birdMusic,true,200);
+                this.playMenuScenesBSO();
         }
         
         this.settingsButton = this.add.dynamicBitmapText(width, 50, 'pixel', this.TG.tr('MENU.SETTINGS')).setTint(0x808489).setInteractive();

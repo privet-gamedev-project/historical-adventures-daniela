@@ -22,10 +22,6 @@ class SettingsLevel extends BasicScene {
         // background         
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
     
-        //bg sound
-       /* this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
-        this.addEventForMusic(this.bgmusic,true,200);*/
-
                         
         const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);        
         menuButton.setInteractive();
@@ -80,7 +76,12 @@ class SettingsLevel extends BasicScene {
        this.DB.sound=!this.DB.sound;
        store.set(GameConstants.DB.DBNAME, this.DB);
 
-       if (!this.DB.sound) this.sound.stopAll();
+       if (!this.DB.sound){
+            this.sound.stopAll();
+       } else{
+           //Play again menu BSO
+           this.playMenuScenesBSO();
+       }
         
        this.soundLabel = (this.DB.sound)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
        this.musicOnOffButton.setTexture(this.soundLabel);
