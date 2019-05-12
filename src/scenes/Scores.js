@@ -26,8 +26,8 @@ class Scores extends BasicScene {
         //this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.25);
 
         //bg sound        
-        this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
-        this.addEventForMusic(this.bgmusic,true,200);
+        /*this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
+        this.addEventForMusic(this.bgmusic,true,200);*/
 
 
         this.DB = store.get(GameConstants.DB.DBNAME);

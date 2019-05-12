@@ -26,8 +26,8 @@ class LevelSelect extends BasicScene {
       
 
         //bg sound
-        this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
-        this.addEventForMusic(this.bgmusic,true,200);
+        /*this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
+        this.addEventForMusic(this.bgmusic,true,200);*/
 
         
         this.bonusButton =this.add.dynamicBitmapText(width - 200, 30, 'pixel', this.TG.tr('LEVELSELECT.BONUS'))

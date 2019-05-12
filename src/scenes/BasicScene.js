@@ -439,9 +439,38 @@ class BasicScene extends Phaser.Scene {
                     }
                     scene.cameras.main.fade(700, 0, 0, 0);
                     scene.cameras.main.on('camerafadeoutcomplete', () => {
-                        scene.sound.stopAll();
+                        //if next level is in the menu levels
+                        //and if is menu main and don't come from these 
+                        //then stop music
+                        console.log((target!=GameConstants.Levels.LEVELSELECT && 
+                            target!=GameConstants.Levels.SCORES &&
+                            target!=GameConstants.Levels.SETTINGSLEVEL && 
+                            target!=GameConstants.Levels.CREDITS) &&
+                            (target==GameConstants.Levels.MENU && 
+                                (scene.key!=GameConstants.Levels.LEVELSELECT && 
+                                scene.key!=GameConstants.Levels.SCORES &&
+                                scene.key!=GameConstants.Levels.SETTINGSLEVEL &&
+                                scene.key!=GameConstants.Levels.CREDITS)
+                            ));
+
+                        if ( 
+                            ( (target!=GameConstants.Levels.LEVELSELECT && 
+                            target!=GameConstants.Levels.SCORES &&
+                            target!=GameConstants.Levels.SETTINGSLEVEL && 
+                            target!=GameConstants.Levels.CREDITS) &&
+                            (target==GameConstants.Levels.MENU && 
+                                (scene.key!=GameConstants.Levels.LEVELSELECT && 
+                                scene.key!=GameConstants.Levels.SCORES &&
+                                scene.key!=GameConstants.Levels.SETTINGSLEVEL &&
+                                scene.key!=GameConstants.Levels.CREDITS)
+                            )) || (scene.key==GameConstants.Levels.LEVELSELECT && target!=GameConstants.Levels.MENU) 
+                            || (target==GameConstants.Levels.INTROSTORY)
+                            ) {
+                            scene.sound.stopAll();
+                        }
+
                         scene.scene.stop();
-                        scene.scene.start(target);
+                        scene.scene.start(target, {from:scene.key});
                     });
                 },
                 callbackScope: this

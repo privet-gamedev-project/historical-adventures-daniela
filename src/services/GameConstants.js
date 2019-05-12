@@ -70,7 +70,8 @@ const GameConstants = {
             CAVEBATS: 'CaveBats',
             DANIELA_JUMP: 'soundJump',
             DANIELA_AUCH: 'danielaAuch',
-            LEVELUP : 'levelUp',            
+            LEVELUP : 'levelUp',
+            BIRD_SINGING : 'BirdSinging'
         },
         MAIN:{
             BSO: 'Main_BSO'

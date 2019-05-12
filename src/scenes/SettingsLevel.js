@@ -23,8 +23,8 @@ class SettingsLevel extends BasicScene {
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
     
         //bg sound
-        this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
-        this.addEventForMusic(this.bgmusic,true,200);
+       /* this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
+        this.addEventForMusic(this.bgmusic,true,200);*/
 
                         
         const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);        

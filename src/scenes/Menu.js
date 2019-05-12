@@ -7,6 +7,13 @@ class Menu extends BasicScene {
         super({key: 'Menu'});
     }
     
+    init(data){
+        //To Know where this scene comes from 
+        //For stoping music or not
+        if (data) this.levelFrom = data.from;
+        
+    }
+
     preload(){        
         
     }
@@ -24,8 +31,18 @@ class Menu extends BasicScene {
         this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.25);
 
         //bg sound
-        this.bgmusic = this.sound.add(GameConstants.Sound.MAIN.BSO);
-        this.addEventForMusic(this.bgmusic,true,200);
+        //Only play BG MUSIC  if come from other levels than the main scenes
+        //For not stoping the music between menu scenes
+        if (this.levelFrom!=GameConstants.Levels.CREDITS &&
+            this.levelFrom!=GameConstants.Levels.LEVELSELECT &&
+            this.levelFrom!=GameConstants.Levels.SCORES &&
+            this.levelFrom!=GameConstants.Levels.SETTINGSLEVEL) {
+
+            this.bgmusic = this.sound.add(GameConstants.Sound.MAIN.BSO);
+            this.addEventForMusic(this.bgmusic,true,200);
+            this.birdMusic = this.sound.add(GameConstants.Sound.SOUNDS.BIRD_SINGING);
+            this.addEventForMusic(this.birdMusic,true,200);
+        }
         
         this.settingsButton = this.add.dynamicBitmapText(width, 50, 'pixel', this.TG.tr('MENU.SETTINGS')).setTint(0x808489).setInteractive();
         this.settingsButton.setPosition(width - this.settingsButton.width - 50, 50);
