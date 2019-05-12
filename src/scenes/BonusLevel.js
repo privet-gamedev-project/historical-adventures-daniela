@@ -22,18 +22,6 @@ class BonusLevel extends BasicScene {
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;        
         
-        //Back to Menu
-        /*const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'));        
-        skipButton.setInteractive().setDepth(2);
-
-        skipButton.on('pointerdown', () => { 
-            this.cameras.main.fade(700, 0, 0, 0);
-            this.cameras.main.on('camerafadeoutcomplete', () => {                        
-                this.scene.start(GameConstants.Levels.MENU);
-            });
-            
-        });*/
-
         
        //Background Parallax 
        this.bgparallax=[];
@@ -112,7 +100,7 @@ class BonusLevel extends BasicScene {
         //Sounds
         this.sound_LevelAll_LOLO_RecoverOnleLife_16 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.RECOVERONELIFE);
         this.addEventForMusic(this.sound_LevelAll_LOLO_RecoverOnleLife_16);
-        this.music = this.sound.add(GameConstants.Sound.SOUNDS.CAVEBATS);
+        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
         this.addEventForMusic(this.music,true,2000);
 
 
@@ -321,6 +309,9 @@ class BonusLevel extends BasicScene {
                 ease: 'Power3'
             });
         
+        this.LevelUpmusic = this.sound.add(GameConstants.Sound.SOUNDS.LEVELUP);
+        this.LevelUpmusic.play();
+
 
         this.music.stop();        
         this.changeScene(this,this.target,2500);

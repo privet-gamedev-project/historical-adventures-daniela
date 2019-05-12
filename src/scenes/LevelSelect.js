@@ -26,7 +26,7 @@ class LevelSelect extends BasicScene {
       
 
         //bg sound
-        this.bgmusic = this.sound.add(GameConstants.Sound.SOUNDS.CAVEMAN_BG);
+        this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
         this.addEventForMusic(this.bgmusic,true,200);
 
         

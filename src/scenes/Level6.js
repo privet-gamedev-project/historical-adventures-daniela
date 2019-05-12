@@ -22,6 +22,9 @@ class Level6 extends BasicScene {
         this.createCoins();
         //HealthText
         this.createHealthText();
+        //BSO
+        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
+        this.addEventForMusic(this.music,true,100);
         //Tilemap
         this.paintLayerAndCreateCollision(GameConstants.Tiles.VOLCANO);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.VOLCANO, GameConstants.Layers.LANDSCAPE, false);

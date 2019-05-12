@@ -23,7 +23,7 @@ class SettingsLevel extends BasicScene {
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
     
         //bg sound
-        this.bgmusic = this.sound.add(GameConstants.Sound.SOUNDS.CAVEMAN_BG);
+        this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
         this.addEventForMusic(this.bgmusic,true,200);
 
                         

@@ -37,8 +37,8 @@ class Level1 extends BasicScene {
         //Sounds
         this.soundLEVEL1_LOLO_findBracelet = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1.FINDBRACELET);
         this.addEventForMusic(this.soundLEVEL1_LOLO_findBracelet);
-        this.music = this.sound.add(GameConstants.Sound.SOUNDS.CAVEBATS);
-        this.addEventForMusic(this.music,true,2000);
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO);
+        this.addEventForMusic(this.musicbg,true,2000);
 
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
 
@@ -52,7 +52,7 @@ class Level1 extends BasicScene {
 
         //Collider for Bracelet
         this.physics.add.collider(this.daniela, this.magicbracelet, () => {
-            this.music.stop();
+            this.musicbg.stop();
             this.magicbracelet.destroy();
             this.addEventForMusic(this.soundLOLO_Bien_lo_hemos_conseguido);
             this.daniela.nextScene();

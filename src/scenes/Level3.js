@@ -37,8 +37,8 @@ class Level3 extends BasicScene {
         this.fruitsCollected = 10;
         this.fruitDelay = false;
 
-        this.music = this.sound.add(GameConstants.Sound.SOUNDS.CAVEBATS);
-        this.addEventForMusic(this.music);
+        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
+        this.addEventForMusic(this.music, true);
 
 
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);

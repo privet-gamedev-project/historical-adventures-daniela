@@ -50,28 +50,18 @@ class AudioLoader extends Phaser.Scene {
         //BONUS LEVEL
         this.load.audio("lolo_auch", "sounds/pain.mp3");
         this.load.audio("coinpickup", "sounds/coinpickup.mp3");
+        
 
         //SOUNDS
 
         //https://freesound.org/people/DCPoke/sounds/387978/
-        this.load.audio("birds_singing", "sounds/backgrounds/birds-singing.mp3");
         
         //https://freesound.org/people/ChrisButler99/sounds/367988/
         this.load.audio("falling", "sounds/backgrounds/falling.mp3");
         
         this.load.audio("soundJump", "sounds/jump.mp3");
-        this.load.audio("danielaAuch", "sounds/Daniela_Auch.ogg");
-        this.load.audio("CaveBats", "sounds/backgrounds/CaveBats.mp3");
+        this.load.audio("danielaAuch", "sounds/Daniela_Auch.ogg");        
         this.load.audio("levelUp", "sounds/backgrounds/LevelUp.ogg");
-
-        /*
-        https://opengameart.org/content/cave-bats
-        Copyright/Attribution Notice: 
-        Please credit music by Dan Knoflicek
-        */
-        //this.load.audio("caveManBgSound", "sounds/backgrounds/caveManBgSound.mp3");
-        // the audio above throws errors
-        this.load.audio("caveManBgSound", "sounds/backgrounds/birds-singing.mp3");
 
     } 
 

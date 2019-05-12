@@ -20,36 +20,42 @@ const GameConstants = {
         GAMEOVER: 'GameOver',
         UI: 'UI'
     },
-    Sound: {
+    Sound: {        
         LEVEL0: {
             DANIELA_MUM: 'Level0_MOTHER_WhereAreYou_01',
-            DANIELA_ANSWER: 'Level0_DANIELA_5Mins_02'
+            DANIELA_ANSWER: 'Level0_DANIELA_5Mins_02',
+            BSO: 'LevelIntro_BSO'
         },
         LEVEL1: {
-            FINDBRACELET: 'Level1_LOLO_MagicBracelet_03'
+            FINDBRACELET: 'Level1_LOLO_MagicBracelet_03',
+            BSO: 'Level1_BSO'
         },
         LEVEL2: {
             DANIELA_QUESTION: 'Level2_DANIELA_WhereDidYouGetThat_05',
             FINDCLOTHES: 'Level2_LOLO_ToBeAbleToContinue_06',
             LOLO_ANSWER: 'Level2_LOLO_LookWhatIHaveFound_13',
             LOLO_NOTE: 'Level2_LOLO_LookForTheMap_14',
-            LOLO_TASK: 'Level2_LOLO_YouHaveToFindTheLever_15'
+            LOLO_TASK: 'Level2_LOLO_YouHaveToFindTheLever_15',
+            BSO: 'Level2_BSO'
         },
         Level3: {
             DANIELA_QUESTION: 'Level3_DANIELA_WhatAProblem_07',
-            LOLO_ANSWER: 'Level3_LOLO_YouHaveToGiveMammoth_08'
+            LOLO_ANSWER: 'Level3_LOLO_YouHaveToGiveMammoth_08',
+            BSO: 'Level3_BSO'
         },
         Level4: {
-
+            BSO: 'Level4_BSO'
         },
         LEVEL5: {
             LOLO_TASK: 'Level5_LOLO_YouWillHaveToCatch_09',
             DANIELA_FRUITS: 'Level5_DANIELA_ThatFruitLooksSoGood_10',
-            LOLO_NOTE: 'Level5_LOLO_InOrderToCatchTheFruit_11'
+            LOLO_NOTE: 'Level5_LOLO_InOrderToCatchTheFruit_11',
+            BSO: 'Level5_BSO'
         },
         LEVEL6: {
             DANIELA: 'Level6_DANIELA_OhIBurntMyself_12',
-            LOLO_TASK: 'Level6_LOLO_GetAllTheObjects_17'
+            LOLO_TASK: 'Level6_LOLO_GetAllTheObjects_17',
+            BSO: 'Level6_BSO'
         },
         LEVELALL: {
             WEDIDIT: 'LevelAll_DANIELA_WeDidIt_04',
@@ -57,14 +63,17 @@ const GameConstants = {
         },
         BONUSLEVEL: {
             COINPICKUP: 'coinpickup',
-            LOLO_AUCH: 'lolo_auch'
+            LOLO_AUCH: 'lolo_auch',
+            BSO: 'BonusLevel_BSO'
         },
         SOUNDS: {
             CAVEBATS: 'CaveBats',
             DANIELA_JUMP: 'soundJump',
             DANIELA_AUCH: 'danielaAuch',
-            CAVEMAN_BG:'caveManBgSound',
-            LEVELUP : 'levelUp',
+            LEVELUP : 'levelUp',            
+        },
+        MAIN:{
+            BSO: 'Main_BSO'
         }
     },
     Sprites: {

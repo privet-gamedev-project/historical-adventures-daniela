@@ -219,6 +219,20 @@ class Bootloader extends Phaser.Scene {
         this.load.json('fontJSON', 'font/font.json');
         this.load.image('font', 'font/font.png');
 
+
+        //BSO Tony Blisset
+        this.load.audio("BonusLevel_BSO", "sounds/bso/BonusLevel_BSO.ogg");
+        this.load.audio("LevelIntro_BSO", "sounds/bso/LevelIntro_BSO.ogg");
+        this.load.audio("Level1_BSO", "sounds/bso/Level1_BSO.ogg");        
+        
+        //OTHERS TODO: For Updatign with incoming BSO
+        /*this.load.audio("Level2_BSO","sounds/bso/Level2_BSO.ogg");
+        this.load.audio("Level3_BSO","sounds/bso/Level3_BSO.ogg");
+        this.load.audio("Level4_BSO","sounds/bso/Level4_BSO.ogg");
+        this.load.audio("Level5_BSO","sounds/bso/Level5_BSO.ogg");
+        this.load.audio("Level6_BSO","sounds/bso/Level6_BSO.ogg");*/
+        this.load.audio("Main_BSO","sounds/bso/Main_BSO.ogg");
+
         // Progress
         this.load.on('progress', (value) => {
             this.registry.events.emit('load_progress', value);

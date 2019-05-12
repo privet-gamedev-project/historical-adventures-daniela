@@ -17,9 +17,9 @@ class IntroStory extends Phaser.Scene {
 
 
         //Music Background
-        this.musicBirds = this.sound.add('birds_singing');
-        this.musicBirds.play();
-        this.musicBirds.setLoop(true);
+        this.musicBg = this.sound.add(GameConstants.Sound.LEVEL0.BSO);
+        this.musicBg.play();
+        this.musicBg.setLoop(true);
 
         //Music Falling
         this.musicFalling = this.sound.add('falling');
@@ -34,6 +34,7 @@ class IntroStory extends Phaser.Scene {
         skipButton.on('pointerdown', () => { 
             this.cameras.main.fade(700, 0, 0, 0);
             this.cameras.main.on('camerafadeoutcomplete', () => {                        
+                this.musicBg.stop();
                 this.scene.start(GameConstants.Levels.LEVEL1);
             });
             
@@ -144,8 +145,7 @@ class IntroStory extends Phaser.Scene {
 
         this.time.addEvent({
             delay: 17000,
-            callback: () => { 
-                this.musicBirds.stop();                                               
+            callback: () => {                 
                 this.textDialog2.setAlpha(0);
                 this.door.setAlpha(1);                                
             },
@@ -182,6 +182,7 @@ class IntroStory extends Phaser.Scene {
                 
                 
                     this.cameras.main.on('camerafadeoutcomplete', () => {
+                        this.musicBg.stop();                                               
                         this.scene.start(GameConstants.Levels.LEVEL1);            
                     });
                 }

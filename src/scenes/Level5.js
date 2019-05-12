@@ -21,6 +21,10 @@ class Level5 extends BasicScene {
         //Parallax Background
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5);
         
+        //BSO
+        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
+        this.addEventForMusic(this.music,true);
+
 
         //Finding enemies in json map
         //this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);
