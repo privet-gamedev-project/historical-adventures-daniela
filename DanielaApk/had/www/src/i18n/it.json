@@ -1,0 +1,52 @@
+{
+    "MENU": {
+        "SETTINGS": "IMPOSTAZIONI",
+        "PLAY": "GIOCA",
+        "INTRO": "INTRO",
+        "SCORES": "SCORI",
+        "CREDITS": "CREDITI"
+    },
+    "LEVELSELECT":{
+        "MENU": "MENU",
+        "BONUS": "LIVELLO SUPPLEMENTARE",       
+        "LEVELS": "LIVELLI",
+        "LEVEL": "LIVELLO",
+        "LEVELDONE": "Livello completato",
+        "LEVELFINISHED": "Livello raggiunto con le stelle piene",
+        "LEVELNOTDONE": "Livello non ancora completato"        
+    },
+    "SETTINGLEVEL": {
+        "SOUND": "SUONO",
+        "LANGUAGE": "CAMBIA LINGUA",
+        "RESET" : "RIPRISTINARE IL GIOCO",
+        "DONE" : "FATTO"
+    },
+    "BONUSLEVEL":{                
+        "INSTRUCTIONS": "OTTENERE 10 PEZZO DI PUZZLE IN MENO DI 60 SECONDI",
+        "COINS": "PUZZLE",
+        "TIME": "TEMPO",
+        "YOUWIN": "1 VITA EXTRA"
+    },
+    "LEVELINTRO":{
+        "SKIP": "SALTARE",
+        "DANIELA_MUM": "DANIELA, DOVE SEI? TRA QUANTO ARRIVI?",
+        "DANIELA_ANSWER": "SONO NEL PARCO, ARRIVO TRA CINQUE MINUTI"
+    },
+    "LEVEL1": {
+        "FINDBRACELET": "DEVI CERCARE IL BRACCIALETTO MAGICO"
+    },
+    "LEVEL2": {
+        "FINDCLOTHES": "DEVI CERCARE I VESTITI DELLA PREISTORIA",
+        "FINDLEVER": "AZIONARE UNA PALANCA PER POTER DEMOLIRE IL MURO E RECUPERARE I VESTITI"
+    },
+    "LEVEL3":{
+        "FRUITS": "FRUTTA"
+    },
+    "COMMONTEXT":{
+        "WEDIDIT": "BENE! CE L’ABBIAMO FATTA!",
+        "LIVES": "VITE "
+    },
+    "UI": {
+        
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "assets": {
+        "files": [{
+            "type": "pack",
+            "key": "daniela_assets",
+            "dataKey": "daniela_assets",
+            "url": "./daniela_assets.json"
+        }]
+    }
+}

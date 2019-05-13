@@ -1,0 +1,48 @@
+{
+    "frames": [
+        {
+            "filename": "mamut_0",
+            "frame": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 275
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "mamut_1",
+            "frame": {
+                "x": 295,
+				"y": 0,
+				"w": 295,
+				"h": 275
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+		},
+		{
+            "filename": "mamut_2",
+            "frame": {
+                "x": 590,
+				"y": 0,
+				"w": 295,
+				"h": 275
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+		}
+		
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

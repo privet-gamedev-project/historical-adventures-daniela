@@ -1,0 +1,72 @@
+{
+    "anims": [
+        {
+            "key": "daniela-troglodita_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 7,
+            "frames": [
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_2"
+                },
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_3"
+                },
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_4"
+                },
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_5"
+                }
+            ]
+        },
+        {
+            "key": "daniela-troglodita_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_0"
+                },
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_1"
+                }
+            ]
+        },
+        {
+            "key": "daniela-troglodita_down",
+            "type": "frames",
+            "repeat": 0,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_6"
+                }
+            ]
+        },
+        {
+            "key": "daniela-troglodita_climb",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_7"
+                },
+                {
+                    "key": "daniela-troglodita",
+                    "frame": "daniela-troglodita_8"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "frames": [
+        {
+            "filename": "lolonormal_0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "lolonormal_1",
+            "frame": {
+                "x": 32,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "lolonormal_2",
+            "frame": {
+                "x": 64,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "lolonormal_3",
+            "frame": {
+                "x": 96,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "lolonormal_4",
+            "frame": {
+                "x": 128,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "lolonormal_5",
+            "frame": {
+                "x": 160,
+                "y": 0,
+                "w": 32,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "anims": [
+        {
+            "key": "puzzlepiece_move1",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 2,
+            "frames": [
+                {
+                    "key": "puzzlepiece",
+                    "frame": "puzzlepiece_0"
+                },
+                {
+                    "key": "puzzlepiece",
+                    "frame": "puzzlepiece_1"
+                } 
+			]
+        },
+        {
+            "key": "puzzlepiece_move2",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 2,
+            "frames": [
+                {
+                    "key": "puzzlepiece",
+                    "frame": "puzzlepiece_2"
+                },
+                {
+                    "key": "puzzlepiece",
+                    "frame": "puzzlepiece_3"
+                } 
+			]
+        },
+        {
+            "key": "puzzlepiece_move3",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 2,
+            "frames": [
+                {
+                    "key": "puzzlepiece",
+                    "frame": "puzzlepiece_4"
+                },
+                {
+                    "key": "puzzlepiece",
+                    "frame": "puzzlepiece_5"
+                } 
+			]
+        },
+        {
+            "key": "puzzlepiece_move4",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 2,
+            "frames": [
+                {
+                    "key": "puzzlepiece",
+                    "frame": "puzzlepiece_6"
+                },
+                {
+                    "key": "puzzlepiece",
+                    "frame": "puzzlepiece_7"
+                } 
+			]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "anims": [
+        {
+            "key": "map_shine",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "map",
+                    "frame": "map_spritesheet_0"
+                },
+                {
+                    "key": "map",
+                    "frame": "map_spritesheet_1"
+                },
+                {
+                    "key": "map",
+                    "frame": "map_spritesheet_2"
+                },
+                {
+                    "key": "map",
+                    "frame": "map_spritesheet_3"
+                },
+                {
+                    "key": "map",
+                    "frame": "map_spritesheet_4"
+                },
+                {
+                    "key": "map",
+                    "frame": "map_spritesheet_5"
+                },
+                {
+                    "key": "map",
+                    "frame": "map_spritesheet_6"
+                },
+                {
+                    "key": "map",
+                    "frame": "map_spritesheet_7"
+                }
+            ]
+        }
+    ]
+}

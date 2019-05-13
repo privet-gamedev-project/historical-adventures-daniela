@@ -1,0 +1,52 @@
+{
+    "MENU": {
+        "SETTINGS": "SETTINGS",
+        "PLAY": "PLAY",
+        "INTRO": "INTRO",
+        "SCORES": "SCORES",
+        "CREDITS": "CREDITS"
+    },
+    "LEVELSELECT":{
+        "MENU": "MENU",
+        "BONUS": "BONUS LEVEL",
+        "LEVELS": "LEVELS",
+        "LEVEL": "LEVEL",   
+        "LEVELDONE": "Level completed",
+        "LEVELFINISHED": "Level completed with full stars",
+        "LEVELNOTDONE": "Level not completed yet"     
+    },
+    "SETTINGLEVEL": {
+        "SOUND": "SOUND",
+        "LANGUAGE": "CHANGE LANGUAGE",
+        "RESET" : "RESET GAME",
+        "DONE" : "DONE"
+    },
+    "BONUSLEVEL":{                
+        "INSTRUCTIONS": "GET 10 PUZZLE PIECES IN LESS THAN 60 SECONDS",
+        "COINS": "PUZZLE",
+        "TIME": "TIME",
+        "YOUWIN": "1 EXTRA LIFE"
+    },
+    "LEVELINTRO":{
+        "SKIP": "SKIP",
+        "DANIELA_MUM": "DANIELA WHERE ARE YOU? HOW LONG UNTIL YOU GET THERE?",
+        "DANIELA_ANSWER": "I AM GOING THROUGH THE PARK, I ARRIVE IN 5 MINUTES"
+    },
+    "LEVEL1": {
+        "FINDBRACELET": "YOU HAVE TO LOOK FOR THE MAGIC BRACELET"
+    },
+    "LEVEL2": {
+        "FINDCLOTHES": "YOU HAVE TO LOOK FOR THE PREHISTORIC CLOTHES",
+        "FINDLEVER": "YOU'LL HAVE TO FIND THE LEVER TO KNOCK DOWN THE WALL AND TAKE THE CLOTHES"
+    },
+    "LEVEL3":{
+        "FRUITS": "FRUITS"
+    },
+    "COMMONTEXT":{
+        "WEDIDIT": "ALRIGHT WE DID IT!!",
+        "LIVES": "LIVES "
+    },
+    "UI": {
+        
+    }
+}

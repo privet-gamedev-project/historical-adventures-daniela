@@ -1,0 +1,24 @@
+{
+    "anims": [
+        {
+            "key": "bat_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "bats",
+                    "frame": "bat-32x32_4"
+                },
+                {
+                    "key": "bats",
+                    "frame": "bat-32x32_7"
+                },
+                {
+                    "key": "bats",
+                    "frame": "bat-32x32_5"
+                }
+            ]
+        }
+    ]
+}

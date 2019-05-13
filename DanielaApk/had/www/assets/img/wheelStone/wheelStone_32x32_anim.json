@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "wheel_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "wheel",
+                    "frame": "wheels_0"
+                },
+                {
+                    "key": "wheel",
+                    "frame": "wheels_1"
+                },
+                {
+                    "key": "wheel",
+                    "frame": "wheels_2"
+                },
+                {
+                    "key": "wheel",
+                    "frame": "wheels_3"
+                }
+            ]
+        }
+    ]
+}

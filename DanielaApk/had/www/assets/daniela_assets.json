@@ -1,0 +1,40 @@
+{
+    "daniela_assets": {
+        "path": "assets/img/",
+        "files": [
+            {
+                "type": "atlas",
+                "key": "daniela",
+                "textureURL": "daniela/daniela.png",
+                "atlasURL": "daniela/daniela_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "danielaData",
+                "url": "daniela/daniela_anim.json"
+            },
+            {
+                "type": "atlas",
+                "key": "daniela-troglodita",
+                "textureURL": "daniela/daniela-troglodita.png",
+                "atlasURL": "daniela/daniela-troglodita_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "daniela-trogloditaData",
+                "url": "daniela/daniela-troglodita_anim.json"
+            },
+            {
+                "type": "atlas",
+                "key": "lolo_normal",
+                "textureURL": "lolo/lolo_normal.png",
+                "atlasURL": "lolo/lolo_normal_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "lolo_normal_Data",
+                "url": "lolo/lolo_normal_anim.json"
+            }
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "anims": [
+        {
+            "key": "extrapoint_rotate",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 15,
+            "yoyo": true,
+            "frames": [
+                {
+                    "key": "extrapoint",
+                    "frame": "extrapoint_0"
+                },
+                {
+                    "key": "extrapoint",
+                    "frame": "extrapoint_1"
+                },
+                {
+                    "key": "extrapoint",
+                    "frame": "extrapoint_2"
+                },
+                {
+                    "key": "extrapoint",
+                    "frame": "extrapoint_3"
+                },
+                {
+                    "key": "extrapoint",
+                    "frame": "extrapoint_4"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{ 
+    "MENU": { 
+        "SETTINGS": "EINSTELLUNGEN", 
+        "PLAY": "SPIELEN", 
+        "INTRO": "INTRO", 
+        "SCORES": "SCORES", 
+        "CREDITS": "CREDITS" 
+    }, 
+    "LEVELSELECT":{ 
+        "MENU": "MENÜ",
+        "BONUS": "BONUS-LEVEL",     
+        "LEVELS": "LEVELS", 
+        "LEVEL": "LEVEL",
+        "LEVELDONE": "Level geschafft",
+        "LEVELFINISHED": "Level mit vollen Sternen geschafft",
+        "LEVELNOTDONE": "Level noch nicht geschafft"         
+    }, 
+    "SETTINGLEVEL": { 
+        "SOUND": "SOUND", 
+        "LANGUAGE": "SPRACHE ÄNDERN", 
+        "RESET" : "SPIEL ZURÜCKSETZEN", 
+        "DONE" : "FERTIG" 
+    },
+    "BONUSLEVEL":{                
+        "INSTRUCTIONS": "ERHALTEN SIE 10 PUZZLETEIL IN WENIGER ALS 60 SEKUNDEN",
+        "COINS": "PUZZLETEIL",
+        "TIME": "ZEIT",
+        "YOUWIN": "1 ZUSÄTZLICHES LEBEN"
+    }, 
+    "LEVELINTRO":{ 
+        "SKIP": "ÜBERSPRINGEN", 
+        "DANIELA_MUM": "DANIELA, WO BIST DU? WIE LANGE DAUERT ES, BIS DU DORT ANKOMMST?", 
+        "DANIELA_ANSWER": "ICH GEHE DURCH DEN PARK, ICH KOMME IN 5 MINUTEN AN" 
+    }, 
+    "LEVEL1": { 
+        "FINDBRACELET": "DU MUSST NACH DEM ZAUBERARMBAND SUCHEN." 
+    }, 
+    "LEVEL2": {
+        "FINDCLOTHES": "DU MUSST NACH PRÄHISTORISCHER KLEIDUNG",
+        "FINDLEVER": "ER EINEN HEBEL ZIEHEN MUSS, DAMIT DIE WAND UNTERGEHT"
+    }, 
+    "LEVEL3":{ 
+        "FRUITS": "FRÜCHTE" 
+    }, 
+    "COMMONTEXT":{ 
+        "WEDIDIT": "ALLES KLAR, WIR HABEN ES GESCHAFFT!!", 
+        "LIVES": "LEBEN " 
+    }, 
+    "UI": { 
+         
+    } 
+} 

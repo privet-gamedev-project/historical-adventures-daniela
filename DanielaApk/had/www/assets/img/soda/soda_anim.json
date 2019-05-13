@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "soda_fly",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "soda",
+                    "frame": "soda_0"
+                },
+                {
+                    "key": "soda",
+                    "frame": "soda_1"
+                }
+            ]
+        }
+    ]
+}

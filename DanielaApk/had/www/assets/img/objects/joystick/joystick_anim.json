@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "joystick_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 2,
+            "frames": [
+                {
+                    "key": "joystick",
+                    "frame": "joystick_0"
+                },
+                {
+                    "key": "joystick",
+                    "frame": "joystick_1"
+                } 
+			]
+        }
+    ]
+}

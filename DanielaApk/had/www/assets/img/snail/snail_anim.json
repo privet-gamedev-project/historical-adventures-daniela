@@ -1,0 +1,32 @@
+{
+    "anims": [
+        {
+            "key": "snail_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 2,
+            "frames": [
+                {
+                    "key": "snail",
+                    "frame": "snail_0"
+                },
+                {
+                    "key": "snail",
+                    "frame": "snail_1"
+                },
+                {
+                    "key": "snail",
+                    "frame": "snail_2"
+                },
+                {
+                    "key": "snail",
+                    "frame": "snail_3"
+                },
+                {
+                    "key": "snail",
+                    "frame": "snail_4"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "donut_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "donut",
+                    "frame": "donut_0"
+                },
+                {
+                    "key": "donut",
+                    "frame": "donut_1"
+                },
+                {
+                    "key": "donut",
+                    "frame": "donut_2"
+                },
+                {
+                    "key": "donut",
+                    "frame": "donut_3"
+                }
+            ]
+        }
+    ]
+}
