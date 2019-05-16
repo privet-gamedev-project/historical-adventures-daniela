@@ -56,7 +56,7 @@ class Level3 extends BasicScene {
         this.powerUpSound = this.sound.add(GameConstants.Sound.BONUSLEVEL.POWERUP);         
                 
         //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(20, this.cameras.main.height - 60, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL3.WHATAPROBLEM') + "\n\n" + this.TG.tr('LEVEL3.GIVEMAMMOTH'),10 );
+        this.textDialog = this.add.dynamicBitmapText(20, this.cameras.main.height - 45, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL3.WHATAPROBLEM') + "\n\n" + this.TG.tr('LEVEL3.GIVEMAMMOTH'),10 );
         this.textDialog.setScrollFactor(0);
         this.textDialog.setDepth(3);
        
