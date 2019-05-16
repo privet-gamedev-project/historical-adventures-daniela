@@ -37,11 +37,36 @@ class Level3 extends BasicScene {
         this.fruitsCollected = 10;
         this.fruitDelay = false;
 
-        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
-        this.addEventForMusic(this.music, true);
 
+        //MUSIC and AUDIOS
+        this.audioLevel3_DANIELA_WhatAProblem_07 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.Level3.DANIELA_QUESTION);
+        this.addEventForMusic(this.audioLevel3_DANIELA_WhatAProblem_07);
+        this.audioLevel3_LOLO_YouHaveToGiveMammoth_08 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.Level3.LOLO_ANSWER);
+        this.addEventForMusic(this.audioLevel3_LOLO_YouHaveToGiveMammoth_08,false,4000);
 
+        //BSO
+        this.music = this.sound.add(GameConstants.Sound.Level3.BSO);
+        this.addEventForMusic(this.music, true,11000);
+
+        //We did it
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
+        
+        //FX Soundos
+        this.fruitPickUpSound = this.sound.add(GameConstants.Sound.BONUSLEVEL.FRUITPICKUP);
+        this.powerUpSound = this.sound.add(GameConstants.Sound.BONUSLEVEL.POWERUP);         
+                
+        //Text Dialog
+        this.textDialog = this.add.dynamicBitmapText(20, this.cameras.main.height - 60, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL3.WHATAPROBLEM') + "\n\n" + this.TG.tr('LEVEL3.GIVEMAMMOTH'),10 );
+        this.textDialog.setScrollFactor(0);
+        this.textDialog.setDepth(3);
+       
+
+
+       
+
+
+
+       
         //Text Dialog
         this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', GameConstants.Texts.BUSCAR_ROPA_TROGLODITA.toUpperCase(), 16);
         this.textDialog.setScrollFactor(0);
@@ -85,7 +110,7 @@ class Level3 extends BasicScene {
         this.physics.add.overlap(this.daniela, this.fruitsGroup, function (player, object) {
 
             if (!this.fruitDelay) {
-                if (this.fruitsCollected > 0) this.fruitsCollected--;
+                if (this.fruitsCollected > 0) this.fruitsCollected--;                
                 this.fruitDelay = true;
 
                 this.textFruits.setText(this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
@@ -106,7 +131,10 @@ class Level3 extends BasicScene {
                 });
 
                 if (this.fruitsCollected === 0) {
+                    this.powerUpSound.play();
                     this.anims.play(GameConstants.Anims.MAMUT.HAPPY, this.mamut);
+                }else{
+                    this.fruitPickUpSound.play();   
                 }
 
                 this.time.addEvent({

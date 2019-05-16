@@ -63,6 +63,8 @@ const GameConstants = {
         },
         BONUSLEVEL: {
             COINPICKUP: 'coinpickup',
+            FRUITPICKUP: 'fruitpickup',
+            POWERUP: 'powerUp',
             LOLO_AUCH: 'lolo_auch',
             BSO: 'BonusLevel_BSO'
         },
