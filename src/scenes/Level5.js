@@ -56,8 +56,25 @@ class Level5 extends BasicScene {
         }
 
 
-        this.platformlayer.collideDown= false;
+        
         this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Landscape', false);
+        this.ladderLayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Ladder', false);
+        this.stepsLayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Steps', true);
+        this.stepsLayer.visible= false;
+
+        //STEPS Collidable from UP
+        let tilestep;
+        for (x = 0; x < this.stepsLayer.width; x++) {
+            for (y = 1; y < this.stepsLayer.height; y++) {                
+                tilestep = this.stepsLayer.getTileAt(x, y);                
+                if (tilestep !== null) {                    
+                    if (tilestep.index == 2 || tilestep.index == 1) {
+                        tilestep.setCollision(false, false, true, false); //right,left,up,down
+                    }
+                }
+            }
+        }
+
 
         //PRIVATE SCENE ELEMENTS
         /*let wall =  this.paintLayerAndCreateCollision(GameConstants.Tiles.FOREST_PACK, 'Wall');
@@ -126,6 +143,17 @@ class Level5 extends BasicScene {
             this.daniela.nextScene();
         });*/
 
+       /* this.physics.add.overlap(this.daniela, this.ladderLayer,()=>{
+            //daniela.x = liana.x;
+            this.daniela.isInLiana = true;
+            this.daniela.body.velocity.x = 0;
+    
+            
+            this.daniela.body.setAllowGravity(false);
+            this.daniela.body.velocity.y = 0;
+            
+        });*/
+
     }
 
     update(time, delta) {
@@ -135,5 +163,7 @@ class Level5 extends BasicScene {
             this.enemyGroups[enemy].update();
         });
     }
+
+
 }
 export default Level5;
