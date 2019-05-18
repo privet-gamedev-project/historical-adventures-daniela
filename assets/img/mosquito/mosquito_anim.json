@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "mosquito_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 10,
+            "frames": [
+                {
+                    "key": "mosquito",
+                    "frame": "mosquito_0"
+                },
+                {
+                    "key": "mosquito",
+                    "frame": "mosquito_1"
+                }
+            ]
+        }
+    ]
+}

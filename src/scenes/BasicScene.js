@@ -221,6 +221,18 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.snailsGroup.children.iterate(s => s.setScale(1));
                     this.anims.play(GameConstants.Anims.SNAILS, this.snails);
                     break;
+                case GameConstants.Sprites.Spiders.OBJECT_NAME:
+                    this.spiders = this.createEnemies(GameConstants.Sprites.Spiders.OBJECT_NAME, GameConstants.Sprites.Spiders.OBJECT_ID, GameConstants.Sprites.Spiders.KEY);                    
+                    this.enemyGroups.spidersGroup = new FlyingEnemy(this.physics.world, this, [], this.spiders);
+                    this.enemyGroups.spidersGroup.children.iterate(s => s.setScale(1));
+                    this.anims.play(GameConstants.Anims.SPIDERS, this.spiders);
+                    break;
+                case GameConstants.Sprites.Mosquitos.OBJECT_NAME:
+                    this.mosquitos = this.createEnemies(GameConstants.Sprites.Mosquitos.OBJECT_NAME, GameConstants.Sprites.Mosquitos.OBJECT_ID, GameConstants.Sprites.Mosquitos.KEY);                 
+                    this.enemyGroups.mosquitosGroup = new FlyingEnemy(this.physics.world, this, [], this.mosquitos);
+                    //this.enemyGroups.mosquitosGroup.children.iterate(s => s.setScale(1));
+                    this.anims.play(GameConstants.Anims.MOSQUITOS, this.mosquitos);
+                    break;
                 case GameConstants.Sprites.Soda.OBJECT_NAME:
                     this.sodas = this.createEnemies(GameConstants.Sprites.Soda.OBJECT_NAME, GameConstants.Sprites.Soda.OBJECT_ID, GameConstants.Sprites.Soda.KEY);
                     this.enemyGroups.sodasGroup = new FlyingEnemy(this.physics.world, this, [], this.sodas);

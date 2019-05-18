@@ -98,7 +98,7 @@ class Bootloader extends Phaser.Scene {
         //Level 4
         this.load.image("bg_Level4", "img/backgrounds/Ocean.png");
         //Level 5 
-        this.load.image("bg_Level5", "img/backgrounds/bg_level5_2130x1280.png");
+        this.load.image("bg_Level5", "img/backgrounds/bg_level5.png");
         
         
         
@@ -142,6 +142,16 @@ class Bootloader extends Phaser.Scene {
         //Snails
         this.load.atlas('snail', 'img/snail/snail.png', 'img/snail/snail_atlas.json');
         this.load.animation('snailAnim', 'img/snail/snail_anim.json');
+
+        //Spider
+        this.load.atlas('spider', 'img/spider/spider.png', 'img/spider/spider_atlas.json');
+        this.load.animation('spiderAnim', 'img/spider/spider_anim.json');
+        
+        //Mosquito
+        this.load.atlas('mosquito', 'img/mosquito/mosquito.png', 'img/mosquito/mosquito_atlas.json');
+        this.load.animation('mosquitoAnim', 'img/mosquito/mosquito_anim.json');
+
+
 
         //Bracelet
         this.load.atlas('bracelet', 'img/objects/bracelet/bracelet.png', 'img/objects/bracelet/bracelet_atlas.json');

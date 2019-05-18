@@ -18,6 +18,9 @@ class Level5 extends BasicScene {
         //Daniela Creation
         this.createDaniela(GameConstants.Sprites.DanielaTroglo);
 
+        //HealthText
+        this.createHealthText();
+
         //Parallax Background
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5);
         
@@ -27,7 +30,9 @@ class Level5 extends BasicScene {
 
 
         //Finding enemies in json map
-        //this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);
+        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level5);
+        //PRIVATE SCENE ELEMENTS
+        this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
 
         //ExtraPoints        
         //this.createCoins();
@@ -36,6 +41,22 @@ class Level5 extends BasicScene {
         //Tilemap
         this.platformlayer=this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS);
         this.platformlayer.visible= false;
+        
+        //To make collidable only when comes from up the tile 1 and 2 from this Layer
+        let x, y, tile;
+        for (x = 0; x < this.platformlayer.width; x++) {
+            for (y = 1; y < this.platformlayer.height; y++) {                
+                tile = this.platformlayer.getTileAt(x, y);                
+                if (tile !== null) {                    
+                    if (tile.index == 2 || tile.index == 1) {
+                        tile.setCollision(false, false, true, false); //right,left,up,down
+                    }
+                }
+            }
+        }
+
+
+        this.platformlayer.collideDown= false;
         this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Landscape', false);
 
         //PRIVATE SCENE ELEMENTS

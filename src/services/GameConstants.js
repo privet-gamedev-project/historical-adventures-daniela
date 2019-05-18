@@ -105,6 +105,18 @@ const GameConstants = {
             OBJECT_NAME: 'Snails',
             OBJECT_ID: 'Snail'
         },
+        Spiders: {
+            KEY: 'spider',
+            ID: 'spider',
+            OBJECT_NAME: 'Spiders',
+            OBJECT_ID: 'Spider'
+        },
+        Mosquitos: {
+            KEY: 'mosquito',
+            ID: 'mosquito',
+            OBJECT_NAME: 'Mosquitos',
+            OBJECT_ID: 'Mosquito'
+        },
         Wheel: {
             KEY: 'wheel',
             ID: 'wheel',
@@ -222,6 +234,10 @@ const GameConstants = {
         Level4: {
             CROCODILES: 'Crocodiles'
         },
+        Level5:{
+            Spiders: 'Spiders',
+            Mosquitos: 'Mosquitos'
+        },
         Level6: {
             DINOWATERS: 'Dinowaters',
             DINOBIRD: 'Dinobirds'
@@ -244,6 +260,8 @@ const GameConstants = {
         BEES: 'bee_fly',
         SODAS: 'soda_fly',
         SNAILS: 'snail_move',
+        SPIDERS: 'spider_move',
+        MOSQUITOS: 'mosquito_move',
         WHEEL: 'wheel_move',
         DONUT: 'donut_move',
         BRACELET: 'bracelet_move',

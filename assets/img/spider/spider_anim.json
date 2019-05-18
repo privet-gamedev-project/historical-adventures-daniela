@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "spider_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 5,
+            "frames": [
+                {
+                    "key": "spider",
+                    "frame": "spider_0"
+                },
+                {
+                    "key": "spider",
+                    "frame": "spider_1"
+                }
+            ]
+        }
+    ]
+}
