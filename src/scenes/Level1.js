@@ -37,7 +37,7 @@ class Level1 extends BasicScene {
         //Sounds
         this.soundLEVEL1_LOLO_findBracelet = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1.FINDBRACELET);
         this.addEventForMusic(this.soundLEVEL1_LOLO_findBracelet);
-        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO);
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO, {volume: 0.5});
         this.addEventForMusic(this.musicbg,true,2000);
 
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);

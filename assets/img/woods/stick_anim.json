@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "stick_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 3,
+            "frames": [
+                {
+                    "key": "stick",
+                    "frame": "stick_0"
+                },
+                {
+                    "key": "stick",
+                    "frame": "stick_1"
+                }
+            ]
+        }
+    ]
+}

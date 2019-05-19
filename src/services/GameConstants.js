@@ -111,6 +111,18 @@ const GameConstants = {
             OBJECT_NAME: 'Spiders',
             OBJECT_ID: 'Spider'
         },
+        Stone: {
+            KEY: 'stone',
+            ID: 'stone',
+            OBJECT_NAME: 'stone',
+            OBJECT_ID: 'stone'
+        },
+        Stick: {
+            KEY: 'stick',
+            ID: 'stick',
+            OBJECT_NAME: 'stick',
+            OBJECT_ID: 'stick'
+        },
         Mosquitos: {
             KEY: 'mosquito',
             ID: 'mosquito',
@@ -261,6 +273,8 @@ const GameConstants = {
         SODAS: 'soda_fly',
         SNAILS: 'snail_move',
         SPIDERS: 'spider_move',
+        STONE: 'stone_move',
+        STICK: 'stick_move',
         MOSQUITOS: 'mosquito_move',
         WHEEL: 'wheel_move',
         DONUT: 'donut_move',

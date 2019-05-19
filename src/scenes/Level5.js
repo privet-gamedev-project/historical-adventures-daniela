@@ -25,7 +25,7 @@ class Level5 extends BasicScene {
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5);
         
         //BSO
-        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
+        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO, {volume: 0.5});
         this.addEventForMusic(this.music,true);
 
 
@@ -59,8 +59,9 @@ class Level5 extends BasicScene {
         
         this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Landscape', false);
         this.ladderLayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Ladder', false);
-        this.stepsLayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Steps', true);
+        this.stepsLayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Steps', false);
         this.stepsLayer.visible= false;
+        this.collideLadder = this.physics.add.collider(this.daniela, this.stepsLayer);
 
         //STEPS Collidable from UP
         let tilestep;
@@ -74,6 +75,8 @@ class Level5 extends BasicScene {
                 }
             }
         }
+
+        
 
 
         //PRIVATE SCENE ELEMENTS
@@ -116,16 +119,56 @@ class Level5 extends BasicScene {
         });  
         
 
-        //Create BRANCH1-5
-        for (let i=1;i<=5;i++){
+        //Create BRANCH1-4
+        for (let i=1;i<=4;i++){
             this.branches = this.map.createFromObjects('Branches', 'branch-0'+i, 'woodsbranches');
             this.physics.world.enable(this.branches);      
-            this.branches.forEach(function(leave) {            
-                leave.body.setAllowGravity(false);
-                leave.setDepth(4);
-                leave.setTexture('woodsbranches','branch-0'+i);
+            this.branches.forEach(function(branch) {            
+                branch.body.setAllowGravity(false);
+                branch.setDepth(4);                
+                branch.setTexture('woodsbranches','branch-0'+i);
             });  
         }
+
+       
+        //Add OLD Treee
+        this.map.findObject('Branches', (d) => {
+            if (d.type === 'branch-05') {               
+                this.dryBranch = this.add.image(d.x,d.y,'woodsbranches','branch-05');
+                this.dryBranch.flipX=true;
+                this.dryBranch.setScale(2.5);
+                this.physics.world.enable(this.dryBranch);
+                this.dryBranch.body.setAllowGravity(false);
+                this.dryBranch.body.setSize(150,2);                                
+            }
+        });
+
+
+      //Add stone
+        this.map.findObject('stone', (d) => {
+            if (d.type === 'stone') {               
+                this.stone = this.add.image(d.x,d.y,'stone');                                
+                this.physics.world.enable(this.stone);
+                this.stone.body.setAllowGravity(false);                                
+                //this.anims.play(GameConstants.Anims.STICK, this.stone);                      
+            }
+        });
+        
+      //Add stick
+      this.map.findObject('stick', (d) => {
+        if (d.type === 'stick') {               
+            this.stick = this.add.image(d.x,d.y,'stick');                                
+            this.physics.world.enable(this.stick);
+            this.stick.body.setAllowGravity(false);                            
+            //this.anims.play(GameConstants.Anims.STICK, this.stone);                      
+        }
+    });
+    
+
+
+        this.physics.add.overlap(this.daniela, this.dryBranch, function (player, object) {
+            object.destroy();
+        });
         
         //this.anims.play(GameConstants.Anims.JOYSTICK, this.joystick);*/
 
@@ -162,6 +205,9 @@ class Level5 extends BasicScene {
         Object.keys(this.enemyGroups).forEach(enemy => {
             this.enemyGroups[enemy].update();
         });
+
+
+
     }
 
 

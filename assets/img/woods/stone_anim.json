@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "stone_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 3,
+            "frames": [
+                {
+                    "key": "stone",
+                    "frame": "stone_0"
+                },
+                {
+                    "key": "stone",
+                    "frame": "stone_1"
+                }
+            ]
+        }
+    ]
+}

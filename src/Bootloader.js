@@ -151,6 +151,13 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('mosquito', 'img/mosquito/mosquito.png', 'img/mosquito/mosquito_atlas.json');
         this.load.animation('mosquitoAnim', 'img/mosquito/mosquito_anim.json');
 
+        //Stone
+        this.load.atlas('stone', 'img/woods/stone.png', 'img/woods/stone_atlas.json');
+        this.load.animation('stoneAnim', 'img/woods/stone_anim.json');
+
+        //Stick
+        this.load.atlas('stick', 'img/woods/stick.png', 'img/woods/stick_atlas.json');
+        this.load.animation('stickAnim', 'img/woods/stick_anim.json');
 
 
         //Bracelet
