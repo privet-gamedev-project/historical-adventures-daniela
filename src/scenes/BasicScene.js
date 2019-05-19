@@ -612,7 +612,7 @@ class BasicScene extends Phaser.Scene {
     }
 
     playMenuScenesBSO(){
-        this.bgmusic = this.sound.add(GameConstants.Sound.MAIN.BSO, {volume: 0.75});
+        this.bgmusic = this.sound.add(GameConstants.Sound.MAIN.BSO, {volume: 0.65});
         this.addEventForMusic(this.bgmusic,true,200);
         this.birdMusic = this.sound.add(GameConstants.Sound.SOUNDS.BIRD_SINGING);
         this.addEventForMusic(this.birdMusic,true,200);

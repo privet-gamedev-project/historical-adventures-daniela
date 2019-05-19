@@ -21,23 +21,31 @@ class Level5 extends BasicScene {
         //HealthText
         this.createHealthText();
 
+         //ExtraPoints        
+         this.createCoins();
+
         //Parallax Background
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5);
         
-        //BSO
-        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO, {volume: 0.5});
-        this.addEventForMusic(this.music,true);
+        
+        //FX Soundos
+        this.objectPickUpSound = this.sound.add(GameConstants.Sound.BONUSLEVEL.FRUITPICKUP);
+        this.powerUpSound = this.sound.add(GameConstants.Sound.BONUSLEVEL.POWERUP);   
 
+        //We did it
+        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
+        
 
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level5);
         //PRIVATE SCENE ELEMENTS
         this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
 
-        //ExtraPoints        
-        //this.createCoins();
-        //HealthText
-        //this.createHealthText();
+        //Text Dialog
+        this.textDialog = this.add.dynamicBitmapText(20, this.cameras.main.height - 55, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL5.MAGICFRUIT') ,10 );
+        this.textDialog.setScrollFactor(0);
+        this.textDialog.setDepth(5);
+
         //Tilemap
         this.platformlayer=this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS);
         this.platformlayer.visible= false;
@@ -56,6 +64,10 @@ class Level5 extends BasicScene {
         }
 
 
+        //OBJECTS COLLECTED
+        this.objectsCollected = 2;
+        this.objectDelay = false;
+
         
         this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Landscape', false);
         this.ladderLayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Ladder', false);
@@ -63,51 +75,38 @@ class Level5 extends BasicScene {
         this.stepsLayer.visible= false;
         this.collideLadder = this.physics.add.collider(this.daniela, this.stepsLayer);
 
-        //STEPS Collidable from UP
+        //STEPS NO Collidable
         let tilestep;
         for (x = 0; x < this.stepsLayer.width; x++) {
             for (y = 1; y < this.stepsLayer.height; y++) {                
                 tilestep = this.stepsLayer.getTileAt(x, y);                
                 if (tilestep !== null) {                    
                     if (tilestep.index == 2 || tilestep.index == 1) {
-                        tilestep.setCollision(false, false, true, false); //right,left,up,down
+                        tilestep.setCollision(false, false, false, false); //right,left,up,down
                     }
                 }
             }
         }
 
+        this.stepsLayer.alpha=0; 
+        this.ladderLayer.alpha=0; 
         
 
 
-        //PRIVATE SCENE ELEMENTS
-        /*let wall =  this.paintLayerAndCreateCollision(GameConstants.Tiles.FOREST_PACK, 'Wall');
-        this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
-        */
+         //MUSIC and AUDIOS
+         this.audioLevel5_LOLO_YouWillHaveToCatch_09 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL5.LOLO_TASK);
+         this.addEventForMusic(this.audioLevel5_LOLO_YouWillHaveToCatch_09);
+         
+         this.audioLevel5_DANIELA_ThatFruitLooksSoGood_10 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL5.DANIELA_FRUITS);
+         this.addEventForMusic(this.audioLevel5_DANIELA_ThatFruitLooksSoGood_10,false,3000);
+         this.audioLevel5_LOLO_InOrderToCatchTheFruit_11 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL5.LOLO_NOTE);
+         this.addEventForMusic(this.audioLevel5_LOLO_InOrderToCatchTheFruit_11,false,9000);
 
-        //MUSIC and AUDIOS
-        /*this.audioLevel2_LOLO_LookWhatIHaveFound_13 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL2.LOLO_ANSWER);
-        this.addEventForMusic(this.audioLevel2_LOLO_LookWhatIHaveFound_13);
-        this.audioLevel2_LOLO_YouHaveToFindTheLever_15 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL2.LOLO_TASK);
-        this.addEventForMusic(this.audioLevel2_LOLO_YouHaveToFindTheLever_15,false,10000);
-        this.music = this.sound.add(GameConstants.Sound.SOUNDS.CAVEBATS);
-        this.addEventForMusic(this.music,true,15000);
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
-        */
-        
-        //Text Dialog
-        /*this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL2.FINDCLOTHES') + "\n\n" + this.TG.tr('LEVEL2.FINDLEVER'),10 );
-        this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(3);*/
+ 
+         //BSO
+         this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO,{volume: 0.4});
+         this.addEventForMusic(this.music, true);
 
-        
-
-        //Create Branches and Leaves
-        /*this.cavemanclothes = this.createEndLevelObject(GameConstants.Sprites.Cavemen_Clothes.KEY);        
-        this.physics.world.enable(this.cavemanclothes);
-        this.cavemanclothe = this.cavemanclothes[0];
-        this.cavemanclothe.setScale(2.75);
-        this.cavemanclothe.body.setAllowGravity(false);
-        this.anims.play(GameConstants.Anims.CAVEMAN_CLOTHES, this.cavemanclothe);*/
         
         //Create LEAVES
         this.leaves = this.map.createFromObjects('Branches', 'leaves', 'woodsbranches');
@@ -132,14 +131,15 @@ class Level5 extends BasicScene {
 
        
         //Add OLD Treee
+        //TODO: Something wrong with the hitArea are
         this.map.findObject('Branches', (d) => {
             if (d.type === 'branch-05') {               
-                this.dryBranch = this.add.image(d.x,d.y,'woodsbranches','branch-05');
+                this.dryBranch = this.add.sprite(d.x,d.y,'woodsbranches','branch-05');
                 this.dryBranch.flipX=true;
-                this.dryBranch.setScale(2.5);
+                this.dryBranch.setScale(2);
                 this.physics.world.enable(this.dryBranch);
                 this.dryBranch.body.setAllowGravity(false);
-                this.dryBranch.body.setSize(150,2);                                
+                this.dryBranch.body.setSize(200,1);                                
             }
         });
 
@@ -147,55 +147,177 @@ class Level5 extends BasicScene {
       //Add stone
         this.map.findObject('stone', (d) => {
             if (d.type === 'stone') {               
-                this.stone = this.add.image(d.x,d.y,'stone');                                
+                this.stone = this.add.sprite(d.x,d.y,GameConstants.Sprites.Stone.KEY);                                
                 this.physics.world.enable(this.stone);
-                this.stone.body.setAllowGravity(false);                                
-                //this.anims.play(GameConstants.Anims.STICK, this.stone);                      
+                this.stone.body.setAllowGravity(false);   
+                this.stone.body.setImmovable(true);                                             
+                this.anims.play(GameConstants.Anims.STONE, this.stone);                      
             }
         });
         
       //Add stick
       this.map.findObject('stick', (d) => {
         if (d.type === 'stick') {               
-            this.stick = this.add.image(d.x,d.y,'stick');                                
+            this.stick = this.add.sprite(d.x,d.y,GameConstants.Sprites.Stick.KEY);                                
             this.physics.world.enable(this.stick);
             this.stick.body.setAllowGravity(false);                            
-            //this.anims.play(GameConstants.Anims.STICK, this.stone);                      
+            this.stick.body.setImmovable(true);                                             
+            this.anims.play(GameConstants.Anims.STICK, this.stick);                      
         }
-    });
+        });
     
-
-
-        this.physics.add.overlap(this.daniela, this.dryBranch, function (player, object) {
-            object.destroy();
+      //Add MAgicFruit
+      this.map.findObject('magicfruit', (d) => {
+        if (d.type === 'magicfruit') {               
+            this.magicfruit = this.add.sprite(d.x,d.y,GameConstants.Sprites.MagicFruit.KEY);                                
+            this.physics.world.enable(this.magicfruit);
+            this.magicfruit.body.setAllowGravity(false);                            
+            this.magicfruit.body.setImmovable(true);                                             
+            this.anims.play(GameConstants.Anims.MAGICFRUIT, this.magicfruit);                      
+        }
         });
+
+
+
+
+    //Overlap with Stone
+    this.physics.add.overlap(this.daniela,  this.stone, function (player, object) {
+
+        if (!this.objetDelay) {
+            if (this.objectsCollected > 0) this.objectsCollected--;                
+            this.objetDelay = true;
+
+            //this.textFruits.setText(this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
+
+            this.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function () {
+                    object.destroy();                    
+                }
+            });
+            
+            this.objectPickUpSound.play();   
+            
+
+            this.time.addEvent({
+                delay: 1000,
+                callback: () => {
+                    this.objetDelay = false;
+                },
+                callbackScope: this
+            });
+        }
+
+    }, null, this);
+
+
+    //Overlap with Stone
+    this.physics.add.overlap(this.daniela,  this.stick, function (player, object) {
+
+        if (!this.objetDelay) {
+            if (this.objectsCollected > 0) this.objectsCollected--;                
+            this.objetDelay = true;
+
+            //this.textFruits.setText(this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
+
+            this.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function () {
+                    object.destroy();                    
+                }
+            });
+            
+            this.objectPickUpSound.play();   
+            
+
+            this.time.addEvent({
+                delay: 1000,
+                callback: () => {
+                    this.objetDelay = false;
+                },
+                callbackScope: this
+            });
+        }
+
+    }, null, this);
+
+
+
+
+
+    //Overlap with DryBranch the Steps and LAder will be visible and active
+    this.physics.add.overlap(this.daniela, this.dryBranch, function (player, object) {
         
-        //this.anims.play(GameConstants.Anims.JOYSTICK, this.joystick);*/
+        //Only if Stone and Stick are collected
+        if (this.objectsCollected >= 0){
 
-        //Wall collider        
-        /*this.physics.add.collider(this.daniela, this.joystick, () => {
-            this.joystick.destroy();
-            wall.setCollisionByExclusion([0]);
-            wall.alpha=0;
-        });
+            if (!this.objetDelay) {                
+                this.objetDelay = true;
+    
+                //this.textFruits.setText(this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
+    
+                this.tweens.add({
+                    targets: object,
+                    y: object.y - 100,
+                    alpha: 0,
+                    duration: 800,
+                    ease: "Cubic.easeOut",
+                    callbackScope: this,
+                    onComplete: function () {
+                        object.destroy();                    
+                    }
+                });
+                
+                this.powerUpSound.play();   
 
-        this.physics.add.collider(this.daniela, this.cavemanclothe, () => {
+
+                //STEPS Collidable from UP        
+                for (x = 0; x < this.stepsLayer.width; x++) {
+                    for (y = 1; y < this.stepsLayer.height; y++) {                
+                        tilestep = this.stepsLayer.getTileAt(x, y);                
+                        if (tilestep !== null) {                    
+                            if (tilestep.index == 2 || tilestep.index == 1) {
+                                tilestep.setCollision(false, false, true, false); //right,left,up,down
+                            }
+                        }
+                    }
+                }
+                
+                //Steps and Ladder Visible
+                this.stepsLayer.alpha=1; 
+                this.ladderLayer.alpha=1; 
+    
+                this.time.addEvent({
+                    delay: 600,
+                    callback: () => {
+                        this.objetDelay = false;
+                    },
+                    callbackScope: this
+                });
+            }
+    
+        }
+
+        }, null, this);
+        
+        this.physics.add.collider(this.daniela, this.magicfruit, () => {
             this.music.stop();
-            this.cavemanclothe.destroy();
+            this.magicfruit.destroy();
             this.soundLOLO_Bien_lo_hemos_conseguido.play();            
             this.daniela.nextScene();
-        });*/
+        });
+        
 
-       /* this.physics.add.overlap(this.daniela, this.ladderLayer,()=>{
-            //daniela.x = liana.x;
-            this.daniela.isInLiana = true;
-            this.daniela.body.velocity.x = 0;
-    
-            
-            this.daniela.body.setAllowGravity(false);
-            this.daniela.body.velocity.y = 0;
-            
-        });*/
 
     }
 
@@ -206,6 +328,9 @@ class Level5 extends BasicScene {
             this.enemyGroups[enemy].update();
         });
 
+        this.stick.rotation += 0.01;
+        this.stone.rotation += 0.01;
+        this.magicfruit.rotation += 0.01;
 
 
     }

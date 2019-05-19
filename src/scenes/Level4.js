@@ -24,7 +24,7 @@ class Level4 extends BasicScene {
         //CreateAudios
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
         //bso
-        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
+        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO, {volume: 0.4});
         this.addEventForMusic(this.music,true);
         //Text Dialog
         this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', GameConstants.Texts.BUSCAR_ROPA_TROGLODITA.toUpperCase(), 16);

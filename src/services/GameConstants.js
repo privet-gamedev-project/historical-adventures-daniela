@@ -123,6 +123,12 @@ const GameConstants = {
             OBJECT_NAME: 'stick',
             OBJECT_ID: 'stick'
         },
+        MagicFruit: {
+            KEY: 'magicfruit',
+            ID: 'magicfruit',
+            OBJECT_NAME: 'magicfruit',
+            OBJECT_ID: 'magicfruit'
+        },
         Mosquitos: {
             KEY: 'mosquito',
             ID: 'mosquito',
@@ -275,6 +281,7 @@ const GameConstants = {
         SPIDERS: 'spider_move',
         STONE: 'stone_move',
         STICK: 'stick_move',
+        MAGICFRUIT: 'magicfruit_shine',
         MOSQUITOS: 'mosquito_move',
         WHEEL: 'wheel_move',
         DONUT: 'donut_move',

@@ -38,7 +38,7 @@ class Level2 extends BasicScene {
         this.addEventForMusic(this.audioLevel2_LOLO_LookWhatIHaveFound_13);
         this.audioLevel2_LOLO_YouHaveToFindTheLever_15 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL2.LOLO_TASK);
         this.addEventForMusic(this.audioLevel2_LOLO_YouHaveToFindTheLever_15,false,10000);
-        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO, {volume: 0.5});
+        this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO, {volume: 0.4});
         this.addEventForMusic(this.music,true,15000);
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
         

@@ -1,0 +1,24 @@
+{
+    "anims": [
+        {
+            "key": "magicfruit_shine",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 3,
+            "frames": [
+                {
+                    "key": "magicfruit",
+                    "frame": "magicfruit_0"
+                },
+                {
+                    "key": "magicfruit",
+                    "frame": "magicfruit_1"
+                },
+                {
+                    "key": "magicfruit",
+                    "frame": "magicfruit_2"
+                }
+            ]
+        }
+    ]
+}

@@ -45,7 +45,7 @@ class Level3 extends BasicScene {
         this.addEventForMusic(this.audioLevel3_LOLO_YouHaveToGiveMammoth_08,false,4000);
 
         //BSO
-        this.music = this.sound.add(GameConstants.Sound.Level3.BSO);
+        this.music = this.sound.add(GameConstants.Sound.Level3.BSO, {volume: 0.4});
         this.addEventForMusic(this.music, true,11000);
 
         //We did it
