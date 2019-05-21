@@ -249,8 +249,8 @@ class Bootloader extends Phaser.Scene {
         
         //OTHERS TODO: For Updatign with incoming BSO
         /*this.load.audio("Level2_BSO","sounds/bso/Level2_BSO.ogg");        
-        this.load.audio("Level4_BSO","sounds/bso/Level4_BSO.ogg");
-        this.load.audio("Level5_BSO","sounds/bso/Level5_BSO.ogg");*/
+        this.load.audio("Level4_BSO","sounds/bso/Level4_BSO.ogg");*/
+        this.load.audio("Level5_BSO","sounds/bso/Level5_BSO.ogg");
         this.load.audio("Level3_BSO","sounds/bso/Level3_BSO.ogg");
         this.load.audio("Level6_BSO","sounds/bso/Level6_BSO.ogg");
         this.load.audio("Main_BSO","sounds/bso/Main_BSO.ogg");

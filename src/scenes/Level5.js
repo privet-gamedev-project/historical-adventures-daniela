@@ -104,7 +104,7 @@ class Level5 extends BasicScene {
 
  
          //BSO
-         this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO,{volume: 0.4});
+         this.music = this.sound.add(GameConstants.Sound.LEVEL5.BSO,{volume: 0.4});
          this.addEventForMusic(this.music, true);
 
         
@@ -181,7 +181,7 @@ class Level5 extends BasicScene {
 
 
     //Overlap with Stone
-    this.physics.add.overlap(this.daniela,  this.stone, function (player, object) {
+    this.physics.add.overlap(this.daniela,  this.stone, function (player, object) {        
 
         if (!this.objetDelay) {
             if (this.objectsCollected > 0) this.objectsCollected--;                
@@ -250,8 +250,6 @@ class Level5 extends BasicScene {
         }
 
     }, null, this);
-
-
 
 
 
