@@ -90,6 +90,7 @@ class Level5 extends BasicScene {
 
         this.stepsLayer.alpha=0; 
         this.ladderLayer.alpha=0; 
+        this.ladderOn = false;
         
 
 
@@ -181,11 +182,11 @@ class Level5 extends BasicScene {
 
 
     //Overlap with Stone
-    this.physics.add.overlap(this.daniela,  this.stone, function (player, object) {        
+    this.physics.add.overlap(this.daniela,  this.stone, function (player, object) {                
 
-        if (!this.objetDelay) {
+        if (!this.objectDelay) {
             if (this.objectsCollected > 0) this.objectsCollected--;                
-            this.objetDelay = true;
+            this.objectDelay = true;
 
             //this.textFruits.setText(this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
 
@@ -207,7 +208,7 @@ class Level5 extends BasicScene {
             this.time.addEvent({
                 delay: 1000,
                 callback: () => {
-                    this.objetDelay = false;
+                    this.objectDelay = false;
                 },
                 callbackScope: this
             });
@@ -219,9 +220,9 @@ class Level5 extends BasicScene {
     //Overlap with Stone
     this.physics.add.overlap(this.daniela,  this.stick, function (player, object) {
 
-        if (!this.objetDelay) {
+        if (!this.objectDelay) {
             if (this.objectsCollected > 0) this.objectsCollected--;                
-            this.objetDelay = true;
+            this.objectDelay = true;
 
             //this.textFruits.setText(this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
 
@@ -243,7 +244,7 @@ class Level5 extends BasicScene {
             this.time.addEvent({
                 delay: 1000,
                 callback: () => {
-                    this.objetDelay = false;
+                    this.objectDelay = false;
                 },
                 callbackScope: this
             });
@@ -259,8 +260,8 @@ class Level5 extends BasicScene {
         //Only if Stone and Stick are collected
         if (this.objectsCollected >= 0){
 
-            if (!this.objetDelay) {                
-                this.objetDelay = true;
+            if (!this.objectDelay) {                
+                this.objectDelay = true;
     
                 //this.textFruits.setText(this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
     
@@ -293,12 +294,13 @@ class Level5 extends BasicScene {
                 
                 //Steps and Ladder Visible
                 this.stepsLayer.alpha=1; 
-                this.ladderLayer.alpha=1; 
+                this.ladderLayer.alpha=1;
+                this.ladderOn = true; 
     
                 this.time.addEvent({
                     delay: 600,
                     callback: () => {
-                        this.objetDelay = false;
+                        this.objectDelay = false;
                     },
                     callbackScope: this
                 });
@@ -316,7 +318,32 @@ class Level5 extends BasicScene {
         });
         
 
+    let climb = this.findTransparentObjects('Climb', 'Climb');
+    let climbout = this.findTransparentObjects('Climb', 'ClimbOut');
+        
+    this.physics.add.overlap(this.daniela, climb, this.climbArea, null, this);
+    this.physics.add.overlap(this.daniela, climbout, this.climbAreaOut, null, this);
 
+    }
+
+        //Ladder climbing
+    climbArea(daniela, area){     
+        if (this.ladderOn) {
+            daniela.x = area.x;
+            daniela.body.setAllowGravity(false);
+            daniela.isInLiana = true;
+            daniela.body.velocity.x = 0;
+            daniela.body.velocity.y = 0;
+        }
+    }
+    
+    //Ladder out
+    climbAreaOut(daniela,area){          
+        if (this.ladderOn) {    
+            daniela.y -= 150;        
+            daniela.isInLiana = false;        
+            daniela.body.setAllowGravity(true);
+        }
     }
 
     update(time, delta) {
