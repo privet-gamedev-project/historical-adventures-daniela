@@ -71,24 +71,7 @@ class Level5 extends BasicScene {
         
         this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Landscape', false);
         this.ladderLayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Ladder', false);
-        this.stepsLayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.WOODS, 'Steps', false);
-        this.stepsLayer.visible= false;
-        this.collideLadder = this.physics.add.collider(this.daniela, this.stepsLayer);
-
-        //STEPS NO Collidable
-        let tilestep;
-        for (x = 0; x < this.stepsLayer.width; x++) {
-            for (y = 1; y < this.stepsLayer.height; y++) {                
-                tilestep = this.stepsLayer.getTileAt(x, y);                
-                if (tilestep !== null) {                    
-                    if (tilestep.index == 2 || tilestep.index == 1) {
-                        tilestep.setCollision(false, false, false, false); //right,left,up,down
-                    }
-                }
-            }
-        }
-
-        this.stepsLayer.alpha=0; 
+        
         this.ladderLayer.alpha=0; 
         this.ladderOn = false;
         
@@ -280,20 +263,7 @@ class Level5 extends BasicScene {
                 this.powerUpSound.play();   
 
 
-                //STEPS Collidable from UP        
-                for (x = 0; x < this.stepsLayer.width; x++) {
-                    for (y = 1; y < this.stepsLayer.height; y++) {                
-                        tilestep = this.stepsLayer.getTileAt(x, y);                
-                        if (tilestep !== null) {                    
-                            if (tilestep.index == 2 || tilestep.index == 1) {
-                                tilestep.setCollision(false, false, true, false); //right,left,up,down
-                            }
-                        }
-                    }
-                }
-                
                 //Steps and Ladder Visible
-                this.stepsLayer.alpha=1; 
                 this.ladderLayer.alpha=1;
                 this.ladderOn = true; 
     
