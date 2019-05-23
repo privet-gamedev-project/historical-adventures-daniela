@@ -187,6 +187,9 @@ const GameConstants = {
         Lolo_Normal:{
             KEY: 'lolo_normal'
         },
+        Lolo_Troglodita:{
+            KEY: 'lolo_troglodita'
+        },
         Level_Price:{
             KEY:'coin'
         },
@@ -309,7 +312,8 @@ const GameConstants = {
             CLIMB: 'daniela-troglodita_climb'
         },
         LOLO: {
-            NORMAL_FLY: 'lolo_normal_fly'
+            NORMAL_FLY: 'lolo_normal_fly',
+            TROGLODITA_FLY: 'lolo_troglodita_fly'
         },
         Direction: {
             RIGHT: 'right',

@@ -16,7 +16,7 @@ class Level5 extends BasicScene {
     
     create() {
         //Daniela Creation
-        this.createDaniela(GameConstants.Sprites.DanielaTroglo);
+        this.createDaniela(GameConstants.Sprites.DanielaTroglo, false);
 
         //HealthText
         this.createHealthText();

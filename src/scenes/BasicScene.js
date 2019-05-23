@@ -55,7 +55,7 @@ class BasicScene extends Phaser.Scene {
      *  Si no había un mapa inicializado previamente, éste se creará en función a {@link GameConstants.Levels} del constructor inicial.
      *
      * @param costume - Imagen del sprite que mostrará el personaje {Daniela} . (Default = {GameConstants.Sprites.Daniela.KEY})
-     * @param createLolo - Condición por la cual creará al personaje lolo automáticamente (Default = true)
+     * @param createLolo - Condición por la cual creará al personaje lolo Normal true o Troglodita false (Default = true)
      * @param createMap - Condicion para crear el mapa si previamente no se ha llamado a {@method createMap()}
      * @param cameraFollow - Inidica si la camara seguirá a Daniela o no (default = true).
      */
@@ -126,9 +126,8 @@ class BasicScene extends Phaser.Scene {
                     this.daniela.animControl.down = false;
                 });
 
-                if (createLolo) {
-                    this.createLoloNormal(this.daniela);
-                }
+                this.createLolo(this.daniela,createLolo);
+                
                 return this.daniela;
             } else {
                 console.error("No se ha encontrado a daniela en el tilemap");
@@ -149,12 +148,16 @@ class BasicScene extends Phaser.Scene {
      * @param daniela - Objetivo a seguir. (Default {@link Daniela})
      * @returns {Lolo}
      */
-    createLoloNormal(daniela = this.daniela) {
+    createLolo(daniela = this.daniela, normal) {
+        let clothes;
+        if (normal)  clothes = GameConstants.Sprites.Lolo_Normal.KEY;
+        else clothes = GameConstants.Sprites.Lolo_Troglodita.KEY;
         this.lolo = new Lolo({
             scene: this,
             x: daniela.x - 50,
             y: daniela.y - 50,
-            key: GameConstants.Sprites.Lolo_Normal.KEY
+            key: clothes,
+            normal_anim : normal
         }).setScale(1);
         this.daniela.followedBy(this.lolo);
         return this.lolo;

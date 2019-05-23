@@ -34,6 +34,17 @@
                 "type": "animation",
                 "key": "lolo_normal_Data",
                 "url": "lolo/lolo_normal_anim.json"
+            },
+            {
+                "type": "atlas",
+                "key": "lolo_troglodita",
+                "textureURL": "lolo/lolo_troglodita.png",
+                "atlasURL": "lolo/lolo_troglodita_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "lolo_troglodita_Data",
+                "url": "lolo/lolo_troglodita_anim.json"
             }
         ]
     }

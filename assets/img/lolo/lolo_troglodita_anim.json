@@ -1,0 +1,36 @@
+{
+    "anims": [
+        {
+            "key": "lolo_troglodita_fly",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 5,
+            "frames": [
+                {
+                    "key": "lolo_troglodita",
+                    "frame": "lolo_troglodita_0"
+                },
+                {
+                    "key": "lolo_troglodita",
+                    "frame": "lolo_troglodita_1"
+                },
+                {
+                    "key": "lolo_troglodita",
+                    "frame": "lolo_troglodita_2"
+                },
+                {
+                    "key": "lolo_troglodita",
+                    "frame": "lolo_troglodita_3"
+                },
+                {
+                    "key": "lolo_troglodita",
+                    "frame": "lolo_troglodita_4"
+                },
+                {
+                    "key": "lolo_troglodita",
+                    "frame": "lolo_troglodita_5"
+                }
+            ]
+        }
+    ]
+}
