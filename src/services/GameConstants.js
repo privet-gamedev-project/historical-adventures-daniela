@@ -54,7 +54,7 @@ const GameConstants = {
         },
         LEVEL6: {
             DANIELA: 'Level6_DANIELA_OhIBurntMyself_12',
-            LOLO_TASK: 'Level6_LOLO_GetAllTheObjects_17',
+            LOLO_TASK: 'Level2_LOLO_LookForTheMap_14',
             BSO: 'Level6_BSO'
         },
         LEVELALL: {

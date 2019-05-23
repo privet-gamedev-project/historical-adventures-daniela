@@ -25,6 +25,15 @@ class Level6 extends BasicScene {
         //BSO
         this.music = this.sound.add(GameConstants.Sound.LEVEL6.BSO, {volume: 0.4});
         this.addEventForMusic(this.music,true,100);
+ 
+        this.audioLevel6_DANIELA_OhIBurntMyself_12 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL6.DANIELA);
+        this.addEventForMusic(this.audioLevel6_DANIELA_OhIBurntMyself_12,false);
+        this.audioLevel2_LOLO_LookForTheMap_14 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL6.LOLO_TASK);
+        this.addEventForMusic(this.audioLevel2_LOLO_LookForTheMap_14,false,6000);
+
+
+
+
         //Tilemap
         this.paintLayerAndCreateCollision(GameConstants.Tiles.VOLCANO);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.VOLCANO, GameConstants.Layers.LANDSCAPE, false);
@@ -33,9 +42,9 @@ class Level6 extends BasicScene {
         this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
 
         //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', 'Busca el portal...', 16);
+        this.textDialog = this.add.dynamicBitmapText(20, this.cameras.main.height - 55, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL6.BURNTMYSELF') + "\n\n" + this.TG.tr('LEVEL6.LOOKTHEMAP') ,12 );
         this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(3);
+        this.textDialog.setDepth(5);  
         
         //Objeto mapa
         let lastMap = {x: this.daniela.x, y: this.daniela.y};
