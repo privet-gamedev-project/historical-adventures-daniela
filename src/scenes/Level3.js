@@ -46,7 +46,7 @@ class Level3 extends BasicScene {
 
         //BSO
         this.music = this.sound.add(GameConstants.Sound.Level3.BSO, {volume: 0.4});
-        this.addEventForMusic(this.music, true,11000);
+        this.addEventForMusic(this.music, true);
 
         //We did it
         this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
