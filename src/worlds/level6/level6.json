@@ -622,8 +622,8 @@
                  "type":"daniela",
                  "visible":true,
                  "width":0,
-                 "x":64,
-                 "y":608
+                 "x":62,
+                 "y":528
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -635,7 +635,7 @@
  "nextobjectid":61,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.3",
+ "tiledversion":"1.2.2",
  "tileheight":32,
  "tilesets":[
         {
