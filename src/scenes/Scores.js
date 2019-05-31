@@ -76,7 +76,7 @@ class Scores extends BasicScene {
         const level5Label = this.add.dynamicBitmapText(80, 300, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 5 : ' + this.DB.worlds.Level5.score , 24).setTint(0x808489);        
         
         for(let i=0;i<this.DB.worlds.Level5.stars;i++) {
-            this.add.image(480 + (i*50), 395 , GameConstants.Sprites.Star.KEY)
+            this.add.image(480 + (i*50), 295 , GameConstants.Sprites.Star.KEY)
             .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(0.25).setAlpha(1); 
         }
 

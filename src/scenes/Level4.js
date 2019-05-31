@@ -8,6 +8,7 @@ class Level4 extends BasicScene {
         super({
             key: GameConstants.Levels.LEVEL4
         });
+        this.target = GameConstants.Levels.LEVEL5;
     }
 
     create() {

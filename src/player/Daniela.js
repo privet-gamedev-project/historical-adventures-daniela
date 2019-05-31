@@ -274,10 +274,11 @@ class Daniela extends Phaser.GameObjects.Sprite {
             }
         } else {
             if (this.key !== GameConstants.Sprites.DanielaTroglo) {
-                this.body.setSize(20, 30);
-                this.body.setOffset(6, 2);
+                this.body.setSize(10, 30);
+                this.body.setOffset(11, 2);
             } else {
-                this.body.setSize(20, 40);
+                this.body.setSize(10, 40);
+                this.body.setOffset(4, 0);                
             }
 
         }

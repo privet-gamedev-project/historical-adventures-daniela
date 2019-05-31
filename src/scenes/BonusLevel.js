@@ -101,7 +101,7 @@ class BonusLevel extends BasicScene {
         this.sound_LevelAll_LOLO_RecoverOnleLife_16 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.RECOVERONELIFE);
         this.addEventForMusic(this.sound_LevelAll_LOLO_RecoverOnleLife_16);
         this.music = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO, {volume: 0.4});
-        this.addEventForMusic(this.music,true,5000);
+        this.addEventForMusic(this.music,true);
 
 
         // setting player animation

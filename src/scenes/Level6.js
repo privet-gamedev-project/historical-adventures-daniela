@@ -35,7 +35,19 @@ class Level6 extends BasicScene {
 
 
         //Tilemap
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.VOLCANO);
+        this.platformLayerLevel6 = this.paintLayerAndCreateCollision(GameConstants.Tiles.VOLCANO);
+        
+        //To make collidable only when comes from up
+        let x, y, tile;
+        for (x = 0; x < this.platformLayerLevel6.width; x++) {
+            for (y = 1; y < this.platformLayerLevel6.height; y++) {                
+                tile = this.platformLayerLevel6.getTileAt(x, y);                                
+                if (tile !== null) {                    
+                    tile.setCollision(false, false, true, false); 
+                }
+            }
+        }
+
         this.paintLayerAndCreateCollision(GameConstants.Tiles.VOLCANO, GameConstants.Layers.LANDSCAPE, false);
 
         //PRIVATE SCENE ELEMENTS
