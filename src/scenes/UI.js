@@ -32,8 +32,17 @@ class UI extends Phaser.Scene {
         menuButton.setInteractive();
 
         menuButton.on('pointerdown', () => { 
-            this.registry.events.emit(GameConstants.Events.MENU);                        
+            this.registry.events.emit(GameConstants.Events.MENU);                       
         });
+
+        const playAgainButton = this.add.image(this.width - 140, 15 , GameConstants.Sprites.PlayAgain.KEY)
+                    .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.65); 
+        playAgainButton.setInteractive();
+        playAgainButton.on('pointerdown', () => { 
+            this.registry.events.emit(GameConstants.Events.PLAYAGAIN);
+        });
+
+           
 
     }
 

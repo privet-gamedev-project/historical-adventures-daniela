@@ -159,6 +159,9 @@ const GameConstants = {
         Star:{
             KEY: 'star'
         },
+        PlayAgain: {
+            KEY: 'playagain'
+        },
         Play:{
             KEY: 'play'
         },
@@ -358,7 +361,8 @@ const GameConstants = {
     Events: {
         GAME_OVER: 'GameOver',
         LEVEL_FINISHED: 'Win',
-        MENU: 'Menu'
+        MENU: 'Menu',
+        PLAYAGAIN: 'PlayAgain'
     },
     Settings: {
         FLAG_ES: 'es_flag',

@@ -93,6 +93,13 @@ class BasicScene extends Phaser.Scene {
                     this.changeScene(this.daniela.scene, GameConstants.Levels.MENU, 0);
                 });
 
+
+                //Play Again Event
+                this.registry.events.on(GameConstants.Events.PLAYAGAIN, () => {
+                    this.sound.stopAll();
+                    this.changeScene(this.daniela.scene, this.daniela.scene, 0);
+                });
+
                 //Eventos de Controles
                 this.registry.events.on('controlLeftON', () => {
                     this.daniela.animControl.left = true;
