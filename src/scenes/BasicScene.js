@@ -96,7 +96,7 @@ class BasicScene extends Phaser.Scene {
 
                 //Play Again Event
                 this.registry.events.on(GameConstants.Events.PLAYAGAIN, () => {
-                    this.sound.stopAll();
+                    this.sound.stopAll();                    
                     this.changeScene(this.daniela.scene, this.daniela.scene, 0);
                 });
 
