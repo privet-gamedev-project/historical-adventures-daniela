@@ -325,27 +325,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
                 });
             }
         }
-    }
-    //TODO: Quitar las posiciones 100, 100
-    waterCollision() {
-      /*  if (!this.hitDelay) {
-            this.loseHealth();
-            this.hitDelay = true;
-            this.soundDanielaAuch.play();
-            if (this.scene) {
-                this.scene.time.addEvent({
-                    delay: 600,
-                    callback: () => {
-                        this.x = 100;
-                        this.y = 100;
-                        this.hitDelay = false;
-                    },
-                    callbackScope: this
-                });
-            }
-        }*/
-      console.warn("Estoy en el agua :D");
-    }
+    }    
 
     nextScene() {
         this.scene.textDialog.setText(this.scene.TG.tr('COMMONTEXT.WEDIDIT'));

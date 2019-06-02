@@ -15,7 +15,13 @@ class Level4 extends BasicScene {
         //Daniela Creation
         this.createDaniela(GameConstants.Sprites.DanielaTroglo, false);
         //Background
-        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL4, defaultStatus, defaultStatus, { x: 1.30, y: 1.30 });
+        //this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL4, defaultStatus, defaultStatus, { x: 1.30, y: 1.30 });
+    
+        //BG PARALLAX
+        this.bg_clouds = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg-clouds').setOrigin(0).setScale(1.65);
+        this.bg_mountains = this.add.tileSprite(0, -20, this.map.widthInPixels, this.map.heightInPixels, 'bg-mountains').setOrigin(0).setScale(1.65);
+        this.bg_trees = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg-trees').setOrigin(0).setScale(1.65);
+    
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level4);
         //ExtraPoints        
@@ -38,8 +44,30 @@ class Level4 extends BasicScene {
 
         //PRIVATE SCENE ELEMENTS
         //Grupo de rectangulos en capa  Water
+        this.hitWater = false;
         let water = this.findTransparentObjects('Water', 'Water', false);
-        this.physics.add.overlap(this.daniela, water, this.daniela.waterCollision);
+        this.physics.add.overlap(this.daniela, water, (daniela, waterLayer) => {    
+            if (!this.hitWater) {
+                daniela.loseHealth();
+                daniela.soundDanielaAuch.play();                           
+                let newX = waterLayer.x - (waterLayer.width/2) - 100;
+                let newY = waterLayer.y - (waterLayer.height/2) - 200;
+                this.cameras.main.fadeIn(1500);
+                this.daniela.body.setVelocity(0, 0);
+                this.daniela.x = newX;
+                this.daniela.y = newY;
+                if (this) {
+                    this.time.addEvent({
+                        delay: 600,
+                        callback: () => {                            
+                            this.hitWater = false;
+                        },
+                        callbackScope: this
+                    });
+                }
+            }
+        });    
+            
 
 
 
@@ -66,6 +94,11 @@ class Level4 extends BasicScene {
             this.daniela.nextScene();
             this.daniela.reachedTheEnd=true;//variable created to get called just once
         }
+
+        //PARALLAX Move relative to cameras scroll move
+        this.bg_mountains.tilePositionX = this.cameras.main.scrollX * 0.01 ;
+        this.bg_trees.tilePositionX = this.cameras.main.scrollX * 0.03;
+
 
     }
     //CUSTOM

@@ -96,7 +96,13 @@ class Bootloader extends Phaser.Scene {
         this.load.image('bg_Level3', 'img/backgrounds/background_level3.png');
         //https://rgoncalves83.itch.io/free-vector-grass-tileset
         //Level 4
-        this.load.image("bg_Level4", "img/backgrounds/Ocean.png");
+        //this.load.image("bg_Level4", "img/backgrounds/Ocean.png");
+        //PARALLAX BG Level 4
+        // environment
+        this.load.image('bg-clouds', 'img/backgrounds/parallax_level4/bg-clouds.png');
+        this.load.image("bg-mountains", 'img/backgrounds/parallax_level4/bg-mountains.png');
+        this.load.image("bg-trees", 'img/backgrounds/parallax_level4/bg-trees.png');
+
         //Level 5 
         this.load.image("bg_Level5", "img/backgrounds/bg_level5.png");
         
@@ -246,12 +252,10 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("BonusLevel_BSO", "sounds/bso/BonusLevel_BSO.ogg");
         this.load.audio("LevelIntro_BSO", "sounds/bso/LevelIntro_BSO.ogg");
         this.load.audio("Level1_BSO", "sounds/bso/Level1_BSO.ogg");        
-        
-        //OTHERS TODO: For Updatign with incoming BSO
         this.load.audio("Level2_BSO","sounds/bso/Level2_BSO.ogg");        
+        this.load.audio("Level3_BSO","sounds/bso/Level3_BSO.ogg");        
         this.load.audio("Level4_BSO","sounds/bso/Level4_BSO.ogg");
-        this.load.audio("Level5_BSO","sounds/bso/Level5_BSO.ogg");
-        this.load.audio("Level3_BSO","sounds/bso/Level3_BSO.ogg");
+        this.load.audio("Level5_BSO","sounds/bso/Level5_BSO.ogg");        
         this.load.audio("Level6_BSO","sounds/bso/Level6_BSO.ogg");
         this.load.audio("Main_BSO","sounds/bso/Main_BSO.ogg");
         this.load.audio("BirdSinging","sounds/backgrounds/birds-singing.mp3");
