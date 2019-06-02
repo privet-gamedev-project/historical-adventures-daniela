@@ -24,6 +24,7 @@ class Level4 extends BasicScene {
     
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level4);
+        this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
         //ExtraPoints        
         this.createCoins();
         //HealthText

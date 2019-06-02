@@ -712,7 +712,131 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":11,
+         "name":"Limits",
+         "objects":[
+                {
+                 "height":33,
+                 "id":148,
+                 "name":"Limit",
+                 "rotation":0,
+                 "type":"Limit",
+                 "visible":true,
+                 "width":40,
+                 "x":756,
+                 "y":258.5
+                }, 
+                {
+                 "height":33,
+                 "id":149,
+                 "name":"Limit",
+                 "rotation":0,
+                 "type":"Limit",
+                 "visible":true,
+                 "width":40,
+                 "x":476,
+                 "y":257.5
+                }, 
+                {
+                 "height":33,
+                 "id":151,
+                 "name":"Limit",
+                 "rotation":0,
+                 "type":"Limit",
+                 "visible":true,
+                 "width":40,
+                 "x":1283,
+                 "y":193.5
+                }, 
+                {
+                 "height":33,
+                 "id":152,
+                 "name":"Limit",
+                 "rotation":0,
+                 "type":"Limit",
+                 "visible":true,
+                 "width":40,
+                 "x":1815,
+                 "y":192.5
+                }, 
+                {
+                 "height":33,
+                 "id":154,
+                 "name":"Limit",
+                 "rotation":0,
+                 "type":"Limit",
+                 "visible":true,
+                 "width":40,
+                 "x":3452,
+                 "y":251.5
+                }, 
+                {
+                 "height":33,
+                 "id":155,
+                 "name":"Limit",
+                 "rotation":0,
+                 "type":"Limit",
+                 "visible":true,
+                 "width":40,
+                 "x":3734,
+                 "y":255.5
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":10,
+         "name":"Dinowaters",
+         "objects":[
+                {
+                 "height":0,
+                 "id":144,
+                 "name":"Dinowater",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Dinowater",
+                 "visible":true,
+                 "width":0,
+                 "x":631,
+                 "y":282
+                }, 
+                {
+                 "height":0,
+                 "id":150,
+                 "name":"Dinowater",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Dinowater",
+                 "visible":true,
+                 "width":0,
+                 "x":1581,
+                 "y":223
+                }, 
+                {
+                 "height":0,
+                 "id":153,
+                 "name":"Dinowater",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Dinowater",
+                 "visible":true,
+                 "width":0,
+                 "x":3601,
+                 "y":282
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -1230,8 +1354,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":144,
+ "nextlayerid":12,
+ "nextobjectid":156,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.2",

@@ -253,7 +253,8 @@ const GameConstants = {
         },
         
         Level4: {
-            CROCODILES: 'Crocodiles'
+            CROCODILES: 'Crocodiles',
+            DINOWATERS: 'Dinowaters'
         },
         Level5:{
             Spiders: 'Spiders',
