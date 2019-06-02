@@ -21,7 +21,7 @@ class Credits extends BasicScene {
         const camera = this.cameras.main;        
         
         //  Set the bounds on the camera:
-        camera.setBounds(0, 0, camera.width , camera.height * 4.5);
+        camera.setBounds(0, 0, camera.width , camera.height * 4.70);
 
         const bounds = camera.getBounds();
 
@@ -52,7 +52,7 @@ class Credits extends BasicScene {
          });
 
          
-         const bgCredits=this.TG.getActualLang() + '_' +  GameConstants.Textures.BG_CREDITS;
+         const bgCredits= GameConstants.Textures.BG_CREDITS;
          
          this.bg1 = this.add.image(0, 0, bgCredits).setOrigin(0).setScale(1);    
          this.bg2 = this.add.image(0, this.bg1.height, GameConstants.Textures.BG_CREDITS_PAGE2).setOrigin(0).setScale(1);    
