@@ -8,6 +8,13 @@ class LevelSelect extends BasicScene {
     constructor() {
         super({key: 'LevelSelect'});
     }
+
+    init(data){
+        //To Know where this scene comes from 
+        //For stoping music or not
+        if (data) this.levelFrom = data.from;
+        
+    }
     
     preload(){
         
