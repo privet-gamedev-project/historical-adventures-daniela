@@ -24,10 +24,12 @@ class LevelSelect extends BasicScene {
         // background        
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
       
-
-        //bg sound
-        /*this.bgmusic = this.sound.add(GameConstants.Sound.BONUSLEVEL.BSO);
-        this.addEventForMusic(this.bgmusic,true,200);*/
+     //bg sound
+    //Only play BG MUSIC  if come from other levels different from Menu
+     //For not stoping the music between menu scenes
+        if (this.levelFrom!=GameConstants.Levels.MENU)  {
+                this.playMenuScenesBSO();
+        }
 
         
         this.bonusButton =this.add.dynamicBitmapText(width - 200, 30, 'pixel', this.TG.tr('LEVELSELECT.BONUS'))

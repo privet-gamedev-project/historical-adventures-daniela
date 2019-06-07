@@ -464,16 +464,7 @@ class BasicScene extends Phaser.Scene {
                         //if next level is in the menu levels
                         //and if is menu main and don't come from these 
                         //then stop music
-                        console.log((target!=GameConstants.Levels.LEVELSELECT && 
-                            target!=GameConstants.Levels.SCORES &&
-                            target!=GameConstants.Levels.SETTINGSLEVEL && 
-                            target!=GameConstants.Levels.CREDITS) &&
-                            (target==GameConstants.Levels.MENU && 
-                                (scene.key!=GameConstants.Levels.LEVELSELECT && 
-                                scene.key!=GameConstants.Levels.SCORES &&
-                                scene.key!=GameConstants.Levels.SETTINGSLEVEL &&
-                                scene.key!=GameConstants.Levels.CREDITS)
-                            ));
+                        console.log(target==GameConstants.Levels.LEVELSELECT && scene.key!=GameConstants.Levels.MENU);
 
                         if ( 
                             ( (target!=GameConstants.Levels.LEVELSELECT && 
@@ -486,7 +477,8 @@ class BasicScene extends Phaser.Scene {
                                 scene.key!=GameConstants.Levels.SETTINGSLEVEL &&
                                 scene.key!=GameConstants.Levels.CREDITS)
                             )) || (scene.key==GameConstants.Levels.LEVELSELECT && target!=GameConstants.Levels.MENU) 
-                            || (target==GameConstants.Levels.INTROSTORY)
+                            || (target==GameConstants.Levels.INTROSTORY) 
+                            || (target==GameConstants.Levels.LEVELSELECT && scene.key!=GameConstants.Levels.MENU)
                             ) {
                             scene.sound.stopAll();
                         }
