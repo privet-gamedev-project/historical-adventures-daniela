@@ -81,7 +81,7 @@ class BasicScene extends Phaser.Scene {
                     key: costume
                 }).setScale(2);
                 this.daniela.on(GameConstants.Events.GAME_OVER, () => {
-                    this.changeScene(this.daniela.scene, GameConstants.Levels.MENU, 2000);
+                    this.changeScene(this.daniela.scene, GameConstants.Levels.LEVELSELECT, 2000);
                 });
                 //Evento paso de Nivel
                 this.daniela.on(GameConstants.Events.LEVEL_FINISHED, () => {

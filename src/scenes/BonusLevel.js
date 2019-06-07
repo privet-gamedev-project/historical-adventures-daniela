@@ -6,7 +6,7 @@ class BonusLevel extends BasicScene {
         super({
             key: GameConstants.Levels.BONUSLEVEL
         });
-        this.target = GameConstants.Levels.MENU;
+        this.target = GameConstants.Levels.LEVELSELECT;
     }
     
 
