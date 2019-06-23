@@ -16,6 +16,7 @@ class LianasEnd extends Phaser.Physics.Arcade.Group {
         
     }
     configureLianasEnd(liana,spriteArray){
+        this.scene.physics.world.enable(liana);
         liana.body.setAllowGravity(false);
         liana.body.setSize(1,1);
         liana.alpha=0;

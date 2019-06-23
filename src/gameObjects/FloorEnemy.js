@@ -16,16 +16,19 @@ class FloorEnemy extends Phaser.Physics.Arcade.Group {
     }
 
     startWheel() {
-        this.children.iterate((wheel) => {
+        this.scene.physics.world.enable(this.children.entries);
+        for (let i=0; i<this.children.entries.length; i++){
+            let wheel = this.children.entries[i];        
             //wheel.body.setSize(30, 30);
             wheel.body.setCollideWorldBounds(true);
             wheel.setDepth(1);
             this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), wheel);
-        });
+        }
     }
 
     update() {
-        this.children.iterate((wheel) => {
+        for (let i=0; i<this.children.entries.length; i++){
+            let wheel = this.children.entries[i]; 
             if(wheel.body.velocity.x === 0) {
                 this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), wheel);
             }
@@ -36,7 +39,7 @@ class FloorEnemy extends Phaser.Physics.Arcade.Group {
                 this.move('right', wheel);
                 wheel.flipX=true;
             }
-        });
+        }
     }
 
     move(dir, wheel) {                

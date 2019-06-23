@@ -25,8 +25,7 @@ const config = {
     backgroundColor: "#000000",
     pixelArt: true,
     zoom: 1,
-    banner:{
-        hidePhaser: true,
+    banner:{        
         text:"#000000",
         background:[
             "#f4e541",

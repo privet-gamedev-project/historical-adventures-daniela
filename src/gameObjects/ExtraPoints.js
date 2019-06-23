@@ -16,13 +16,15 @@ class ExtraPoints extends Phaser.Physics.Arcade.Group {
     }
 
     startExtraPoints() {
-        this.children.iterate((extraPoint) => {
+        this.scene.physics.world.enable(this.children.entries);
+        for (let i=0; i<this.children.entries.length; i++){
+            let extraPoint = this.children.entries[i];        
             extraPoint.body.setAllowGravity(false);
             // bat.body.collideWorldBounds = true;
             extraPoint.body.setSize(16, 16);
             extraPoint.setScale(1);
             extraPoint.setDepth(1);                        
-        });
+        }
     }
 
 

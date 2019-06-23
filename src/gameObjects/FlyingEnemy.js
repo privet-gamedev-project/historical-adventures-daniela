@@ -1,8 +1,7 @@
 class FlyingEnemy extends Phaser.Physics.Arcade.Group {
     constructor(world, scene, children, spriteArray) {
         super(world, scene, children);
-        // this.scene = scene;
-
+        // this.scene = scene;        
         // create our enemies from the sprite array
         this.createBats(scene, spriteArray);
         this.startBat();
@@ -10,12 +9,15 @@ class FlyingEnemy extends Phaser.Physics.Arcade.Group {
 
     createBats(scene, spriteArray) {
         spriteArray.map((sprite) => {
-            this.add(sprite);
+            this.add(sprite);            
         });
     }
 
-    startBat() {
-        this.children.iterate((bat) => {
+    startBat() {                
+        this.scene.physics.world.enable(this.children.entries);
+        
+        for (let i=0; i<this.children.entries.length; i++){            
+            var  bat = this.children.entries[i];             
             bat.body.setAllowGravity(false);
             // bat.body.collideWorldBounds = true;
             bat.body.setSize(16, 16);
@@ -23,12 +25,14 @@ class FlyingEnemy extends Phaser.Physics.Arcade.Group {
             bat.setDepth(1);
             //Para evitar que salga del mundo            
             bat.body.setCollideWorldBounds(true);
-            this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), bat);
-        });
+            this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), bat); 
+            
+        }        
     }
 
     update() {
-        this.children.iterate((bat) => {
+        for (let i=0; i<this.children.entries.length; i++){
+            var bat = this.children.entries[i];
             if(bat.body.velocity.x === 0) {
                 this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), bat);
             }
@@ -37,10 +41,10 @@ class FlyingEnemy extends Phaser.Physics.Arcade.Group {
             } else if (bat.body.blocked.left) {
                 this.move('right', bat);
             }
-        });
+        }
     }
 
-    move(dir, bat) {
+    move(dir, bat) {        
         if (dir === 'right') {
             bat.body.setVelocityX(100);
             bat.flipX = false;

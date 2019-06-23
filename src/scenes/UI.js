@@ -69,10 +69,18 @@ class UI extends Phaser.Scene {
             this.registry.events.emit('controlLeftOFF');
         });
 
+        this.leftBtn.on('pointerout', () => {
+            this.registry.events.emit('controlLeftOFF');
+        });
+
         this.rightBtn.on('pointerdown', () => {
             this.registry.events.emit('controlRightON');
         });
         this.rightBtn.on('pointerup', () => {
+            this.registry.events.emit('controlRightOFF');
+        });
+
+        this.rightBtn.on('pointerout', () => {
             this.registry.events.emit('controlRightOFF');
         });
 
@@ -82,11 +90,17 @@ class UI extends Phaser.Scene {
         this.jumpBtn.on('pointerup', () => {
             this.registry.events.emit('controlJumpOFF');
         });
+        this.jumpBtn.on('pointerout', () => {
+            this.registry.events.emit('controlJumpOFF');
+        });
 
         this.downBtn.on('pointerdown', () => {
             this.registry.events.emit('controlDownON');
         });
         this.downBtn.on('pointerup', () => {
+            this.registry.events.emit('controlDownOFF');
+        });
+        this.downBtn.on('pointerout', () => {
             this.registry.events.emit('controlDownOFF');
         });
 
