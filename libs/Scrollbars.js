@@ -113,7 +113,7 @@ class Scrollbar extends Phaser.Events.EventEmitter
     {
         this.scrollbar.clear();
 
-        this.scrollbar.translate(this.x, this.y);
+        this.scrollbar.translateCanvas(this.x, this.y);
 
         this.scrollbar.fillStyle(this.trackColor, this.trackAlpha);
 

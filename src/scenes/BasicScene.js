@@ -464,8 +464,6 @@ class BasicScene extends Phaser.Scene {
                         //if next level is in the menu levels
                         //and if is menu main and don't come from these 
                         //then stop music
-                        console.log(target==GameConstants.Levels.LEVELSELECT && scene.key!=GameConstants.Levels.MENU);
-
                         if ( 
                             ( (target!=GameConstants.Levels.LEVELSELECT && 
                             target!=GameConstants.Levels.SCORES &&
@@ -481,7 +479,7 @@ class BasicScene extends Phaser.Scene {
                             || (target==GameConstants.Levels.LEVELSELECT && scene.key!=GameConstants.Levels.MENU)
                             ) {
                             scene.sound.stopAll();
-                        }
+                        }                        
 
                         scene.scene.stop();
                         scene.scene.start(target, {from:scene.key});
@@ -609,7 +607,7 @@ class BasicScene extends Phaser.Scene {
 
         nextLevelLabel.on('pointerdown', () => {
             this.changeScene(this.daniela.scene, this.daniela.scene.target, 500);
-        });
+        });        
 
     }
 

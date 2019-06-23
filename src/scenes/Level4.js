@@ -77,8 +77,7 @@ class Level4 extends BasicScene {
         this.groupOfLianas = new Lianas(this.physics.world, this, [], this.liana);
         //Create End of Lianas, so Daniela falls once she overlaps it.
         this.endOfLiana = this.createEndOfLianas();
-        this.groupOfEndOfLianas = new LianasEnd(this.physics.world, this, [], this.endOfLiana);
-        console.log(this.groupOfEndOfLianas);
+        this.groupOfEndOfLianas = new LianasEnd(this.physics.world, this, [], this.endOfLiana);        
 
         this.physics.add.overlap(this.daniela, this.groupOfLianas, this.danielaOverLiana, null, this);
         this.physics.add.overlap(this.daniela, this.groupOfEndOfLianas, this.danielaOverEndOfLiana, null, this);
@@ -90,7 +89,8 @@ class Level4 extends BasicScene {
             this.enemyGroups[enemy].update();
         });
         //End of level
-        if (this.daniela.x > 4700&&!this.daniela.reachedTheEnd) {
+        if (this.daniela.x > 4700 && !this.daniela.reachedTheEnd) {
+            this.music.stop();
             this.soundLOLO_Bien_lo_hemos_conseguido.play();
             this.daniela.nextScene();
             this.daniela.reachedTheEnd=true;//variable created to get called just once
