@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "phaser": "^3.16.2",
+    "phaser": "^3.55.2",
     "store2": "^2.7.1"
   }
 }
